@@ -367,18 +367,22 @@ function findTrendPeak(vals) {
 }
 
 // ── Manual overrides ────────────────────────────────────
-//  Format: { 'YYYY-MM-DD': { 'station_key': hour_number } }
-//  Use when the algorithm picks a carryover or secondary peak
-//  that doesn't represent the main pollution episode.
-const PEAK_OVERRIDES = {
+//  FIXED_OVERRIDES: hardcoded corrections that always apply
+//  userOverrides:   set interactively by dragging peak markers
+const FIXED_OVERRIDES = {
   '2026-02-08': { 'sp05_hourly': 9 },   // SP-05 main morning rise ends at 09h
 };
+const userOverrides = {};  // { 'YYYY-MM-DD': { 'station_key': hour } }
+
+function getEffectiveOverrides(dateStr) {
+  return Object.assign({}, FIXED_OVERRIDES[dateStr] || {}, userOverrides[dateStr] || {});
+}
 
 // Compute trend peaks for all stations on a given date
-// (applies PEAK_OVERRIDES first, then falls back to findTrendPeak)
+// (applies effective overrides first, then falls back to findTrendPeak)
 function getTrendPeaks(dateStr) {
   const hourly = ALL_DATA[dateStr].hourly;
-  const overrides = PEAK_OVERRIDES[dateStr] || {};
+  const overrides = getEffectiveOverrides(dateStr);
   const result = {};
   KEYS.forEach(k => {
     if (overrides[k] !== undefined) {
@@ -628,18 +632,18 @@ function renderCompare(dA, dB) {
 }
 
 // Peak marker plugin — shows 1/2/3... rank badges sorted by peak arrival time
+// Also stores _peakPositions on the chart instance for drag hit-testing
 const peakPlugin = {
   id:'peakMarker',
   afterDraw(chart) {
     const{ctx,data}=chart;
+    chart._peakPositions = [];  // reset hit-test list each draw
 
     // Collect trend peaks — use pre-computed tpAll (includes overrides)
-    // tpAll is attached to the chart instance during renderHourly
     const tpMap = chart._trendPeaks || {};
     const allPeaks = data.datasets.map((ds,di)=>{
       const vals = ds.data;
       if(!vals||!vals.length) return null;
-      // Look up by dataset label → match station shortName
       const tp = tpMap[di];
       if(!tp) return null;
       const meta = chart.getDatasetMeta(di);
@@ -652,7 +656,12 @@ const peakPlugin = {
 
     allPeaks.forEach(pk=>{
       const rank = ranked.indexOf(pk) + 1;
-      const{pt, color, mi} = pk;
+      const{pt, color, mi, di} = pk;
+      const R = 9;
+
+      // Store position for drag hit-testing
+      chart._peakPositions.push({ di, h: mi, x: pt.x, y: pt.y, r: R });
+
       ctx.save();
 
       // Filled circle
@@ -660,7 +669,7 @@ const peakPlugin = {
       ctx.strokeStyle = '#fff';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.arc(pt.x, pt.y, 9, 0, Math.PI*2);
+      ctx.arc(pt.x, pt.y, R, 0, Math.PI*2);
       ctx.fill(); ctx.stroke();
 
       // Rank number inside circle
@@ -692,7 +701,9 @@ function renderHourly(canvasId, chartKey, dateStr, label) {
     id:'vl',
     afterDraw(chart){
       const{ctx:c,scales,chartArea}=chart;
-      const x=scales.x.getPixelForValue(sp05PeakH);
+      // Read from instance property so drag updates it in real-time
+      const h = chart._sp05PeakH ?? sp05PeakH;
+      const x=scales.x.getPixelForValue(h);
       c.save();c.setLineDash([4,4]);c.strokeStyle='#ff6f00';c.lineWidth=1.5;c.globalAlpha=.65;
       c.beginPath();c.moveTo(x,chartArea.top);c.lineTo(x,chartArea.bottom);c.stroke();
       c.setLineDash([]);c.font='9px Segoe UI,sans-serif';c.fillStyle='#ff6f00';c.textAlign='center';c.globalAlpha=1;
@@ -735,7 +746,107 @@ function renderHourly(canvasId, chartKey, dateStr, label) {
     const k = KEYS[di];   // datasets are built in KEYS order
     chartInst._trendPeaks[di] = tpAll[k] ?? null;
   });
+  chartInst._sp05PeakH = sp05PeakH;  // for vertLine plugin
+  chartInst._dateStr   = dateStr;     // for drag handlers
   charts[chartKey] = chartInst;
+
+  setupDragHandlers(canvasId, chartKey, dateStr);
+}
+
+// ═══════════════════════════════════════════════════════
+//  DRAG HANDLERS
+// ═══════════════════════════════════════════════════════
+const dragAbortControllers = {};
+
+function setupDragHandlers(canvasId, chartKey, dateStr) {
+  // Abort any previous handlers registered for this chart slot
+  if (dragAbortControllers[chartKey]) dragAbortControllers[chartKey].abort();
+  const ac = new AbortController();
+  dragAbortControllers[chartKey] = ac;
+  const sig = { signal: ac.signal };
+
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+
+  const tip = document.getElementById('drag-tip');
+  let drag = null;  // { di, stationKey, ci }
+
+  canvas.addEventListener('mousedown', e => {
+    const ci = charts[chartKey];
+    if (!ci || !ci._peakPositions) return;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    for (const pos of ci._peakPositions) {
+      const dx = mx - pos.x, dy = my - pos.y;
+      if (Math.sqrt(dx*dx + dy*dy) <= 14) {
+        drag = { di: pos.di, stationKey: KEYS[pos.di], ci };
+        canvas.style.cursor = 'ew-resize';
+        e.preventDefault();
+        break;
+      }
+    }
+  }, sig);
+
+  canvas.addEventListener('mousemove', e => {
+    const ci = charts[chartKey];
+    if (!ci) return;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+
+    if (!drag) {
+      // Hover cursor
+      const hovering = ci._peakPositions?.some(pos => {
+        const dx = mx - pos.x, dy = my - pos.y;
+        return Math.sqrt(dx*dx + dy*dy) <= 14;
+      });
+      canvas.style.cursor = hovering ? 'ew-resize' : '';
+      return;
+    }
+
+    // Clamp to valid hour range
+    const rawH = Math.round(ci.scales.x.getValueForPixel(mx));
+    const newH = Math.max(0, Math.min(23, rawH));
+
+    // Persist user override
+    if (!userOverrides[dateStr]) userOverrides[dateStr] = {};
+    userOverrides[dateStr][drag.stationKey] = newH;
+
+    // Rebuild _trendPeaks for this chart
+    const tpAll = getTrendPeaks(dateStr);
+    KEYS.forEach((k, di) => { drag.ci._trendPeaks[di] = tpAll[k] ?? null; });
+
+    // Keep vert-line in sync when SP-05 marker is dragged
+    if (drag.stationKey === 'sp05_hourly') drag.ci._sp05PeakH = newH;
+
+    drag.ci.update('none');
+    renderLag(selectedA, selectedB);
+
+    // Tooltip
+    if (tip) {
+      const st = STATIONS.find(s => stKey(s) === drag.stationKey);
+      tip.style.display = 'block';
+      tip.style.left = (e.clientX + 14) + 'px';
+      tip.style.top  = (e.clientY - 24) + 'px';
+      tip.textContent = `${st ? st.shortName : drag.stationKey}  →  ${String(newH).padStart(2,'0')}:00`;
+    }
+  }, sig);
+
+  const stopDrag = e => {
+    if (!drag) return;
+    const prevDrag = drag;
+    drag = null;
+    canvas.style.cursor = '';
+    if (tip) tip.style.display = 'none';
+
+    // Refresh the map for this day so rank badges reflect new peak order
+    const isA = chartKey === 'hc1';
+    const mapDiv  = isA ? 'map1' : 'map2';
+    if (isA) { if (mapA) { mapA.remove(); mapA = null; } document.getElementById(mapDiv).innerHTML = ''; mapA = initMap(mapDiv, dateStr); }
+    else     { if (mapB) { mapB.remove(); mapB = null; } document.getElementById(mapDiv).innerHTML = ''; mapB = initMap(mapDiv, dateStr); }
+  };
+
+  canvas.addEventListener('mouseup',    stopDrag, sig);
+  canvas.addEventListener('mouseleave', stopDrag, sig);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -831,5 +942,10 @@ function renderAll() {
 buildCards();
 renderAll();
 </script>
+
+<div id="drag-tip" style="display:none;position:fixed;background:rgba(13,15,24,.95);color:#ffd54f;
+  border:1px solid rgba(255,213,79,.5);border-radius:4px;padding:3px 10px;
+  font-size:11px;font-weight:700;pointer-events:none;z-index:9999;
+  box-shadow:0 2px 8px rgba(0,0,0,.6);"></div>
 </body>
 </html>
