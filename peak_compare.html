@@ -344,6 +344,37 @@ function pm25ToRgba(v) {
 function stKey(s){return s.id==='sp05'?'sp05_hourly':s.id;}
 
 // ═══════════════════════════════════════════════════════
+//  TREND PEAK DETECTION
+//  Strategy: find the daily minimum first (trough), then
+//  find the maximum AFTER that trough. This skips overnight
+//  carryover from the previous day's event and captures
+//  the "fresh" episode that built up within the current day.
+// ═══════════════════════════════════════════════════════
+function findTrendPeak(vals) {
+  if (!vals || !vals.length) return null;
+  const valid = vals.map((v,i) => ({v,i})).filter(x => x.v !== null);
+  if (!valid.length) return null;
+
+  // 1. Find the global minimum (trough)
+  const trough = valid.reduce((a,b) => b.v < a.v ? b : a);
+
+  // 2. Find the maximum at or after the trough
+  const afterTrough = valid.filter(x => x.i >= trough.i);
+  if (!afterTrough.length) return { h: trough.i, v: trough.v };
+  const peak = afterTrough.reduce((a,b) => b.v > a.v ? b : a);
+
+  return { h: peak.i, v: peak.v };
+}
+
+// Compute trend peaks for all stations on a given date
+function getTrendPeaks(dateStr) {
+  const hourly = ALL_DATA[dateStr].hourly;
+  const result = {};
+  KEYS.forEach(k => { result[k] = findTrendPeak(hourly[k]); });
+  return result;
+}
+
+// ═══════════════════════════════════════════════════════
 //  DAY SELECTOR CARDS
 // ═══════════════════════════════════════════════════════
 function buildCards() {
@@ -447,10 +478,17 @@ function initMap(divId, dateStr) {
   m.on('moveend zoomend resize', drawHeat);
   m.whenReady(()=>setTimeout(drawHeat,200));
 
-  // Calculate peak-arrival order (rank 1 = earliest peak hour)
+  // Calculate trend-peak order using findTrendPeak (rank 1 = earliest)
   const stRanks = {};
+  const trendPks = {};
+  const hourlyData = ALL_DATA[dateStr].hourly;
   [...STATIONS]
-    .map(s => ({ k: stKey(s), h: peaks[stKey(s)]?.h ?? 999 }))
+    .map(s => {
+      const k = stKey(s);
+      const tp = findTrendPeak(hourlyData[k]);
+      trendPks[k] = tp;
+      return { k, h: tp ? tp.h : 999 };
+    })
     .sort((a, b) => a.h - b.h)
     .forEach((item, idx) => { stRanks[item.k] = idx + 1; });
 
@@ -471,7 +509,7 @@ function initMap(divId, dateStr) {
         <div style="font-size:13px;font-weight:700;margin-bottom:2px;">${s.name}</div>
         <div style="font-size:9px;color:#90caf9;margin-bottom:5px;">${dateStr}</div>
         <div style="background:${aqiC};color:${v&&v<35?'#000':'#fff'};padding:3px 9px;border-radius:5px;font-size:13px;font-weight:800;display:inline-block;margin-bottom:4px;">${v?v.toFixed(1):'N/A'} μg/m³ · ${aqiLabel(v)}</div>
-        ${pk?`<div style="font-size:9px;margin-top:3px;">📌 當日峰：<strong>${pk.v} @ ${String(pk.h).padStart(2,'0')}:00</strong></div><div style="font-size:9px;margin-top:2px;">🔢 達峰順序：第 <strong>${rank}</strong> 位</div>`:''}
+        ${trendPks[k]?`<div style="font-size:9px;margin-top:3px;">📌 趨勢峰：<strong>${trendPks[k].v} @ ${String(trendPks[k].h).padStart(2,'0')}:00</strong></div><div style="font-size:9px;margin-top:2px;">🔢 達峰順序：第 <strong>${rank}</strong> 位</div>`:''}
       </div>`, {className:'dpop',maxWidth:210}).addTo(m);
 
     // Rank badge at bubble center
@@ -580,17 +618,15 @@ const peakPlugin = {
   afterDraw(chart) {
     const{ctx,data}=chart;
 
-    // Collect peaks for all datasets
+    // Collect trend peaks (trough-then-peak, not raw maximum)
     const allPeaks = data.datasets.map((ds,di)=>{
       const vals = ds.data;
       if(!vals||!vals.length) return null;
-      const nv = vals.filter(v=>v!==null);
-      if(!nv.length) return null;
-      const mx = Math.max(...nv);
-      const mi = vals.indexOf(mx);
+      const tp = findTrendPeak(vals);
+      if(!tp) return null;
       const meta = chart.getDatasetMeta(di);
-      if(!meta.data[mi]) return null;
-      return { di, mi, mx, color: ds.borderColor, pt: meta.data[mi] };
+      if(!meta.data[tp.h]) return null;
+      return { di, mi: tp.h, mx: tp.v, color: ds.borderColor, pt: meta.data[tp.h] };
     }).filter(Boolean);
 
     // Rank by peak hour (ascending)
@@ -682,13 +718,14 @@ function renderHourly(canvasId, chartKey, dateStr, label) {
 function renderLag(dA, dB) {
   const tb = document.getElementById('lag-tbody');
   if (!tb) return;
-  document.getElementById('th-a1').textContent = `${dA} 峰時間`;
+  document.getElementById('th-a1').textContent = `${dA} 趨勢峰時間`;
   document.getElementById('th-a2').textContent = `${dA} 峰值`;
-  document.getElementById('th-b1').textContent = `${dB} 峰時間`;
+  document.getElementById('th-b1').textContent = `${dB} 趨勢峰時間`;
   document.getElementById('th-b2').textContent = `${dB} 峰值`;
 
-  const pa = ALL_DATA[dA].peaks, pb = ALL_DATA[dB].peaks;
-  const sp05HA = pa.sp05_hourly.h, sp05HB = pb.sp05_hourly.h;
+  // Use trend peaks (post-trough maximum) instead of raw daily maximum
+  const pa = getTrendPeaks(dA), pb = getTrendPeaks(dB);
+  const sp05HA = pa.sp05_hourly?.h ?? 0, sp05HB = pb.sp05_hourly?.h ?? 0;
 
   function lagBadge(lag){
     if(lag===null)return`<span class="lb ln">—</span>`;
@@ -714,10 +751,10 @@ function renderLag(dA, dB) {
       <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${COLORS[r.key]};margin-right:4px;"></span>${r.name}</td>
       <td style="font-size:9px;color:#90caf9;">${r.type}</td>
       <td>${a?`<strong>${String(a.h).padStart(2,'0')}:00</strong>`:'--'}</td>
-      <td style="font-weight:700;">${a?a.v:'--'}</td>
+      <td style="font-weight:700;">${a?a.v.toFixed(1):'--'}</td>
       <td>${r.isSP?'<span style="color:#ffd54f;font-size:10px;">▶ 基準</span>':lagBadge(lagA)}</td>
       <td>${b?`<strong>${String(b.h).padStart(2,'0')}:00</strong>`:'--'}</td>
-      <td style="font-weight:700;">${b?b.v:'--'}</td>
+      <td style="font-weight:700;">${b?b.v.toFixed(1):'--'}</td>
       <td>${r.isSP?'<span style="color:#ffd54f;font-size:10px;">▶ 基準</span>':lagBadge(lagB)}</td>
     </tr>`;
   }).join('');
