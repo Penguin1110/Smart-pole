@@ -366,11 +366,28 @@ function findTrendPeak(vals) {
   return { h: peak.i, v: peak.v };
 }
 
+// ── Manual overrides ────────────────────────────────────
+//  Format: { 'YYYY-MM-DD': { 'station_key': hour_number } }
+//  Use when the algorithm picks a carryover or secondary peak
+//  that doesn't represent the main pollution episode.
+const PEAK_OVERRIDES = {
+  '2026-02-08': { 'sp05_hourly': 9 },   // SP-05 main morning rise ends at 09h
+};
+
 // Compute trend peaks for all stations on a given date
+// (applies PEAK_OVERRIDES first, then falls back to findTrendPeak)
 function getTrendPeaks(dateStr) {
   const hourly = ALL_DATA[dateStr].hourly;
+  const overrides = PEAK_OVERRIDES[dateStr] || {};
   const result = {};
-  KEYS.forEach(k => { result[k] = findTrendPeak(hourly[k]); });
+  KEYS.forEach(k => {
+    if (overrides[k] !== undefined) {
+      const h = overrides[k];
+      result[k] = { h, v: hourly[k][h] ?? null, overridden: true };
+    } else {
+      result[k] = findTrendPeak(hourly[k]);
+    }
+  });
   return result;
 }
 
@@ -478,15 +495,13 @@ function initMap(divId, dateStr) {
   m.on('moveend zoomend resize', drawHeat);
   m.whenReady(()=>setTimeout(drawHeat,200));
 
-  // Calculate trend-peak order using findTrendPeak (rank 1 = earliest)
+  // Calculate trend-peak order via getTrendPeaks (respects overrides)
+  const trendPks = getTrendPeaks(dateStr);
   const stRanks = {};
-  const trendPks = {};
-  const hourlyData = ALL_DATA[dateStr].hourly;
   [...STATIONS]
     .map(s => {
       const k = stKey(s);
-      const tp = findTrendPeak(hourlyData[k]);
-      trendPks[k] = tp;
+      const tp = trendPks[k];
       return { k, h: tp ? tp.h : 999 };
     })
     .sort((a, b) => a.h - b.h)
@@ -618,11 +633,14 @@ const peakPlugin = {
   afterDraw(chart) {
     const{ctx,data}=chart;
 
-    // Collect trend peaks (trough-then-peak, not raw maximum)
+    // Collect trend peaks — use pre-computed tpAll (includes overrides)
+    // tpAll is attached to the chart instance during renderHourly
+    const tpMap = chart._trendPeaks || {};
     const allPeaks = data.datasets.map((ds,di)=>{
       const vals = ds.data;
       if(!vals||!vals.length) return null;
-      const tp = findTrendPeak(vals);
+      // Look up by dataset label → match station shortName
+      const tp = tpMap[di];
       if(!tp) return null;
       const meta = chart.getDatasetMeta(di);
       if(!meta.data[tp.h]) return null;
@@ -667,7 +685,8 @@ function renderHourly(canvasId, chartKey, dateStr, label) {
   const ctx = document.getElementById(canvasId);
   if (!ctx) return;
   const hourly = ALL_DATA[dateStr].hourly;
-  const sp05PeakH = ALL_DATA[dateStr].peaks.sp05_hourly.h;
+  const tpAll = getTrendPeaks(dateStr);           // respects overrides
+  const sp05PeakH = tpAll['sp05_hourly']?.h ?? 0; // orange reference line
 
   const vertLine = {
     id:'vl',
@@ -693,7 +712,7 @@ function renderHourly(canvasId, chartKey, dateStr, label) {
     spanGaps:true
   }));
 
-  charts[chartKey] = new Chart(ctx,{
+  const chartInst = new Chart(ctx,{
     type:'line', data:{labels:HOUR_LABELS, datasets},
     plugins:[peakPlugin, vertLine],
     options:{
@@ -710,6 +729,13 @@ function renderHourly(canvasId, chartKey, dateStr, label) {
       }
     }
   });
+  // Attach trend-peak lookup (by dataset index) so peakPlugin can use overrides
+  chartInst._trendPeaks = {};
+  datasets.forEach((ds, di) => {
+    const k = KEYS[di];   // datasets are built in KEYS order
+    chartInst._trendPeaks[di] = tpAll[k] ?? null;
+  });
+  charts[chartKey] = chartInst;
 }
 
 // ═══════════════════════════════════════════════════════
