@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>智慧桿 PM2.5 監測站互動地圖</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #0f1117; color: #e8eaf6; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+.header {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+  padding: 10px 20px; display: flex; align-items: center; gap: 14px;
+  border-bottom: 2px solid #3949ab; flex-shrink: 0;
+}
+.header h1 { font-size: 17px; font-weight: 600; letter-spacing: 0.5px; }
+.badge { background: #42a5f5; color: #000; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+#current-time-display {
+  background: rgba(66,165,245,0.15); border: 1px solid #42a5f5;
+  border-radius: 6px; padding: 3px 12px; font-size: 13px; font-weight: 700;
+  color: #42a5f5; white-space: nowrap; letter-spacing: 0.5px;
+}
+.date-range { font-size: 11px; color: #90caf9; margin-left: auto; }
+
+.main { display: flex; flex: 1; overflow: hidden; }
+
+/* Map */
+.map-panel { flex: 1; position: relative; min-width: 0; display: flex; flex-direction: column; }
+#map { flex: 1; width: 100%; position: relative; }
+
+/* Time bar */
+.time-bar {
+  background: #13151d; border-top: 2px solid #1e2433;
+  padding: 8px 16px 10px; flex-shrink: 0;
+}
+.time-bar-top { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+.time-bar-bottom { display: flex; align-items: center; gap: 8px; }
+
+.play-btn {
+  width: 34px; height: 34px; border-radius: 50%; border: none;
+  background: #42a5f5; color: #fff; cursor: pointer; font-size: 15px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: background 0.2s; user-select: none;
+}
+.play-btn:hover { background: #1976d2; }
+
+.time-label-sm { font-size: 10px; color: #546e7a; white-space: nowrap; }
+
+#time-slider {
+  flex: 1; height: 6px; -webkit-appearance: none; appearance: none;
+  background: #1e2433; border-radius: 3px; outline: none; cursor: pointer; position: relative;
+}
+#time-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%;
+  background: #42a5f5; cursor: pointer; border: 2px solid #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+#slider-track {
+  position: relative; flex: 1; display: flex; align-items: center;
+}
+#slider-fill {
+  position: absolute; left: 0; top: 0; height: 6px; background: #1976d2;
+  border-radius: 3px 0 0 3px; pointer-events: none; transition: width 0.1s;
+}
+
+.speed-group { display: flex; gap: 3px; }
+.speed-btn {
+  padding: 3px 8px; border-radius: 4px; border: 1px solid #3949ab;
+  background: transparent; color: #7986cb; cursor: pointer; font-size: 11px; transition: all 0.15s;
+}
+.speed-btn.active { background: #3949ab; color: #fff; border-color: #5c6bc0; }
+.speed-btn:hover:not(.active) { border-color: #42a5f5; color: #42a5f5; }
+
+.overlay-toggle {
+  padding: 5px 13px; border-radius: 6px; border: 1px solid #546e7a;
+  background: transparent; color: #90caf9; cursor: pointer; font-size: 11px;
+  transition: all 0.2s; white-space: nowrap; font-weight: 600;
+}
+.overlay-toggle.on { border-color: #42a5f5; background: rgba(66,165,245,0.15); color: #42a5f5; }
+
+.day-tick-container {
+  flex: 1; position: relative; height: 14px;
+}
+.day-tick {
+  position: absolute; width: 2px; height: 6px; background: #1e2433; border-radius: 1px;
+  top: 0; transform: translateX(-50%); cursor: pointer;
+  transition: background 0.15s, height 0.15s;
+}
+.day-tick:hover { background: #42a5f5; height: 10px; }
+.day-tick.active { background: #ffd54f; height: 10px; }
+.day-tick.month-start { background: #3949ab; height: 10px; }
+.tick-label {
+  position: absolute; font-size: 8px; color: #546e7a; top: 11px;
+  transform: translateX(-50%); white-space: nowrap; pointer-events: none;
+}
+
+/* Side panel */
+.side-panel {
+  width: 375px; flex-shrink: 0; background: #13151d;
+  display: flex; flex-direction: column; border-left: 1px solid #1e2433; overflow: hidden;
+}
+.tabs { display: flex; background: #1a1d2a; border-bottom: 1px solid #1e2433; flex-shrink: 0; }
+.tab {
+  flex: 1; padding: 9px 4px; text-align: center; font-size: 11px;
+  cursor: pointer; border: none; background: transparent; color: #7986cb;
+  transition: all 0.2s; font-weight: 500;
+}
+.tab.active { color: #fff; border-bottom: 2px solid #42a5f5; background: #13151d; }
+.tab:hover:not(.active) { background: #1e2433; color: #bbc; }
+.tab-content { flex: 1; overflow-y: auto; padding: 10px; display: none; }
+.tab-content.active { display: block; }
+
+/* Station cards */
+.station-card {
+  background: linear-gradient(135deg, #1a237e, #1565c0);
+  border-radius: 8px; padding: 10px 12px; margin-bottom: 8px;
+  cursor: pointer; border: 1px solid transparent; transition: border-color 0.2s, transform 0.15s;
+}
+.station-card:hover { border-color: #42a5f5; transform: translateX(2px); }
+.station-card.selected { border-color: #ffd54f; }
+.station-card h3 { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+.type-badge { display: inline-block; font-size: 9px; padding: 1px 6px; border-radius: 10px; font-weight: 700; margin-bottom: 4px; }
+.type-badge.smart-pole { background: #ff6f00; color: #fff; }
+.type-badge.taqm { background: #00897b; color: #fff; }
+.coord-text { font-size: 9px; color: #90caf9; margin-bottom: 5px; }
+.stat-row { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 6px; }
+.stat-chip { background: rgba(255,255,255,0.08); border-radius: 5px; padding: 2px 6px; font-size: 9px; }
+.stat-chip strong { color: #ffd54f; }
+.aqi-bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; }
+.aqi-seg { transition: width 0.5s; }
+
+.val-badge {
+  font-size: 16px; font-weight: 800; padding: 4px 9px;
+  border-radius: 6px; min-width: 52px; text-align: center; line-height: 1.2;
+}
+
+/* Charts */
+.chart-box { background: #1a1d2a; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+.chart-title { font-size: 11px; color: #90caf9; margin-bottom: 7px; font-weight: 600; }
+canvas { max-height: 175px; }
+
+/* Correlation */
+.corr-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.corr-table th { background: #1e2433; padding: 5px 7px; text-align: left; color: #90caf9; font-weight: 600; }
+.corr-table td { padding: 4px 7px; border-bottom: 1px solid #1e2433; }
+.corr-table tr:hover td { background: #1e2433; }
+.corr-high { color: #66bb6a; font-weight: 700; }
+.corr-mid  { color: #ffa726; font-weight: 700; }
+.corr-low  { color: #ef5350; font-weight: 700; }
+
+/* Map overlays */
+.map-legend {
+  position: absolute; bottom: 8px; left: 10px;
+  background: rgba(15,17,23,0.93); border-radius: 8px;
+  padding: 9px 13px; z-index: 999; font-size: 11px; border: 1px solid #1e2433;
+  pointer-events: none;
+}
+.legend-item { display: flex; align-items: center; gap: 7px; margin-bottom: 4px; }
+.legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.aqi-grad-bar {
+  height: 8px; border-radius: 4px; margin: 5px 0 2px;
+  background: linear-gradient(to right, #00e400, #ffff00, #ff7e00, #ff0000, #8f3f97);
+  width: 140px;
+}
+.grad-labels { display: flex; justify-content: space-between; font-size: 8px; color: #546e7a; }
+
+.map-aqi-guide {
+  position: absolute; top: 10px; right: 10px;
+  background: rgba(15,17,23,0.93); border: 1px solid #3949ab;
+  border-radius: 8px; padding: 9px 13px; z-index: 999; font-size: 10px;
+  pointer-events: none;
+}
+.map-aqi-guide h4 { color: #90caf9; font-size: 11px; margin-bottom: 5px; }
+.guide-row { display: flex; align-items: center; gap: 5px; margin-bottom: 3px; }
+.guide-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+/* Heatmap canvas */
+#heatmap-canvas {
+  position: absolute; top: 0; left: 0;
+  pointer-events: none; z-index: 400;
+  display: none; opacity: 0.72;
+  mix-blend-mode: screen;
+}
+
+/* Popup */
+.dark-popup .leaflet-popup-content-wrapper {
+  background: #1a1d2a; border: 1px solid #3949ab; border-radius: 8px; padding: 0;
+}
+.dark-popup .leaflet-popup-content { margin: 0; }
+.dark-popup .leaflet-popup-tip { background: #1a1d2a; }
+.dark-popup .leaflet-popup-close-button { color: #90caf9; top: 5px; right: 7px; font-size: 16px; }
+.pop-box { padding: 10px 13px; font-size: 12px; }
+.pop-box h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.pop-val { border-radius: 5px; padding: 3px 10px; display: inline-block; font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #1a1d2a; }
+::-webkit-scrollbar-thumb { background: #3949ab; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div style="font-size:18px;">📡</div>
+  <div>
+    <h1>智慧桿 PM2.5 監測站互動地圖</h1>
+    <div style="font-size:10px;color:#90caf9;">台北試點 · 松山文創園區及周圍測站</div>
+  </div>
+  <div class="badge">Taipei</div>
+  <div id="current-time-display">2025-12-12</div>
+  <div class="date-range">📅 2025-12-12 ~ 2026-02-09 &nbsp;|&nbsp; 60 天</div>
+</div>
+
+<div class="main">
+  <!-- Map panel -->
+  <div class="map-panel">
+    <div id="map"></div>
+
+    <!-- Heatmap canvas (inside map, repositioned by JS) -->
+    <canvas id="heatmap-canvas"></canvas>
+
+    <!-- Legend -->
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#ff6f00;border:2px solid #fff;"></div> 智慧桿 Smart Pole</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#00897b;border:2px solid #fff;"></div> TAQM 法規監測站</div>
+      <div style="border-top:1px solid #1e2433;margin:5px 0;"></div>
+      <div style="font-size:9px;color:#90caf9;margin-bottom:3px;">區域 PM2.5 色階</div>
+      <div class="aqi-grad-bar"></div>
+      <div class="grad-labels"><span>優</span><span>普</span><span>不良</span></div>
+    </div>
+
+    <!-- AQI guide -->
+    <div class="map-aqi-guide">
+      <h4>AQI 等級 (PM2.5)</h4>
+      <div class="guide-row"><div class="guide-dot" style="background:#00e400;"></div><span>0–12 優良</span></div>
+      <div class="guide-row"><div class="guide-dot" style="background:#ffff00;"></div><span>12–35 普通</span></div>
+      <div class="guide-row"><div class="guide-dot" style="background:#ff7e00;"></div><span>35–54 敏感族群</span></div>
+      <div class="guide-row"><div class="guide-dot" style="background:#ff0000;"></div><span>&gt;54 對所有人</span></div>
+      <div style="margin-top:5px;font-size:9px;color:#546e7a;">點擊站點查看詳情</div>
+    </div>
+
+    <!-- Time bar -->
+    <div class="time-bar">
+      <!-- Row 1: controls -->
+      <div class="time-bar-top">
+        <button class="play-btn" id="play-btn" onclick="togglePlay()">▶</button>
+        <span class="time-label-sm">12/12</span>
+        <div id="slider-track" style="flex:1;position:relative;display:flex;align-items:center;">
+          <div id="slider-fill" style="position:absolute;left:0;top:0;height:6px;background:#1976d2;border-radius:3px 0 0 3px;pointer-events:none;z-index:1;"></div>
+          <input type="range" id="time-slider" min="0" max="59" value="0" oninput="onSlider(this.value)" style="flex:1;position:relative;z-index:2;">
+        </div>
+        <span class="time-label-sm">02/09</span>
+        <div class="speed-group">
+          <button class="speed-btn" onclick="setSpeed(1)" id="spd1">1×</button>
+          <button class="speed-btn active" onclick="setSpeed(4)" id="spd4">4×</button>
+          <button class="speed-btn" onclick="setSpeed(10)" id="spd10">10×</button>
+        </div>
+        <button class="overlay-toggle" id="overlay-btn" onclick="toggleOverlay()">🌡 區域空氣品質 OFF</button>
+      </div>
+      <!-- Row 2: tick bar -->
+      <div class="time-bar-bottom">
+        <span style="font-size:9px;color:#546e7a;flex-shrink:0;">日期軸：</span>
+        <div id="tick-container" class="day-tick-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Side panel -->
+  <div class="side-panel">
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('stations')">📍 測站資訊</button>
+      <button class="tab" onclick="showTab('chart')">📈 時間序列</button>
+      <button class="tab" onclick="showTab('corr')">🔗 相關性</button>
+    </div>
+
+    <div id="tab-stations" class="tab-content active">
+      <div id="station-list"></div>
+    </div>
+
+    <div id="tab-chart" class="tab-content">
+      <div style="margin-bottom:8px;">
+        <div style="font-size:10px;color:#90caf9;margin-bottom:5px;">顯示測站：</div>
+        <div id="chart-toggles" style="display:flex;flex-wrap:wrap;gap:4px;"></div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">
+          PM2.5 時間序列（μg/m³）
+          <span id="chart-date-label" style="float:right;color:#ffd54f;font-size:10px;"></span>
+        </div>
+        <canvas id="tsChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">24 小時平均模式</div>
+        <canvas id="hourlyChart"></canvas>
+      </div>
+    </div>
+
+    <div id="tab-corr" class="tab-content">
+      <div style="margin-bottom:8px;">
+        <div style="font-size:12px;font-weight:600;margin-bottom:3px;">相關性分析</div>
+        <div style="font-size:10px;color:#90caf9;">台北松菸 SP-05 vs 各 TAQM 法規站</div>
+      </div>
+      <table class="corr-table">
+        <thead><tr><th>參考站</th><th>相關係數 r</th><th>RMSE</th><th>偏差</th><th>樣本</th></tr></thead>
+        <tbody id="corr-tbody"></tbody>
+      </table>
+      <div style="margin-top:12px;margin-bottom:6px;font-size:12px;font-weight:600;">AQI 等級分布比較</div>
+      <div class="chart-box">
+        <div class="chart-title">各等級佔比（%）</div>
+        <canvas id="aqiChart" style="max-height:200px;"></canvas>
+      </div>
+      <div style="margin-top:8px;background:#1a1d2a;border-radius:8px;padding:9px;">
+        <div style="font-size:11px;color:#90caf9;margin-bottom:5px;font-weight:600;">統計摘要</div>
+        <div id="stats-div"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ==================== DATA ====================
+const TS_DATA    = TS_PLACEHOLDER;
+const DAILY_DATA = DAILY_PLACEHOLDER;
+
+// ==================== STATIONS ====================
+const STATIONS = [
+  { id:'sp05',      name:'台北松菸 SP-05', type:'smart-pole', lat:25.0440, lng:121.5598, color:'#ff6f00', tsKey:'sp05_hourly',
+    desc:'松山文創園區智慧桿，量測 PM2.5、PM10、CO、溫濕度等多項環境參數',
+    stats:{ n:13987, mean:12.77, std:8.64, max:59, good:50.1, mod:47.9, usg:1.8, bad:0.2 } },
+  { id:'songshan',  name:'松山 TAQM',      type:'taqm',       lat:25.0497, lng:121.5775, color:'#00897b', tsKey:'songshan',
+    desc:'環保署松山空氣品質監測站（法規級）',
+    stats:{ n:1421, mean:13.37, std:7.64, max:47, good:46.0, mod:53.0, usg:1.1, bad:0.0 } },
+  { id:'zhongshan', name:'中山 TAQM',      type:'taqm',       lat:25.0632, lng:121.5236, color:'#00897b', tsKey:'zhongshan',
+    desc:'環保署中山空氣品質監測站（法規級）',
+    stats:{ n:1430, mean:14.27, std:7.51, max:44, good:43.4, mod:55.5, usg:1.1, bad:0.0 } },
+  { id:'wanhua',    name:'萬華 TAQM',      type:'taqm',       lat:25.0313, lng:121.4992, color:'#00897b', tsKey:'wanhua',
+    desc:'環保署萬華空氣品質監測站（法規級）',
+    stats:{ n:1416, mean:14.02, std:8.15, max:57, good:45.7, mod:52.5, usg:1.7, bad:0.1 } },
+  { id:'guting',    name:'古亭 TAQM',      type:'taqm',       lat:25.0200, lng:121.5300, color:'#00897b', tsKey:'guting',
+    desc:'環保署古亭空氣品質監測站（法規級）',
+    stats:{ n:1428, mean:13.18, std:8.29, max:46, good:49.6, mod:49.2, usg:1.3, bad:0.0 } },
+  { id:'shilin',    name:'士林 TAQM',      type:'taqm',       lat:25.0870, lng:121.5233, color:'#00897b', tsKey:'shilin',
+    desc:'環保署士林空氣品質監測站（法規級）',
+    stats:{ n:1430, mean:12.28, std:8.39, max:49, good:52.0, mod:46.3, usg:1.7, bad:0.0 } },
+  { id:'yangming',  name:'陽明 TAQM',      type:'taqm',       lat:25.1773, lng:121.5447, color:'#00897b', tsKey:'yangming',
+    desc:'環保署陽明山空氣品質監測站（法規級，背景站）',
+    stats:{ n:1432, mean:11.34, std:7.16, max:42, good:54.1, mod:45.4, usg:0.6, bad:0.0 } }
+];
+
+const CORR = [
+  { ref:'松山', n:1157, r:0.900, rmse:3.86, bias:-1.10 },
+  { ref:'中山', n:1167, r:0.866, rmse:4.68, bias:-1.87 },
+  { ref:'萬華', n:1152, r:0.700, rmse:6.80, bias:-1.80 },
+  { ref:'古亭', n:1168, r:0.775, rmse:5.84, bias:-1.25 },
+  { ref:'士林', n:1166, r:0.729, rmse:6.34, bias:-0.12 },
+  { ref:'陽明', n:1169, r:0.727, rmse:6.05, bias:+0.83 }
+];
+
+const COLORS = { sp05_hourly:'#ff6f00', songshan:'#42a5f5', zhongshan:'#26c6da', wanhua:'#66bb6a', guting:'#ab47bc', shilin:'#ef5350', yangming:'#ffa726' };
+const LABELS = { sp05_hourly:'SP-05 智慧桿', songshan:'松山', zhongshan:'中山', wanhua:'萬華', guting:'古亭', shilin:'士林', yangming:'陽明' };
+
+// ==================== AQI HELPERS ====================
+function aqiColor(v) {
+  if (v == null) return '#546e7a';
+  if (v < 12) return '#00e400';
+  if (v < 35) return '#ffff00';
+  if (v < 54) return '#ff7e00';
+  if (v < 150) return '#ff0000';
+  return '#8f3f97';
+}
+function aqiLabel(v) {
+  if (v == null) return '無資料';
+  if (v < 12) return '優良'; if (v < 35) return '普通';
+  if (v < 54) return '敏感族群不良'; return '對所有人不良';
+}
+function pm25ToRgba(v) {
+  const stops = [[0,[0,228,0]],[12,[255,255,0]],[35,[255,126,0]],[54,[255,0,0]],[150,[143,63,151]]];
+  if (v <= 0) return [...stops[0][1], 160];
+  if (v >= 150) return [...stops[4][1], 190];
+  for (let i = 0; i < stops.length-1; i++) {
+    const [v0,c0] = stops[i], [v1,c1] = stops[i+1];
+    if (v >= v0 && v <= v1) {
+      const t = (v-v0)/(v1-v0);
+      return [0,1,2].map(j => Math.round(c0[j]+t*(c1[j]-c0[j]))).concat([165]);
+    }
+  }
+  return [128,128,128,130];
+}
+
+// ==================== MAP ====================
+const map = L.map('map', { center:[25.065,121.535], zoom:12 });
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:18
+}).addTo(map);
+
+// Move heatmap canvas into leaflet overlay pane
+const heatCanvas = document.getElementById('heatmap-canvas');
+map.getPanes().overlayPane.appendChild(heatCanvas);
+map.on('moveend zoomend resize', () => { repositionCanvas(); if (overlayOn) drawHeatmap(); });
+
+function repositionCanvas() {
+  const tl = map.containerPointToLayerPoint([0,0]);
+  L.DomUtil.setPosition(heatCanvas, tl);
+}
+
+// Connection lines
+const sp05s = STATIONS[0];
+STATIONS.slice(1).forEach(s => {
+  L.polyline([[sp05s.lat,sp05s.lng],[s.lat,s.lng]], { color:'#3949ab', weight:1.5, opacity:0.35, dashArray:'5,5' }).addTo(map);
+});
+
+// Pulse ring
+const pulse = L.circleMarker([sp05s.lat,sp05s.lng], { radius:22, color:'#ff6f00', weight:2.5, fillOpacity:0, opacity:0.5 }).addTo(map);
+let pr=22, pg=true;
+setInterval(() => {
+  pr = pg ? pr+0.25 : pr-0.25;
+  if (pr>32) pg=false; if (pr<22) pg=true;
+  pulse.setRadius(pr); pulse.setStyle({ opacity:(32-pr)/16 });
+}, 55);
+
+// Markers
+function makeIcon(color, shortLbl, valStr) {
+  const val = valStr != null ? `<div style="font-size:9px;color:#fff;opacity:0.9;margin-top:1px;">${valStr}</div>` : '';
+  return L.divIcon({
+    html:`<div style="width:40px;height:40px;border-radius:50%;background:${color};border:3px solid #fff;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      font-size:10px;font-weight:700;color:#fff;box-shadow:0 3px 10px rgba(0,0,0,0.7);cursor:pointer;">
+      <span>${shortLbl}</span>${val}</div>`,
+    className:'', iconSize:[40,40], iconAnchor:[20,20], popupAnchor:[0,-22]
+  });
+}
+
+STATIONS.forEach(s => {
+  s.shortLbl = s.type === 'smart-pole' ? '桿' : s.name.slice(0,2);
+  s.marker = L.marker([s.lat,s.lng], {
+    icon: makeIcon(s.color, s.shortLbl, null),
+    zIndexOffset: s.type === 'smart-pole' ? 1000 : 0
+  }).addTo(map);
+  s.marker.on('click', () => selectStation(s.id));
+});
+
+// ==================== STATE ====================
+let dayIdx = 0;
+let isPlaying = false, playSpeed = 4, playTimer = null;
+let overlayOn = false;
+let selectedId = null;
+
+function getDayRow() { return DAILY_DATA[dayIdx]; }
+
+function getDayVal(row, key) {
+  const v = row[key];
+  return (v !== null && v !== undefined) ? parseFloat(v) : null;
+}
+
+// ==================== UPDATE ====================
+function applyDay() {
+  const row = getDayRow();
+  const dateStr = row.time;
+  document.getElementById('current-time-display').textContent = dateStr;
+
+  // Update markers
+  STATIONS.forEach(s => {
+    const v = getDayVal(row, s.tsKey);
+    s.curVal = v;
+    const mc = v !== null ? aqiColor(v) : s.color;
+    const vs = v !== null ? v.toFixed(1) : null;
+    s.marker.setIcon(makeIcon(mc, s.shortLbl, vs));
+    // Popup
+    const bg = v !== null ? aqiColor(v) : '#546e7a';
+    const fg = (v !== null && v < 35) ? '#000' : '#fff';
+    s.marker.bindPopup(`<div class="pop-box">
+      <h4>${s.name}</h4>
+      <div style="font-size:9px;color:#90caf9;margin-bottom:5px;">${s.desc}</div>
+      <div style="font-size:9px;margin-bottom:5px;">📍 ${s.lat.toFixed(4)}, ${s.lng.toFixed(4)}</div>
+      ${v !== null
+        ? `<div class="pop-val" style="background:${bg};color:${fg};">${dateStr}: ${v.toFixed(1)} μg/m³ · ${aqiLabel(v)}</div>`
+        : `<div style="color:#546e7a;font-style:italic;margin-bottom:5px;">該日無資料</div>`}
+      <div style="font-size:10px;color:#90caf9;">全期平均: <strong>${s.stats.mean}</strong> μg/m³</div>
+    </div>`, { maxWidth:260, className:'dark-popup' });
+  });
+
+  // Update station cards' dynamic values
+  STATIONS.forEach(s => {
+    const badge = document.getElementById('vbadge-' + s.id);
+    if (!badge) return;
+    const v = s.curVal;
+    const displayV = v !== null ? v.toFixed(1) : s.stats.mean;
+    const color = aqiColor(v !== null ? v : s.stats.mean);
+    badge.style.background = color;
+    badge.style.color = (v !== null ? v : s.stats.mean) < 35 ? '#000' : '#fff';
+    badge.textContent = displayV;
+    const lbl = document.getElementById('vbadge-lbl-' + s.id);
+    if (lbl) lbl.textContent = v !== null ? '今日均值' : '全期均值';
+  });
+
+  // Heatmap
+  if (overlayOn) drawHeatmap();
+
+  // Sync chart cursor
+  syncChartCursor(dateStr);
+
+  // Sync tick bar
+  document.querySelectorAll('.day-tick').forEach((el,i) => {
+    el.classList.toggle('active', i === dayIdx);
+  });
+
+  // Sync slider fill
+  const pct = dayIdx / (DAILY_DATA.length - 1) * 100;
+  document.getElementById('slider-fill').style.width = pct + '%';
+  document.getElementById('time-slider').value = dayIdx;
+}
+
+function onSlider(val) {
+  dayIdx = parseInt(val);
+  applyDay();
+}
+
+// ==================== TICK BAR ====================
+function buildTickBar() {
+  const container = document.getElementById('tick-container');
+  DAILY_DATA.forEach((row, i) => {
+    const pct = i / (DAILY_DATA.length - 1) * 100;
+    const tick = document.createElement('div');
+    tick.className = 'day-tick';
+    if (i === 0 || row.time.slice(8,10) === '01') tick.classList.add('month-start');
+    tick.style.left = pct + '%';
+    tick.title = row.time;
+    tick.onclick = () => { dayIdx = i; applyDay(); document.getElementById('time-slider').value = i; };
+    container.appendChild(tick);
+    // Month labels
+    if (i === 0 || row.time.slice(8,10) === '01') {
+      const lbl = document.createElement('div');
+      lbl.className = 'tick-label';
+      lbl.style.left = pct + '%';
+      lbl.textContent = row.time.slice(5,10);
+      container.appendChild(lbl);
+    }
+  });
+}
+
+// ==================== OVERLAY (Heatmap IDW) ====================
+function toggleOverlay() {
+  overlayOn = !overlayOn;
+  const btn = document.getElementById('overlay-btn');
+  if (overlayOn) {
+    heatCanvas.style.display = 'block';
+    btn.textContent = '🌡 區域空氣品質 ON';
+    btn.classList.add('on');
+    drawHeatmap();
+  } else {
+    heatCanvas.style.display = 'none';
+    btn.textContent = '🌡 區域空氣品質 OFF';
+    btn.classList.remove('on');
+  }
+}
+
+function drawHeatmap() {
+  const size = map.getSize();
+  heatCanvas.width  = size.x;
+  heatCanvas.height = size.y;
+
+  const row = getDayRow();
+  const pts = STATIONS.map(s => {
+    const v = getDayVal(row, s.tsKey);
+    const px = map.latLngToContainerPoint([s.lat, s.lng]);
+    return { x: px.x, y: px.y, v };
+  }).filter(p => p.v !== null);
+
+  const ctx = heatCanvas.getContext('2d');
+  ctx.clearRect(0, 0, size.x, size.y);
+  if (!pts.length) return;
+
+  const step = 5;
+  const imgData = ctx.createImageData(size.x, size.y);
+  const d = imgData.data;
+
+  for (let gy = 0; gy < size.y; gy += step) {
+    for (let gx = 0; gx < size.x; gx += step) {
+      let num = 0, den = 0;
+      pts.forEach(p => {
+        const dx = gx - p.x, dy = gy - p.y;
+        const dist2 = dx*dx + dy*dy;
+        const w = dist2 < 1 ? 1e9 : 1 / Math.pow(dist2, 1.2);
+        num += w * p.v; den += w;
+      });
+      const val = den ? num / den : 0;
+      const [r,g,b,a] = pm25ToRgba(val);
+      for (let dy2 = 0; dy2 < step && gy+dy2 < size.y; dy2++) {
+        for (let dx2 = 0; dx2 < step && gx+dx2 < size.x; dx2++) {
+          const idx = ((gy+dy2)*size.x + (gx+dx2)) * 4;
+          d[idx]=r; d[idx+1]=g; d[idx+2]=b; d[idx+3]=a;
+        }
+      }
+    }
+  }
+  ctx.putImageData(imgData, 0, 0);
+  repositionCanvas();
+}
+
+// ==================== PLAYBACK ====================
+function togglePlay() {
+  isPlaying = !isPlaying;
+  document.getElementById('play-btn').textContent = isPlaying ? '⏸' : '▶';
+  isPlaying ? startPlay() : stopPlay();
+}
+function startPlay() {
+  stopPlay();
+  playTimer = setInterval(() => {
+    dayIdx = (dayIdx + 1) % DAILY_DATA.length;
+    applyDay();
+  }, Math.max(60, 1000 / playSpeed));
+}
+function stopPlay() { if (playTimer) { clearInterval(playTimer); playTimer = null; } }
+function setSpeed(s) {
+  playSpeed = s;
+  ['1','4','10'].forEach(x => document.getElementById('spd'+x).classList.remove('active'));
+  document.getElementById('spd'+s).classList.add('active');
+  if (isPlaying) startPlay();
+}
+
+// ==================== STATION CARDS ====================
+function renderCards() {
+  const c = document.getElementById('station-list');
+  c.innerHTML = '';
+  STATIONS.forEach(s => {
+    const v = s.curVal !== undefined ? s.curVal : null;
+    const displayV = v !== null ? v.toFixed(1) : s.stats.mean;
+    const color = aqiColor(v !== null ? v : s.stats.mean);
+    const fg = (v !== null ? v : s.stats.mean) < 35 ? '#000' : '#fff';
+    const el = document.createElement('div');
+    el.className = 'station-card';
+    el.dataset.id = s.id;
+    el.innerHTML = `
+      <div style="display:flex;gap:8px;align-items:flex-start;">
+        <div style="flex:1;min-width:0;">
+          <span class="type-badge ${s.type}">${s.type==='smart-pole'?'智慧桿':'TAQM'}</span>
+          <h3>${s.name}</h3>
+          <div class="coord-text">📍 ${s.lat.toFixed(4)}, ${s.lng.toFixed(4)}</div>
+        </div>
+        <div style="text-align:center;flex-shrink:0;">
+          <div class="val-badge" id="vbadge-${s.id}" style="background:${color};color:${fg};">${displayV}</div>
+          <div style="font-size:8px;color:#90caf9;margin-top:2px;" id="vbadge-lbl-${s.id}">${v!==null?'今日均值':'全期均值'}</div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-chip">樣本 <strong>${s.stats.n.toLocaleString()}</strong></div>
+        <div class="stat-chip">全期均 <strong>${s.stats.mean}</strong></div>
+        <div class="stat-chip">最大 <strong>${s.stats.max}</strong></div>
+        <div class="stat-chip">σ <strong>${s.stats.std}</strong></div>
+      </div>
+      <div style="margin-top:4px;">
+        <div style="font-size:9px;color:#90caf9;margin-bottom:2px;">AQI 分布（全期）</div>
+        <div class="aqi-bar">
+          <div class="aqi-seg" style="width:${s.stats.good}%;background:#00e400;" title="優良"></div>
+          <div class="aqi-seg" style="width:${s.stats.mod}%;background:#ffff00;" title="普通"></div>
+          <div class="aqi-seg" style="width:${s.stats.usg}%;background:#ff7e00;" title="敏感族群"></div>
+          <div class="aqi-seg" style="width:${s.stats.bad}%;background:#ff0000;" title="不健康"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:8px;color:#546e7a;margin-top:1px;">
+          <span>優 ${s.stats.good}%</span><span>普 ${s.stats.mod}%</span><span>不良 ${(s.stats.usg+s.stats.bad).toFixed(1)}%</span>
+        </div>
+      </div>`;
+    el.addEventListener('click', () => selectStation(s.id));
+    c.appendChild(el);
+  });
+}
+
+function selectStation(id) {
+  selectedId = id;
+  document.querySelectorAll('.station-card').forEach(el => {
+    el.classList.toggle('selected', el.dataset.id === id);
+  });
+  const s = STATIONS.find(x => x.id === id);
+  if (s) { map.flyTo([s.lat,s.lng], 13, {duration:0.8}); s.marker.openPopup(); }
+}
+
+// ==================== CHARTS ====================
+let tsChart=null, hourlyChart=null;
+let activeKeys = new Set(Object.keys(LABELS));
+let chartsBuilt = false;
+
+function initCharts() {
+  if (chartsBuilt) return;
+  chartsBuilt = true;
+  // Toggles
+  const c = document.getElementById('chart-toggles');
+  Object.keys(LABELS).forEach(key => {
+    const btn = document.createElement('button');
+    btn.style.cssText = `padding:3px 9px;border-radius:10px;border:2px solid ${COLORS[key]};
+      background:${COLORS[key]};color:#fff;font-size:10px;cursor:pointer;font-weight:600;transition:all 0.15s;`;
+    btn.textContent = LABELS[key];
+    btn.onclick = () => {
+      activeKeys.has(key) ? activeKeys.delete(key) : activeKeys.add(key);
+      btn.style.background = activeKeys.has(key) ? COLORS[key] : 'transparent';
+      btn.style.color = activeKeys.has(key) ? '#fff' : COLORS[key];
+      buildTsChart();
+    };
+    c.appendChild(btn);
+  });
+  buildTsChart();
+  buildHourlyChart();
+}
+
+// Vertical line plugin
+const vertLinePlugin = {
+  id:'vertLine',
+  afterDraw(chart) {
+    if (chart._vi == null) return;
+    const meta = chart.getDatasetMeta(0);
+    if (!meta?.data?.[chart._vi]) return;
+    const x = meta.data[chart._vi].x;
+    const {top,bottom} = chart.scales.y;
+    chart.ctx.save();
+    chart.ctx.beginPath();
+    chart.ctx.moveTo(x,top); chart.ctx.lineTo(x,bottom);
+    chart.ctx.strokeStyle='rgba(255,213,79,0.85)'; chart.ctx.lineWidth=2;
+    chart.ctx.setLineDash([4,3]); chart.ctx.stroke(); chart.ctx.restore();
+  }
+};
+
+function buildTsChart() {
+  const step = 3;
+  const samp = TS_DATA.filter((_,i)=>i%step===0);
+  const labels = samp.map(r=>r.time.slice(5,13));
+  const datasets = Object.keys(LABELS).filter(k=>activeKeys.has(k)).map(key => ({
+    label: LABELS[key],
+    data: samp.map(r=>r[key]?parseFloat(r[key]):null),
+    borderColor: COLORS[key], backgroundColor: COLORS[key]+'18',
+    borderWidth: key==='sp05_hourly'?2.5:1.5,
+    pointRadius:0, fill:key==='sp05_hourly', tension:0.3, spanGaps:true
+  }));
+  const ctx = document.getElementById('tsChart').getContext('2d');
+  if (tsChart) tsChart.destroy();
+  tsChart = new Chart(ctx, {
+    type:'line', data:{labels,datasets},
+    options:{
+      responsive:true, maintainAspectRatio:true, animation:{duration:200},
+      plugins:{
+        legend:{labels:{color:'#90caf9',font:{size:9},boxWidth:10}},
+        tooltip:{mode:'index',intersect:false,backgroundColor:'#1a1d2a',titleColor:'#90caf9',bodyColor:'#e8eaf6',borderColor:'#3949ab',borderWidth:1},
+        vertLine:{}
+      },
+      scales:{
+        x:{ticks:{color:'#546e7a',maxTicksLimit:8,font:{size:8}},grid:{color:'#1e2433'}},
+        y:{ticks:{color:'#546e7a',font:{size:8}},grid:{color:'#1e2433'},
+          title:{display:true,text:'PM2.5 (μg/m³)',color:'#546e7a',font:{size:9}}}
+      }
+    },
+    plugins:[vertLinePlugin]
+  });
+  tsChart._samp = samp;
+  syncChartCursor(getDayRow().time);
+}
+
+function syncChartCursor(dateStr) {
+  if (!tsChart?._samp) return;
+  const day = dateStr.slice(0,10);
+  let bi=0, bd=Infinity;
+  tsChart._samp.forEach((r,i)=>{
+    const d=Math.abs(new Date(r.time)-new Date(day));
+    if(d<bd){bd=d;bi=i;}
+  });
+  tsChart._vi = bi;
+  const lbl = document.getElementById('chart-date-label');
+  if (lbl) lbl.textContent = day;
+  tsChart.update('none');
+}
+
+function buildHourlyChart() {
+  const buckets={};
+  for(let h=0;h<24;h++){buckets[h]={};Object.keys(LABELS).forEach(k=>{buckets[h][k]=[];});}
+  TS_DATA.forEach(r=>{
+    const h=parseInt(r.time.slice(11,13)); if(isNaN(h))return;
+    Object.keys(LABELS).forEach(k=>{if(r[k])buckets[h][k].push(parseFloat(r[k]));});
+  });
+  const avg=arr=>arr.length?arr.reduce((a,b)=>a+b,0)/arr.length:null;
+  const hl=Array.from({length:24},(_,i)=>`${i}:00`);
+  const datasets=Object.keys(LABELS).map(key=>({
+    label:LABELS[key], data:hl.map((_,h)=>{const v=avg(buckets[h][key]);return v?+v.toFixed(2):null;}),
+    borderColor:COLORS[key], backgroundColor:COLORS[key]+'28',
+    borderWidth:key==='sp05_hourly'?2.5:1.5, pointRadius:2, tension:0.4, spanGaps:true
+  }));
+  const ctx=document.getElementById('hourlyChart').getContext('2d');
+  if(hourlyChart)hourlyChart.destroy();
+  hourlyChart=new Chart(ctx,{
+    type:'line',data:{labels:hl,datasets},
+    options:{responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{labels:{color:'#90caf9',font:{size:9},boxWidth:10}},
+        tooltip:{backgroundColor:'#1a1d2a',titleColor:'#90caf9',bodyColor:'#e8eaf6'}},
+      scales:{x:{ticks:{color:'#546e7a',font:{size:8},maxTicksLimit:12},grid:{color:'#1e2433'}},
+        y:{ticks:{color:'#546e7a',font:{size:8}},grid:{color:'#1e2433'},
+          title:{display:true,text:'PM2.5 (μg/m³)',color:'#546e7a',font:{size:9}}}}}
+  });
+}
+
+// ==================== CORRELATION ====================
+let corrDone=false;
+function renderCorr() {
+  if(corrDone)return; corrDone=true;
+  const tb=document.getElementById('corr-tbody');
+  [...CORR].sort((a,b)=>b.r-a.r).forEach(row=>{
+    const cls=row.r>=0.85?'corr-high':row.r>=0.75?'corr-mid':'corr-low';
+    const bs=(row.bias>=0?'+':'')+row.bias.toFixed(2);
+    const bc=Math.abs(row.bias)<1?'#66bb6a':Math.abs(row.bias)<2?'#ffa726':'#ef5350';
+    tb.innerHTML+=`<tr><td><strong>${row.ref}</strong></td><td><span class="${cls}">${row.r.toFixed(3)}</span></td>
+      <td>${row.rmse.toFixed(2)}</td><td style="color:${bc};font-weight:600;">${bs}</td>
+      <td style="color:#546e7a;">${row.n.toLocaleString()}</td></tr>`;
+  });
+  new Chart(document.getElementById('aqiChart').getContext('2d'),{
+    type:'bar',
+    data:{labels:STATIONS.map(s=>s.name.replace(' TAQM','')),datasets:[
+      {label:'優良',data:STATIONS.map(s=>s.stats.good),backgroundColor:'#00e400'},
+      {label:'普通',data:STATIONS.map(s=>s.stats.mod),backgroundColor:'#ffff00'},
+      {label:'敏感族群',data:STATIONS.map(s=>s.stats.usg),backgroundColor:'#ff7e00'},
+      {label:'對所有人',data:STATIONS.map(s=>s.stats.bad),backgroundColor:'#ff0000'}
+    ]},
+    options:{responsive:true,plugins:{legend:{labels:{color:'#90caf9',font:{size:9},boxWidth:10}},
+      tooltip:{backgroundColor:'#1a1d2a',titleColor:'#90caf9',bodyColor:'#e8eaf6'}},
+      scales:{x:{stacked:true,ticks:{color:'#546e7a',font:{size:8}},grid:{color:'#1e2433'}},
+        y:{stacked:true,max:100,ticks:{color:'#546e7a',font:{size:8}},grid:{color:'#1e2433'},
+          title:{display:true,text:'%',color:'#546e7a',font:{size:9}}}}}
+  });
+  document.getElementById('stats-div').innerHTML=`<table style="width:100%;border-collapse:collapse;font-size:10px;">
+    <thead><tr>
+      <th style="text-align:left;color:#90caf9;padding:3px 5px;border-bottom:1px solid #1e2433;">測站</th>
+      <th style="text-align:right;color:#90caf9;padding:3px 5px;border-bottom:1px solid #1e2433;">均值</th>
+      <th style="text-align:right;color:#90caf9;padding:3px 5px;border-bottom:1px solid #1e2433;">最大</th>
+      <th style="text-align:right;color:#90caf9;padding:3px 5px;border-bottom:1px solid #1e2433;">σ</th>
+    </tr></thead><tbody>
+    ${STATIONS.map(s=>`<tr>
+      <td style="padding:3px 5px;border-bottom:1px solid #1e2433;">
+        <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${s.color};margin-right:3px;"></span>
+        ${s.name.replace(' TAQM','')}
+      </td>
+      <td style="text-align:right;padding:3px 5px;border-bottom:1px solid #1e2433;font-weight:700;color:${aqiColor(s.stats.mean)};">${s.stats.mean}</td>
+      <td style="text-align:right;padding:3px 5px;border-bottom:1px solid #1e2433;">${s.stats.max}</td>
+      <td style="text-align:right;padding:3px 5px;border-bottom:1px solid #1e2433;color:#546e7a;">${s.stats.std}</td>
+    </tr>`).join('')}</tbody></table>`;
+}
+
+// ==================== TABS ====================
+function showTab(name) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.getElementById('tab-'+name).classList.add('active');
+  if(name==='chart')initCharts();
+  if(name==='corr')renderCorr();
+}
+
+// ==================== INIT ====================
+renderCards();
+buildTickBar();
+applyDay();
+</script>
+</body>
+</html>
