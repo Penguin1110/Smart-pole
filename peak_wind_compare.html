@@ -77,6 +77,14 @@ html,body{height:100%;overflow-y:auto;font-family:'Microsoft JhengHei','Segoe UI
 /* CHART SECTION – below viewport, scroll down to see */
 #chart-sec{background:#1e293b;border-top:2px solid #0284c7;padding:14px 20px 20px}
 #chart-title{font-size:13px;color:#94a3b8;font-weight:bold;margin-bottom:10px}
+#peak-controls{display:grid;grid-template-columns:160px 1fr 72px auto minmax(180px,auto);gap:10px;align-items:end;margin-bottom:12px;padding:10px;border:1px solid #334155;border-radius:8px;background:#0f172a}
+.peak-ctl{display:flex;flex-direction:column;gap:5px}
+.peak-ctl label{font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.08em}
+#peak-station,#peak-hour-number{height:30px;border:1px solid #475569;border-radius:6px;background:#020617;color:#e2e8f0;padding:0 8px}
+#peak-hour-range{width:100%;accent-color:#fbbf24}
+#peak-reset{height:30px;padding:0 10px;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#cbd5e1;cursor:pointer}
+#peak-reset:hover{border-color:#fbbf24;color:#fbbf24}
+#peak-manual-note{font-size:11px;color:#94a3b8;white-space:nowrap}
 #chart-wrap{position:relative;height:320px}
 #pm-chart{display:block;width:100%!important;height:100%!important}
 /* Scroll hint arrow */
@@ -141,6 +149,22 @@ html,body{height:100%;overflow-y:auto;font-family:'Microsoft JhengHei','Segoe UI
 <!-- LINE CHART – scroll down to reach -->
 <div id="chart-sec">
   <div id="chart-title">逐小時 PM2.5（μg/m³）</div>
+  <div id="peak-controls">
+    <div class="peak-ctl">
+      <label for="peak-station">調整站點峰值</label>
+      <select id="peak-station"></select>
+    </div>
+    <div class="peak-ctl">
+      <label for="peak-hour-range">峰值小時</label>
+      <input type="range" id="peak-hour-range" min="0" max="23" value="0">
+    </div>
+    <div class="peak-ctl">
+      <label for="peak-hour-number">Hour</label>
+      <input type="number" id="peak-hour-number" min="0" max="23" step="1" value="0">
+    </div>
+    <button id="peak-reset" type="button">重設</button>
+    <div id="peak-manual-note"></div>
+  </div>
   <div id="chart-wrap">
     <canvas id="pm-chart"></canvas>
   </div>
@@ -194,6 +218,7 @@ let map;
 const circles={};
 const wndMkrs={};   // wind markers keyed by station
 let _chart=null;
+const manualPeakOverrides={};
 
 // ─── DATA ACCESS ──────────────────────────────────────────
 function ddata(d)       { return PEAK_DATA.ALL_DATA[d]||null; }
@@ -207,10 +232,37 @@ function windAtStn(d,h,stnKey){
 // Default: use Taipei for peak-sequence annotation
 function windAt(d,h){ return windAtStn(d,h,'taipei'); }
 
+function defaultPeak(d,k){
+  return ddata(d)?.peaks?.[k]??null;
+}
+
+function getPeakHour(d,k){
+  return manualPeakOverrides[d]?.[k] ?? defaultPeak(d,k)?.h ?? null;
+}
+
+function getPeakForStation(d,k){
+  const h=getPeakHour(d,k);
+  if(h==null) return null;
+  const v=hval(d,k,h);
+  return { h, v };
+}
+
+function setManualPeak(d,k,h){
+  const safeHour=Math.max(0,Math.min(23,Number(h)||0));
+  manualPeakOverrides[d] ??= {};
+  manualPeakOverrides[d][k]=safeHour;
+}
+
+function resetManualPeak(d,k){
+  if(!manualPeakOverrides[d]) return;
+  delete manualPeakOverrides[d][k];
+  if(Object.keys(manualPeakOverrides[d]).length===0) delete manualPeakOverrides[d];
+}
+
 function peakSeq(d){
   const dd=ddata(d); if(!dd) return [];
   return KEYS.map(k=>{
-    const pk=dd.peaks[k]; const w=pk?windAt(d,pk.h):null;
+    const pk=getPeakForStation(d,k); const w=pk?windAt(d,pk.h):null;
     return { ...STN[k], key:k, peakH:pk?.h??null, peakV:pk?.v??null, wWD:w?.WD??null, wWS:w?.WS??null };
   }).filter(s=>s.peakH!=null).sort((a,b)=>a.peakH-b.peakH||(b.peakV||0)-(a.peakV||0));
 }
@@ -467,6 +519,50 @@ function renderChart(d){
 }
 
 // ─── CONTROLS ─────────────────────────────────────────────
+function initPeakControls(){
+  const station=document.getElementById('peak-station');
+  station.innerHTML=KEYS.map(k=>`<option value="${k}">${STN[k].short}</option>`).join('');
+  station.value='sp05_hourly';
+
+  station.addEventListener('change',updatePeakControls);
+  document.getElementById('peak-hour-range').addEventListener('input',e=>applyManualPeak(e.target.value));
+  document.getElementById('peak-hour-number').addEventListener('input',e=>applyManualPeak(e.target.value));
+  document.getElementById('peak-reset').addEventListener('click',()=>{
+    resetManualPeak(day,station.value);
+    updatePeakControls();
+    refreshPeakViews();
+  });
+}
+
+function selectedPeakStation(){
+  return document.getElementById('peak-station')?.value || 'sp05_hourly';
+}
+
+function updatePeakControls(){
+  if(!day) return;
+  const k=selectedPeakStation();
+  const h=getPeakHour(day,k) ?? 0;
+  const isManual=manualPeakOverrides[day]?.[k] != null;
+  document.getElementById('peak-hour-range').value=h;
+  document.getElementById('peak-hour-number').value=h;
+  const v=hval(day,k,h);
+  const note=isManual ? '手動峰值' : '原始峰值';
+  document.getElementById('peak-manual-note').textContent=
+    `${note}：${STN[k].short} ${String(h).padStart(2,'0')}:00${v!=null?` / ${v.toFixed(1)} µg/m³`:''}`;
+}
+
+function applyManualPeak(value){
+  const k=selectedPeakStation();
+  setManualPeak(day,k,value);
+  updatePeakControls();
+  refreshPeakViews();
+}
+
+function refreshPeakViews(){
+  renderPeakSeq(day);
+  if(_chart) _chart.update('none');
+}
+
 function jumpTo(h){ hour=h; document.getElementById('slider').value=h; onHourChange(); }
 
 function onHourChange(){
@@ -482,9 +578,10 @@ function onHourChange(){
 function onDayChange(d){
   day=d;
   document.querySelectorAll('.day-btn').forEach(b=>b.classList.toggle('active',b.dataset.date===d));
-  const pk=ddata(d)?.peaks?.sp05_hourly?.h??12;
+  const pk=getPeakHour(d,'sp05_hourly')??12;
   renderPeakSeq(d);
   renderChart(d);
+  updatePeakControls();
   hour=pk; document.getElementById('slider').value=pk;
   onHourChange();
 }
@@ -525,6 +622,7 @@ window.addEventListener('load',()=>{
 
   document.getElementById('slider').addEventListener('input',onHourChange);
   document.getElementById('play-btn').addEventListener('click',togglePlay);
+  initPeakControls();
 
   initMap();
   onDayChange(PEAK_DATA.RANKED[0].date);
