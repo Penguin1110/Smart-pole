@@ -45,7 +45,7 @@ html,body{height:100%;overflow-y:auto;font-family:'Microsoft JhengHei','Segoe UI
 #play-btn.playing{background:#7c3aed;border-color:#a78bfa;color:#fff}
 
 /* WIND GRID – all stations */
-.wind-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.wind-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
 .wg-cell{background:#0f172a;border-radius:6px;padding:7px 9px;display:flex;flex-direction:column;gap:2px}
 .wg-stn{font-size:10px;color:#475569;font-weight:bold;letter-spacing:.04em}
 .wg-dir{font-size:13px;color:#38bdf8;font-weight:bold}
@@ -185,10 +185,12 @@ const KEYS = Object.keys(STN);
 
 // ─── WIND STATION CONFIG (all available) ──────────────────
 const WIND_STNS = {
-  taipei:  { name:'臺北',  label:'臺北 466920', lat:25.037658, lng:121.514853 },
-  xinyi:   { name:'信義',  label:'信義 C0AC70', lat:25.037822, lng:121.564597 },
-  neihu:   { name:'內湖',  label:'內湖 C0A9F0', lat:25.079422, lng:121.575450 },
-  wenshan: { name:'文山',  label:'文山 C0AC80', lat:25.002350, lng:121.575728 },
+  taipei:       { name:'臺北',  label:'臺北 466920', lat:25.037658, lng:121.514853 },
+  xinyi:        { name:'信義',  label:'信義 C0AC70', lat:25.037822, lng:121.564597 },
+  songshan_cwa: { name:'松山',  label:'松山 C0AH70', lat:25.048710, lng:121.550420 },
+  neihu:        { name:'內湖',  label:'內湖 C0A9F0', lat:25.079422, lng:121.575450 },
+  wenshan:      { name:'文山',  label:'文山 C0AC80', lat:25.002350, lng:121.575728 },
+  yonghe:       { name:'永和',  label:'永和 C0AH10', lat:25.011250, lng:121.508111 },
 };
 const WKEYS = Object.keys(WIND_STNS);
 
