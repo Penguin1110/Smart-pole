@@ -1,0 +1,2 @@
+﻿"觀測時間(hour)","測站氣壓(hPa)","海平面氣壓(hPa)","氣溫(℃)","露點溫度(℃)","相對溼度(%)","風速(m/s)","風向(360degree)","最大瞬間風(m/s)","最大瞬間風風向(360degree)","降水量(mm)","降水時數(h)","日照時數(h)","全天空日射量(MJ/㎡)","能見度(km)","能見度_自動(km)","紫外線指數","總雲量(0~10)","總雲量_衛星(0~10)","地溫0cm","地溫5cm","地溫10cm","地溫20cm","地溫30cm","地溫50cm","地溫100cm"
+"ObsTime","StnPres","SeaPres","Temperature","Td dew point","RH","WS","WD","WSGust","WDGust","Precp","PrecpHour","SunShine","GloblRad","Visb","VisbMean Auto","UVI","Cloud Amount","Cloud Amount Sat","TxSoil0cm","TxSoil5cm","TxSoil10cm","TxSoil20cm","TxSoil30cm","TxSoil50cm","TxSoil100cm"

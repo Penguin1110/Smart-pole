@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高峰日 PM2.5 傳播追蹤</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow-y:auto;font-family:'Microsoft JhengHei','Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;font-size:14px}
+/* Top viewport: full screen height, no scroll */
+#viewport{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* TOP BAR */
+#topbar{padding:8px 14px;background:#1e293b;border-bottom:1px solid #334155;flex-shrink:0;min-height:0}
+#ttl{font-size:15px;font-weight:bold;color:#38bdf8;margin-bottom:6px}
+#day-btns{display:flex;gap:5px;flex-wrap:wrap}
+.day-btn{padding:3px 9px;font-size:11px;border-radius:5px;border:1px solid #475569;background:#0f172a;color:#94a3b8;cursor:pointer;white-space:nowrap}
+.day-btn:hover{border-color:#38bdf8;color:#7dd3fc}
+.day-btn.active{background:#0284c7;color:#fff;border-color:#0284c7}
+
+/* MAIN */
+#main{flex:1;display:flex;overflow:hidden;min-height:0}
+#map-wrap{flex:1;position:relative}
+#map{width:100%;height:100%}
+
+/* SIDE */
+#side{width:330px;display:flex;flex-direction:column;background:#1e293b;border-left:1px solid #334155;overflow:hidden}
+.tabs{display:flex;border-bottom:1px solid #334155;flex-shrink:0}
+.tab{flex:1;padding:9px 6px;text-align:center;font-size:12px;cursor:pointer;color:#64748b;border-bottom:2px solid transparent}
+.tab.active{color:#38bdf8;border-bottom-color:#38bdf8;background:rgba(56,189,248,.05)}
+.tab-pane{display:none;flex:1;overflow-y:auto;padding:12px}
+.tab-pane.active{display:block}
+.sec{margin-bottom:16px}
+.sec-hd{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#475569;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #334155}
+
+/* TIME CONTROL */
+#time-disp{font-size:19px;font-weight:bold;color:#f1f5f9;text-align:center;margin-bottom:8px;letter-spacing:.01em}
+#slider{width:100%;accent-color:#0ea5e9;cursor:pointer;height:6px}
+.sticks{display:flex;justify-content:space-between;font-size:9px;color:#475569;margin-top:3px}
+#play-btn{width:100%;margin-top:8px;padding:7px;background:#0c4a6e;border:1px solid #0284c7;border-radius:6px;color:#7dd3fc;cursor:pointer;font-size:13px}
+#play-btn:hover{background:#0284c7;color:#fff}
+#play-btn.playing{background:#7c3aed;border-color:#a78bfa;color:#fff}
+
+/* WIND GRID – all stations */
+.wind-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.wg-cell{background:#0f172a;border-radius:6px;padding:7px 9px;display:flex;flex-direction:column;gap:2px}
+.wg-stn{font-size:10px;color:#475569;font-weight:bold;letter-spacing:.04em}
+.wg-dir{font-size:13px;color:#38bdf8;font-weight:bold}
+.wg-spd{font-size:11px;color:#94a3b8}
+.wg-na{font-size:11px;color:#334155;font-style:italic}
+.wno{color:#475569;font-size:12px;font-style:italic;padding:6px}
+
+/* RANKING */
+.rl{list-style:none}
+.ri{display:grid;grid-template-columns:22px 1fr 46px;gap:6px;align-items:center;padding:5px 0;border-bottom:1px solid #1e293b}
+.rn{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:bold}
+.rname{font-size:12px}
+.rbar{height:3px;border-radius:2px;margin-top:3px;transition:width .3s}
+.rval{font-size:12px;font-weight:bold;text-align:right}
+
+/* PEAK SEQ */
+.sq-list{list-style:none}
+.sq-item{display:grid;grid-template-columns:22px 1fr 38px 48px 50px;gap:5px;align-items:center;padding:7px 0;border-bottom:1px solid #334155;font-size:12px;cursor:pointer}
+.sq-item:hover{background:rgba(56,189,248,.05);border-radius:4px}
+.sn{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10px;color:#fff;flex-shrink:0}
+.sname{color:#e2e8f0}
+.shour{color:#94a3b8;font-size:11px}
+.spm{color:#fbbf24;font-weight:bold}
+.swind{color:#38bdf8;font-size:11px;text-align:right}
+#prop{font-size:12px;color:#94a3b8;line-height:1.8}
+#prop strong{color:#38bdf8}
+#prop b{color:#fbbf24}
+
+/* CHART SECTION – below viewport, scroll down to see */
+#chart-sec{background:#1e293b;border-top:2px solid #0284c7;padding:14px 20px 20px}
+#chart-title{font-size:13px;color:#94a3b8;font-weight:bold;margin-bottom:10px}
+#chart-wrap{position:relative;height:320px}
+#pm-chart{display:block;width:100%!important;height:100%!important}
+/* Scroll hint arrow */
+#scroll-hint{text-align:center;padding:4px 0;color:#334155;font-size:11px;flex-shrink:0;cursor:default;user-select:none;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<script src="peak_data.js"></script>
+<script src="wind_pm25_data.js"></script>
+
+<div id="viewport">
+  <div id="topbar">
+    <div id="ttl">高峰日 PM2.5 傳播追蹤 &#8212; 風向對齊分析</div>
+    <div id="day-btns"></div>
+  </div>
+
+  <div id="main">
+    <div id="map-wrap"><div id="map"></div></div>
+    <div id="side">
+      <div class="tabs">
+        <div class="tab active" data-tab="rt">即時監測</div>
+        <div class="tab" data-tab="sq">峰值序列</div>
+      </div>
+
+      <div class="tab-pane active" id="tab-rt">
+        <div class="sec">
+          <div class="sec-hd">時間控制</div>
+          <div id="time-disp">—</div>
+          <input type="range" id="slider" min="0" max="23" value="0">
+          <div class="sticks"><span>0時</span><span>6時</span><span>12時</span><span>18時</span><span>23時</span></div>
+          <button id="play-btn">&#9654; 逐時播放</button>
+        </div>
+        <div class="sec">
+          <div class="sec-hd">各風向站 風況</div>
+          <div id="wind-grid"></div>
+        </div>
+        <div class="sec">
+          <div class="sec-hd">即時 PM2.5 排名（μg/m³）</div>
+          <ul class="rl" id="rank-list"></ul>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="tab-sq">
+        <div class="sec">
+          <div class="sec-hd">各站峰值偵測序列</div>
+          <p style="font-size:11px;color:#475569;margin-bottom:10px;line-height:1.6">
+            各站達到當日最高 PM2.5 的時刻排序，搭配當時風向判斷污染傳播方向。<br>點擊列表可跳至該時刻。
+          </p>
+          <ul class="sq-list" id="sq-list"></ul>
+        </div>
+        <div class="sec">
+          <div class="sec-hd">傳播摘要</div>
+          <div id="prop"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="scroll-hint">▼ 往下捲動可查看逐小時折線圖 ▼</div>
+</div>
+
+<!-- LINE CHART – scroll down to reach -->
+<div id="chart-sec">
+  <div id="chart-title">逐小時 PM2.5（μg/m³）</div>
+  <div id="chart-wrap">
+    <canvas id="pm-chart"></canvas>
+  </div>
+</div>
+
+<script>
+// ─── PM2.5 STATION CONFIG ─────────────────────────────────
+const STN = {
+  sp05_hourly: { name:'SP-05 松菸', short:'SP-05',  lat:25.044,   lng:121.562,  color:'#f97316' },
+  songshan:    { name:'松山 EPA',   short:'松山',    lat:25.0497,  lng:121.5775, color:'#3b82f6' },
+  zhongshan:   { name:'中山 EPA',   short:'中山',    lat:25.0632,  lng:121.5236, color:'#8b5cf6' },
+  wanhua:      { name:'萬華 EPA',   short:'萬華',    lat:25.0313,  lng:121.4992, color:'#10b981' },
+  guting:      { name:'古亭 EPA',   short:'古亭',    lat:25.020,   lng:121.530,  color:'#f59e0b' },
+  shilin:      { name:'士林 EPA',   short:'士林',    lat:25.0870,  lng:121.5233, color:'#ef4444' },
+  yangming:    { name:'陽明 EPA',   short:'陽明',    lat:25.1773,  lng:121.5447, color:'#06b6d4' },
+};
+const KEYS = Object.keys(STN);
+
+// ─── WIND STATION CONFIG (all available) ──────────────────
+const WIND_STNS = {
+  taipei:  { name:'臺北',  label:'臺北 466920', lat:25.037658, lng:121.514853 },
+  xinyi:   { name:'信義',  label:'信義 C0AC70', lat:25.037822, lng:121.564597 },
+  neihu:   { name:'內湖',  label:'內湖 C0A9F0', lat:25.079422, lng:121.575450 },
+  wenshan: { name:'文山',  label:'文山 C0AC80', lat:25.002350, lng:121.575728 },
+};
+const WKEYS = Object.keys(WIND_STNS);
+
+// ─── WIND UTILS ───────────────────────────────────────────
+const WD16 = ['北','北北東','東北','東北東','東','東南東','東南','南南東',
+               '南','南南西','西南','西南西','西','西北西','西北','北北西'];
+function wdLbl(d){ return d!=null ? WD16[Math.round(d/22.5)%16] : '--'; }
+function wdArrow(d){
+  if(d==null) return '—';
+  return ['↑','↗','→','↘','↓','↙','←','↖'][Math.round(((d+180)%360)/45)%8];
+}
+
+// ─── PM2.5 COLOR/SIZE ─────────────────────────────────────
+function pm25c(v){
+  if(v==null) return '#1e293b';
+  if(v<12)  return '#34d399';
+  if(v<35)  return '#fbbf24';
+  if(v<54)  return '#fb923c';
+  if(v<150) return '#ef4444';
+  return '#a855f7';
+}
+function pm25r(v){ return v==null ? 8 : Math.max(8, Math.min(28, 8+v*0.35)); }
+
+// ─── STATE ────────────────────────────────────────────────
+let day='', hour=0, playing=false, timer=null;
+let map;
+const circles={};
+const wndMkrs={};   // wind markers keyed by station
+let _chart=null;
+
+// ─── DATA ACCESS ──────────────────────────────────────────
+function ddata(d)       { return PEAK_DATA.ALL_DATA[d]||null; }
+function hval(d,k,h)    { return ddata(d)?.hourly[k]?.[h]??null; }
+
+// Get wind record for a specific wind station
+function windAtStn(d,h,stnKey){
+  const t=`${d}T${String(h).padStart(2,'0')}:00`;
+  return WIND_PM25_DATA?.wind_stations?.[stnKey]?.records?.find(r=>r.t===t)??null;
+}
+// Default: use Taipei for peak-sequence annotation
+function windAt(d,h){ return windAtStn(d,h,'taipei'); }
+
+function peakSeq(d){
+  const dd=ddata(d); if(!dd) return [];
+  return KEYS.map(k=>{
+    const pk=dd.peaks[k]; const w=pk?windAt(d,pk.h):null;
+    return { ...STN[k], key:k, peakH:pk?.h??null, peakV:pk?.v??null, wWD:w?.WD??null, wWS:w?.WS??null };
+  }).filter(s=>s.peakH!=null).sort((a,b)=>a.peakH-b.peakH||(b.peakV||0)-(a.peakV||0));
+}
+
+// ─── MAP ──────────────────────────────────────────────────
+function initMap(){
+  map=L.map('map',{zoomControl:true,attributionControl:false}).setView([25.063,121.535],12);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
+
+  // PM2.5 station markers
+  KEYS.forEach(k=>{
+    const s=STN[k];
+    const c=L.circleMarker([s.lat,s.lng],{
+      radius:10, fillColor:s.color, fillOpacity:.8, color:'#fff', weight:1.5
+    }).addTo(map);
+    c.bindTooltip(s.name,{permanent:false,direction:'top'});
+    circles[k]=c;
+    L.marker([s.lat,s.lng],{
+      icon:L.divIcon({className:'',
+        html:`<div style="background:rgba(15,23,42,.85);border:1px solid ${s.color};color:${s.color};`+
+             `padding:1px 5px;border-radius:4px;font-size:10px;white-space:nowrap;`+
+             `margin-top:14px;margin-left:12px">${s.short}</div>`,
+        iconSize:[50,18],iconAnchor:[0,9]}),
+      interactive:false
+    }).addTo(map);
+  });
+
+  // Placeholder wind markers (populated in updateWindMarkers)
+  WKEYS.forEach(k=>{ wndMkrs[k]=null; });
+}
+
+function makeWindIcon(wd,ws,label){
+  const travel=(wd+180)%360;
+  const sz=Math.max(46, Math.min(80, (ws||1)*10+30));
+  return L.divIcon({
+    className:'',
+    html:`<div style="transform:rotate(${travel}deg);width:${sz}px;height:${sz}px;`+
+         `display:flex;align-items:center;justify-content:center">`+
+         `<svg width="${sz}" height="${sz}" viewBox="-22 -22 44 44">`+
+         `<circle r="19" fill="rgba(56,189,248,.08)" stroke="rgba(56,189,248,.35)" stroke-width="1"/>`+
+         `<line x1="0" y1="15" x2="0" y2="-11" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>`+
+         `<polygon points="0,-19 -5,-9 5,-9" fill="#38bdf8"/>`+
+         `<circle r="4" fill="#38bdf8"/>`+
+         `</svg></div>`,
+    iconSize:[sz,sz],iconAnchor:[sz/2,sz/2]
+  });
+}
+
+function updateWindMarkers(d,h){
+  const outOfRange = d>'2026-02-04';
+  WKEYS.forEach(stnKey=>{
+    if(wndMkrs[stnKey]){ wndMkrs[stnKey].remove(); wndMkrs[stnKey]=null; }
+    if(outOfRange) return;
+    const w=windAtStn(d,h,stnKey);
+    if(!w||w.WD==null) return;
+    const stn=WIND_STNS[stnKey];
+    const mkr=L.marker([stn.lat,stn.lng],{
+      icon:makeWindIcon(w.WD,w.WS,stn.name),
+      interactive:true, zIndexOffset:500
+    }).addTo(map);
+    mkr.bindTooltip(
+      `${stn.label}　${String(h).padStart(2,'0')}:00<br>`+
+      `來自 ${w.WD}° ${wdLbl(w.WD)}，吹往 ${wdLbl((w.WD+180)%360)}<br>`+
+      `風速 ${(w.WS||0).toFixed(1)} m/s`,
+      {direction:'top',className:''}
+    );
+    wndMkrs[stnKey]=mkr;
+  });
+}
+
+function updateCircles(d,h){
+  KEYS.forEach(k=>{
+    const v=hval(d,k,h);
+    circles[k].setRadius(pm25r(v));
+    circles[k].setStyle({fillColor:pm25c(v),fillOpacity:v!=null?.85:.25});
+    circles[k].setTooltipContent(
+      v!=null ? `${STN[k].name} — ${v.toFixed(0)} μg/m³` : `${STN[k].name} — 無資料`
+    );
+  });
+}
+
+// ─── WIND GRID (side panel) ───────────────────────────────
+function renderWindGrid(d,h){
+  const outOfRange=d>'2026-02-04';
+  const el=document.getElementById('wind-grid');
+  if(outOfRange){
+    el.innerHTML=`<div class="wno">⚠ 此日超出風場資料範圍（>2026-02-04）</div>`;
+    return;
+  }
+  el.innerHTML=`<div class="wind-grid">${WKEYS.map(stnKey=>{
+    const w=windAtStn(d,h,stnKey);
+    const stn=WIND_STNS[stnKey];
+    if(!w||w.WD==null){
+      return `<div class="wg-cell">
+        <span class="wg-stn">${stn.name}</span>
+        <span class="wg-na">— 無資料</span>
+      </div>`;
+    }
+    const tr=(w.WD+180)%360;
+    return `<div class="wg-cell">
+      <span class="wg-stn">${stn.name}</span>
+      <span class="wg-dir">${wdArrow(w.WD)} ${wdLbl(w.WD)}</span>
+      <span class="wg-spd">→${wdLbl(tr)}　${(w.WS||0).toFixed(1)} m/s${w.RH!=null?'　'+w.RH+'%':''}</span>
+    </div>`;
+  }).join('')}</div>`;
+}
+
+// ─── REALTIME RANKING ─────────────────────────────────────
+function renderRanking(d,h){
+  const vals=KEYS.map(k=>({...STN[k],key:k,v:hval(d,k,h)}))
+    .filter(x=>x.v!=null).sort((a,b)=>b.v-a.v);
+  const mx=vals[0]?.v||1;
+  document.getElementById('rank-list').innerHTML=vals.map((x,i)=>`
+    <li class="ri">
+      <div class="rn" style="background:${x.color}22;color:${x.color};border:1px solid ${x.color}55">${i+1}</div>
+      <div>
+        <div class="rname">${x.short}</div>
+        <div class="rbar" style="width:${(x.v/mx*100).toFixed(0)}%;background:${pm25c(x.v)}"></div>
+      </div>
+      <div class="rval" style="color:${pm25c(x.v)}">${x.v.toFixed(1)}</div>
+    </li>`).join('');
+}
+
+// ─── PEAK SEQUENCE ────────────────────────────────────────
+function renderPeakSeq(d){
+  const seq=peakSeq(d);
+  document.getElementById('sq-list').innerHTML=seq.map((s,i)=>{
+    const wTip=s.wWD!=null
+      ?`${s.wWD}° ${wdLbl(s.wWD)}→${wdLbl((s.wWD+180)%360)} ${(s.wWS||0).toFixed(1)}m/s`
+      :'無風資料';
+    return `
+    <li class="sq-item" onclick="jumpTo(${s.peakH})" title="跳至 ${s.peakH}時">
+      <div class="sn" style="background:${s.color}">${i+1}</div>
+      <div class="sname">${s.short}</div>
+      <div class="shour">${String(s.peakH).padStart(2,'0')}:00</div>
+      <div class="spm">${s.peakV!=null?s.peakV.toFixed(1):'—'}</div>
+      <div class="swind" title="${wTip}">
+        ${s.wWD!=null ? wdArrow(s.wWD)+' '+(s.wWS||0).toFixed(1)+'m' : '⚠'}
+      </div>
+    </li>`;
+  }).join('');
+
+  const prop=document.getElementById('prop');
+  if(seq.length<2){ prop.textContent='資料不足'; return; }
+  const f=seq[0], l=seq[seq.length-1];
+  const span=l.peakH-f.peakH;
+  const winfo=f.wWD!=null
+    ?`，當時${wdLbl(f.wWD)}風（${f.wWD}°），吹往<strong>${wdLbl((f.wWD+180)%360)}</strong>`
+    :'（無風資料）';
+  prop.innerHTML=`
+    <strong>${f.short}</strong> 最早於 ${String(f.peakH).padStart(2,'0')}:00 達峰${winfo}。<br>
+    <strong style="color:${l.color}">${l.short}</strong> 最晚於 ${String(l.peakH).padStart(2,'0')}:00 達峰，時間差 <b>${span} 小時</b>。<br><br>
+    <span style="font-size:11px;color:#475569;line-height:1.6">
+      箭頭為風的去向（污染傳播方向）。若各站依序沿風向達峰，表示有移動性污染源；
+      若同時達峰則可能為靜風積累事件。
+    </span>`;
+}
+
+// ─── LINE CHART ───────────────────────────────────────────
+const peakMarkersPlugin = {
+  id: 'peakMarkers',
+  afterDatasetsDraw(chart) {
+    if(!day) return;
+    const ctx=chart.ctx;
+    const seq=peakSeq(day);
+    ctx.save();
+    seq.forEach((s,idx)=>{
+      const dsIdx=KEYS.indexOf(s.key);
+      if(dsIdx<0) return;
+      const meta=chart.getDatasetMeta(dsIdx);
+      if(!meta.visible) return;
+      const pt=meta.data[s.peakH];
+      if(!pt) return;
+      const x=pt.x, y=pt.y;
+      ctx.beginPath(); ctx.arc(x,y,14,0,Math.PI*2);
+      ctx.fillStyle=s.color+'33'; ctx.fill();
+      ctx.beginPath(); ctx.arc(x,y,11,0,Math.PI*2);
+      ctx.fillStyle=s.color; ctx.fill();
+      ctx.strokeStyle='#fff'; ctx.lineWidth=2; ctx.stroke();
+      ctx.fillStyle='#fff';
+      ctx.font='bold 10px "Microsoft JhengHei",sans-serif';
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(String(idx+1),x,y);
+    });
+    ctx.restore();
+  }
+};
+
+const vlinePlugin = {
+  id: 'vline',
+  afterDraw(chart) {
+    const meta=chart.getDatasetMeta(0);
+    if(!meta?.data?.[hour]) return;
+    const ctx=chart.ctx;
+    const x=meta.data[hour].x;
+    const top=chart.chartArea.top, bot=chart.chartArea.bottom;
+    ctx.save();
+    ctx.beginPath(); ctx.setLineDash([4,3]);
+    ctx.strokeStyle='#38bdf8'; ctx.lineWidth=1.5;
+    ctx.moveTo(x,top); ctx.lineTo(x,bot); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#38bdf8';
+    ctx.font='bold 10px sans-serif'; ctx.textAlign='center';
+    ctx.fillText(`${String(hour).padStart(2,'0')}:00`,x,top-4);
+    ctx.restore();
+  }
+};
+
+function renderChart(d){
+  const dd=ddata(d); if(!dd) return;
+  const labels=Array.from({length:24},(_,h)=>`${String(h).padStart(2,'0')}:00`);
+  const datasets=KEYS.map(k=>({
+    label:STN[k].short,
+    data:dd.hourly[k]||Array(24).fill(null),
+    borderColor:STN[k].color,
+    backgroundColor:'transparent',
+    tension:0.4,
+    pointRadius:0, pointHoverRadius:5,
+    pointHoverBackgroundColor:STN[k].color,
+    borderWidth:2, spanGaps:true,
+  }));
+
+  if(_chart){
+    _chart.data.datasets.forEach((ds,i)=>{ ds.data=datasets[i].data; });
+    _chart.update('none');
+  } else {
+    const ctx=document.getElementById('pm-chart').getContext('2d');
+    _chart=new Chart(ctx,{
+      type:'line',
+      data:{labels,datasets},
+      options:{
+        responsive:true, maintainAspectRatio:false, animation:false,
+        interaction:{mode:'index',intersect:false},
+        scales:{
+          x:{ ticks:{color:'#475569',font:{size:9},maxRotation:0,maxTicksLimit:13}, grid:{color:'rgba(51,65,85,.5)'} },
+          y:{ min:0, ticks:{color:'#475569',font:{size:10}}, grid:{color:'rgba(51,65,85,.5)'},
+              title:{display:true,text:'μg/m³',color:'#475569',font:{size:10}} }
+        },
+        plugins:{
+          legend:{position:'bottom',labels:{color:'#94a3b8',font:{size:10},boxWidth:12,padding:8,usePointStyle:true,pointStyle:'line'}},
+          tooltip:{
+            backgroundColor:'rgba(15,23,42,.95)',titleColor:'#94a3b8',
+            bodyColor:'#e2e8f0',borderColor:'#334155',borderWidth:1,
+            callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y!=null?ctx.parsed.y.toFixed(1)+' μg/m³':'—'}`}
+          }
+        }
+      },
+      plugins:[peakMarkersPlugin,vlinePlugin]
+    });
+  }
+  const r=PEAK_DATA.RANKED.find(r=>r.date===d);
+  document.getElementById('chart-title').textContent=
+    `${d} 逐小時 PM2.5（μg/m³）${r?`　SP-05 日均 ${r.sp05.toFixed(1)} μg/m³`:''}`;
+}
+
+// ─── CONTROLS ─────────────────────────────────────────────
+function jumpTo(h){ hour=h; document.getElementById('slider').value=h; onHourChange(); }
+
+function onHourChange(){
+  hour=+document.getElementById('slider').value;
+  document.getElementById('time-disp').textContent=`${day}  ${String(hour).padStart(2,'0')}:00`;
+  updateCircles(day,hour);
+  updateWindMarkers(day,hour);
+  renderWindGrid(day,hour);
+  renderRanking(day,hour);
+  if(_chart) _chart.update('none');
+}
+
+function onDayChange(d){
+  day=d;
+  document.querySelectorAll('.day-btn').forEach(b=>b.classList.toggle('active',b.dataset.date===d));
+  const pk=ddata(d)?.peaks?.sp05_hourly?.h??12;
+  renderPeakSeq(d);
+  renderChart(d);
+  hour=pk; document.getElementById('slider').value=pk;
+  onHourChange();
+}
+
+function togglePlay(){
+  playing=!playing;
+  const btn=document.getElementById('play-btn');
+  if(playing){
+    btn.textContent='⏸ 暫停'; btn.classList.add('playing');
+    timer=setInterval(()=>jumpTo((hour+1)%24),650);
+  } else {
+    btn.textContent='▶ 逐時播放'; btn.classList.remove('playing');
+    clearInterval(timer);
+  }
+}
+
+// ─── INIT ─────────────────────────────────────────────────
+window.addEventListener('load',()=>{
+  const cont=document.getElementById('day-btns');
+  PEAK_DATA.RANKED.forEach(r=>{
+    const dLabel=r.date<'2026-01-01'?`'25/${r.date.slice(5)}`:r.date.slice(5);
+    const btn=document.createElement('button');
+    btn.className='day-btn'; btn.dataset.date=r.date;
+    btn.textContent=`#${r.rank} ${dLabel} (${r.sp05.toFixed(1)})`;
+    btn.title=`${r.date}  SP-05日均 ${r.sp05.toFixed(1)} μg/m³`;
+    btn.addEventListener('click',()=>onDayChange(r.date));
+    cont.appendChild(btn);
+  });
+
+  document.querySelectorAll('.tab').forEach(t=>{
+    t.addEventListener('click',()=>{
+      document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===t));
+      document.querySelectorAll('.tab-pane').forEach(p=>
+        p.classList.toggle('active',p.id===`tab-${t.dataset.tab}`)
+      );
+    });
+  });
+
+  document.getElementById('slider').addEventListener('input',onHourChange);
+  document.getElementById('play-btn').addEventListener('click',togglePlay);
+
+  initMap();
+  onDayChange(PEAK_DATA.RANKED[0].date);
+
+  // Resize chart once when it scrolls into view (handles off-screen init)
+  let chartResized=false;
+  document.addEventListener('scroll',()=>{
+    if(chartResized||!_chart) return;
+    const r=document.getElementById('chart-sec').getBoundingClientRect();
+    if(r.top<window.innerHeight){ _chart.resize(); chartResized=true; }
+  });
+});
+</script>
+</body>
+</html>
