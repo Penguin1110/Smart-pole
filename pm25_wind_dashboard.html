@@ -8,6 +8,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="wind_pm25_data.js"></script>
+<script src="kh_wind_pm25_data.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -158,12 +159,16 @@ canvas { display:block; }
 <!-- ────── Header ────── -->
 <div class="hdr">
   <div>
-    <h1>PM2.5 × 風向 地圖儀表板</h1>
-    <div style="font-size:10px;color:var(--sub);">CWA 氣象站風場 × EPA 空氣品質監測</div>
+    <h1 id="wind-title">PM2.5 × 風向 地圖儀表板</h1>
+    <div id="wind-sub" style="font-size:10px;color:var(--sub);">CWA 氣象站風場 × EPA 空氣品質監測</div>
   </div>
   <span class="badge bw">CWA 風場</span>
-  <span class="badge bp">EPA PM2.5</span>
+  <span class="badge bp">PM2.5</span>
   <div id="ts-label">—</div>
+  <div style="display:flex;gap:3px;background:rgba(0,0,0,0.3);border-radius:6px;padding:3px;margin-left:4px;">
+    <button class="spd-btn active" id="btn-wind-taipei" onclick="switchWindCity('taipei')" style="font-size:11px;font-weight:600;">台北</button>
+    <button class="spd-btn" id="btn-wind-kaohsiung" onclick="switchWindCity('kaohsiung')" style="font-size:11px;font-weight:600;">高雄</button>
+  </div>
   <div class="hdr-ctrls">
     <span class="ctrl-lbl">風向站</span>
     <select id="sel-wind">
@@ -521,9 +526,10 @@ let chartRose=null, chartDirPm=null, chartTs=null, chartDaily=null, chartScat=nu
 //  BUILD TIMELINE from scatter data
 // ============================================================
 function buildTimeline() {
+  const _D = getCurrentWindData();
   // Use all wind records matched with pm25
-  const wRecords = WIND_PM25_DATA.wind_stations[windKey]?.records || [];
-  const pRecords = WIND_PM25_DATA.pm25_data[pm25Key] || [];
+  const wRecords = _D.wind_stations[windKey]?.records || [];
+  const pRecords = _D.pm25_data?.[pm25Key] || [];
 
   windMap = {};
   wRecords.forEach(r => { windMap[r.t] = r; });
@@ -612,7 +618,7 @@ function applyTime() {
       cwaMarkers[key].setPopupContent(popHtml);
       return;
     }
-    const rec = WIND_PM25_DATA.wind_stations[key]?.records?.find(r => r.t === t);
+    const rec = getCurrentWindData()?.wind_stations?.[key]?.records?.find(r => r.t === t);
     const wd = rec?.WD ?? null;
     const ws = rec?.WS ?? null;
     cwaMarkers[key].setIcon(makeCwaIcon(stn, wd, ws));
@@ -628,7 +634,7 @@ function applyTime() {
 
   // Update EPA PM2.5 markers
   Object.entries(EPA_STATIONS).forEach(([key, stn]) => {
-    const v = (WIND_PM25_DATA.pm25_data[key] || []).find(r => r.t === t)?.v ?? null;
+    const v = (getCurrentWindData()?.pm25_data?.[key] || []).find(r => r.t === t)?.v ?? null;
     epaMarkers[key].setIcon(makeEpaIcon(stn, v));
     const col = aqiColor(v);
     const qlbl = v==null?'無資料':v<12?'優良':v<35?'普通':v<54?'敏感族群':'不健康';
@@ -660,7 +666,7 @@ function drawWindArrows() {
 
   Object.entries(CWA_STATIONS).forEach(([key, stn]) => {
     if (!stn.hasWind) return;
-    const rec = WIND_PM25_DATA.wind_stations[key]?.records?.find(r => r.t === t);
+    const rec = getCurrentWindData()?.wind_stations?.[key]?.records?.find(r => r.t === t);
     if (!rec || rec.WD == null || rec.WS == null) return;
 
     const px = map.latLngToContainerPoint([stn.lat, stn.lng]);
@@ -711,7 +717,7 @@ function drawHeatmap() {
 
   const t = TIMELINE[timeIdx];
   const pts = Object.entries(EPA_STATIONS).map(([key, stn]) => {
-    const v = (WIND_PM25_DATA.pm25_data[key] || []).find(r => r.t === t)?.v ?? null;
+    const v = (getCurrentWindData()?.pm25_data?.[key] || []).find(r => r.t === t)?.v ?? null;
     const px = map.latLngToContainerPoint([stn.lat, stn.lng]);
     return { x:px.x, y:px.y, v };
   }).filter(p => p.v != null);
@@ -806,12 +812,30 @@ function setSpeed(s) {
 //  GET / COMPUTE PRECOMPUTED ANALYSIS DATA
 // ============================================================
 function getAnalysisData() {
+  const _D = getCurrentWindData();
   const key = `${windKey}_${pm25Key}`;
-  if (WIND_PM25_DATA.precomputed[key]) return WIND_PM25_DATA.precomputed[key];
+  if (_D.precomputed?.[key]) {
+    const pc = _D.precomputed[key];
+    // KH precomputed uses 'box_stats' instead of 'dir_pm25'; also wind_rose is a dict
+    if (pc.box_stats !== undefined) {
+      // Normalize KH wind_rose dict → array format expected by drawWindRose
+      const DIR16 = _D.DIR16 || ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+      const totalCounts = Object.values(pc.wind_rose).reduce((s,bins)=>{
+        const t=Array.isArray(bins)?bins.reduce((a,b)=>a+b,0):(bins||0); return s+t;
+      },0);
+      const wind_rose = DIR16.map((d,i)=>{
+        const bins = pc.wind_rose[d] || [0,0,0,0,0];
+        const count = Array.isArray(bins) ? bins.reduce((a,b)=>a+b,0) : (bins||0);
+        return {dir: i*22.5, dirName:d, count, freq:totalCounts>0?+(count/totalCounts*100).toFixed(2):0, avg_ws:0, bins};
+      });
+      return { wind_rose, dir_pm25: pc.box_stats || [], scatter: pc.scatter || [] };
+    }
+    return pc;
+  }
 
   // Compute on-the-fly
-  const wRecs = WIND_PM25_DATA.wind_stations[windKey]?.records || [];
-  const pRecs = WIND_PM25_DATA.pm25_data[pm25Key] || [];
+  const wRecs = _D.wind_stations?.[windKey]?.records || [];
+  const pRecs = _D.pm25_data?.[pm25Key] || [];
   const pMap = {};  pRecs.forEach(r => { pMap[r.t]=r.v; });
 
   const NUM16=16, sz16=360/16;
@@ -951,8 +975,9 @@ function drawDirPm(dp) {
 //  DRAW TIME SERIES CHART
 // ============================================================
 function drawTs() {
-  const wRecs = WIND_PM25_DATA.wind_stations[windKey]?.records || [];
-  const pRecs = WIND_PM25_DATA.pm25_data[pm25Key] || [];
+  const _D = getCurrentWindData();
+  const wRecs = _D.wind_stations?.[windKey]?.records || [];
+  const pRecs = _D.pm25_data?.[pm25Key] || [];
   const pMap={};  pRecs.forEach(r=>{ pMap[r.t]=r.v; });
 
   const times=[], pm25s=[], wss=[];
@@ -1117,6 +1142,84 @@ document.getElementById('sel-pm25').addEventListener('change', updateAll);
 window.addEventListener('resize', ()=>{
   [chartRose,chartDirPm,chartTs,chartDaily,chartScat].forEach(c=>c&&c.resize());
 });
+
+// ── City toggle ──────────────────────────────────────────
+let currentWindCity = 'taipei';
+
+function getCurrentWindData() {
+  return currentWindCity === 'kaohsiung' ? window.KH_WIND_PM25_DATA : WIND_PM25_DATA;
+}
+
+const WIND_CITY_CFG = {
+  taipei: {
+    title: 'PM2.5 × 風向 地圖儀表板',
+    sub: 'CWA 氣象站風場 × EPA 空氣品質監測',
+    center: [25.05, 121.55], zoom: 11,
+    windOpts: [
+      {val:'taipei',  label:'臺北 466920'},
+      {val:'xinyi',   label:'信義 C0AC70'},
+      {val:'neihu',   label:'內湖 C0A9F0'},
+      {val:'wenshan', label:'文山 C0AC80'},
+    ],
+    pm25Opts: [
+      {val:'songshan',    label:'松山 EPA'},
+      {val:'zhongshan',   label:'中山 EPA'},
+      {val:'wanhua',      label:'萬華 EPA'},
+      {val:'guting',      label:'古亭 EPA'},
+      {val:'shilin',      label:'士林 EPA'},
+      {val:'yangming',    label:'陽明 EPA'},
+      {val:'sp05_hourly', label:'SP-05 智慧桿'},
+    ]
+  },
+  kaohsiung: {
+    title: 'PM2.5 × 風向 地圖儀表板 — 高雄',
+    sub: 'CWA 氣象站風場 × 高雄微型感測器',
+    center: [22.63, 120.30], zoom: 11,
+    windOpts: [
+      {val:'kaohsiung', label:'高雄 467440'},
+      {val:'qshan',     label:'旗山'},
+      {val:'chaozhou',  label:'潮州'},
+    ],
+    pm25Opts: []  // filled from KH_WIND_PM25_DATA.pm25_stations
+  }
+};
+
+function switchWindCity(city) {
+  if (city === currentWindCity) return;
+  currentWindCity = city;
+  document.getElementById('btn-wind-taipei').classList.toggle('active', city === 'taipei');
+  document.getElementById('btn-wind-kaohsiung').classList.toggle('active', city === 'kaohsiung');
+
+  const cfg = WIND_CITY_CFG[city];
+  document.getElementById('wind-title').textContent = cfg.title;
+  document.getElementById('wind-sub').textContent = cfg.sub;
+
+  // Update wind station options
+  const sw = document.getElementById('sel-wind');
+  sw.innerHTML = '';
+  cfg.windOpts.forEach(o => { sw.innerHTML += `<option value="${o.val}">${o.label}</option>`; });
+
+  // Update PM2.5 station options
+  const sp = document.getElementById('sel-pm25');
+  sp.innerHTML = '';
+  let pm25Opts = cfg.pm25Opts;
+  if (city === 'kaohsiung' && window.KH_WIND_PM25_DATA) {
+    pm25Opts = Object.entries(KH_WIND_PM25_DATA.pm25_stations).map(([id, name]) => ({val:id, label:name}));
+  }
+  pm25Opts.forEach(o => { sp.innerHTML += `<option value="${o.val}">${o.label}</option>`; });
+
+  // Update map center
+  map.setView(cfg.center, cfg.zoom);
+
+  // Reset and rebuild
+  stopPlay();
+  updateAll();
+}
+
+// Patch getAnalysisData to use current city's data
+const _origGetAnalysisData = getAnalysisData;
+// Override buildTimeline to use current data source
+const _origBuildTimeline = buildTimeline;
 
 updateAll();
 </script>

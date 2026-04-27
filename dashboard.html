@@ -240,6 +240,11 @@ canvas { max-height: 175px; }
   <div class="badge">Taipei</div>
   <div id="current-time-display">2025-12-12</div>
   <div class="date-range">📅 2025-12-12 ~ 2026-02-09 &nbsp;|&nbsp; 60 天</div>
+  <div style="margin-left:auto;display:flex;gap:6px;">
+    <a href="sensor_map.html" style="padding:3px 10px;border-radius:5px;border:1px solid #3949ab;color:#90caf9;text-decoration:none;font-size:11px;">地圖總覽</a>
+    <a href="peak_compare.html" style="padding:3px 10px;border-radius:5px;border:1px solid #3949ab;color:#90caf9;text-decoration:none;font-size:11px;">高污染日</a>
+    <a href="pm25_wind_dashboard.html" style="padding:3px 10px;border-radius:5px;border:1px solid #3949ab;color:#90caf9;text-decoration:none;font-size:11px;">風向分析</a>
+  </div>
 </div>
 
 <div class="main">
@@ -313,8 +318,14 @@ canvas { max-height: 175px; }
     </div>
 
     <div id="tab-chart" class="tab-content">
-      <div style="margin-bottom:8px;">
-        <div style="font-size:10px;color:#90caf9;margin-bottom:5px;">顯示測站：</div>
+      <div style="margin-bottom:6px;">
+        <div style="font-size:10px;color:#90caf9;margin-bottom:4px;">感測器群組：</div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px;">
+          <button id="grp-sp" class="overlay-toggle on" onclick="setGroup('sp')" style="font-size:10px;padding:3px 10px;">SP 智慧桿</button>
+          <button id="grp-epa" class="overlay-toggle on" onclick="setGroup('epa')" style="font-size:10px;padding:3px 10px;">EPA 大站</button>
+          <button id="grp-micro" class="overlay-toggle" onclick="setGroup('micro')" style="font-size:10px;padding:3px 10px;">微型感測器 <span id="micro-count" style="opacity:0.6;"></span></button>
+        </div>
+        <div style="font-size:10px;color:#90caf9;margin-bottom:5px;">個別測站：</div>
         <div id="chart-toggles" style="display:flex;flex-wrap:wrap;gap:4px;"></div>
       </div>
       <div class="chart-box">
@@ -429,6 +440,73 @@ const CORR = [
 
 const COLORS = { sp05_hourly:'#ff6f00', songshan:'#42a5f5', zhongshan:'#26c6da', wanhua:'#66bb6a', guting:'#ab47bc', shilin:'#ef5350', yangming:'#ffa726' };
 const LABELS = { sp05_hourly:'SP-05 智慧桿', songshan:'松山', zhongshan:'中山', wanhua:'萬華', guting:'古亭', shilin:'士林', yangming:'陽明' };
+const EPA_KEYS = ['songshan','zhongshan','wanhua','guting','shilin','yangming'];
+const SENSOR_PALETTE = ['#8b5cf6','#06b6d4','#10b981','#f59e0b','#ec4899','#3b82f6','#84cc16','#a78bfa','#22d3ee','#34d399'];
+let SENSOR_META = null, SENSOR_TS = null;
+let sensorTsLoaded = false, sensorMetaLoaded = false;
+let activeSensorGroup = false;
+let SENSOR_COLORS = {}, SENSOR_LABELS = {};
+
+async function loadSensorMeta() {
+  if (sensorMetaLoaded) return;
+  sensorMetaLoaded = true;
+  try {
+    const r = await fetch('sensor_meta.json');
+    SENSOR_META = await r.json();
+    const validIds = Object.keys(SENSOR_META).filter(id => SENSOR_META[id].hourly_count >= 100);
+    validIds.forEach((id, i) => {
+      SENSOR_COLORS[id+'_hourly'] = SENSOR_PALETTE[i % SENSOR_PALETTE.length];
+      SENSOR_LABELS[id+'_hourly'] = id;
+    });
+    const cnt = document.getElementById('micro-count');
+    if (cnt) cnt.textContent = `(${validIds.length})`;
+  } catch(e) { console.warn('sensor_meta.json load failed', e); }
+}
+
+async function loadSensorTs() {
+  if (sensorTsLoaded) return;
+  sensorTsLoaded = true;
+  try {
+    const r = await fetch('sensor_timeseries.json');
+    const raw = await r.json();
+    // 轉為 Map: device_id -> Map<timeStr, value>
+    SENSOR_TS = {};
+    for (const [id, pairs] of Object.entries(raw)) {
+      const m = new Map();
+      for (const [t, v] of pairs) m.set(t, v);
+      SENSOR_TS[id] = m;
+    }
+  } catch(e) { console.warn('sensor_timeseries.json load failed', e); }
+}
+
+async function setGroup(grp) {
+  const EPA_KEYS_SET = new Set(EPA_KEYS);
+  if (grp === 'sp') {
+    const btn = document.getElementById('grp-sp');
+    const on = btn.classList.toggle('on');
+    if (on) activeKeys.add('sp05_hourly'); else activeKeys.delete('sp05_hourly');
+  } else if (grp === 'epa') {
+    const btn = document.getElementById('grp-epa');
+    const on = btn.classList.toggle('on');
+    EPA_KEYS.forEach(k => on ? activeKeys.add(k) : activeKeys.delete(k));
+    // sync individual buttons
+    document.querySelectorAll('[data-key]').forEach(b => {
+      if (EPA_KEYS_SET.has(b.dataset.key)) {
+        const c = COLORS[b.dataset.key];
+        b.style.background = on ? c : 'transparent';
+        b.style.color = on ? '#fff' : c;
+      }
+    });
+  } else if (grp === 'micro') {
+    activeSensorGroup = !activeSensorGroup;
+    document.getElementById('grp-micro').classList.toggle('on', activeSensorGroup);
+    if (activeSensorGroup) {
+      await loadSensorMeta();
+      await loadSensorTs();
+    }
+  }
+  buildTsChart();
+}
 
 // ==================== AQI HELPERS ====================
 function aqiColor(v) {
@@ -767,6 +845,7 @@ function initCharts() {
   const c = document.getElementById('chart-toggles');
   Object.keys(LABELS).forEach(key => {
     const btn = document.createElement('button');
+    btn.dataset.key = key;
     btn.style.cssText = `padding:3px 9px;border-radius:10px;border:2px solid ${COLORS[key]};
       background:${COLORS[key]};color:#fff;font-size:10px;cursor:pointer;font-weight:600;transition:all 0.15s;`;
     btn.textContent = LABELS[key];
@@ -778,6 +857,7 @@ function initCharts() {
     };
     c.appendChild(btn);
   });
+  loadSensorMeta();
   buildTsChart();
   buildHourlyChart();
 }
@@ -810,6 +890,19 @@ function buildTsChart() {
     borderWidth: key==='sp05_hourly'?2.5:1.5,
     pointRadius:0, fill:key==='sp05_hourly', tension:0.3, spanGaps:true
   }));
+  // 微型感測器折線（已載入且群組開啟時）
+  if (activeSensorGroup && SENSOR_TS) {
+    for (const [id, tmap] of Object.entries(SENSOR_TS)) {
+      const col = SENSOR_COLORS[id+'_hourly'] || '#8b5cf6';
+      datasets.push({
+        label: id,
+        data: samp.map(r => { const v = tmap.get(r.time.slice(0,16)); return v != null ? v : null; }),
+        borderColor: col, backgroundColor: 'transparent',
+        borderWidth: 1, pointRadius: 0, tension: 0.3, spanGaps: true,
+        borderDash: undefined, hidden: false
+      });
+    }
+  }
   const ctx = document.getElementById('tsChart').getContext('2d');
   if (tsChart) tsChart.destroy();
   tsChart = new Chart(ctx, {

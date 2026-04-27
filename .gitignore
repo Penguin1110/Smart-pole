@@ -13,3 +13,5 @@ config.local.js
 # Optional OS/editor noise
 Thumbs.db
 .DS_Store
+
+claude --resume 18c3bfb9-9985-445c-9d30-ac9cc02444cb

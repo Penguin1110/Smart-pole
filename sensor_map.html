@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>微型感測器地圖總覽</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #0f1117; color: #e8eaf6; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+.header {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+  padding: 10px 20px; display: flex; align-items: center; gap: 14px;
+  border-bottom: 2px solid #3949ab; flex-shrink: 0; flex-wrap: wrap;
+}
+.header h1 { font-size: 17px; font-weight: 600; }
+.badge { background: #8b5cf6; color: #fff; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+
+.city-toggle { display: flex; gap: 3px; background: rgba(0,0,0,0.3); border-radius: 6px; padding: 3px; }
+.city-btn {
+  padding: 3px 12px; border-radius: 4px; border: none; cursor: pointer;
+  font-size: 12px; font-weight: 600; transition: all 0.2s;
+  background: transparent; color: #90caf9;
+}
+.city-btn.active { background: #3949ab; color: #fff; }
+.city-btn:hover:not(.active) { background: rgba(66,165,245,0.15); color: #42a5f5; }
+
+.nav-links { margin-left: auto; display: flex; gap: 8px; }
+.nav-link {
+  padding: 4px 12px; border-radius: 6px; border: 1px solid #3949ab;
+  color: #90caf9; text-decoration: none; font-size: 11px; cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-link:hover { background: rgba(66,165,245,0.15); border-color: #42a5f5; color: #42a5f5; }
+
+.main { display: flex; flex: 1; overflow: hidden; }
+
+#map { flex: 1; position: relative; min-width: 0; }
+
+.right-panel {
+  width: 320px; flex-shrink: 0; background: #13151d;
+  border-left: 1px solid #1e2433; display: flex; flex-direction: column; overflow: hidden;
+}
+.panel-header {
+  padding: 10px 12px; background: #1a1d2a; border-bottom: 1px solid #1e2433; flex-shrink: 0;
+  font-size: 11px; font-weight: 600; color: #90caf9; display: flex; align-items: center; gap: 6px;
+}
+.device-list { flex: 1; overflow-y: auto; padding: 6px; }
+
+.device-card {
+  background: #1a1d2a; border-radius: 6px; padding: 8px 10px;
+  margin-bottom: 5px; cursor: pointer; border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.device-card:hover { border-color: #3949ab; }
+.device-card.selected { border-color: #8b5cf6; }
+.device-name { font-size: 11px; font-weight: 700; color: #e8eaf6; }
+.device-id { font-size: 9px; color: #546e7a; }
+.device-meta { font-size: 9px; color: #546e7a; margin-top: 2px; }
+.device-val {
+  float: right; font-size: 13px; font-weight: 700;
+  padding: 2px 7px; border-radius: 4px; line-height: 1.3;
+}
+.sparkline-wrap { margin-top: 5px; }
+canvas.sparkline { width: 100%; height: 32px; display: block; }
+
+.bottom-panel {
+  height: 140px; background: #13151d; border-top: 1px solid #1e2433;
+  flex-shrink: 0; display: flex; flex-direction: column; overflow: hidden;
+}
+.bottom-header {
+  padding: 5px 12px; background: #1a1d2a; border-bottom: 1px solid #1e2433;
+  font-size: 10px; color: #90caf9; font-weight: 600; flex-shrink: 0; display: flex; align-items: center; gap: 10px;
+}
+#heatmap-canvas-wrap { flex: 1; overflow: auto; position: relative; }
+#heatmap-canvas { display: block; }
+
+.map-legend {
+  position: absolute; bottom: 8px; left: 10px;
+  background: rgba(15,17,23,0.93); border-radius: 8px;
+  padding: 9px 13px; z-index: 999; font-size: 11px; border: 1px solid #1e2433;
+  pointer-events: none;
+}
+.aqi-grad-bar {
+  height: 8px; border-radius: 4px; margin: 5px 0 2px;
+  background: linear-gradient(to right, #00e400, #ffff00, #ff7e00, #ff0000, #8f3f97);
+  width: 140px;
+}
+.grad-labels { display: flex; justify-content: space-between; font-size: 8px; color: #546e7a; }
+
+.dark-popup .leaflet-popup-content-wrapper {
+  background: #1a1d2a; border: 1px solid #3949ab; border-radius: 8px; padding: 0;
+}
+.dark-popup .leaflet-popup-content { margin: 0; }
+.dark-popup .leaflet-popup-tip { background: #1a1d2a; }
+.dark-popup .leaflet-popup-close-button { color: #90caf9; top: 5px; right: 7px; font-size: 16px; }
+.pop-box { padding: 10px 13px; font-size: 12px; min-width: 180px; }
+.pop-box h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.pop-val { border-radius: 5px; padding: 3px 10px; display: inline-block; font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+.pop-row { font-size: 10px; color: #90caf9; margin-bottom: 2px; }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #1a1d2a; }
+::-webkit-scrollbar-thumb { background: #3949ab; border-radius: 2px; }
+
+.loading-overlay {
+  position: fixed; inset: 0; background: rgba(15,17,23,0.9);
+  display: flex; align-items: center; justify-content: center; z-index: 9999;
+  font-size: 14px; color: #90caf9;
+}
+</style>
+</head>
+<body>
+
+<div id="loading-overlay" class="loading-overlay">載入資料中…</div>
+
+<div class="header">
+  <div style="font-size:18px;">🗺️</div>
+  <div>
+    <h1 id="page-title">微型感測器地圖總覽</h1>
+    <div style="font-size:10px;color:#90caf9;">PM2.5 空間分布 · 所有節點</div>
+  </div>
+  <div class="city-toggle">
+    <button class="city-btn active" id="btn-taipei" onclick="switchCity('taipei')">台北</button>
+    <button class="city-btn" id="btn-kaohsiung" onclick="switchCity('kaohsiung')">高雄</button>
+  </div>
+  <div class="badge" id="device-count-badge">— 個裝置</div>
+  <div class="nav-links">
+    <a class="nav-link" href="dashboard.html">主儀表板</a>
+    <a class="nav-link" href="peak_compare.html">高污染日對比</a>
+    <a class="nav-link" href="pm25_wind_dashboard.html">風向分析</a>
+  </div>
+</div>
+
+<div style="display:flex;flex:1;overflow:hidden;flex-direction:column;">
+  <div class="main" style="flex:1;overflow:hidden;">
+    <div style="position:relative;flex:1;min-width:0;">
+      <div id="map" style="height:100%;width:100%;"></div>
+      <div class="map-legend">
+        <div style="font-size:9px;color:#90caf9;margin-bottom:3px;">最新日均 PM2.5 色階</div>
+        <div class="aqi-grad-bar"></div>
+        <div class="grad-labels"><span>0</span><span>12</span><span>35</span><span>54</span><span>150+</span></div>
+        <div style="margin-top:6px;font-size:9px;color:#546e7a;">圓圈大小 = 資料量</div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="panel-header">
+        裝置列表
+        <input id="search-box" type="text" placeholder="搜尋名稱 / ID…"
+          style="margin-left:4px;flex:1;background:#0f1117;border:1px solid #3949ab;border-radius:4px;
+                 padding:2px 6px;font-size:10px;color:#e8eaf6;"
+          oninput="filterDevices(this.value)">
+      </div>
+      <div class="device-list" id="device-list"></div>
+    </div>
+  </div>
+
+  <div class="bottom-panel">
+    <div class="bottom-header">
+      日均值熱圖（x=日期，y=裝置）
+      <span style="font-size:9px;color:#546e7a;margin-left:auto;">顏色 = PM2.5 濃度（μg/m³）</span>
+    </div>
+    <div id="heatmap-canvas-wrap">
+      <canvas id="heatmap-canvas"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+const CITY_CONFIG = {
+  taipei: {
+    label: '台北',
+    metaFile: 'sensor_meta.json',
+    dailyFile: 'daily_avg.json',
+    center: [25.05, 121.55], zoom: 11,
+    minHours: 10,
+    epa: {
+      songshan: {name:'松山(EPA)',lat:25.0499,lng:121.5777},
+      zhongshan:{name:'中山(EPA)',lat:25.0598,lng:121.5208},
+      wanhua:   {name:'萬華(EPA)',lat:25.0315,lng:121.4944},
+      guting:   {name:'古亭(EPA)',lat:25.0200,lng:121.5281},
+      shilin:   {name:'士林(EPA)',lat:25.0878,lng:121.5236},
+      yangming: {name:'陽明(EPA)',lat:25.1773,lng:121.5447},
+    }
+  },
+  kaohsiung: {
+    label: '高雄',
+    metaFile: 'kh_sensor_meta.json',
+    dailyFile: 'kh_daily_avg.json',
+    center: [22.63, 120.30], zoom: 11,
+    minHours: 1,
+    epa: {
+      zuoying: {name:'左營(EPA)',lat:22.6900,lng:120.2956},
+      qianjin: {name:'前金(EPA)',lat:22.6270,lng:120.2960},
+      qianzhen:{name:'前鎮(EPA)',lat:22.5895,lng:120.3143},
+      nanzi:   {name:'楠梓(EPA)',lat:22.7299,lng:120.3249},
+      fengshan:{name:'鳳山(EPA)',lat:22.6278,lng:120.3567},
+      daliao:  {name:'大寮(EPA)',lat:22.5986,lng:120.4043},
+      linyuan: {name:'林園(EPA)',lat:22.4967,lng:120.3966},
+    }
+  }
+};
+
+function aqiColor(v) {
+  if (v == null) return '#546e7a';
+  if (v <= 12)  return '#00e400';
+  if (v <= 35)  return '#ffff00';
+  if (v <= 54)  return '#ff7e00';
+  if (v <= 150) return '#ff0000';
+  return '#8f3f97';
+}
+function aqiLabel(v) {
+  if (v == null) return '無資料';
+  if (v <= 12)  return '優良';
+  if (v <= 35)  return '普通';
+  if (v <= 54)  return '敏感族群';
+  if (v <= 150) return '對所有人不健康';
+  return '非常不健康';
+}
+
+let META = {}, DAILY = [];
+let allDevices = [];
+let markers = {};
+let epaMarkers = [];
+let selectedId = null;
+let sparkCharts = {};
+let currentCity = 'taipei';
+
+const lmap = L.map('map', { center: [25.05, 121.55], zoom: 11, zoomControl: true });
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap', maxZoom: 19
+}).addTo(lmap);
+
+async function switchCity(city) {
+  if (city === currentCity) return;
+  currentCity = city;
+
+  document.querySelectorAll('.city-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + (city === 'taipei' ? 'taipei' : 'kaohsiung')).classList.add('active');
+
+  // Clear existing state
+  Object.values(markers).forEach(m => lmap.removeLayer(m));
+  markers = {};
+  epaMarkers.forEach(m => lmap.removeLayer(m));
+  epaMarkers = [];
+  Object.values(sparkCharts).forEach(c => c.destroy());
+  sparkCharts = {};
+  selectedId = null;
+  document.getElementById('device-list').innerHTML = '';
+  document.getElementById('search-box').value = '';
+
+  await init(city);
+}
+
+async function init(city = 'taipei') {
+  const cfg = CITY_CONFIG[city];
+  document.getElementById('loading-overlay').style.display = 'flex';
+  document.getElementById('page-title').textContent = cfg.label + ' 微型感測器地圖總覽';
+
+  try {
+    const [meta, daily] = await Promise.all([
+      fetch(cfg.metaFile).then(r => r.json()),
+      fetch(cfg.dailyFile).then(r => r.json())
+    ]);
+    META = meta;
+    DAILY = daily;
+  } catch(e) {
+    document.getElementById('loading-overlay').textContent = '資料載入失敗，請確認已啟動 http.server 8080';
+    return;
+  }
+
+  allDevices = Object.values(META)
+    .filter(d => d.hourly_count >= cfg.minHours && d.lat && d.lon)
+    .sort((a, b) => b.hourly_count - a.hourly_count);
+
+  document.getElementById('device-count-badge').textContent = `${allDevices.length} 個裝置`;
+
+  for (const dev of allDevices) {
+    const col = dev.device_id + '_hourly';
+    dev.dailyVals = DAILY
+      .filter(r => r[col] != null)
+      .map(r => ({ date: r.time, v: +r[col] }));
+    dev.latestVal = dev.dailyVals.length ? dev.dailyVals[dev.dailyVals.length - 1].v : null;
+    dev.meanVal = dev.dailyVals.length
+      ? dev.dailyVals.reduce((a, b) => a + b.v, 0) / dev.dailyVals.length
+      : null;
+    dev.displayName = dev.name || dev.device_id;
+  }
+
+  lmap.setView(cfg.center, cfg.zoom);
+  renderMap(cfg);
+  renderDeviceList(allDevices);
+  renderHeatmap();
+  document.getElementById('loading-overlay').style.display = 'none';
+}
+
+function renderMap(cfg) {
+  allDevices.forEach(dev => {
+    const col = aqiColor(dev.latestVal);
+    const radius = Math.max(6, Math.min(14, 6 + dev.hourly_count / 200));
+    const circle = L.circleMarker([dev.lat, dev.lon], {
+      radius, color: '#fff', weight: 1.5, fillColor: col, fillOpacity: 0.85
+    }).addTo(lmap);
+
+    const latestDate = dev.dailyVals.length ? dev.dailyVals[dev.dailyVals.length-1].date : '—';
+    const valStr = dev.latestVal != null ? dev.latestVal.toFixed(1) : '—';
+    circle.bindPopup(`
+      <div class="pop-box">
+        <h4>${dev.displayName}</h4>
+        <span class="pop-val" style="background:${col};color:${(dev.latestVal||0)>35?'#fff':'#000'};">${valStr} μg/m³</span>
+        <div class="pop-row">AQI 等級：${aqiLabel(dev.latestVal)}</div>
+        <div class="pop-row">ID：${dev.device_id}</div>
+        <div class="pop-row">座標：${dev.lat.toFixed(5)}, ${dev.lon.toFixed(5)}</div>
+        <div class="pop-row">最新日期：${latestDate}</div>
+        <div class="pop-row">資料期間：${dev.time_start||'—'} ～ ${dev.time_end||'—'}</div>
+        <div class="pop-row">有效小時筆數：${dev.hourly_count}</div>
+      </div>
+    `, { className: 'dark-popup' });
+
+    circle.on('click', () => selectDevice(dev.device_id));
+    markers[dev.device_id] = circle;
+  });
+
+  // EPA reference stations (dashed circles)
+  Object.values(cfg.epa).forEach(sta => {
+    const m = L.circleMarker([sta.lat, sta.lng], {
+      radius: 7, color: '#aaa', weight: 2,
+      fillColor: '#90a4ae', fillOpacity: 0.5, dashArray: '4 3'
+    }).addTo(lmap).bindPopup(`<b>${sta.name}</b><br><small>EPA 官方測站</small>`);
+    epaMarkers.push(m);
+  });
+}
+
+function renderDeviceList(devs) {
+  const list = document.getElementById('device-list');
+  list.innerHTML = '';
+  devs.forEach(dev => {
+    const col = aqiColor(dev.latestVal);
+    const valStr = dev.latestVal != null ? dev.latestVal.toFixed(1) : '—';
+    const card = document.createElement('div');
+    card.className = 'device-card' + (dev.device_id === selectedId ? ' selected' : '');
+    card.id = 'card-' + dev.device_id;
+    const meta2 = dev.town ? `${dev.town} · ` : '';
+    card.innerHTML = `
+      <div>
+        <span class="device-val" style="background:${col};color:${(dev.latestVal||0)>35?'#fff':'#000'};">${valStr}</span>
+        <span class="device-name">${dev.displayName}</span>
+      </div>
+      <div class="device-id">${dev.device_id}</div>
+      <div class="device-meta">${meta2}${dev.hourly_count}h · ${dev.time_start||''} ~ ${dev.time_end||''}</div>
+      <div class="sparkline-wrap">
+        <canvas class="sparkline" id="spark-${dev.device_id}" height="32"></canvas>
+      </div>
+    `;
+    card.onclick = () => selectDevice(dev.device_id);
+    list.appendChild(card);
+    drawSparkline(dev);
+  });
+}
+
+function drawSparkline(dev) {
+  const canvas = document.getElementById('spark-' + dev.device_id);
+  if (!canvas) return;
+  if (sparkCharts[dev.device_id]) sparkCharts[dev.device_id].destroy();
+  const vals = dev.dailyVals;
+  sparkCharts[dev.device_id] = new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: vals.map(v => v.date.slice(5)),
+      datasets: [{
+        data: vals.map(v => v.v),
+        borderColor: aqiColor(dev.meanVal),
+        borderWidth: 1.5, pointRadius: 0,
+        fill: false, tension: 0.3, spanGaps: true
+      }]
+    },
+    options: {
+      animation: false, responsive: false,
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales: { x: { display: false }, y: { display: false } }
+    }
+  });
+}
+
+function selectDevice(id) {
+  selectedId = id;
+  document.querySelectorAll('.device-card').forEach(c => c.classList.remove('selected'));
+  const card = document.getElementById('card-' + id);
+  if (card) { card.classList.add('selected'); card.scrollIntoView({ block: 'nearest' }); }
+  const dev = META[id];
+  if (dev && markers[id]) {
+    lmap.flyTo([dev.lat, dev.lon], 14, { duration: 0.8 });
+    markers[id].openPopup();
+  }
+}
+
+function filterDevices(q) {
+  const lq = q.toLowerCase();
+  const filtered = q
+    ? allDevices.filter(d =>
+        d.device_id.includes(q) ||
+        (d.name || '').toLowerCase().includes(lq) ||
+        (d.town || '').toLowerCase().includes(lq)
+      )
+    : allDevices;
+  Object.values(sparkCharts).forEach(c => c.destroy());
+  sparkCharts = {};
+  renderDeviceList(filtered);
+}
+
+function renderHeatmap() {
+  const devs = allDevices.filter(d => d.hourly_count >= 10).slice(0, 60);
+  if (!devs.length) return;
+
+  const dates = [...new Set(DAILY.map(r => r.time))].sort();
+  const CELL_W = 8, CELL_H = 12, LABEL_W = 90, LABEL_H = 20;
+  const W = LABEL_W + dates.length * CELL_W;
+  const H = LABEL_H + devs.length * CELL_H;
+
+  const canvas = document.getElementById('heatmap-canvas');
+  canvas.width = W; canvas.height = H;
+  canvas.style.minWidth = W + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#13151d';
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.fillStyle = '#546e7a';
+  ctx.font = '8px sans-serif';
+  dates.forEach((d, j) => {
+    if (j % 7 === 0) {
+      ctx.save(); ctx.translate(LABEL_W + j * CELL_W + CELL_W/2, LABEL_H - 2);
+      ctx.fillText(d.slice(5), 0, 0);
+      ctx.restore();
+    }
+  });
+
+  const dailyByDate = {};
+  DAILY.forEach(r => { dailyByDate[r.time] = r; });
+
+  devs.forEach((dev, i) => {
+    const col_key = dev.device_id + '_hourly';
+    const y = LABEL_H + i * CELL_H;
+    ctx.fillStyle = '#90caf9';
+    ctx.font = '8px monospace';
+    const label = (dev.name || dev.device_id).slice(0, 8);
+    ctx.fillText(label, 2, y + CELL_H - 3);
+    dates.forEach((d, j) => {
+      const row = dailyByDate[d];
+      const v = row ? row[col_key] : null;
+      ctx.fillStyle = v != null ? aqiColor(v) : '#1a1d2a';
+      ctx.fillRect(LABEL_W + j * CELL_W, y, CELL_W - 1, CELL_H - 1);
+    });
+  });
+}
+
+init('taipei').catch(e => {
+  console.error(e);
+  document.getElementById('loading-overlay').textContent = '資料載入失敗，請確認已啟動 http.server 8080';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* ══════════════════════════════════════════════════════
+   kh_theme.css — 高雄儀表板共用設計系統
+   從各 kh 頁面高頻值提取，各頁面以 <link> 引入
+══════════════════════════════════════════════════════ */
+
+/* ── 設計變數 ── */
+:root {
+  --bg:    #0f1117;
+  --card:  #1a1d2a;
+  --brd:   #1e2433;
+  --txt:   #e8eaf6;
+  --muted: #9aa3b5;
+  --acc:   #4fc3f7;
+  --red:   #e94560;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--txt);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+}
+
+/* ── 全域捲軸 ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-thumb { background: var(--brd); border-radius: 2px; }
+
+/* ── 頁首（#hdr 用於獨立頁面）── */
+#hdr {
+  height: 50px;
+  background: #0d1117;
+  border-bottom: 1px solid var(--brd);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+#hdr h1 { font-size: 15px; font-weight: 600; }
+
+/* ── 頁頂導覽 ── */
+nav { margin-left: auto; display: flex; gap: 2px; }
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  transition: color .15s, background .15s;
+}
+nav a:hover { background: var(--brd); color: var(--txt); }
+nav a.active { background: var(--brd); color: var(--acc); }
+
+/* ── 表單控制項 ── */
+select, input[type=date] {
+  background: var(--bg);
+  border: 1px solid var(--brd);
+  color: var(--txt);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+}
+select:focus, input[type=date]:focus { border-color: var(--acc); }
+
+/* ── 錯誤橫幅 ── */
+#err-banner {
+  display: none;
+  background: #2a1a1a;
+  border-bottom: 1px solid #5a2a2a;
+  color: #ef9a9a;
+  font-size: 12px;
+  padding: 5px 16px;
+  text-align: center;
+}
+#err-banner code { background: #1a0d0d; padding: 1px 5px; border-radius: 3px; }
