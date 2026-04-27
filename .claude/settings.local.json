@@ -16,7 +16,20 @@
       "Bash(curl -s http://localhost:8090/sensor_timeseries.json)",
       "Bash(kill %1)",
       "Bash([ -f \"/Users/wayne/Smart-pole/$f\" ])",
-      "Bash(python3 -c \"import json; d=json.load\\(open\\('/Users/wayne/Smart-pole/kh_sensor_meta.json'\\)\\); k=list\\(d.keys\\(\\)\\)[0]; print\\(k, d[k]\\)\")"
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('/Users/wayne/Smart-pole/kh_sensor_meta.json'\\)\\); k=list\\(d.keys\\(\\)\\)[0]; print\\(k, d[k]\\)\")",
+      "Bash(git -C /Users/wayne/Smart-pole status --short)",
+      "Bash(git -C /Users/wayne/Smart-pole stash list)",
+      "Bash(git -C /Users/wayne/Smart-pole status)",
+      "Bash(git -C /Users/wayne/Smart-pole log --oneline -10)",
+      "Bash(git -C /Users/wayne/Smart-pole show --stat HEAD)",
+      "Bash(git -C /Users/wayne/Smart-pole show f687359 --stat)",
+      "Bash(git -C /Users/wayne/Smart-pole log --all --oneline)",
+      "Bash(git -C /Users/wayne/Smart-pole branch -a)",
+      "Bash(git -C /Users/wayne/Smart-pole diff f687359 b29a42c --name-status)",
+      "Bash(git -C /Users/wayne/Smart-pole show b29a42c --stat)",
+      "Bash(git -C /Users/wayne/Smart-pole ls-files kh_dashboard.html)",
+      "Bash(git checkout *)",
+      "Bash(git *)"
     ]
   }
 }
