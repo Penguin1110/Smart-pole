@@ -1,0 +1,550 @@
+{
+  "generated_at": "2026-04-21T08:44:51.893Z",
+  "fields": {
+    "WD": "wind direction deg",
+    "WS": "wind speed m/s",
+    "RH": "relative humidity %",
+    "Temp": "temperature C",
+    "Td": "dew point C",
+    "StnPres": "station pressure hPa",
+    "SeaPres": "sea-level pressure hPa",
+    "WSGust": "gust speed m/s",
+    "WDGust": "gust direction deg",
+    "Precp": "precipitation mm",
+    "PrecpHour": "precipitation duration h",
+    "SunShine": "sunshine duration h",
+    "GloblRad": "global radiation MJ/m2",
+    "UVI": "UV index",
+    "Cloud": "satellite cloud amount 0-10"
+  },
+  "stations": {
+    "taipei": {
+      "name": "臺北 466920",
+      "station_id": "466920",
+      "lat": 25.037658,
+      "lng": 121.514853,
+      "records": 1464,
+      "range": [
+        "2025-12-04T01:00",
+        "2026-02-05T00:00"
+      ],
+      "coverage": {
+        "WD": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "WS": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "RH": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "Temp": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "Td": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "StnPres": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "SeaPres": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "WSGust": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "WDGust": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "Precp": {
+          "non_null": 1211,
+          "total": 1464,
+          "pct": 82.7
+        },
+        "PrecpHour": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "SunShine": {
+          "non_null": 1194,
+          "total": 1464,
+          "pct": 81.6
+        },
+        "GloblRad": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "UVI": {
+          "non_null": 1464,
+          "total": 1464,
+          "pct": 100
+        },
+        "Cloud": {
+          "non_null": 1451,
+          "total": 1464,
+          "pct": 99.1
+        }
+      }
+    },
+    "xinyi": {
+      "name": "信義 C0AC70",
+      "station_id": "C0AC70",
+      "lat": 25.037822,
+      "lng": 121.564597,
+      "records": 1488,
+      "range": [
+        "2025-12-04T01:00",
+        "2026-02-05T00:00"
+      ],
+      "coverage": {
+        "WD": {
+          "non_null": 1474,
+          "total": 1488,
+          "pct": 99.1
+        },
+        "WS": {
+          "non_null": 1474,
+          "total": 1488,
+          "pct": 99.1
+        },
+        "RH": {
+          "non_null": 1474,
+          "total": 1488,
+          "pct": 99.1
+        },
+        "Temp": {
+          "non_null": 1474,
+          "total": 1488,
+          "pct": 99.1
+        },
+        "Td": {
+          "non_null": 0,
+          "total": 1488,
+          "pct": 0
+        },
+        "StnPres": {
+          "non_null": 1474,
+          "total": 1488,
+          "pct": 99.1
+        },
+        "SeaPres": {
+          "non_null": 0,
+          "total": 1488,
+          "pct": 0
+        },
+        "WSGust": {
+          "non_null": 1486,
+          "total": 1488,
+          "pct": 99.9
+        },
+        "WDGust": {
+          "non_null": 1486,
+          "total": 1488,
+          "pct": 99.9
+        },
+        "Precp": {
+          "non_null": 1476,
+          "total": 1488,
+          "pct": 99.2
+        },
+        "PrecpHour": {
+          "non_null": 0,
+          "total": 1488,
+          "pct": 0
+        },
+        "SunShine": {
+          "non_null": 0,
+          "total": 1488,
+          "pct": 0
+        },
+        "GloblRad": {
+          "non_null": 0,
+          "total": 1488,
+          "pct": 0
+        },
+        "UVI": {
+          "non_null": 0,
+          "total": 1488,
+          "pct": 0
+        },
+        "Cloud": {
+          "non_null": 0,
+          "total": 1488,
+          "pct": 0
+        }
+      }
+    },
+    "songshan_cwa": {
+      "name": "松山 C0AH70",
+      "station_id": "C0AH70",
+      "lat": 25.04871,
+      "lng": 121.55042,
+      "records": 1416,
+      "range": [
+        "2025-12-04T01:00",
+        "2026-02-05T00:00"
+      ],
+      "coverage": {
+        "WD": {
+          "non_null": 1384,
+          "total": 1416,
+          "pct": 97.7
+        },
+        "WS": {
+          "non_null": 1384,
+          "total": 1416,
+          "pct": 97.7
+        },
+        "RH": {
+          "non_null": 1384,
+          "total": 1416,
+          "pct": 97.7
+        },
+        "Temp": {
+          "non_null": 1384,
+          "total": 1416,
+          "pct": 97.7
+        },
+        "Td": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "StnPres": {
+          "non_null": 1384,
+          "total": 1416,
+          "pct": 97.7
+        },
+        "SeaPres": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "WSGust": {
+          "non_null": 1385,
+          "total": 1416,
+          "pct": 97.8
+        },
+        "WDGust": {
+          "non_null": 1385,
+          "total": 1416,
+          "pct": 97.8
+        },
+        "Precp": {
+          "non_null": 1383,
+          "total": 1416,
+          "pct": 97.7
+        },
+        "PrecpHour": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "SunShine": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "GloblRad": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "UVI": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "Cloud": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        }
+      }
+    },
+    "wenshan": {
+      "name": "文山 C0AC80",
+      "station_id": "C0AC80",
+      "lat": 25.00235,
+      "lng": 121.575728,
+      "records": 1416,
+      "range": [
+        "2025-12-04T01:00",
+        "2026-02-05T00:00"
+      ],
+      "coverage": {
+        "WD": {
+          "non_null": 1323,
+          "total": 1416,
+          "pct": 93.4
+        },
+        "WS": {
+          "non_null": 1323,
+          "total": 1416,
+          "pct": 93.4
+        },
+        "RH": {
+          "non_null": 1323,
+          "total": 1416,
+          "pct": 93.4
+        },
+        "Temp": {
+          "non_null": 1323,
+          "total": 1416,
+          "pct": 93.4
+        },
+        "Td": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "StnPres": {
+          "non_null": 1323,
+          "total": 1416,
+          "pct": 93.4
+        },
+        "SeaPres": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "WSGust": {
+          "non_null": 1416,
+          "total": 1416,
+          "pct": 100
+        },
+        "WDGust": {
+          "non_null": 1416,
+          "total": 1416,
+          "pct": 100
+        },
+        "Precp": {
+          "non_null": 1312,
+          "total": 1416,
+          "pct": 92.7
+        },
+        "PrecpHour": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "SunShine": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "GloblRad": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "UVI": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        },
+        "Cloud": {
+          "non_null": 0,
+          "total": 1416,
+          "pct": 0
+        }
+      }
+    },
+    "neihu": {
+      "name": "內湖 C0A9F0",
+      "station_id": "C0A9F0",
+      "lat": 25.079422,
+      "lng": 121.57545,
+      "records": 1512,
+      "range": [
+        "2025-12-04T01:00",
+        "2026-02-05T00:00"
+      ],
+      "coverage": {
+        "WD": {
+          "non_null": 1479,
+          "total": 1512,
+          "pct": 97.8
+        },
+        "WS": {
+          "non_null": 1479,
+          "total": 1512,
+          "pct": 97.8
+        },
+        "RH": {
+          "non_null": 1479,
+          "total": 1512,
+          "pct": 97.8
+        },
+        "Temp": {
+          "non_null": 1479,
+          "total": 1512,
+          "pct": 97.8
+        },
+        "Td": {
+          "non_null": 0,
+          "total": 1512,
+          "pct": 0
+        },
+        "StnPres": {
+          "non_null": 1479,
+          "total": 1512,
+          "pct": 97.8
+        },
+        "SeaPres": {
+          "non_null": 0,
+          "total": 1512,
+          "pct": 0
+        },
+        "WSGust": {
+          "non_null": 1512,
+          "total": 1512,
+          "pct": 100
+        },
+        "WDGust": {
+          "non_null": 1512,
+          "total": 1512,
+          "pct": 100
+        },
+        "Precp": {
+          "non_null": 1478,
+          "total": 1512,
+          "pct": 97.8
+        },
+        "PrecpHour": {
+          "non_null": 0,
+          "total": 1512,
+          "pct": 0
+        },
+        "SunShine": {
+          "non_null": 0,
+          "total": 1512,
+          "pct": 0
+        },
+        "GloblRad": {
+          "non_null": 0,
+          "total": 1512,
+          "pct": 0
+        },
+        "UVI": {
+          "non_null": 0,
+          "total": 1512,
+          "pct": 0
+        },
+        "Cloud": {
+          "non_null": 0,
+          "total": 1512,
+          "pct": 0
+        }
+      }
+    },
+    "yonghe": {
+      "name": "永和 C0AH10",
+      "station_id": "C0AH10",
+      "lat": 25.01125,
+      "lng": 121.508111,
+      "records": 984,
+      "range": [
+        "2025-12-05T01:00",
+        "2026-02-05T00:00"
+      ],
+      "coverage": {
+        "WD": {
+          "non_null": 903,
+          "total": 984,
+          "pct": 91.8
+        },
+        "WS": {
+          "non_null": 903,
+          "total": 984,
+          "pct": 91.8
+        },
+        "RH": {
+          "non_null": 0,
+          "total": 984,
+          "pct": 0
+        },
+        "Temp": {
+          "non_null": 0,
+          "total": 984,
+          "pct": 0
+        },
+        "Td": {
+          "non_null": 0,
+          "total": 984,
+          "pct": 0
+        },
+        "StnPres": {
+          "non_null": 903,
+          "total": 984,
+          "pct": 91.8
+        },
+        "SeaPres": {
+          "non_null": 0,
+          "total": 984,
+          "pct": 0
+        },
+        "WSGust": {
+          "non_null": 983,
+          "total": 984,
+          "pct": 99.9
+        },
+        "WDGust": {
+          "non_null": 983,
+          "total": 984,
+          "pct": 99.9
+        },
+        "Precp": {
+          "non_null": 943,
+          "total": 984,
+          "pct": 95.8
+        },
+        "PrecpHour": {
+          "non_null": 0,
+          "total": 984,
+          "pct": 0
+        },
+        "SunShine": {
+          "non_null": 0,
+          "total": 984,
+          "pct": 0
+        },
+        "GloblRad": {
+          "non_null": 0,
+          "total": 984,
+          "pct": 0
+        },
+        "UVI": {
+          "non_null": 0,
+          "total": 984,
+          "pct": 0
+        },
+        "Cloud": {
+          "non_null": 0,
+          "total": 984,
+          "pct": 0
+        }
+      }
+    }
+  }
+}

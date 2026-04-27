@@ -1,15 +1,14 @@
 # Keep the repo focused on frontend deliverables.
-其他資料/
 analysis_scripts/
 pyELQ/
 
-# Common local artifacts
+# Common local artifacts.
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 config.local.js
 
-# Optional OS/editor noise
+# Optional OS/editor noise.
 Thumbs.db
 .DS_Store
