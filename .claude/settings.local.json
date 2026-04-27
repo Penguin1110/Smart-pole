@@ -15,7 +15,8 @@
       "Bash(curl -s http://localhost:8090/sensor_meta.json)",
       "Bash(curl -s http://localhost:8090/sensor_timeseries.json)",
       "Bash(kill %1)",
-      "Bash([ -f \"/Users/wayne/Smart-pole/$f\" ])"
+      "Bash([ -f \"/Users/wayne/Smart-pole/$f\" ])",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('/Users/wayne/Smart-pole/kh_sensor_meta.json'\\)\\); k=list\\(d.keys\\(\\)\\)[0]; print\\(k, d[k]\\)\")"
     ]
   }
 }
