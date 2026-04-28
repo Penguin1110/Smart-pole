@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>高雄 PM2.5 整合儀表板</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="kh_theme.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<style>
+/* 整合儀表板專屬樣式（共用變數與 reset 已移至 kh_theme.css） */
+
+/* ── App shell ── */
+#app{height:100vh;display:flex;flex-direction:column;}
+#app-hdr{
+  height:50px;flex-shrink:0;background:#0d1117;
+  border-bottom:1px solid var(--brd);
+  display:flex;align-items:center;overflow:hidden;
+}
+.app-logo{
+  padding:0 16px;font-size:14px;font-weight:700;color:var(--acc);
+  white-space:nowrap;border-right:1px solid var(--brd);height:100%;
+  display:flex;align-items:center;gap:6px;flex-shrink:0;
+}
+.app-logo span{color:var(--muted);font-weight:400;font-size:11px;}
+.tab-bar{display:flex;overflow-x:auto;flex:1;height:100%;}
+.tab-bar::-webkit-scrollbar{display:none;}
+.tab-btn{
+  height:100%;padding:0 15px;background:transparent;border:none;
+  color:var(--muted);font-size:12px;cursor:pointer;white-space:nowrap;
+  border-right:1px solid var(--brd);border-bottom:3px solid transparent;
+  transition:color .15s,background .15s,border-bottom-color .15s;
+}
+.tab-btn:hover{color:var(--txt);background:rgba(255,255,255,.03);}
+.tab-btn.active{color:var(--acc);border-bottom-color:var(--acc);}
+
+/* ── Tab sections ── */
+#app-body{flex:1;min-height:0;position:relative;overflow:hidden;}
+.tab-sec{position:absolute;inset:0;display:none;flex-direction:column;}
+.tab-sec.active{display:flex;}
+
+/* ── Shared control bar ── */
+.ctrl-bar{
+  display:flex;align-items:center;gap:8px;padding:6px 14px;
+  background:var(--card);border-bottom:1px solid var(--brd);
+  flex-shrink:0;flex-wrap:wrap;
+}
+.ctrl-bar label{font-size:11px;color:var(--muted);}
+.ctrl-bar select,.ctrl-bar input[type=date]{
+  background:var(--bg);border:1px solid var(--brd);color:var(--txt);
+  padding:4px 8px;border-radius:4px;font-size:12px;outline:none;cursor:pointer;
+}
+.ctrl-bar select:focus,.ctrl-bar input[type=date]:focus{border-color:var(--acc);}
+.ctrl-bar button{
+  padding:4px 12px;border-radius:4px;background:var(--acc);color:#000;
+  border:none;cursor:pointer;font-size:12px;font-weight:600;transition:background .15s;
+}
+.ctrl-bar button:hover{background:#37afd8;}
+.ctrl-bar button.play-active{background:var(--red);color:#fff;}
+
+/* checkbox */
+.ck-wrap{display:flex;align-items:center;gap:4px;}
+.ck-wrap input[type=checkbox]{accent-color:var(--acc);cursor:pointer;width:13px;height:13px;}
+.ck-wrap label{font-size:11px;color:var(--muted);cursor:pointer;}
+
+/* station chips */
+.stbtn{padding:2px 8px;border-radius:12px;font-size:11px;cursor:pointer;
+  border:1px solid var(--brd);background:var(--bg);color:var(--muted);
+  transition:all .15s;user-select:none;}
+.stbtn.on{color:var(--txt);}
+#db-station-list{display:flex;gap:5px;flex-wrap:wrap;max-width:680px;}
+
+/* range slider */
+.hour-slider{
+  -webkit-appearance:none;appearance:none;
+  width:100px;height:4px;background:var(--brd);border-radius:2px;
+  cursor:pointer;border:none;padding:0;outline:none;
+}
+.hour-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:13px;height:13px;border-radius:50%;
+  background:var(--red);cursor:pointer;
+}
+
+/* ── Shared layout pieces ── */
+.split{display:flex;flex:1;overflow:hidden;min-height:0;}
+.main-col{flex:1;display:flex;flex-direction:column;padding:10px;gap:8px;min-width:0;}
+.sidebar{width:190px;background:var(--card);border-left:1px solid var(--brd);
+  padding:10px;overflow-y:auto;flex-shrink:0;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:var(--brd);border-radius:2px;}
+.sidebar h3{font-size:11px;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.5px;margin-bottom:8px;}
+.chart-card{background:var(--card);border:1px solid var(--brd);border-radius:6px;
+  padding:10px;position:relative;}
+.chart-card canvas{width:100%!important;height:100%!important;}
+.flex1{flex:1;min-height:0;}
+.shrink0{flex-shrink:0;}
+
+/* ── Stat cards ── */
+.stat-row{display:flex;gap:8px;flex-shrink:0;}
+.stat-card{flex:1;background:var(--card);border:1px solid var(--brd);
+  border-radius:6px;padding:10px 14px;}
+.stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+.stat-val{font-size:22px;font-weight:700;margin-top:2px;}
+.stat-sub{font-size:10px;color:var(--muted);margin-top:2px;}
+
+/* ── Peak panel ── */
+#db-peak-panel{height:155px;background:var(--card);border:1px solid var(--brd);
+  border-radius:6px;flex-shrink:0;display:flex;flex-direction:column;overflow:hidden;}
+#db-peak-hdr{display:flex;align-items:center;justify-content:space-between;
+  padding:5px 10px;border-bottom:1px solid var(--brd);flex-shrink:0;}
+#db-peak-hdr .ph-title{font-size:11px;font-weight:600;color:var(--acc);}
+#db-peak-hdr .ph-note{font-size:10px;color:var(--muted);}
+#db-peak-hdr .ph-spread{font-size:10px;color:var(--muted);}
+#db-peak-scroll{overflow:auto;flex:1;}
+#db-peak-scroll::-webkit-scrollbar{width:4px;height:4px;}
+#db-peak-scroll::-webkit-scrollbar-thumb{background:var(--brd);border-radius:2px;}
+#db-peak-table{width:100%;border-collapse:collapse;font-size:11px;min-width:560px;}
+#db-peak-table thead th{
+  position:sticky;top:0;z-index:1;background:#111520;color:var(--muted);
+  font-weight:600;padding:4px 8px;text-align:left;
+  border-bottom:1px solid var(--brd);white-space:nowrap;}
+#db-peak-table td{padding:3px 8px;border-bottom:1px solid #161922;
+  white-space:nowrap;vertical-align:middle;}
+#db-peak-table tr:last-child td{border-bottom:none;}
+#db-peak-table tr:hover td{background:rgba(30,36,51,.6);}
+.tl-wrap{position:relative;height:8px;background:var(--brd);border-radius:4px;min-width:80px;}
+.tl-base{position:absolute;top:-2px;bottom:-2px;width:1px;background:rgba(255,255,255,.15);}
+.tl-dot{position:absolute;top:50%;transform:translate(-50%,-50%);
+  width:9px;height:9px;border-radius:50%;border:2px solid rgba(255,255,255,.3);}
+
+/* ── Sensor Map ── */
+#sm-main{display:flex;height:calc(100% - 140px);}
+#sm-map{flex:1;min-width:0;}
+#sm-rpanel{width:300px;background:var(--card);border-left:1px solid var(--brd);
+  display:flex;flex-direction:column;overflow:hidden;}
+#sm-srch{margin:10px;padding:6px 10px;background:var(--bg);border:1px solid var(--brd);
+  border-radius:4px;color:var(--txt);width:calc(100% - 20px);font-size:12px;outline:none;}
+#sm-srch:focus{border-color:var(--acc);}
+#sm-devlist{flex:1;overflow-y:auto;padding:0 8px 8px;}
+#sm-devlist::-webkit-scrollbar{width:4px;}
+#sm-devlist::-webkit-scrollbar-thumb{background:var(--brd);border-radius:2px;}
+.dcard{background:var(--bg);border:1px solid var(--brd);border-radius:6px;
+  padding:8px 10px;margin-bottom:6px;cursor:pointer;transition:border-color .15s;}
+.dcard:hover{border-color:var(--acc);}
+.dcard.sel{border-color:var(--acc);background:rgba(79,195,247,.05);}
+.dtop{display:flex;justify-content:space-between;align-items:center;gap:6px;}
+.dname{font-size:12px;font-weight:600;flex:1;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap;}
+.pbadge{font-size:13px;font-weight:700;padding:2px 8px;border-radius:9px;
+  white-space:nowrap;min-width:54px;text-align:center;}
+.dmeta{font-size:10px;color:var(--muted);margin-top:2px;}
+.spark{height:36px;margin-top:5px;}
+#sm-heatmap-box{height:140px;background:var(--card);border-top:1px solid var(--brd);
+  padding:6px 14px 4px;display:flex;flex-direction:column;flex-shrink:0;}
+#sm-heatmap-box h3{font-size:10px;color:var(--muted);margin-bottom:3px;flex-shrink:0;}
+#sm-hmap{display:block;flex:1;width:100%;}
+
+/* ── Weather Map ── */
+#wm-ctrl{
+  flex-shrink:0;height:52px;background:#161b27;
+  border-bottom:1px solid var(--brd);
+  display:flex;align-items:center;gap:8px;padding:0 12px;
+  overflow-x:auto;white-space:nowrap;
+}
+#wm-ctrl::-webkit-scrollbar{height:3px;}
+#wm-ctrl::-webkit-scrollbar-thumb{background:var(--brd);}
+#wm-map-wrap{flex:1;position:relative;min-height:0;}
+#wm-map{width:100%;height:100%;}
+#wm-time-badge{position:absolute;top:10px;right:10px;z-index:1000;
+  background:rgba(13,17,23,.88);border:1px solid var(--brd);border-radius:6px;
+  padding:4px 11px;font-size:13px;font-weight:700;color:var(--red);pointer-events:none;}
+#wm-legend{position:absolute;bottom:12px;left:10px;z-index:1000;
+  background:rgba(13,17,23,.88);border:1px solid var(--brd);border-radius:6px;
+  padding:7px 10px;font-size:10px;min-width:120px;}
+#wm-legend h4{color:var(--red);font-size:10px;margin-bottom:4px;}
+.wm-li{display:flex;align-items:center;gap:5px;margin:2px 0;}
+.wm-sw{width:16px;height:8px;border-radius:2px;flex-shrink:0;}
+#wm-footer{height:190px;background:#0d1117;border-top:1px solid var(--brd);
+  flex-shrink:0;position:relative;}
+#wm-footer canvas{cursor:pointer;}
+#wm-hour-lbl{font-size:12px;font-weight:700;color:var(--acc);min-width:40px;text-align:center;}
+
+/* Leaflet dark popups */
+.leaflet-popup-content-wrapper{
+  background:var(--card);color:var(--txt);border:1px solid var(--brd);
+  border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.5);}
+.leaflet-popup-tip{background:var(--card);}
+.leaflet-popup-content{font-size:12px;line-height:1.6;margin:8px 12px;}
+
+/* Region items */
+.region-item{display:flex;justify-content:space-between;align-items:center;
+  padding:4px 6px;border-radius:4px;cursor:pointer;transition:background .15s;margin-bottom:2px;}
+.region-item:hover{background:var(--brd);}
+.region-item.active{background:rgba(79,195,247,.1);}
+
+/* Loading overlay */
+#app-loading{
+  position:fixed;inset:0;z-index:9999;background:rgba(15,17,23,.95);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+}
+.spinner{width:34px;height:34px;border:3px solid var(--brd);border-top-color:var(--red);
+  border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+#app-loading p{font-size:12px;color:var(--muted);}
+</style>
+</head>
+<body>
+<div id="app-loading"><div class="spinner"></div><p>載入資料中…</p></div>
+
+<div id="app">
+  <!-- ── App Header ── -->
+  <header id="app-hdr">
+    <div class="app-logo">高雄 PM2.5 <span>整合儀表板</span></div>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="sensor-map">🗺 感測器地圖</button>
+      <button class="tab-btn" data-tab="dashboard">📈 時序儀表板</button>
+      <button class="tab-btn" data-tab="weather-map">🌡 氣象地圖</button>
+    </div>
+  </header>
+
+  <div id="app-body">
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 1: Sensor Map                         -->
+    <!-- ══════════════════════════════════════════ -->
+    <section class="tab-sec active" id="tab-sensor-map">
+      <div id="sm-main">
+        <div id="sm-map"></div>
+        <div id="sm-rpanel">
+          <input id="sm-srch" type="search" placeholder="搜尋裝置名稱 / 區域…">
+          <div id="sm-devlist"></div>
+        </div>
+      </div>
+      <div id="sm-heatmap-box">
+        <h3>日均值熱圖（橫軸=日期　縱軸=感測器　色彩=PM2.5 AQI）</h3>
+        <canvas id="sm-hmap"></canvas>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 2: Dashboard                          -->
+    <!-- ══════════════════════════════════════════ -->
+    <section class="tab-sec" id="tab-dashboard">
+      <div class="ctrl-bar">
+        <label>感測器：</label>
+        <div id="db-station-list"></div>
+        <label style="margin-left:6px">起：</label>
+        <input type="date" id="db-from">
+        <label>迄：</label>
+        <input type="date" id="db-to">
+        <button id="db-apply">套用</button>
+      </div>
+      <div class="split">
+        <div class="main-col">
+          <div class="chart-card flex1"><canvas id="db-ts-chart"></canvas></div>
+          <div class="stat-row shrink0">
+            <div class="stat-card"><div class="stat-label">期間均值</div><div class="stat-val" id="db-cv-mean">--</div><div class="stat-sub">μg/m³（第一站）</div></div>
+            <div class="stat-card"><div class="stat-label">峰值</div><div class="stat-val" id="db-cv-peak">--</div><div class="stat-sub" id="db-cv-peak-sub">μg/m³</div></div>
+            <div class="stat-card"><div class="stat-label">超標小時數</div><div class="stat-val" id="db-cv-exc">--</div><div class="stat-sub">&gt; 35 μg/m³</div></div>
+            <div class="stat-card"><div class="stat-label">資料完整率</div><div class="stat-val" id="db-cv-comp">--</div><div class="stat-sub">%（第一站）</div></div>
+          </div>
+          <div id="db-peak-panel">
+            <div id="db-peak-hdr">
+              <span class="ph-title">▸ 峰值時序分析</span>
+              <span class="ph-note">各測站區間最高值，依發生時間排序</span>
+              <span class="ph-spread" id="db-ph-spread"></span>
+            </div>
+            <div id="db-peak-scroll">
+              <table id="db-peak-table">
+                <thead><tr>
+                  <th style="width:22px">序</th><th>測站</th><th>峰值 (μg/m³)</th>
+                  <th>峰值時刻</th><th>距首峰時差</th><th style="min-width:90px">時間軸</th>
+                </tr></thead>
+                <tbody id="db-peak-tbody"><tr><td colspan="6" style="text-align:center;padding:14px;color:var(--muted)">套用查詢後顯示</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar">
+          <h3>各行政區</h3>
+          <div id="db-region-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 6: Weather Map                        -->
+    <!-- ══════════════════════════════════════════ -->
+    <section class="tab-sec" id="tab-weather-map">
+      <div id="wm-ctrl">
+        <div class="ck-wrap"><input type="checkbox" id="wm-chk-color" checked><label for="wm-chk-color">色帶</label></div>
+        <div class="ck-wrap"><input type="checkbox" id="wm-chk-contour" checked><label for="wm-chk-contour">等值線</label></div>
+        <div class="ck-wrap"><input type="checkbox" id="wm-chk-hl" checked><label for="wm-chk-hl">H/L</label></div>
+        <div class="ck-wrap"><input type="checkbox" id="wm-chk-stations" checked><label for="wm-chk-stations">測站數值</label></div>
+        <div style="width:1px;height:20px;background:var(--brd);margin:0 4px"></div>
+        <label>日期</label>
+        <input type="date" id="wm-date" min="2025-12-04" max="2026-02-04">
+        <label>時刻</label>
+        <input type="range" class="hour-slider" id="wm-hour" min="0" max="23" value="14">
+        <span id="wm-hour-lbl">14:00</span>
+        <button id="wm-play-btn" style="background:var(--red);color:#fff;border:none;border-radius:4px;padding:4px 10px;font-size:11px;cursor:pointer;">▶ 播放</button>
+        <select id="wm-speed" style="background:#0d1117;color:var(--txt);border:1px solid var(--brd);border-radius:4px;padding:3px 6px;font-size:11px;">
+          <option value="1">1×</option><option value="2">2×</option><option value="4">4×</option>
+        </select>
+      </div>
+      <div id="wm-map-wrap">
+        <div id="wm-map"></div>
+        <div id="wm-time-badge">—</div>
+        <div id="wm-legend">
+          <h4>PM2.5 (μg/m³)</h4>
+          <div class="wm-li"><div class="wm-sw" style="background:rgba(0,228,0,.75)"></div> ≤12 優</div>
+          <div class="wm-li"><div class="wm-sw" style="background:rgba(255,255,0,.75)"></div> 12–35 良</div>
+          <div class="wm-li"><div class="wm-sw" style="background:rgba(255,126,0,.75)"></div> 35–54 普通</div>
+          <div class="wm-li"><div class="wm-sw" style="background:rgba(255,60,60,.75)"></div> 54–150 不良</div>
+          <div class="wm-li"><div class="wm-sw" style="background:rgba(143,63,151,.75)"></div> &gt;150 危害</div>
+        </div>
+      </div>
+      <div id="wm-footer"><canvas id="wm-ts-chart"></canvas></div>
+    </section>
+
+  </div><!-- #app-body -->
+</div><!-- #app -->
+
+<script>
+'use strict';
+// ════════════════════════════════════════════════════════
+// SHARED CONSTANTS & UTILITIES
+// ════════════════════════════════════════════════════════
+const KH_CENTER=[22.63,120.30];
+const DARK_TILE='https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+const DARK_OPT={attribution:'© OpenStreetMap contributors © CARTO',subdomains:'abcd',maxZoom:19};
+const PALETTE=[
+  '#4fc3f7','#f06292','#aed581','#ffb74d','#ce93d8','#80cbc4','#ff8a65','#90a4ae',
+  '#fff176','#80deea','#ef9a9a','#a5d6a7','#b39ddb','#ffe082','#c5e1a5','#ffcc80',
+  '#ff8a80','#ea80fc','#69f0ae','#40c4ff'
+];
+function aqiColor(v){
+  if(v==null)return'#546e7a';
+  if(v<=12)return'#00e400';if(v<=35)return'#ffff00';
+  if(v<=54)return'#ff7e00';if(v<=150)return'#ff0000';
+  return'#8f3f97';
+}
+function aqiLabel(v){
+  if(v==null)return'無資料';
+  if(v<=12)return'良好';if(v<=35)return'普通';
+  if(v<=54)return'敏感族群';if(v<=150)return'不健康';
+  return'非常不健康';
+}
+function textColor(hex){
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return(0.299*r+0.587*g+0.114*b)>128?'#000':'#fff';
+}
+
+// ════════════════════════════════════════════════════════
+// SHARED DATA
+// ════════════════════════════════════════════════════════
+const DATA={
+  meta:{}, daily:[], ts:[], timeIndex:{}, ready:false,
+  async load(){
+    [this.meta,this.daily,this.ts]=await Promise.all([
+      fetch('kh_sensor_meta.json').then(r=>r.json()),
+      fetch('kh_daily_avg.json').then(r=>r.json()),
+      fetch('kh_timeseries.json').then(r=>r.json()),
+    ]);
+    this.ts.forEach((rec,i)=>{this.timeIndex[rec.time]=i;});
+    this.ready=true;
+  }
+};
+
+// ════════════════════════════════════════════════════════
+// TAB SWITCHER
+// ════════════════════════════════════════════════════════
+const MODULES={};
+let activeTab='sensor-map';
+
+function switchTab(name){
+  if(name===activeTab)return;
+  document.querySelector('.tab-sec.active')?.classList.remove('active');
+  document.querySelector('.tab-btn.active')?.classList.remove('active');
+  document.getElementById('tab-'+name).classList.add('active');
+  document.querySelector(`.tab-btn[data-tab="${name}"]`).classList.add('active');
+  activeTab=name;
+  const mod=MODULES[name];
+  if(mod){
+    requestAnimationFrame(()=>{
+      if(!mod.initialized){mod.init();mod.initialized=true;}
+      else mod.onShow?.();
+    });
+  }
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>switchTab(btn.dataset.tab));
+});
+
+// ════════════════════════════════════════════════════════
+// MODULE: Sensor Map (sm-)
+// ════════════════════════════════════════════════════════
+MODULES['sensor-map']={
+  initialized:false,
+  map:null, markers:{}, sparks:{}, selId:null,
+
+  init(){
+    this.map=L.map('sm-map').setView(KH_CENTER,11);
+    L.tileLayer(DARK_TILE,DARK_OPT).addTo(this.map);
+    this.addMarkers();
+    this.renderList();
+    this.drawHeatmap();
+    this.map.invalidateSize();
+
+    document.getElementById('sm-srch').addEventListener('input',e=>
+      this.renderList(e.target.value.trim()));
+    window.addEventListener('resize',()=>this.drawHeatmap());
+  },
+  onShow(){this.map?.invalidateSize();},
+
+  getLatest(id){
+    if(!DATA.daily.length)return null;
+    return DATA.daily[DATA.daily.length-1][id+'_hourly']??null;
+  },
+  getSparkData(id){
+    const key=id+'_hourly';
+    return DATA.daily.slice(-14).map(d=>d[key]??null);
+  },
+
+  addMarkers(){
+    const KH_EPA={
+      zuoying:{name:'左營(EPA)',lat:22.6900,lng:120.2956},
+      qianjin:{name:'前金(EPA)',lat:22.6270,lng:120.2960},
+      qianzhen:{name:'前鎮(EPA)',lat:22.5895,lng:120.3143},
+      nanzi:{name:'楠梓(EPA)',lat:22.7299,lng:120.3249},
+      fengshan:{name:'鳳山(EPA)',lat:22.6278,lng:120.3567},
+    };
+    Object.values(DATA.meta).forEach(s=>{
+      if(!s.lat||!s.lon)return;
+      const pm=this.getLatest(s.device_id);
+      const col=aqiColor(pm);
+      const r=6+(14-6)*Math.min(1,Math.max(0,(s.hourly_count-800)/600));
+      const m=L.circleMarker([s.lat,s.lon],{
+        radius:r,color:'rgba(255,255,255,0.5)',weight:1,fillColor:col,fillOpacity:.88
+      }).addTo(this.map).bindPopup(`
+        <b>${s.name}</b><br>
+        <span style="color:${col};font-size:18px;font-weight:700">${pm!=null?pm.toFixed(1):'N/A'} μg/m³</span><br>
+        <small>${aqiLabel(pm)}</small><br>
+        <small>區域：${s.areatype||'—'}</small><br>
+        <small>資料：${s.time_start?.slice(0,10)} ~ ${s.time_end?.slice(0,10)}</small>`);
+      m.on('click',()=>this.selectDev(s.device_id));
+      this.markers[s.device_id]=m;
+    });
+    Object.values(KH_EPA).forEach(sta=>{
+      L.circleMarker([sta.lat,sta.lng],{radius:7,color:'#aaa',weight:2,
+        fillColor:'#90a4ae',fillOpacity:.6,dashArray:'4 3'})
+        .addTo(this.map).bindPopup(`<b>${sta.name}</b><br><small>EPA 官方測站</small>`);
+    });
+  },
+
+  renderList(q=''){
+    Object.values(this.sparks).forEach(c=>c.destroy());
+    this.sparks={};
+    const box=document.getElementById('sm-devlist');
+    box.innerHTML='';
+    Object.values(DATA.meta)
+      .filter(s=>s.name.includes(q)||s.town?.includes(q)||s.device_id.includes(q))
+      .forEach(s=>{
+        const pm=this.getLatest(s.device_id);
+        const col=aqiColor(pm);
+        const tc=textColor(col);
+        const card=document.createElement('div');
+        card.className='dcard'+(this.selId===s.device_id?' sel':'');
+        card.dataset.id=s.device_id;
+        card.innerHTML=`
+          <div class="dtop">
+            <span class="dname" title="${s.name}">${s.name}</span>
+            <span class="pbadge" style="background:${col};color:${tc}">${pm!=null?pm.toFixed(1):'--'}</span>
+          </div>
+          <div class="dmeta">${s.town} · ${s.areatype||''}</div>
+          <div class="spark"><canvas id="sm-sp-${s.device_id}"></canvas></div>`;
+        card.addEventListener('click',()=>this.selectDev(s.device_id));
+        box.appendChild(card);
+        const ctx=card.querySelector(`#sm-sp-${s.device_id}`);
+        const data=this.getSparkData(s.device_id);
+        this.sparks[s.device_id]=new Chart(ctx,{
+          type:'line',
+          data:{labels:data.map((_,i)=>i),datasets:[{
+            data,borderColor:col,borderWidth:1.5,pointRadius:0,tension:.3,spanGaps:true,
+            fill:{target:'origin',above:col+'28'}
+          }]},
+          options:{animation:false,plugins:{legend:{display:false},tooltip:{enabled:false}},
+            scales:{x:{display:false},y:{display:false,min:0}},
+            responsive:true,maintainAspectRatio:false}
+        });
+      });
+  },
+
+  selectDev(id){
+    this.selId=id;
+    const s=DATA.meta[id];
+    if(s?.lat){this.map.flyTo([s.lat,s.lon],14,{duration:.8});this.markers[id]?.openPopup();}
+    document.querySelectorAll('.dcard').forEach(c=>c.classList.toggle('sel',c.dataset.id===id));
+  },
+
+  drawHeatmap(){
+    const cv=document.getElementById('sm-hmap');
+    const par=cv.parentElement;
+    cv.width=par.clientWidth-28;cv.height=par.clientHeight-20;
+    const ctx=cv.getContext('2d');
+    ctx.clearRect(0,0,cv.width,cv.height);
+    if(!DATA.daily.length||!Object.keys(DATA.meta).length)return;
+    const ids=Object.keys(DATA.meta);
+    const nD=DATA.daily.length,nY=ids.length;
+    const cw=cv.width/nD,ch=(cv.height-14)/nY;
+    DATA.daily.forEach((day,xi)=>{
+      ids.forEach((id,yi)=>{
+        ctx.fillStyle=aqiColor(day[id+'_hourly']??null);
+        ctx.fillRect(xi*cw+.5,yi*ch+.5,cw-1,ch-1);
+      });
+    });
+    ctx.fillStyle='#9aa3b5';ctx.font='9px Segoe UI';ctx.textAlign='center';
+    DATA.daily.forEach((day,xi)=>{
+      if(xi===0||xi%10===0||xi===nD-1)
+        ctx.fillText(day.time.slice(5),(xi+.5)*cw,nY*ch+11);
+    });
+  }
+};
+
+// ════════════════════════════════════════════════════════
+// MODULE: Dashboard (db-)
+// ════════════════════════════════════════════════════════
+MODULES['dashboard']={
+  initialized:false,
+  activeSt:[], tsChart:null,
+
+  init(){
+    const ids=Object.keys(DATA.meta);
+    this.activeSt=ids.slice(0,5);
+    this._buildStationList(ids);
+    this._buildRegionList();
+    if(DATA.daily.length){
+      document.getElementById('db-from').value=DATA.daily[0].time;
+      document.getElementById('db-to').value=DATA.daily[DATA.daily.length-1].time;
+    }
+    document.getElementById('db-apply').addEventListener('click',()=>this.render());
+    this.render();
+  },
+  onShow(){if(this.tsChart)this.tsChart.resize?.();},
+
+  _buildStationList(ids){
+    const box=document.getElementById('db-station-list');
+    ids.forEach((id,i)=>{
+      const col=PALETTE[i%PALETTE.length];
+      const btn=document.createElement('span');
+      btn.className='stbtn'+(this.activeSt.includes(id)?' on':'');
+      btn.dataset.id=id;
+      if(this.activeSt.includes(id)){btn.style.borderColor=col;btn.style.color=col;}
+      btn.textContent=(DATA.meta[id]?.name||id).slice(0,8);
+      btn.title=(DATA.meta[id]?.name||id)+' ('+id+')';
+      btn.addEventListener('click',()=>{
+        if(this.activeSt.includes(id)){
+          if(this.activeSt.length===1)return;
+          this.activeSt=this.activeSt.filter(x=>x!==id);
+          btn.classList.remove('on');btn.style.borderColor='';btn.style.color='';
+        }else{
+          this.activeSt.push(id);
+          btn.classList.add('on');btn.style.borderColor=col;btn.style.color=col;
+        }
+        this.render();
+      });
+      box.appendChild(btn);
+    });
+  },
+
+  _buildRegionList(){
+    const box=document.getElementById('db-region-list');
+    const byTown={};
+    Object.values(DATA.meta).forEach(s=>{
+      const t=s.town||'未知';
+      if(!byTown[t])byTown[t]=[];
+      byTown[t].push(s.device_id);
+    });
+    Object.entries(byTown).sort((a,b)=>a[0].localeCompare(b[0],'zh')).forEach(([town,ids])=>{
+      const vals=ids.map(id=>{
+        if(!DATA.daily.length)return null;
+        return DATA.daily[DATA.daily.length-1][id+'_hourly']??null;
+      }).filter(v=>v!=null);
+      const avg=vals.length?Math.round(vals.reduce((a,b)=>a+b,0)/vals.length*10)/10:null;
+      const col=aqiColor(avg);
+      const el=document.createElement('div');
+      el.className='region-item';
+      el.innerHTML=`<span style="font-size:11px">${town}</span>
+        <span style="font-size:12px;font-weight:600;color:${col}">${avg!=null?avg.toFixed(1):'--'}</span>`;
+      el.addEventListener('click',()=>{
+        const id=ids[0];
+        if(!this.activeSt.includes(id)){
+          this.activeSt.push(id);
+          const btn=document.querySelector(`.stbtn[data-id="${id}"]`);
+          if(btn){const ci=Object.keys(DATA.meta).indexOf(id);const col2=PALETTE[ci%PALETTE.length];
+            btn.classList.add('on');btn.style.borderColor=col2;btn.style.color=col2;}
+          this.render();
+        }
+        document.querySelectorAll('.region-item').forEach(e=>e.classList.remove('active'));
+        el.classList.add('active');
+      });
+      box.appendChild(el);
+    });
+  },
+
+  _filteredTs(){
+    const from=document.getElementById('db-from').value;
+    const to=document.getElementById('db-to').value;
+    return DATA.ts.filter(r=>{const d=r.time.slice(0,10);return(!from||d>=from)&&(!to||d<=to);});
+  },
+  _filteredDaily(){
+    const from=document.getElementById('db-from').value;
+    const to=document.getElementById('db-to').value;
+    return DATA.daily.filter(r=>(!from||r.time>=from)&&(!to||r.time<=to));
+  },
+
+  _computePeaks(rows){
+    const allIds=Object.keys(DATA.meta);
+    return this.activeSt.map(id=>{
+      let pv=-Infinity,pi=-1;
+      rows.forEach((r,i)=>{const v=r[id];if(v!=null&&v>pv){pv=v;pi=i;}});
+      if(pi<0)return null;
+      const ci=allIds.indexOf(id);
+      return{id,name:DATA.meta[id]?.name||id,ci,color:PALETTE[ci%PALETTE.length],
+             peakVal:pv,peakIdx:pi,peakTime:rows[pi].time};
+    }).filter(Boolean);
+  },
+
+  _buildChart(rows,peaks){
+    const labels=rows.map(r=>{const t=r.time||'';return t.length>=13?t.slice(5,13):t.slice(5);});
+    const lineSets=this.activeSt.map(id=>{
+      const ci=Object.keys(DATA.meta).indexOf(id);
+      return{label:DATA.meta[id]?.name||id,data:rows.map(r=>r[id]??null),
+        borderColor:PALETTE[ci%PALETTE.length],borderWidth:1.5,pointRadius:0,tension:.3,spanGaps:true};
+    });
+    const peakSets=peaks.map(p=>{
+      const d=new Array(rows.length).fill(null);d[p.peakIdx]=p.peakVal;
+      const rad=new Array(rows.length).fill(0);rad[p.peakIdx]=7;
+      return{label:'__peak__'+p.id,data:d,borderColor:p.color,backgroundColor:p.color,
+        borderWidth:2,pointRadius:rad,pointStyle:'star',showLine:false,fill:false};
+    });
+    const annotations={};
+    peaks.forEach(p=>{
+      annotations['vl_'+p.id]={type:'line',scaleID:'x',value:labels[p.peakIdx],
+        borderColor:p.color+'70',borderWidth:1,borderDash:[3,3]};
+    });
+    if(this.tsChart)this.tsChart.destroy();
+    this.tsChart=new Chart(document.getElementById('db-ts-chart'),{
+      type:'line',data:{labels,datasets:[...lineSets,...peakSets]},
+      options:{
+        animation:false,responsive:true,maintainAspectRatio:false,
+        interaction:{mode:'index',intersect:false},
+        plugins:{
+          legend:{labels:{color:'#9aa3b5',boxWidth:10,font:{size:10},
+            filter:item=>!item.text.startsWith('__peak__')}},
+          annotation:{annotations},
+          tooltip:{backgroundColor:'#1a1d2a',borderColor:'#1e2433',borderWidth:1,
+            filter:item=>!item.dataset.label.startsWith('__peak__'),
+            callbacks:{title:items=>rows[items[0].dataIndex]?.time||items[0].label,
+              label:i=>`${i.dataset.label}: ${i.raw!=null?i.raw.toFixed(1):'—'} μg/m³`}}
+        },
+        scales:{
+          x:{ticks:{color:'#9aa3b5',maxTicksLimit:14,font:{size:10}},grid:{color:'#1e2433'}},
+          y:{ticks:{color:'#9aa3b5',font:{size:10}},grid:{color:'#1e2433'},
+            title:{display:true,text:'PM2.5 (μg/m³)',color:'#9aa3b5',font:{size:10}}}
+        }
+      }
+    });
+  },
+
+  _buildPeakPanel(peaks,rows){
+    const tbody=document.getElementById('db-peak-tbody');
+    if(!peaks.length||!rows.length){
+      tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:14px;color:var(--muted)">無資料</td></tr>';
+      document.getElementById('db-ph-spread').textContent='';return;
+    }
+    const sorted=[...peaks].sort((a,b)=>a.peakTime.localeCompare(b.peakTime));
+    const ms=t=>new Date(t.replace(' ','T')+':00').getTime();
+    const fmtH=d=>{const h=d/3600000;if(Math.abs(h)<1/60)return'基準';
+      if(Math.abs(h)<1)return`+${Math.round(h*60)}min`;
+      return Number.isInteger(h)?`+${h}h`:`+${h.toFixed(1)}h`;};
+    const firstMs=ms(sorted[0].peakTime);
+    const lastMs=ms(sorted[sorted.length-1].peakTime);
+    const winS=ms(rows[0].time),winE=ms(rows[rows.length-1].time);
+    const winSpan=Math.max(winE-winS,1);
+    const basePct=((firstMs-winS)/winSpan*100).toFixed(2);
+    document.getElementById('db-ph-spread').textContent=
+      sorted.length>1?`首尾時差：${fmtH(lastMs-firstMs).replace('+','')} `:'';
+    tbody.innerHTML=sorted.map((p,rank)=>{
+      const pMs=ms(p.peakTime);
+      const diff=rank===0?'基準':`<span style="color:#fbbf24;font-weight:600">${fmtH(pMs-firstMs)}</span>`;
+      const pct=((pMs-winS)/winSpan*100).toFixed(2);
+      const dt=winSpan>86400000?p.peakTime:p.peakTime.slice(11);
+      return`<tr>
+        <td style="color:var(--muted);font-size:10px">${rank+1}</td>
+        <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${p.color};margin-right:4px"></span>${p.name.slice(0,9)}</td>
+        <td style="color:${aqiColor(p.peakVal)};font-weight:700">${p.peakVal.toFixed(1)}</td>
+        <td style="color:var(--acc);font-size:11px">${dt}</td>
+        <td>${diff}</td>
+        <td><div class="tl-wrap"><div class="tl-base" style="left:${basePct}%"></div>
+          <div class="tl-dot" style="left:${pct}%;background:${p.color}"></div></div></td>
+      </tr>`;
+    }).join('');
+  },
+
+  _updateStats(rows,dailyRows){
+    const id=this.activeSt[0];
+    const vals=rows.map(r=>r[id]).filter(v=>v!=null);
+    if(!vals.length){['db-cv-mean','db-cv-peak','db-cv-exc','db-cv-comp'].forEach(x=>document.getElementById(x).textContent='—');return;}
+    const mean=(vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1);
+    const peakVal=Math.max(...vals);
+    const peakRec=rows.find(r=>r[id]===peakVal);
+    document.getElementById('db-cv-mean').textContent=mean;
+    document.getElementById('db-cv-peak').textContent=peakVal.toFixed(1);
+    document.getElementById('db-cv-peak-sub').textContent=peakRec?peakRec.time.slice(5,13):'μg/m³';
+    document.getElementById('db-cv-exc').textContent=vals.filter(v=>v>35).length;
+    const exp=dailyRows.length*24;
+    document.getElementById('db-cv-comp').textContent=exp>0?((rows.filter(r=>r[id]!=null).length/exp)*100).toFixed(0)+'%':'—';
+    document.getElementById('db-cv-mean').style.color=aqiColor(+mean);
+    document.getElementById('db-cv-peak').style.color=aqiColor(peakVal);
+  },
+
+  render(){
+    const rows=this._filteredTs();
+    const dailyRows=this._filteredDaily();
+    const peaks=this._computePeaks(rows);
+    this._buildChart(rows,peaks);
+    this._buildPeakPanel(peaks,rows);
+    this._updateStats(rows,dailyRows);
+  }
+};
+
+// ════════════════════════════════════════════════════════
+// MODULE: Weather Map (wm-)
+// ════════════════════════════════════════════════════════
+// Global helpers (used only by WM)
+const WmColorOverlay=L.Layer.extend({
+  initialize(){this._grid=null;this._colorFn=()=>'rgba(0,0,0,0)';this._canvas=null;},
+  onAdd(map){
+    this._map=map;
+    const canvas=document.createElement('canvas');
+    canvas.style.cssText='position:absolute;top:0;left:0;pointer-events:none;opacity:0.5;z-index:399';
+    map.getContainer().appendChild(canvas);this._canvas=canvas;
+    map.on('move moveend zoomend',this._paint,this);this._paint();
+  },
+  onRemove(map){this._canvas?.remove();map.off('move moveend zoomend',this._paint,this);},
+  setData(grid,colorFn){this._grid=grid;this._colorFn=colorFn;this._paint();},
+  clear(){this._grid=null;if(this._canvas){const c=this._canvas.getContext('2d');c.clearRect(0,0,this._canvas.width,this._canvas.height);}},
+  _paint(){
+    if(!this._map||!this._canvas)return;
+    const sz=this._map.getSize();
+    this._canvas.width=sz.x;this._canvas.height=sz.y;
+    const ctx=this._canvas.getContext('2d');ctx.clearRect(0,0,sz.x,sz.y);
+    if(!this._grid)return;
+    const N=this._grid.length,M=this._grid[0].length;
+    const cw=sz.x/M+1,ch=sz.y/N+1;
+    for(let r=0;r<N;r++)for(let c=0;c<M;c++){
+      const cell=this._grid[r][c];
+      const px=this._map.latLngToContainerPoint([cell.lat,cell.lng]);
+      ctx.fillStyle=this._colorFn(cell.value);
+      ctx.fillRect(px.x-cw/2,px.y-ch/2,cw,ch);
+    }
+  }
+});
+
+function wmBuildGrid(map,points,N=60,power=2){
+  const valid=points.filter(p=>p.value!=null&&isFinite(p.value));
+  if(valid.length<3)return null;
+  const b=map.getBounds();
+  const lat0=b.getNorth(),lat1=b.getSouth(),lng0=b.getWest(),lng1=b.getEast();
+  const grid=[];
+  for(let r=0;r<N;r++){
+    grid[r]=[];
+    const lat=lat0-(r/(N-1))*(lat0-lat1);
+    for(let c=0;c<N;c++){
+      const lng=lng0+(c/(N-1))*(lng1-lng0);
+      let wS=0,vS=0;
+      for(let i=0;i<valid.length;i++){const p=valid[i];const d=Math.sqrt((lat-p.lat)**2+(lng-p.lng)**2)+1e-9;const w=1/Math.pow(d,power);wS+=w;vS+=w*p.value;}
+      grid[r][c]={lat,lng,value:vS/wS};
+    }
+  }
+  return grid;
+}
+
+function wmDrawContours(grid,group){
+  group.clearLayers();if(!grid)return;
+  const levels=[{iso:12,color:'#00e400'},{iso:25,color:'#b4dc00'},{iso:35,color:'#ffff00'},
+    {iso:54,color:'#ff7e00'},{iso:100,color:'#ff3c3c'},{iso:150,color:'#8f3f97'}];
+  const N=grid.length,M=grid[0].length;
+  levels.forEach(({iso,color})=>{
+    const segs=[];
+    for(let r=0;r<N-1;r++)for(let c=0;c<M-1;c++){
+      const tl=grid[r][c],tr=grid[r][c+1],bl=grid[r+1][c],br=grid[r+1][c+1];
+      const vtl=tl.value,vtr=tr.value,vbl=bl.value,vbr=br.value;
+      const pts=[];
+      if((vtl<iso)!==(vtr<iso))pts.push([tl.lat,tl.lng+(iso-vtl)/(vtr-vtl)*(tr.lng-tl.lng)]);
+      if((vtr<iso)!==(vbr<iso))pts.push([tr.lat+(iso-vtr)/(vbr-vtr)*(br.lat-tr.lat),tr.lng]);
+      if((vbl<iso)!==(vbr<iso))pts.push([bl.lat,bl.lng+(iso-vbl)/(vbr-vbl)*(br.lng-bl.lng)]);
+      if((vtl<iso)!==(vbl<iso))pts.push([tl.lat+(iso-vtl)/(vbl-vtl)*(bl.lat-tl.lat),tl.lng]);
+      if(pts.length===2)segs.push(pts);
+    }
+    segs.forEach(seg=>L.polyline(seg,{color,weight:1.5,opacity:.75})
+      .addTo(group).bindTooltip(`PM2.5 ${iso} μg/m³`,{sticky:true}));
+  });
+}
+
+function wmFindExtrema(grid,radius=6){
+  const N=grid.length,M=grid[0].length;
+  const highs=[],lows=[];
+  for(let r=radius;r<N-radius;r++)for(let c=radius;c<M-radius;c++){
+    const v=grid[r][c].value;let isH=true,isL=true;
+    outer:for(let dr=-radius;dr<=radius;dr++)for(let dc=-radius;dc<=radius;dc++){
+      if(dr===0&&dc===0)continue;
+      const nv=grid[r+dr]?.[c+dc]?.value;if(nv==null)continue;
+      if(nv>v)isH=false;if(nv<v)isL=false;if(!isH&&!isL)break outer;
+    }
+    if(isH)highs.push({lat:grid[r][c].lat,lng:grid[r][c].lng,value:v});
+    if(isL)lows.push({lat:grid[r][c].lat,lng:grid[r][c].lng,value:v});
+  }
+  const dd=(pts,d=0.15)=>pts.filter((p,i)=>!pts.slice(0,i).some(q=>Math.hypot(p.lat-q.lat,p.lng-q.lng)<d));
+  return{highs:dd(highs),lows:dd(lows)};
+}
+
+MODULES['weather-map']={
+  initialized:false,
+  map:null,colorOverlay:null,contourGroup:null,extremaGroup:null,stationGroup:null,
+  tsChart:null,playTimer:null,debTimer:null,currentGrid:null,
+
+  init(){
+    this.map=L.map('wm-map',{zoomControl:true,preferCanvas:false}).setView(KH_CENTER,11);
+    L.tileLayer(DARK_TILE,DARK_OPT).addTo(this.map);
+    this.colorOverlay=new WmColorOverlay();this.colorOverlay.addTo(this.map);
+    this.contourGroup=L.layerGroup().addTo(this.map);
+    this.extremaGroup=L.layerGroup().addTo(this.map);
+    this.stationGroup=L.layerGroup().addTo(this.map);
+    this.map.on('moveend zoomend',()=>this.schedule(true));
+
+    // Set default date
+    const lastDate=DATA.ts[DATA.ts.length-1].time.split(' ')[0];
+    document.getElementById('wm-date').value=lastDate;
+
+    // Controls
+    document.getElementById('wm-hour').addEventListener('input',()=>this.schedule());
+    document.getElementById('wm-date').addEventListener('change',()=>{this.stopPlay();this.schedule();});
+    ['wm-chk-color','wm-chk-contour','wm-chk-hl','wm-chk-stations'].forEach(id=>
+      document.getElementById(id).addEventListener('change',()=>this.schedule(false)));
+    document.getElementById('wm-play-btn').addEventListener('click',()=>
+      this.playTimer?this.stopPlay():this.startPlay());
+    document.getElementById('wm-speed').addEventListener('change',()=>{if(this.playTimer)this.startPlay();});
+
+    // Footer chart
+    this.initChart();
+
+    setTimeout(()=>{this.map.invalidateSize();this.schedule(true);},200);
+  },
+  onShow(){
+    if(this.map){
+      requestAnimationFrame(()=>{this.map.invalidateSize();this.schedule(true);});
+    }
+  },
+
+  schedule(rebuild=false){
+    clearTimeout(this.debTimer);
+    this.debTimer=setTimeout(()=>this.redrawAll(rebuild),150);
+  },
+
+  redrawAll(rebuild=false){
+    const date=document.getElementById('wm-date').value;
+    const hour=+document.getElementById('wm-hour').value;
+    document.getElementById('wm-hour-lbl').textContent=String(hour).padStart(2,'0')+':00';
+    document.getElementById('wm-time-badge').textContent=`${date}　${String(hour).padStart(2,'0')}:00`;
+
+    const t=`${date} ${String(hour).padStart(2,'0')}:00`;
+    const idx=DATA.timeIndex[t];
+    const rec=idx!==undefined?DATA.ts[idx]:null;
+    const sensors={};
+    Object.entries(DATA.meta).forEach(([id,m])=>{
+      sensors[id]={id,name:m.name||id,town:m.town||'',lat:m.lat,lng:m.lon,pm25:rec?(rec[id]??null):null};
+    });
+
+    const points=Object.values(sensors).filter(s=>s.lat&&s.pm25!=null).map(s=>({lat:s.lat,lng:s.lng,value:s.pm25}));
+
+    if(rebuild)this.currentGrid=wmBuildGrid(this.map,points);
+
+    const chkC=document.getElementById('wm-chk-color').checked;
+    const chkCo=document.getElementById('wm-chk-contour').checked;
+    const chkHL=document.getElementById('wm-chk-hl').checked;
+    const chkSt=document.getElementById('wm-chk-stations').checked;
+
+    if(chkC&&this.currentGrid)this.colorOverlay.setData(this.currentGrid,v=>{
+      if(v==null)return'rgba(0,0,0,0)';
+      if(v<=12)return'rgba(0,228,0,.75)';if(v<=25)return'rgba(180,220,0,.75)';
+      if(v<=35)return'rgba(255,255,0,.75)';if(v<=54)return'rgba(255,126,0,.75)';
+      if(v<=150)return'rgba(255,60,60,.75)';return'rgba(143,63,151,.75)';
+    }); else this.colorOverlay.clear();
+
+    if(chkCo&&this.currentGrid)wmDrawContours(this.currentGrid,this.contourGroup);
+    else this.contourGroup.clearLayers();
+
+    if(chkHL&&this.currentGrid){
+      const{highs,lows}=wmFindExtrema(this.currentGrid);
+      this.extremaGroup.clearLayers();
+      const mkIcon=(lbl,bg,val)=>L.divIcon({
+        html:`<div style="background:${bg};border:2px solid rgba(255,255,255,.6);border-radius:50%;width:34px;height:34px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px;line-height:1;box-shadow:0 2px 8px rgba(0,0,0,.5)"><span>${lbl}</span><span style="font-size:8px;font-weight:400">${val.toFixed(0)}</span></div>`,
+        iconSize:[34,34],iconAnchor:[17,17],className:''});
+      highs.forEach(p=>L.marker([p.lat,p.lng],{icon:mkIcon('H','#b91c1c',p.value),zIndexOffset:500})
+        .addTo(this.extremaGroup).bindTooltip(`熱點 ${p.value.toFixed(1)} μg/m³`));
+      lows.forEach(p=>L.marker([p.lat,p.lng],{icon:mkIcon('L','#1d4ed8',p.value),zIndexOffset:500})
+        .addTo(this.extremaGroup).bindTooltip(`低濃度 ${p.value.toFixed(1)} μg/m³`));
+    }else this.extremaGroup.clearLayers();
+
+    if(chkSt){
+      this.stationGroup.clearLayers();
+      Object.values(sensors).forEach(s=>{
+        if(!s.lat||s.pm25==null)return;
+        const col=aqiColor(s.pm25);const hex=col;
+        const icon=L.divIcon({
+          html:`<div style="background:rgba(13,17,23,.88);border:2px solid ${col};border-radius:6px;padding:2px 5px;min-width:64px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,.4)"><div style="font-size:9px;color:#94a3b8">${s.name.slice(0,7)}</div><div style="font-size:12px;font-weight:700;color:${col}">${s.pm25.toFixed(1)}</div><div style="font-size:8px;color:#64748b">μg/m³</div></div>`,
+          iconSize:[66,48],iconAnchor:[33,24],className:''});
+        L.marker([s.lat,s.lng],{icon,zIndexOffset:200}).addTo(this.stationGroup)
+          .bindPopup(`<strong>${s.name}</strong><br>地區：${s.town}<br>PM2.5：<span style="color:${col};font-weight:700">${s.pm25.toFixed(1)} μg/m³</span>`);
+      });
+    }else this.stationGroup.clearLayers();
+
+    this.updateChart(date,hour);
+  },
+
+  initChart(){
+    const ctx=document.getElementById('wm-ts-chart').getContext('2d');
+    this.tsChart=new Chart(ctx,{
+      type:'line',data:{labels:[],datasets:[]},
+      options:{responsive:true,maintainAspectRatio:false,animation:false,
+        interaction:{mode:'nearest',intersect:false,axis:'x'},
+        plugins:{
+          legend:{display:false},
+          tooltip:{backgroundColor:'rgba(13,17,23,.9)',borderColor:'#1e3a5f',borderWidth:1,
+            titleColor:'#94a3b8',bodyColor:'#e2e8f0',
+            callbacks:{label:c=>`${c.dataset.label}：${c.parsed.y!=null?c.parsed.y.toFixed(1):'—'} μg/m³`}},
+          annotation:{annotations:{cursor:{type:'line',scaleID:'x',value:'',
+            borderColor:'#e94560',borderWidth:2,
+            label:{display:true,content:'▼',color:'#e94560',position:'start',
+              font:{size:9},backgroundColor:'transparent',padding:0}}}}
+        },
+        scales:{
+          x:{ticks:{color:'#64748b',font:{size:10},maxTicksLimit:13,maxRotation:0,
+            callback(v,i){const l=this.getLabelForValue(v);return l?l.split(' ')[1]:'';}},
+            grid:{color:'#1e2d40'}},
+          y:{min:0,ticks:{color:'#64748b',font:{size:10}},grid:{color:'#1e2d40'},
+            title:{display:true,text:'PM2.5 (μg/m³)',color:'#64748b',font:{size:10}}}
+        }
+      }
+    });
+    document.getElementById('wm-ts-chart').addEventListener('click',evt=>{
+      if(!this.tsChart||!this.tsChart.data.labels.length)return;
+      const elems=this.tsChart.getElementsAtEventForMode(evt,'nearest',{intersect:false},false);
+      if(!elems.length)return;
+      const label=this.tsChart.data.labels[elems[0].index];
+      if(!label)return;
+      const[d,hStr]=label.split(' ');
+      document.getElementById('wm-date').value=d;
+      document.getElementById('wm-hour').value=parseInt(hStr);
+      this.schedule();
+    });
+  },
+
+  updateChart(date,hour){
+    if(!this.tsChart)return;
+    const t=`${date} ${String(hour).padStart(2,'0')}:00`;
+    const cur=DATA.timeIndex[t];if(cur===undefined)return;
+    const s0=Math.max(0,cur-12),s1=Math.min(DATA.ts.length-1,cur+12);
+    const win=DATA.ts.slice(s0,s1+1);
+    const labels=win.map(r=>r.time);
+    const ids=Object.keys(DATA.meta);
+    const datasets=ids.map((id,i)=>({
+      label:DATA.meta[id]?.name||id,data:win.map(r=>r[id]??null),
+      borderColor:PALETTE[i%PALETTE.length],borderWidth:1,pointRadius:0,
+      tension:.25,fill:false,spanGaps:true
+    }));
+    const mean=win.map(r=>{const v=ids.map(id=>r[id]).filter(v=>v!=null);return v.length?v.reduce((a,b)=>a+b,0)/v.length:null;});
+    datasets.push({label:'平均',data:mean,borderColor:'#ffffff',borderWidth:2.5,
+      pointRadius:0,tension:.3,fill:false,spanGaps:true});
+    this.tsChart.data.labels=labels;
+    this.tsChart.data.datasets=datasets;
+    this.tsChart.options.plugins.annotation.annotations.cursor.value=t;
+    this.tsChart.update('none');
+  },
+
+  stopPlay(){
+    if(this.playTimer){clearInterval(this.playTimer);this.playTimer=null;}
+    const btn=document.getElementById('wm-play-btn');
+    if(btn){btn.textContent='▶ 播放';btn.style.background='#e94560';}
+  },
+  startPlay(){
+    this.stopPlay();
+    const btn=document.getElementById('wm-play-btn');
+    if(btn){btn.textContent='⏸ 暫停';btn.style.background='#2563eb';}
+    const speed=+document.getElementById('wm-speed').value;
+    this.playTimer=setInterval(()=>{
+      const sl=document.getElementById('wm-hour');
+      const h=+sl.value;
+      if(h>=23){this.stopPlay();return;}
+      sl.value=h+1;this.schedule();
+    },1000/speed);
+  }
+};
+
+// ════════════════════════════════════════════════════════
+// APP INIT
+// ════════════════════════════════════════════════════════
+async function appInit(){
+  try{
+    await DATA.load();
+    // Init the first (active) tab
+    const firstMod=MODULES['sensor-map'];
+    firstMod.init();firstMod.initialized=true;
+    document.getElementById('app-loading').style.display='none';
+  }catch(err){
+    const el=document.getElementById('app-loading');
+    el.innerHTML=`<p style="color:#e94560;font-size:14px">❌ 資料載入失敗</p>
+      <p style="color:#64748b;font-size:12px;margin-top:6px">${err.message}</p>
+      <p style="color:#475569;font-size:11px;margin-top:4px">請以 http-server 方式開啟（python -m http.server 8080）</p>`;
+  }
+}
+appInit();
+</script>
+</body>
+</html>

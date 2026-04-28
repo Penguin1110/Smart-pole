@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import dateutil\")",
+      "Bash(python3 -c \"import requests, pandas, tqdm\")",
+      "Bash(pip install *)",
+      "Bash(pip3 install *)",
+      "Bash(python3 -c \"from config import *; from step1_discover_devices import discover_devices; from step2_fetch_raw import fetch_raw_tst_day, parse_timestamp; from step3_aggregate import parse_feed, aggregate_day; from step4_save_csv import save_csv; from step5_summary import generate_summary; print\\('所有模組匯入成功'\\)\")",
+      "Bash(python3 *)",
+      "Bash(awk '{print $5}')",
+      "Bash(awk '$5 ~ /K|B/')",
+      "Bash(awk '$5 ~ /M/')",
+      "Bash(python3 -m http.server 8090)",
+      "Bash(curl -s http://localhost:8090/sensor_map.html)",
+      "Bash(curl -s http://localhost:8090/sensor_meta.json)",
+      "Bash(curl -s http://localhost:8090/sensor_timeseries.json)",
+      "Bash(kill %1)",
+      "Bash([ -f \"/Users/wayne/Smart-pole/$f\" ])",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('/Users/wayne/Smart-pole/kh_sensor_meta.json'\\)\\); k=list\\(d.keys\\(\\)\\)[0]; print\\(k, d[k]\\)\")",
+      "Bash(git -C /Users/wayne/Smart-pole status --short)",
+      "Bash(git -C /Users/wayne/Smart-pole stash list)",
+      "Bash(git -C /Users/wayne/Smart-pole status)",
+      "Bash(git -C /Users/wayne/Smart-pole log --oneline -10)",
+      "Bash(git -C /Users/wayne/Smart-pole show --stat HEAD)",
+      "Bash(git -C /Users/wayne/Smart-pole show f687359 --stat)",
+      "Bash(git -C /Users/wayne/Smart-pole log --all --oneline)",
+      "Bash(git -C /Users/wayne/Smart-pole branch -a)",
+      "Bash(git -C /Users/wayne/Smart-pole diff f687359 b29a42c --name-status)",
+      "Bash(git -C /Users/wayne/Smart-pole show b29a42c --stat)",
+      "Bash(git -C /Users/wayne/Smart-pole ls-files kh_dashboard.html)",
+      "Bash(git checkout *)",
+      "Bash(git *)"
+    ]
+  }
+}

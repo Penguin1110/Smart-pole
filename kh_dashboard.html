@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KH 整合儀表板</title>
+<style>
+/* ── 從 kh 各頁面提取的設計變數 ── */
+:root {
+  --kh-bg:   #0f1117;
+  --kh-bg2:  #0d1117;
+  --kh-card: #1a1d2a;
+  --kh-brd:  #1e2433;
+  --kh-txt:  #e8eaf6;
+  --kh-muted:#9aa3b5;
+  --kh-acc:  #4fc3f7;
+  --kh-red:  #e94560;
+  --kh-font: 'Segoe UI', system-ui, sans-serif;
+  --kh-radius: 6px;
+  --kh-shadow: 0 2px 8px rgba(0,0,0,.4);
+  --kh-dur: .15s;
+  --sw: 260px;
+  --sc:  64px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;background:var(--kh-bg);color:var(--kh-txt);
+  font-family:var(--kh-font);font-size:13px;}
+
+/* ── App shell ── */
+#app{display:flex;height:100vh;overflow:hidden;}
+
+/* ══ Sidebar ══ */
+#sidebar{
+  width:var(--sw);flex-shrink:0;
+  background:var(--kh-bg2);
+  border-right:1px solid var(--kh-brd);
+  display:flex;flex-direction:column;
+  transition:width .3s ease;
+  overflow:hidden;z-index:100;
+}
+#sidebar.collapsed{width:var(--sc);}
+
+#sb-logo{
+  height:54px;display:flex;align-items:center;
+  padding:0 16px;gap:10px;
+  border-bottom:1px solid var(--kh-brd);
+  flex-shrink:0;overflow:hidden;white-space:nowrap;
+}
+.logo-icon{font-size:20px;flex-shrink:0;}
+.logo-text{font-size:14px;font-weight:700;color:var(--kh-acc);
+  transition:opacity .2s;white-space:nowrap;}
+.logo-sub{font-size:10px;color:var(--kh-muted);margin-top:1px;}
+#sidebar.collapsed .logo-text,
+#sidebar.collapsed .logo-sub{opacity:0;pointer-events:none;}
+
+#nav-list{flex:1;overflow-y:auto;overflow-x:hidden;padding:8px 0;}
+#nav-list::-webkit-scrollbar{width:4px;}
+#nav-list::-webkit-scrollbar-thumb{background:var(--kh-brd);border-radius:2px;}
+
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 16px;cursor:pointer;
+  color:var(--kh-muted);text-decoration:none;
+  white-space:nowrap;border-left:3px solid transparent;
+  transition:color var(--kh-dur),background var(--kh-dur),border-left-color var(--kh-dur);
+  overflow:hidden;
+}
+.nav-item:hover{color:var(--kh-txt);background:rgba(255,255,255,.03);}
+.nav-item.active{
+  color:var(--kh-acc);
+  border-left-color:var(--kh-acc);
+  background:rgba(79,195,247,.06);
+}
+.ni-icon{font-size:16px;flex-shrink:0;width:20px;text-align:center;}
+.ni-label{font-size:12px;transition:opacity .2s;}
+#sidebar.collapsed .ni-label{opacity:0;pointer-events:none;}
+
+.nav-sep{height:1px;background:var(--kh-brd);margin:6px 12px;}
+
+#sb-footer{border-top:1px solid var(--kh-brd);padding:8px;flex-shrink:0;}
+#toggle-btn{
+  width:100%;padding:8px;
+  background:transparent;border:1px solid var(--kh-brd);
+  border-radius:var(--kh-radius);color:var(--kh-muted);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;
+  font-size:12px;
+  transition:color var(--kh-dur),border-color var(--kh-dur),background var(--kh-dur);
+}
+#toggle-btn:hover{color:var(--kh-txt);border-color:var(--kh-acc);background:rgba(79,195,247,.05);}
+#toggle-icon{font-size:14px;transition:transform .3s;display:inline-block;}
+#sidebar.collapsed #toggle-icon{transform:rotate(180deg);}
+#toggle-label{white-space:nowrap;transition:opacity .2s;}
+#sidebar.collapsed #toggle-label{opacity:0;width:0;overflow:hidden;}
+
+/* ══ Content area ══ */
+#content{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden;position:relative;}
+
+#topbar{
+  display:none;height:50px;
+  background:var(--kh-bg2);border-bottom:1px solid var(--kh-brd);
+  align-items:center;padding:0 14px;gap:10px;flex-shrink:0;z-index:50;
+}
+#hamburger{
+  background:transparent;border:none;color:var(--kh-txt);
+  cursor:pointer;font-size:18px;padding:4px 6px;border-radius:4px;line-height:1;
+}
+#hamburger:hover{background:var(--kh-brd);}
+#topbar-title{font-size:14px;font-weight:600;color:var(--kh-acc);}
+
+#frame-wrap{flex:1;position:relative;overflow:hidden;}
+#main-frame{
+  width:100%;height:100%;border:none;
+  opacity:1;transition:opacity .25s ease;
+  background:var(--kh-bg);display:block;
+}
+#main-frame.fading{opacity:0;}
+
+#loading{
+  display:none;position:absolute;inset:0;
+  background:var(--kh-bg);
+  align-items:center;justify-content:center;
+  flex-direction:column;gap:12px;z-index:10;pointer-events:none;
+}
+#loading.show{display:flex;}
+.spinner{
+  width:32px;height:32px;
+  border:3px solid var(--kh-brd);border-top-color:var(--kh-acc);
+  border-radius:50%;animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+#load-label{font-size:12px;color:var(--kh-muted);}
+
+#err-card{
+  display:none;position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  background:var(--kh-card);border:1px solid #5a2a2a;
+  border-radius:var(--kh-radius);padding:28px 36px;
+  text-align:center;color:#ef9a9a;z-index:20;
+  box-shadow:var(--kh-shadow);
+}
+#err-card.show{display:block;}
+#err-card h3{margin-bottom:8px;font-size:14px;}
+#err-card p{font-size:12px;color:var(--kh-muted);line-height:1.7;}
+#err-card code{background:#1a0d0d;padding:1px 5px;border-radius:3px;font-size:11px;}
+
+#sb-backdrop{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.55);z-index:90;
+}
+#sb-backdrop.show{display:block;}
+
+/* ══ 響應式 ══ */
+@media(max-width:1023px) and (min-width:768px){
+  #sidebar{width:var(--sc);}
+  #sidebar .ni-label,
+  #sidebar .logo-text,
+  #sidebar .logo-sub,
+  #sidebar #toggle-label{opacity:0;pointer-events:none;width:0;overflow:hidden;}
+  #sidebar #toggle-icon{transform:rotate(180deg);}
+}
+@media(max-width:767px){
+  #sidebar{
+    position:fixed;top:0;left:0;height:100%;
+    width:var(--sw)!important;
+    transform:translateX(-100%);
+    transition:transform .3s ease;
+    z-index:100;
+  }
+  #sidebar.mobile-open{transform:translateX(0);}
+  #topbar{display:flex;}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ══ Sidebar ══ -->
+  <aside id="sidebar">
+    <div id="sb-logo">
+      <span class="logo-icon">📡</span>
+      <div>
+        <div class="logo-text">KH 感測儀表板</div>
+        <div class="logo-sub">高雄空品監測系統</div>
+      </div>
+    </div>
+
+    <nav id="nav-list">
+      <a class="nav-item" data-page="kh_main.html"
+         href="#kh_main.html" title="整合儀表板">
+        <span class="ni-icon">🏠</span>
+        <span class="ni-label">整合儀表板</span>
+      </a>
+      <a class="nav-item" data-page="kh_sensor_map.html"
+         href="#kh_sensor_map.html" title="感測器地圖總覽">
+        <span class="ni-icon">🗺️</span>
+        <span class="ni-label">感測器地圖總覽</span>
+      </a>
+
+      <div class="nav-sep"></div>
+
+      <a class="nav-item" data-page="kh_weather_map.html"
+         href="#kh_weather_map.html" title="氣象地圖">
+        <span class="ni-icon">🌬️</span>
+        <span class="ni-label">氣象地圖</span>
+      </a>
+    </nav>
+
+    <div id="sb-footer">
+      <button id="toggle-btn" onclick="toggleSidebar()" title="折疊 / 展開側欄">
+        <span id="toggle-icon">◀</span>
+        <span id="toggle-label">折疊側欄</span>
+      </button>
+    </div>
+  </aside>
+
+  <div id="sb-backdrop" onclick="closeMobileSidebar()"></div>
+
+  <!-- ══ 主內容區 ══ -->
+  <main id="content">
+    <div id="topbar">
+      <button id="hamburger" onclick="toggleMobileSidebar()">☰</button>
+      <span id="topbar-title">KH 感測儀表板</span>
+    </div>
+
+    <div id="frame-wrap">
+      <iframe id="main-frame" title="頁面內容"></iframe>
+
+      <div id="loading">
+        <div class="spinner"></div>
+        <span id="load-label">載入中…</span>
+      </div>
+
+      <div id="err-card">
+        <h3>⚠ 頁面載入失敗</h3>
+        <p>請確認是否透過本機伺服器開啟<br>
+           建議執行：<code>python -m http.server 8080</code></p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+let currentPage = null;
+let sidebarCollapsed = false;
+
+/** 切換顯示的子頁面，並維護 URL hash 與 active 狀態 */
+function navigateTo(pageFile, pushState) {
+  if (currentPage === pageFile) return;
+  currentPage = pageFile;
+
+  const iframe  = document.getElementById('main-frame');
+  const loading = document.getElementById('loading');
+  const errCard = document.getElementById('err-card');
+
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  const hit = document.querySelector(`.nav-item[data-page="${pageFile}"]`);
+  if (hit) hit.classList.add('active');
+
+  errCard.classList.remove('show');
+  iframe.classList.add('fading');
+
+  setTimeout(() => {
+    loading.classList.add('show');
+    iframe.src = pageFile;
+
+    /* 8 秒逾時保護（CSP 或跨域失敗不會觸發 onerror） */
+    const timer = setTimeout(() => {
+      if (loading.classList.contains('show')) {
+        loading.classList.remove('show');
+        iframe.classList.remove('fading');
+        errCard.classList.add('show');
+        console.warn('[KH Dashboard] 頁面載入逾時:', pageFile);
+      }
+    }, 8000);
+
+    iframe.onload = () => {
+      clearTimeout(timer);
+      loading.classList.remove('show');
+      iframe.classList.remove('fading');
+    };
+  }, 150);
+
+  if (pushState !== false) {
+    history.pushState({ page: pageFile }, '', `#${pageFile}`);
+  }
+
+  if (window.innerWidth < 768) closeMobileSidebar();
+}
+
+/** 折疊／展開 sidebar */
+function toggleSidebar() {
+  const sb = document.getElementById('sidebar');
+  sidebarCollapsed = !sidebarCollapsed;
+  sb.classList.toggle('collapsed', sidebarCollapsed);
+}
+
+/** 行動裝置 sidebar 開關 */
+function toggleMobileSidebar() {
+  document.getElementById('sidebar').classList.toggle('mobile-open');
+  document.getElementById('sb-backdrop').classList.toggle('show');
+}
+function closeMobileSidebar() {
+  document.getElementById('sidebar').classList.remove('mobile-open');
+  document.getElementById('sb-backdrop').classList.remove('show');
+}
+
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', e => {
+    e.preventDefault();
+    navigateTo(item.dataset.page);
+  });
+});
+
+window.addEventListener('popstate', e => {
+  if (e.state?.page) navigateTo(e.state.page, false);
+});
+
+/** 視窗 <1024px 時自動折疊 sidebar */
+function handleResize() {
+  const sb = document.getElementById('sidebar');
+  if (window.innerWidth < 1024 && window.innerWidth >= 768) {
+    sb.classList.add('collapsed');
+    sidebarCollapsed = true;
+  }
+}
+window.addEventListener('resize', handleResize);
+
+window.addEventListener('DOMContentLoaded', () => {
+  handleResize();
+  const pages = ['kh_main.html', 'kh_sensor_map.html', 'kh_weather_map.html'];
+  const hash = location.hash.slice(1);
+  const startPage = pages.includes(hash) ? hash : pages[0];
+  navigateTo(startPage, false);
+  history.replaceState({ page: startPage }, '', `#${startPage}`);
+});
+</script>
+</body>
+</html>
