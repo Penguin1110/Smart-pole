@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>智慧桿 PM2.5 風向儀表板</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:"Microsoft JhengHei","Segoe UI",sans-serif;background:#0b1020;color:#e5edf7}
+.wrap{max-width:920px;margin:0 auto;padding:42px 18px}
+h1{font-size:28px;margin:0 0 8px}
+p{color:#93a4ba;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:24px}
+a.card{display:block;text-decoration:none;color:inherit;background:#111827;border:1px solid #26364f;border-radius:8px;padding:18px;min-height:170px}
+a.card:hover{border-color:#5b8cff;transform:translateY(-1px)}
+.tag{display:inline-flex;height:24px;align-items:center;border-radius:999px;padding:0 8px;font-size:12px;background:rgba(242,184,75,.14);color:#ffd37c;margin-bottom:12px}
+.title{font-size:18px;font-weight:750;margin-bottom:8px}
+.desc{font-size:13px;color:#93a4ba;line-height:1.7}
+.note{margin-top:24px;padding:14px;border:1px solid #26364f;border-radius:8px;background:#111827;color:#93a4ba;font-size:13px;line-height:1.7}
+code{color:#ffd37c}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>智慧桿 PM2.5 風向儀表板</h1>
+  <p>目前主軸是風向疊圖、PM2.5 高峰事件、CWA 風速/風向、靜風判斷與事件診斷。</p>
+
+  <section class="grid">
+    <a class="card" href="main/wind_pm25_lag_dashboard.html">
+      <span class="tag">目前主儀表板</span>
+      <div class="title">PM2.5 高峰事件診斷</div>
+      <div class="desc">地圖優先的主頁：PM2.5 測站、CWA 風場、lag selector、calm wind、polar plot、CWA 氣象欄位與事件分類。用來判斷尖峰事件偏向傳輸、停滯、區域同步或局部/混合。</div>
+    </a>
+  </section>
+
+  <div class="note">
+    資料由 <code>preprocess_wind_pm25.py</code> 讀取 <code>data/timeseries_data.json</code>，並產生 <code>main/wind_pm25_data.js</code> 與 <code>main/event_diagnosis_data.js</code>。
+    共同開發請先看 <code>docs/CONTRIBUTING.md</code>，給 AI 的任務說明請用 <code>docs/AI_TASK_TEMPLATE.md</code>。
+  </div>
+</main>
+</body>
+</html>

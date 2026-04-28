@@ -1,0 +1,6006 @@
+{
+  "2026-01-06": [
+    {
+      "h": 0,
+      "sp05_hourly": 17.9,
+      "songshan": 15,
+      "zhongshan": 12,
+      "wanhua": 10,
+      "guting": 13,
+      "shilin": 11,
+      "yangming": 10
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": 19.5,
+      "songshan": 14,
+      "zhongshan": 13,
+      "wanhua": 15,
+      "guting": 12,
+      "shilin": 19,
+      "yangming": 11
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": 21.3,
+      "songshan": 14,
+      "zhongshan": 13,
+      "wanhua": 17,
+      "guting": 13,
+      "shilin": 9,
+      "yangming": 13
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": 21.1,
+      "songshan": 14,
+      "zhongshan": 9,
+      "wanhua": 21,
+      "guting": 11,
+      "shilin": 19,
+      "yangming": 17
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": 21.7,
+      "songshan": 23,
+      "zhongshan": 16,
+      "wanhua": 16,
+      "guting": 19,
+      "shilin": 7,
+      "yangming": 13
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": 23.5,
+      "songshan": 18,
+      "zhongshan": 20,
+      "wanhua": 25,
+      "guting": 22,
+      "shilin": 15,
+      "yangming": 17
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": 24.1,
+      "songshan": 16,
+      "zhongshan": 14,
+      "wanhua": 28,
+      "guting": 20,
+      "shilin": 21,
+      "yangming": 20
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": 27.9,
+      "songshan": 24,
+      "zhongshan": 21,
+      "wanhua": 18,
+      "guting": 23,
+      "shilin": 19,
+      "yangming": 20
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": 32.8,
+      "songshan": 26,
+      "zhongshan": 26,
+      "wanhua": 23,
+      "guting": 19,
+      "shilin": 19,
+      "yangming": 22
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": 35,
+      "songshan": 23,
+      "zhongshan": 22,
+      "wanhua": 26,
+      "guting": 19,
+      "shilin": 24,
+      "yangming": 16
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": 36,
+      "songshan": 31,
+      "zhongshan": null,
+      "wanhua": 24,
+      "guting": 28,
+      "shilin": 22,
+      "yangming": 22
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": 36.1,
+      "songshan": 28,
+      "zhongshan": 29,
+      "wanhua": 29,
+      "guting": 29,
+      "shilin": 27,
+      "yangming": 24
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": 38.5,
+      "songshan": 26,
+      "zhongshan": 35,
+      "wanhua": 32,
+      "guting": 30,
+      "shilin": 19,
+      "yangming": 29
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": 41.7,
+      "songshan": 32,
+      "zhongshan": 36,
+      "wanhua": null,
+      "guting": 38,
+      "shilin": 31,
+      "yangming": 30
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": 48.4,
+      "songshan": null,
+      "zhongshan": 43,
+      "wanhua": 33,
+      "guting": 40,
+      "shilin": 36,
+      "yangming": 35
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": 54.1,
+      "songshan": 32,
+      "zhongshan": 43,
+      "wanhua": 34,
+      "guting": 39,
+      "shilin": 34,
+      "yangming": 35
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": 57.3,
+      "songshan": 40,
+      "zhongshan": 44,
+      "wanhua": 27,
+      "guting": 46,
+      "shilin": 32,
+      "yangming": 40
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": 53.4,
+      "songshan": 41,
+      "zhongshan": 39,
+      "wanhua": 19,
+      "guting": 37,
+      "shilin": 20,
+      "yangming": 42
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": 51,
+      "songshan": 38,
+      "zhongshan": 33,
+      "wanhua": 24,
+      "guting": 31,
+      "shilin": 22,
+      "yangming": 28
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": 43.6,
+      "songshan": 39,
+      "zhongshan": 33,
+      "wanhua": 18,
+      "guting": 29,
+      "shilin": 27,
+      "yangming": 23
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": 37.9,
+      "songshan": 36,
+      "zhongshan": 28,
+      "wanhua": 18,
+      "guting": 30,
+      "shilin": 22,
+      "yangming": 28
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": 35.8,
+      "songshan": 30,
+      "zhongshan": 30,
+      "wanhua": 13,
+      "guting": 30,
+      "shilin": 21,
+      "yangming": 23
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": 35,
+      "songshan": 33,
+      "zhongshan": 29,
+      "wanhua": 19,
+      "guting": 30,
+      "shilin": 18,
+      "yangming": 21
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 23,
+      "sp05_hourly": 37.3,
+      "songshan": 36,
+      "zhongshan": 25,
+      "wanhua": 20,
+      "guting": 28,
+      "shilin": 23,
+      "yangming": 20
+    }
+  ],
+  "2026-01-26": [
+    {
+      "h": 0,
+      "sp05_hourly": 5.3,
+      "songshan": 11,
+      "zhongshan": 7,
+      "wanhua": 20,
+      "guting": 18,
+      "shilin": 12,
+      "yangming": 18
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 0,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": 5.8,
+      "songshan": 8,
+      "zhongshan": 6,
+      "wanhua": 19,
+      "guting": 21,
+      "shilin": 11,
+      "yangming": 13
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 1,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": 5.7,
+      "songshan": 10,
+      "zhongshan": 6,
+      "wanhua": 21,
+      "guting": 20,
+      "shilin": 11,
+      "yangming": 13
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 2,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": 9.5,
+      "songshan": 10,
+      "zhongshan": 10,
+      "wanhua": 20,
+      "guting": 17,
+      "shilin": 12,
+      "yangming": 15
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 3,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": 16.8,
+      "songshan": 13,
+      "zhongshan": 21,
+      "wanhua": 15,
+      "guting": 13,
+      "shilin": 11,
+      "yangming": 18
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 4,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": 21.1,
+      "songshan": 18,
+      "zhongshan": 21,
+      "wanhua": 18,
+      "guting": 23,
+      "shilin": 12,
+      "yangming": 20
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 5,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": 22.6,
+      "songshan": 20,
+      "zhongshan": 23,
+      "wanhua": 13,
+      "guting": 17,
+      "shilin": 12,
+      "yangming": 14
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 6,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": 22.9,
+      "songshan": 26,
+      "zhongshan": 28,
+      "wanhua": 11,
+      "guting": 17,
+      "shilin": 14,
+      "yangming": 16
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 7,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": 25,
+      "songshan": 30,
+      "zhongshan": 28,
+      "wanhua": 15,
+      "guting": 18,
+      "shilin": 11,
+      "yangming": 16
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 8,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": 28.9,
+      "songshan": 29,
+      "zhongshan": 33,
+      "wanhua": 14,
+      "guting": 20,
+      "shilin": 13,
+      "yangming": 21
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 9,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": 25.8,
+      "songshan": 27,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": 24,
+      "shilin": 11,
+      "yangming": 20
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 10,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": 22.1,
+      "songshan": 27,
+      "zhongshan": 17,
+      "wanhua": 17,
+      "guting": 18,
+      "shilin": 18,
+      "yangming": 15
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 11,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": 21.4,
+      "songshan": 26,
+      "zhongshan": 20,
+      "wanhua": 18,
+      "guting": 25,
+      "shilin": 19,
+      "yangming": 18
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 12,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": 22.2,
+      "songshan": null,
+      "zhongshan": 23,
+      "wanhua": 14,
+      "guting": 14,
+      "shilin": 18,
+      "yangming": 20
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 13,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": 22.3,
+      "songshan": 25,
+      "zhongshan": 19,
+      "wanhua": 11,
+      "guting": 14,
+      "shilin": 22,
+      "yangming": 22
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 14,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": 20.3,
+      "songshan": 21,
+      "zhongshan": 20,
+      "wanhua": 18,
+      "guting": 18,
+      "shilin": 22,
+      "yangming": 19
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 15,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": 19.5,
+      "songshan": 24,
+      "zhongshan": 18,
+      "wanhua": 14,
+      "guting": 19,
+      "shilin": 18,
+      "yangming": 21
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 16,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": 23.5,
+      "songshan": 24,
+      "zhongshan": 19,
+      "wanhua": 18,
+      "guting": 29,
+      "shilin": 16,
+      "yangming": 23
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 17,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": 30,
+      "songshan": 28,
+      "zhongshan": 28,
+      "wanhua": 17,
+      "guting": 32,
+      "shilin": 22,
+      "yangming": 20
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 18,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": 32.6,
+      "songshan": 28,
+      "zhongshan": 29,
+      "wanhua": 26,
+      "guting": 33,
+      "shilin": 21,
+      "yangming": 28
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 19,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": 32.4,
+      "songshan": 30,
+      "zhongshan": 31,
+      "wanhua": 21,
+      "guting": 28,
+      "shilin": 23,
+      "yangming": 18
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 20,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": 34.3,
+      "songshan": 26,
+      "zhongshan": 38,
+      "wanhua": 32,
+      "guting": 40,
+      "shilin": 32,
+      "yangming": 27
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 21,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": 34,
+      "songshan": 30,
+      "zhongshan": 30,
+      "wanhua": 21,
+      "guting": 30,
+      "shilin": 32,
+      "yangming": 41
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 22,
+      "sp05_hourly": null,
+      "songshan": null,
+      "zhongshan": null,
+      "wanhua": null,
+      "guting": null,
+      "shilin": null,
+      "yangming": null
+    },
+    {
+      "h": 23,
+      "sp05_hourly": 29.3,
+      "songshan": 27,
+      "zhongshan": 31,
+      "wanhua": 32,
+      "guting": 29,
+      "shilin": 30,
+      "yangming": 41
+    }
+  ]
+}
