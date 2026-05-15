@@ -1,0 +1,32 @@
+# Stream 0.5:Phase 1 finding 顯示 distance selector 從 K=1→30 單調下降、沒看到反曲。
+# 補跑 K=[50, 100, 200],確認 distance 最低點是否還在更大 K 處。
+experiment_id: exp01_mean_dist_extend
+seeds: [1, 2, 3]   # 大 K 比較貴,3 seed 已能算 error bar
+
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end:   2026-02-05
+  freq:  1h
+
+masking:
+  strategy: random_point
+  ratio: 0.20
+
+neighbors:
+  selector: distance
+  k_list: [30, 50, 100, 200]   # 與 Phase 1 K=30 銜接
+
+split:
+  method: time_based
+  train_ratio: 0.8
+
+model:
+  name: mean
+  params: {}
+
+evaluation:
+  metrics: [mae, rmse, r2]
+  plots:   [scatter, residual_ts, k_curve, spatial_error]

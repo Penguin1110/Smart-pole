@@ -1,0 +1,34 @@
+# Phase 2 best 全 K 曲線:correlation × weighted_ridge
+# 從 ablation 結論挑出的最佳組合,跑 full K-curve 給 notebook 用
+experiment_id: exp_phase2_best
+seeds: [1, 2, 3, 4, 5]
+
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end:   2026-02-05
+  freq:  1h
+
+masking:
+  strategy: random_point
+  ratio: 0.20
+
+neighbors:
+  selector: correlation
+  k_list: [30, 20, 10, 5, 3, 1]
+
+split:
+  method: time_based
+  train_ratio: 0.8
+
+model:
+  name: weighted_ridge
+  params:
+    alpha: 1.0
+    weight_kind: none
+
+evaluation:
+  metrics: [mae, rmse, r2]
+  plots:   [scatter, residual_ts, k_curve, spatial_error]

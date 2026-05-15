@@ -1,0 +1,33 @@
+# Stream 0 驗收:block masking vs random_point 對比。
+# 同樣 mean × correlation,改成連續 6 小時缺失。
+experiment_id: exp01_mean_block
+seeds: [1, 2, 3]
+
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end:   2026-02-05
+  freq:  1h
+
+masking:
+  strategy: block
+  ratio: 0.20
+  block_hours: 6
+
+neighbors:
+  selector: correlation
+  k_list: [30, 10, 5, 1]   # 對比用,K 軸 thin
+
+split:
+  method: time_based
+  train_ratio: 0.8
+
+model:
+  name: mean
+  params: {}
+
+evaluation:
+  metrics: [mae, rmse, r2]
+  plots:   [scatter, residual_ts, k_curve, spatial_error]

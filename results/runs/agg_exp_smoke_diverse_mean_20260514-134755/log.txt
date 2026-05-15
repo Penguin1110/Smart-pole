@@ -1,0 +1,11 @@
+2026-05-14 13:47:54,327 [INFO] __main__: 讀 config:configs/experiments/exp_smoke_diverse.yaml
+2026-05-14 13:47:54,330 [INFO] __main__: experiment_id=exp_smoke_diverse, model=mean, seed=42
+2026-05-14 13:47:54,438 [INFO] smart_pole.data.loader: 從 MOENV_iot_station.csv 取得 1287 / 1287 站座標
+2026-05-14 13:47:54,441 [INFO] smart_pole.data.loader: 載入 pole_hourly.parquet:1456 hr × 1287 station,時間 2025-12-04 00:00:00 ~ 2026-02-04 23:00:00,完整度 99.26%
+2026-05-14 13:47:54,441 [INFO] smart_pole.runner.experiment: time_based split:train=[0:1164] (80.0%), test=[1164:1456] (20.0%)
+2026-05-14 13:47:55,661 [INFO] smart_pole.runner.experiment: 建好 neighbor table:1287 / 1287 站
+2026-05-14 13:47:55,662 [INFO] smart_pole.runner.experiment: === seed=1 ===
+2026-05-14 13:47:55,697 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=1)
+2026-05-14 13:47:56,123 [INFO] smart_pole.runner.experiment: seed=1 K=1: n=73667, MAE=5.414, RMSE=7.620, R²=0.231 (耗時 0.4s)
+2026-05-14 13:47:56,625 [INFO] smart_pole.runner.experiment: seed=1 K=5: n=74220, MAE=4.821, RMSE=6.668, R²=0.412 (耗時 0.5s)
+2026-05-14 13:47:57,066 [INFO] smart_pole.runner.experiment: seed=1 K=10: n=74221, MAE=4.652, RMSE=6.536, R²=0.435 (耗時 0.4s)

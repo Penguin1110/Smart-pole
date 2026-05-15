@@ -1,0 +1,35 @@
+seed: 1
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end: 2026-02-05
+  freq: 1h
+masking:
+  strategy: random_point
+  ratio: 0.2
+  block_hours: 6
+neighbors:
+  selector: diverse
+  k_list:
+  - 10
+  - 5
+  - 1
+  k_actual: 1
+split:
+  method: time_based
+  train_ratio: 0.8
+model:
+  name: mean
+  params: {}
+evaluation:
+  metrics:
+  - mae
+  - rmse
+  - r2
+  plots:
+  - k_curve
+experiment_id: exp_smoke_diverse
+seeds:
+- 1

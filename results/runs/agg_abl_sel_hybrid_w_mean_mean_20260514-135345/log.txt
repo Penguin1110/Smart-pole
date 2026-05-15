@@ -1,0 +1,21 @@
+2026-05-14 13:53:03,551 [INFO] __main__: 讀 config:configs/experiments/ablation/sel_hybrid_w_mean.yaml
+2026-05-14 13:53:03,554 [INFO] __main__: experiment_id=abl_sel_hybrid_w_mean, model=mean, seed=42
+2026-05-14 13:53:03,668 [INFO] smart_pole.data.loader: 從 MOENV_iot_station.csv 取得 1287 / 1287 站座標
+2026-05-14 13:53:03,670 [INFO] smart_pole.data.loader: 載入 pole_hourly.parquet:1456 hr × 1287 station,時間 2025-12-04 00:00:00 ~ 2026-02-04 23:00:00,完整度 99.26%
+2026-05-14 13:53:03,671 [INFO] smart_pole.runner.experiment: time_based split:train=[0:1164] (80.0%), test=[1164:1456] (20.0%)
+2026-05-14 13:53:45,938 [INFO] smart_pole.runner.experiment: 建好 neighbor table:1287 / 1287 站
+2026-05-14 13:53:45,940 [INFO] smart_pole.runner.experiment: === seed=1 ===
+2026-05-14 13:53:45,975 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=1)
+2026-05-14 13:53:46,452 [INFO] smart_pole.runner.experiment: seed=1 K=10: n=74218, MAE=3.458, RMSE=5.014, R²=0.667 (耗時 0.5s)
+2026-05-14 13:53:46,906 [INFO] smart_pole.runner.experiment: === seed=2 ===
+2026-05-14 13:53:46,932 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=2)
+2026-05-14 13:53:47,462 [INFO] smart_pole.runner.experiment: seed=2 K=10: n=74384, MAE=3.448, RMSE=5.137, R²=0.656 (耗時 0.5s)
+2026-05-14 13:53:47,917 [INFO] smart_pole.runner.experiment: === seed=3 ===
+2026-05-14 13:53:47,947 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=3)
+2026-05-14 13:53:48,492 [INFO] smart_pole.runner.experiment: seed=3 K=10: n=74523, MAE=3.450, RMSE=5.215, R²=0.647 (耗時 0.5s)
+2026-05-14 13:53:48,931 [INFO] smart_pole.runner.experiment: === seed=4 ===
+2026-05-14 13:53:48,963 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=4)
+2026-05-14 13:53:49,431 [INFO] smart_pole.runner.experiment: seed=4 K=10: n=74613, MAE=3.443, RMSE=5.084, R²=0.659 (耗時 0.5s)
+2026-05-14 13:53:49,859 [INFO] smart_pole.runner.experiment: === seed=5 ===
+2026-05-14 13:53:49,889 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=5)
+2026-05-14 13:53:50,434 [INFO] smart_pole.runner.experiment: seed=5 K=10: n=74749, MAE=3.450, RMSE=5.398, R²=0.632 (耗時 0.5s)

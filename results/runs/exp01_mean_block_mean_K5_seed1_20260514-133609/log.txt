@@ -1,0 +1,24 @@
+2026-05-14 13:36:07,264 [INFO] __main__: 讀 config:configs/experiments/exp01_mean_block.yaml
+2026-05-14 13:36:07,267 [INFO] __main__: experiment_id=exp01_mean_block, model=mean, seed=42
+2026-05-14 13:36:07,382 [INFO] smart_pole.data.loader: 從 MOENV_iot_station.csv 取得 1287 / 1287 站座標
+2026-05-14 13:36:07,384 [INFO] smart_pole.data.loader: 載入 pole_hourly.parquet:1456 hr × 1287 station,時間 2025-12-04 00:00:00 ~ 2026-02-04 23:00:00,完整度 99.26%
+2026-05-14 13:36:07,384 [INFO] smart_pole.runner.experiment: time_based split:train=[0:1164] (80.0%), test=[1164:1456] (20.0%)
+2026-05-14 13:36:09,037 [INFO] smart_pole.runner.experiment: 建好 neighbor table:1287 / 1287 站
+2026-05-14 13:36:09,038 [INFO] smart_pole.runner.experiment: === seed=1 ===
+2026-05-14 13:36:09,126 [INFO] smart_pole.masking.block: block mask:T=1456 S=1287, block_hours=6, 目標 ≈ 371987 (ratio=0.2000, seed=1), 實際 343392 (0.1846)
+2026-05-14 13:36:09,567 [INFO] smart_pole.runner.experiment: seed=1 K=1: n=68761, MAE=4.030, RMSE=6.548, R²=0.496 (耗時 0.4s)
+2026-05-14 13:36:09,972 [INFO] smart_pole.runner.experiment: seed=1 K=5: n=68886, MAE=3.416, RMSE=5.881, R²=0.593 (耗時 0.4s)
+2026-05-14 13:36:10,429 [INFO] smart_pole.runner.experiment: seed=1 K=10: n=68896, MAE=3.423, RMSE=5.805, R²=0.604 (耗時 0.5s)
+2026-05-14 13:36:10,905 [INFO] smart_pole.runner.experiment: seed=1 K=30: n=68897, MAE=3.510, RMSE=5.880, R²=0.593 (耗時 0.5s)
+2026-05-14 13:36:12,639 [INFO] smart_pole.runner.experiment: === seed=2 ===
+2026-05-14 13:36:12,727 [INFO] smart_pole.masking.block: block mask:T=1456 S=1287, block_hours=6, 目標 ≈ 371987 (ratio=0.2000, seed=2), 實際 343482 (0.1847)
+2026-05-14 13:36:13,110 [INFO] smart_pole.runner.experiment: seed=2 K=1: n=68289, MAE=4.072, RMSE=7.139, R²=0.370 (耗時 0.4s)
+2026-05-14 13:36:13,574 [INFO] smart_pole.runner.experiment: seed=2 K=5: n=68401, MAE=3.400, RMSE=5.525, R²=0.623 (耗時 0.5s)
+2026-05-14 13:36:13,996 [INFO] smart_pole.runner.experiment: seed=2 K=10: n=68405, MAE=3.401, RMSE=5.429, R²=0.636 (耗時 0.4s)
+2026-05-14 13:36:14,529 [INFO] smart_pole.runner.experiment: seed=2 K=30: n=68405, MAE=3.481, RMSE=5.496, R²=0.627 (耗時 0.5s)
+2026-05-14 13:36:16,227 [INFO] smart_pole.runner.experiment: === seed=3 ===
+2026-05-14 13:36:16,317 [INFO] smart_pole.masking.block: block mask:T=1456 S=1287, block_hours=6, 目標 ≈ 371987 (ratio=0.2000, seed=3), 實際 342945 (0.1844)
+2026-05-14 13:36:16,702 [INFO] smart_pole.runner.experiment: seed=3 K=1: n=68101, MAE=4.038, RMSE=6.500, R²=0.476 (耗時 0.4s)
+2026-05-14 13:36:17,156 [INFO] smart_pole.runner.experiment: seed=3 K=5: n=68194, MAE=3.413, RMSE=5.502, R²=0.625 (耗時 0.5s)
+2026-05-14 13:36:17,639 [INFO] smart_pole.runner.experiment: seed=3 K=10: n=68203, MAE=3.423, RMSE=5.445, R²=0.632 (耗時 0.5s)
+2026-05-14 13:36:18,122 [INFO] smart_pole.runner.experiment: seed=3 K=30: n=68205, MAE=3.498, RMSE=5.520, R²=0.622 (耗時 0.5s)
