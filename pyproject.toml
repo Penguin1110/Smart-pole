@@ -17,6 +17,9 @@ dependencies = [
     "pyyaml>=6.0",
     "pytest>=8.0",
     "scikit-learn>=1.8.0",
+    "gstools>=1.7.0",
+    "gpytorch>=1.15.2",
+    "statsmodels>=0.14.6",
 ]
 
 [build-system]

@@ -1,0 +1,41 @@
+# Phase 3c:ElasticNet — L1+L2,自動挑哪些 lag / rolling feature 真有用
+experiment_id: exp_elastic_net
+seeds: [1, 2, 3, 4, 5]
+
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end:   2026-02-05
+  freq:  1h
+
+masking:
+  strategy: random_point
+  ratio: 0.20
+
+neighbors:
+  selector: correlation
+  k_list: [30, 20, 10, 5, 3, 1]
+
+features:
+  enabled: true
+  lags:    [1, 2, 3, 6, 24]
+  rolling: [3, 6, 24]
+
+split:
+  method: time_based
+  train_ratio: 0.8
+
+model:
+  name: elastic_net
+  params:
+    alpha:    0.05          # 比 TimeLagRidge 大,因為 L1 需要強到能壓 0
+    l1_ratio: 0.5           # 50/50 L1 + L2
+    max_iter: 5000
+    min_train: 100
+
+evaluation:
+  metrics: [mae, rmse, r2]
+  plots:   [scatter, residual_ts, k_curve, spatial_error]
+  explain: true

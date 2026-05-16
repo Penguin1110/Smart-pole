@@ -1,0 +1,18 @@
+2026-05-16 13:00:10,632 [INFO] __main__: 讀 config:configs/experiments/exp_st_gp.yaml
+2026-05-16 13:00:10,636 [INFO] __main__: experiment_id=exp_st_gp, model=st_gp, seed=42
+2026-05-16 13:00:10,747 [INFO] smart_pole.data.loader: 從 MOENV_iot_station.csv 取得 1287 / 1287 站座標
+2026-05-16 13:00:10,749 [INFO] smart_pole.data.loader: 載入 pole_hourly.parquet:1456 hr × 1287 station,時間 2025-12-04 00:00:00 ~ 2026-02-04 23:00:00,完整度 99.26%
+2026-05-16 13:00:10,749 [INFO] smart_pole.runner.experiment: time_based split:train=[0:1164] (80.0%), test=[1164:1456] (20.0%)
+2026-05-16 13:00:12,411 [INFO] smart_pole.runner.experiment: 建好 neighbor table:1287 / 1287 站
+2026-05-16 13:00:12,413 [INFO] smart_pole.runner.experiment: === seed=1 ===
+2026-05-16 13:00:12,439 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=1)
+2026-05-16 13:11:12,567 [INFO] smart_pole.runner.experiment: seed=1 K=5: n=74221, MAE=5.798, RMSE=7.952, R²=0.163 (耗時 660.1s)
+2026-05-16 13:20:50,845 [INFO] smart_pole.runner.experiment: seed=1 K=10: n=74221, MAE=5.720, RMSE=7.938, R²=0.166 (耗時 578.3s)
+2026-05-16 13:20:51,723 [INFO] smart_pole.runner.experiment: === seed=2 ===
+2026-05-16 13:20:51,757 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=2)
+2026-05-16 13:30:12,748 [INFO] smart_pole.runner.experiment: seed=2 K=5: n=74386, MAE=5.765, RMSE=7.928, R²=0.180 (耗時 561.0s)
+2026-05-16 13:39:30,450 [INFO] smart_pole.runner.experiment: seed=2 K=10: n=74386, MAE=5.705, RMSE=8.152, R²=0.133 (耗時 557.7s)
+2026-05-16 13:39:31,359 [INFO] smart_pole.runner.experiment: === seed=3 ===
+2026-05-16 13:39:31,387 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=3)
+2026-05-16 13:48:50,676 [INFO] smart_pole.runner.experiment: seed=3 K=5: n=74527, MAE=5.769, RMSE=7.977, R²=0.174 (耗時 559.3s)
+2026-05-16 13:58:12,040 [INFO] smart_pole.runner.experiment: seed=3 K=10: n=74527, MAE=5.702, RMSE=8.104, R²=0.148 (耗時 561.4s)

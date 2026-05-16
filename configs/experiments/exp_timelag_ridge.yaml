@@ -1,0 +1,40 @@
+# Phase 3c:Phase 2 ridge + 時空 features(lags / rolling / target 自己歷史)
+# features.lags 取自 notebooks/eda_acf.ipynb 的 ACF 顯著 lag
+experiment_id: exp_timelag_ridge
+seeds: [1, 2, 3, 4, 5]
+
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end:   2026-02-05
+  freq:  1h
+
+masking:
+  strategy: random_point
+  ratio: 0.20
+
+neighbors:
+  selector: correlation     # Phase 2 best 用 correlation,Phase 3 沿用
+  k_list: [30, 20, 10, 5, 3, 1]
+
+features:
+  enabled: true
+  lags:    [1, 2, 3, 6, 24]     # ACF 顯著
+  rolling: [3, 6, 24]            # 對應日內 / 跨日 smoothing
+
+split:
+  method: time_based
+  train_ratio: 0.8
+
+model:
+  name: timelag_ridge
+  params:
+    alpha: 1.0           # 跟 Phase 2 ridge 同 alpha,公平對比
+    min_train: 100       # 至少 100 個合法 row 才擬,小樣本退 mean
+
+evaluation:
+  metrics: [mae, rmse, r2]
+  plots:   [scatter, residual_ts, k_curve, spatial_error]
+  explain: true

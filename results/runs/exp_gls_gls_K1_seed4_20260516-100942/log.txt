@@ -1,0 +1,47 @@
+2026-05-16 10:09:41,056 [INFO] __main__: 讀 config:configs/experiments/exp_gls.yaml
+2026-05-16 10:09:41,060 [INFO] __main__: experiment_id=exp_gls, model=gls, seed=42
+2026-05-16 10:09:41,171 [INFO] smart_pole.data.loader: 從 MOENV_iot_station.csv 取得 1287 / 1287 站座標
+2026-05-16 10:09:41,173 [INFO] smart_pole.data.loader: 載入 pole_hourly.parquet:1456 hr × 1287 station,時間 2025-12-04 00:00:00 ~ 2026-02-04 23:00:00,完整度 99.26%
+2026-05-16 10:09:41,174 [INFO] smart_pole.runner.experiment: time_based split:train=[0:1164] (80.0%), test=[1164:1456] (20.0%)
+2026-05-16 10:09:42,849 [INFO] smart_pole.runner.experiment: 建好 neighbor table:1287 / 1287 站
+2026-05-16 10:09:42,852 [INFO] smart_pole.runner.experiment: features.enabled=true:lags=[1, 2, 3, 6, 24], rolling=[3, 6, 24],每 target 額外 9 feature columns
+2026-05-16 10:09:42,852 [INFO] smart_pole.runner.experiment: === seed=1 ===
+2026-05-16 10:09:42,877 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=1)
+2026-05-16 10:09:47,879 [INFO] smart_pole.runner.experiment: seed=1 K=1: n=74221, MAE=1.129, RMSE=2.685, R²=0.905 (耗時 5.0s)
+2026-05-16 10:10:03,161 [INFO] smart_pole.runner.experiment: seed=1 K=3: n=74221, MAE=1.035, RMSE=2.511, R²=0.917 (耗時 15.3s)
+2026-05-16 10:12:03,010 [INFO] smart_pole.runner.experiment: seed=1 K=5: n=74211, MAE=1.046, RMSE=2.604, R²=0.910 (耗時 119.8s)
+2026-05-16 10:19:44,847 [INFO] smart_pole.runner.experiment: seed=1 K=10: n=74211, MAE=1.120, RMSE=2.817, R²=0.895 (耗時 461.8s)
+2026-05-16 10:38:37,332 [INFO] smart_pole.runner.experiment: seed=1 K=20: n=74211, MAE=1.326, RMSE=3.322, R²=0.854 (耗時 1132.5s)
+2026-05-16 10:46:53,013 [INFO] smart_pole.runner.experiment: seed=1 K=30: n=74211, MAE=1.656, RMSE=4.052, R²=0.783 (耗時 495.7s)
+2026-05-16 10:46:56,977 [INFO] smart_pole.runner.experiment: === seed=2 ===
+2026-05-16 10:46:57,002 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=2)
+2026-05-16 10:47:02,081 [INFO] smart_pole.runner.experiment: seed=2 K=1: n=74386, MAE=1.126, RMSE=2.931, R²=0.888 (耗時 5.1s)
+2026-05-16 10:47:17,627 [INFO] smart_pole.runner.experiment: seed=2 K=3: n=74386, MAE=1.025, RMSE=2.654, R²=0.908 (耗時 15.5s)
+2026-05-16 10:48:03,282 [INFO] smart_pole.runner.experiment: seed=2 K=5: n=74371, MAE=1.027, RMSE=2.778, R²=0.899 (耗時 45.7s)
+2026-05-16 10:50:03,085 [INFO] smart_pole.runner.experiment: seed=2 K=10: n=74371, MAE=1.102, RMSE=2.985, R²=0.884 (耗時 119.8s)
+2026-05-16 10:54:07,760 [INFO] smart_pole.runner.experiment: seed=2 K=20: n=74371, MAE=1.308, RMSE=3.473, R²=0.843 (耗時 244.7s)
+2026-05-16 11:00:12,634 [INFO] smart_pole.runner.experiment: seed=2 K=30: n=74371, MAE=1.649, RMSE=4.294, R²=0.759 (耗時 364.9s)
+2026-05-16 11:00:16,588 [INFO] smart_pole.runner.experiment: === seed=3 ===
+2026-05-16 11:00:16,615 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=3)
+2026-05-16 11:00:21,664 [INFO] smart_pole.runner.experiment: seed=3 K=1: n=74527, MAE=1.130, RMSE=2.948, R²=0.887 (耗時 5.0s)
+2026-05-16 11:00:37,124 [INFO] smart_pole.runner.experiment: seed=3 K=3: n=74527, MAE=1.034, RMSE=2.716, R²=0.904 (耗時 15.5s)
+2026-05-16 11:01:23,490 [INFO] smart_pole.runner.experiment: seed=3 K=5: n=74518, MAE=1.042, RMSE=2.851, R²=0.895 (耗時 46.4s)
+2026-05-16 11:03:00,593 [INFO] smart_pole.runner.experiment: seed=3 K=10: n=74518, MAE=1.116, RMSE=3.049, R²=0.879 (耗時 97.1s)
+2026-05-16 11:06:44,583 [INFO] smart_pole.runner.experiment: seed=3 K=20: n=74518, MAE=1.320, RMSE=3.526, R²=0.839 (耗時 224.0s)
+2026-05-16 11:12:40,543 [INFO] smart_pole.runner.experiment: seed=3 K=30: n=74518, MAE=1.659, RMSE=4.298, R²=0.760 (耗時 356.0s)
+2026-05-16 11:12:44,321 [INFO] smart_pole.runner.experiment: === seed=4 ===
+2026-05-16 11:12:44,347 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=4)
+2026-05-16 11:12:49,627 [INFO] smart_pole.runner.experiment: seed=4 K=1: n=74615, MAE=1.122, RMSE=2.777, R²=0.898 (耗時 5.3s)
+2026-05-16 11:13:05,186 [INFO] smart_pole.runner.experiment: seed=4 K=3: n=74615, MAE=1.032, RMSE=2.621, R²=0.909 (耗時 15.6s)
+2026-05-16 11:13:54,996 [INFO] smart_pole.runner.experiment: seed=4 K=5: n=74603, MAE=1.036, RMSE=2.777, R²=0.898 (耗時 49.8s)
+2026-05-16 11:15:54,033 [INFO] smart_pole.runner.experiment: seed=4 K=10: n=74603, MAE=1.105, RMSE=2.933, R²=0.886 (耗時 119.0s)
+2026-05-16 11:20:00,092 [INFO] smart_pole.runner.experiment: seed=4 K=20: n=74603, MAE=1.314, RMSE=3.366, R²=0.850 (耗時 246.1s)
+2026-05-16 11:25:55,311 [INFO] smart_pole.runner.experiment: seed=4 K=30: n=74603, MAE=1.645, RMSE=4.189, R²=0.768 (耗時 355.2s)
+2026-05-16 11:25:59,105 [INFO] smart_pole.runner.experiment: === seed=5 ===
+2026-05-16 11:25:59,128 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=5)
+2026-05-16 11:26:04,454 [INFO] smart_pole.runner.experiment: seed=5 K=1: n=74752, MAE=1.128, RMSE=3.141, R²=0.876 (耗時 5.3s)
+2026-05-16 11:26:20,031 [INFO] smart_pole.runner.experiment: seed=5 K=3: n=74752, MAE=1.032, RMSE=2.988, R²=0.887 (耗時 15.6s)
+2026-05-16 11:27:11,581 [INFO] smart_pole.runner.experiment: seed=5 K=5: n=74745, MAE=1.037, RMSE=3.077, R²=0.881 (耗時 51.6s)
+2026-05-16 11:29:09,408 [INFO] smart_pole.runner.experiment: seed=5 K=10: n=74745, MAE=1.114, RMSE=3.286, R²=0.864 (耗時 117.8s)
+2026-05-16 11:33:10,984 [INFO] smart_pole.runner.experiment: seed=5 K=20: n=74745, MAE=1.318, RMSE=3.759, R²=0.822 (耗時 241.6s)
+2026-05-16 11:38:46,380 [INFO] smart_pole.runner.experiment: seed=5 K=30: n=74745, MAE=1.656, RMSE=4.547, R²=0.739 (耗時 335.4s)

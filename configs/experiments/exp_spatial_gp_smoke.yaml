@@ -1,0 +1,39 @@
+experiment_id: exp_spatial_gp_smoke
+seeds: [1]
+
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end:   2026-02-05
+  freq:  1h
+
+masking:
+  strategy: random_point
+  ratio: 0.20
+
+neighbors:
+  selector: correlation
+  k_list: [10]
+
+features:
+  enabled: false
+
+split:
+  method: time_based
+  train_ratio: 0.8
+
+model:
+  name: spatial_gp
+  params:
+    kernel: matern52
+    n_iter: 30
+    lr: 0.1
+    lengthscale_init_m: 2000.0
+    noise_floor: 0.5
+
+evaluation:
+  metrics: [mae, rmse, r2]
+  plots:   [k_curve]
+  explain: true

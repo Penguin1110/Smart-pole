@@ -1,0 +1,40 @@
+# Phase 3a:Spatial GP(per-target,K+1 站時間平均做 GP 擬合)
+experiment_id: exp_spatial_gp
+seeds: [1, 2, 3, 4, 5]
+
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end:   2026-02-05
+  freq:  1h
+
+masking:
+  strategy: random_point
+  ratio: 0.20
+
+neighbors:
+  selector: correlation
+  k_list: [30, 20, 10, 5, 3, 1]
+
+features:
+  enabled: false
+
+split:
+  method: time_based
+  train_ratio: 0.8
+
+model:
+  name: spatial_gp
+  params:
+    kernel: matern52        # smooth-but-not-too-smooth,PM2.5 適用
+    n_iter: 30              # K+1 點問題 30 步夠收斂
+    lr: 0.1
+    lengthscale_init_m: 2000.0   # 與 gaussian_kernel sigma 同尺度
+    noise_floor: 0.5             # PM2.5 量測誤差 ~ 0.5 µg/m³
+
+evaluation:
+  metrics: [mae, rmse, r2]
+  plots:   [scatter, residual_ts, k_curve, spatial_error]
+  explain: true

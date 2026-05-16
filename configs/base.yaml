@@ -15,12 +15,20 @@ masking:
   block_hours: 6
 
 neighbors:
-  selector: distance       # distance | correlation
+  selector: distance       # distance | correlation | diverse | wind_aligned | hybrid
   k_list: [30, 20, 10, 5, 3, 1]
+  params: {}
 
 split:
   method: time_based       # time_based | random
   train_ratio: 0.8
+
+# Phase 3 預留欄位:時空特徵。enabled=false 時 runner 不讀,行為與 Phase 2 完全一致。
+# Stream 3c 起會由 runner 接走,把 features 餵給支援時空輸入的模型(timelag_ridge 等)。
+features:
+  enabled: false
+  lags:    [1, 2, 3, 6, 24]   # 由 notebooks/eda_acf.ipynb 觀察的顯著 lag
+  rolling: [3, 6, 24]
 
 model:
   name: mean
@@ -29,3 +37,4 @@ model:
 evaluation:
   metrics: [mae, rmse, r2]
   plots:   [scatter, residual_ts, k_curve, spatial_error]
+  explain: true            # Phase 3 預設要產 explain.json;Phase 1/2 模型 explain() 回 None 時自動 skip

@@ -41,6 +41,7 @@ class WeightedRidgeImputer(BaseImputer):
 
     name = "weighted_ridge"
     tier = 2
+    explainability = 8
 
     def __init__(self, **params: Any) -> None:
         super().__init__(**params)

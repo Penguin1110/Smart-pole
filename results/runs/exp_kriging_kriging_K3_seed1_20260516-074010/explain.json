@@ -1,0 +1,7994 @@
+{
+  "7477604061": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7477743657": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 1.9483292367231364,
+      "range": 287689.2194466718,
+      "nugget": 1.9483292338265157
+    },
+    "weights": [
+      0.3333333334963631,
+      0.33333333208127,
+      0.33333333442236684
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7477885991": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7477934092": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7478085909": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7478196125": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7478212315": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7478398243": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7478452318": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 11.12907978899255,
+      "range": 3173.8821948231744,
+      "nugget": 3.5169674855280506e-17
+    },
+    "weights": [
+      0.4016109660177474,
+      0.3308542779176482,
+      0.2675347560646047
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7478507288": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7478684803": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7478714726": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7478823042": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7478953462": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7479036006": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7479190447": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7479221951": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7479356761": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7479463385": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7479580508": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7479631501": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 12.717388375418512,
+      "range": 5431.095582496804,
+      "nugget": 1.3436865853736284e-19
+    },
+    "weights": [
+      0.5265586061867765,
+      0.21121567608588568,
+      0.26222571772733766
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "7479701309": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7479830202": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7479919108": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7480003704": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7480137787": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7480243860": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7480379967": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7480451814": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7480536581": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7480689298": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7480739786": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7480850758": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7480953563": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7481037555": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7481190130": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7481202080": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7481393388": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7481489700": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7481593311": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7481693548": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7481885025": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7481993385": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7482098424": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7482159607": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 5.364398492475718,
+      "range": 47931.298124449735,
+      "nugget": 5.364398492468905
+    },
+    "weights": [
+      0.3333333333308181,
+      0.33333333333486104,
+      0.33333333333432086
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7482227039": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7482322722": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.988363548312021,
+      "range": 3188.00115885628,
+      "nugget": 7.650482137747089e-29
+    },
+    "weights": [
+      0.1461646840520023,
+      0.6905594928315865,
+      0.16327582311641128
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7482486195": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7482563337": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 470142.9753685043,
+      "range": 334655969.4290092,
+      "nugget": 17.65607242908211
+    },
+    "weights": [
+      0.9647176568058008,
+      0.002110876641517301,
+      0.03317146655268196
+    ],
+    "weights_sum": 1.0,
+    "n_train": 435,
+    "n_pairs_used": 3
+  },
+  "7482729710": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7482944438": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7483140615": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7483214351": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7483396307": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7483438017": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 5.680329957882179,
+      "range": 15499.71453194735,
+      "nugget": 5.680329957882179
+    },
+    "weights": [
+      0.33333333333333565,
+      0.3333333333333317,
+      0.33333333333333265
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7483566071": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 3.6446473991304114,
+      "range": 4115.913872429827,
+      "nugget": 1.8202637176495207e-14
+    },
+    "weights": [
+      0.39208909009299847,
+      0.2044450249064917,
+      0.4034658850005097
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1151,
+    "n_pairs_used": 3
+  },
+  "7483648158": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7483730450": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7483993254": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7484035803": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7484166900": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7484244972": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7484368862": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7484492354": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 470142.9753685043,
+      "range": 334655969.4290092,
+      "nugget": 17.65607242908211
+    },
+    "weights": [
+      0.941208308388192,
+      0.06785009840096697,
+      -0.00905840678915893
+    ],
+    "weights_sum": 1.0,
+    "n_train": 435,
+    "n_pairs_used": 3
+  },
+  "7484527022": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7484617856": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7484793775": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7484831036": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7484911281": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7485097293": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 18544.14712903549,
+      "range": 134638281.42355058,
+      "nugget": 15.814315846296767
+    },
+    "weights": [
+      -0.03935521425695794,
+      0.8126933390736777,
+      0.22666187518328018
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1153,
+    "n_pairs_used": 3
+  },
+  "7485131577": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 38.86269884032248,
+      "range": 412.30310718799774,
+      "nugget": 38.86262723693971
+    },
+    "weights": [
+      0.33331698351846606,
+      0.33334797718123554,
+      0.3333350393002983
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7485275175": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7485391205": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7485404658": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7485563281": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7485611211": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 1496.7929337809792,
+      "range": 39084153.1366578,
+      "nugget": 1.8197798048291125
+    },
+    "weights": [
+      0.8939730833900095,
+      0.002648096693599007,
+      0.1033788199163914
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7485715088": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7485837538": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7485992724": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7486047608": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7486174108": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7486229547": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7486324088": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 32.68667778626471,
+      "range": 24076.778106170794,
+      "nugget": 32.68667778626157
+    },
+    "weights": [
+      0.33333333333566045,
+      0.33333333333317,
+      0.3333333333311695
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7486427917": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7486508672": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7486601868": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 4.880536217707249,
+      "range": 1303.5035325838137,
+      "nugget": 9.625516285200492e-29
+    },
+    "weights": [
+      0.5200953424756279,
+      0.25230327718992696,
+      0.2276013803344452
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7486702638": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7486824865": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7486962767": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7487067353": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7487193130": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 11.076266413292188,
+      "range": 16863.87669836814,
+      "nugget": 11.076266413292185
+    },
+    "weights": [
+      0.3333333333333334,
+      0.33333333333333137,
+      0.3333333333333353
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7487221986": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 31.13308962477905,
+      "range": 5018.830007152095,
+      "nugget": 31.13308962477905
+    },
+    "weights": [
+      0.3333333333333298,
+      0.33333333333333565,
+      0.3333333333333345
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7487303452": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7487422956": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7487568107": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7487651318": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.943788144661745,
+      "range": 2768879.5820523687,
+      "nugget": 10.943788144660504
+    },
+    "weights": [
+      0.3333333333333267,
+      0.33333333333331955,
+      0.3333333333333538
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7487713475": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7487887464": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7487931320": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7488052015": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7488136961": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7488216746": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7488326256": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 28.039822476537992,
+      "range": 6248.139889050182,
+      "nugget": 28.039822476527995
+    },
+    "weights": [
+      0.33333333334123405,
+      0.3333333333375134,
+      0.3333333333212526
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1155,
+    "n_pairs_used": 3
+  },
+  "7488498902": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7488590256": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7488664876": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7488709643": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7488819344": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 14.170388689752357,
+      "range": 3562.931672230713,
+      "nugget": 4.924026861354435e-10
+    },
+    "weights": [
+      0.24978181872574473,
+      0.4886571669349169,
+      0.2615610143393385
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1153,
+    "n_pairs_used": 5
+  },
+  "7488920230": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7489011255": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7489197922": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7489261011": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 12.573009706504815,
+      "range": 5082.5565309809235,
+      "nugget": 12.573009706504815
+    },
+    "weights": [
+      0.33333333333332865,
+      0.33333333333333637,
+      0.33333333333333504
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7489346030": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7489474968": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 20.383164714197566,
+      "range": 13061.83894302803,
+      "nugget": 20.383164714197566
+    },
+    "weights": [
+      0.33333333333333154,
+      0.333333333333335,
+      0.3333333333333335
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7489589555": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7489680324": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7489782011": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7489869201": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7489936438": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7490090986": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7490198369": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7490249046": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7490466994": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7490574044": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7490689726": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 37.04463447991117,
+      "range": 7608.215893435423,
+      "nugget": 1.7468192756375434e-14
+    },
+    "weights": [
+      0.5181743940685896,
+      0.32166821767132037,
+      0.16015738826009007
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7490742728": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7490886703": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7490917480": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7491004807": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7491149710": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7491258585": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 126487.77422710642,
+      "range": 70929391.43227182,
+      "nugget": 12.453850279140328
+    },
+    "weights": [
+      0.047743429643532474,
+      -0.023674765544913674,
+      0.9759313359013813
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7491327480": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7491450311": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7491514337": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7491692766": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7491723525": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7491881945": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7491918936": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7492040716": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7492132843": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7492215675": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7492347180": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7492487347": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7492511830": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7492614560": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7492766302": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 48747.99786768067,
+      "range": 488746994.9885948,
+      "nugget": 4.755841701344392
+    },
+    "weights": [
+      -0.04829929841157816,
+      0.1208407640492661,
+      0.9274585343623121
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7492877569": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7492987182": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7493033598": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9972.489275681583,
+      "range": 62315037.94481272,
+      "nugget": 0.9310249712486283
+    },
+    "weights": [
+      0.9117858308651852,
+      -0.004039484991102211,
+      0.09225365412591713
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "7493172404": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7493298792": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7493362469": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7493442304": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7493539236": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 57.17821994257918,
+      "range": 20895.470936885948,
+      "nugget": 1.2980596065646406
+    },
+    "weights": [
+      0.39805574455071774,
+      0.3411860874518585,
+      0.26075816799742396
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7493680351": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7493749392": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7493963717": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7494072208": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7494165695": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7494269836": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7494382694": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7494489664": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7494523436": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7494636687": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7494731052": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7494879805": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7494909904": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 8.984160554898663,
+      "range": 26063.61333864019,
+      "nugget": 8.984160554898661
+    },
+    "weights": [
+      0.3333333333333341,
+      0.333333333333333,
+      0.3333333333333329
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7495034346": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7495174972": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7495274841": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7495355734": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 16.47553644071724,
+      "range": 5821.411276888953,
+      "nugget": 16.47553644071719
+    },
+    "weights": [
+      0.3333333333331797,
+      0.3333333333333981,
+      0.3333333333334221
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7495434899": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7495582061": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 33997.75193565245,
+      "range": 42216919.63154976,
+      "nugget": 10.284991753922775
+    },
+    "weights": [
+      0.5003134730870655,
+      -0.0006269461741328602,
+      0.5003134730870673
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7495672573": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7495775458": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7495890482": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7495981761": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7496098429": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7496104669": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 2787.718444916358,
+      "range": 6480623.9768510945,
+      "nugget": 3.839977468604375
+    },
+    "weights": [
+      -0.27402235324912744,
+      0.39523321512140197,
+      0.8787891381277255
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7496200568": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7496394033": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7496465073": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7496587211": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7496620594": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7496727287": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7496893749": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7496984514": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7497031845": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7497117170": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7497270338": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7497374716": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7497467034": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7497576282": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7497603612": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7497791362": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7497858373": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7497913919": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7498011652": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 17.712886756874497,
+      "range": 42593.02033513109,
+      "nugget": 17.71288675687449
+    },
+    "weights": [
+      0.33333333333332926,
+      0.33333333333333387,
+      0.33333333333333676
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7498151532": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7498256882": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7498384952": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7498456032": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 52117.39248045683,
+      "range": 119256703.9646697,
+      "nugget": 4.821891073515303
+    },
+    "weights": [
+      0.9457740756254149,
+      0.050796384530371705,
+      0.003429539844213136
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7498525333": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7498677854": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7498707654": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7498827771": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 15.459175198714838,
+      "range": 23.417570064364554,
+      "nugget": 4.824523097620179
+    },
+    "weights": [
+      0.33333333333333326,
+      0.33333333333333326,
+      0.33333333333333337
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "7498901088": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7499035019": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.167627729637686,
+      "range": 74349.09073618741,
+      "nugget": 6.167627729636095
+    },
+    "weights": [
+      0.3333333333318168,
+      0.33333333333393494,
+      0.33333333333424814
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7499193918": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7499233696": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7499317930": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7499476866": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7499575392": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7499623611": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.267310785985539,
+      "range": 283989.16081693897,
+      "nugget": 6.267310783853788
+    },
+    "weights": [
+      0.3333333334848171,
+      0.33333333312134966,
+      0.3333333333938331
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7499719507": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7499859348": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7499935030": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7500068690": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7500143156": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7500248993": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7500340286": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7500479378": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7500588428": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7500640612": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7500720748": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7500814430": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7501060433": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7501197390": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 37.57245983443956,
+      "range": 343093.9744072011,
+      "nugget": 0.383043411429284
+    },
+    "weights": [
+      0.3908653494182154,
+      0.21826930116351664,
+      0.39086534941826806
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7501204506": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7501398343": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 351241.0421961813,
+      "range": 400990276.44594854,
+      "nugget": 3.6886231358351944
+    },
+    "weights": [
+      0.602751740886781,
+      0.2335493077837084,
+      0.1636989513295106
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7501427897": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6440.2137195387,
+      "range": 51955.07328497225,
+      "nugget": 7.667272959976809e-26
+    },
+    "weights": [
+      0.002405485537505381,
+      0.4501351154379001,
+      0.5474593990245946
+    ],
+    "weights_sum": 1.0,
+    "n_train": 64,
+    "n_pairs_used": 3
+  },
+  "7501573723": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 37.5657183844577,
+      "range": 5136.262031782195,
+      "nugget": 37.565718384428365
+    },
+    "weights": [
+      0.3333333333347624,
+      0.333333333339096,
+      0.33333333332614157
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7501656624": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7501790049": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7501838721": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 27742.507439397832,
+      "range": 28807830.766929146,
+      "nugget": 3.8963063506533793
+    },
+    "weights": [
+      0.2040109605628556,
+      0.8660249993305226,
+      -0.07003595989337821
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1071,
+    "n_pairs_used": 3
+  },
+  "7501955786": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7502041397": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7502137404": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 3.038813696071729,
+      "range": 313560.02034996304,
+      "nugget": 3.038813606852977
+    },
+    "weights": [
+      0.33333332015945866,
+      0.3333333276022697,
+      0.3333333522382716
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "7502259692": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7502319246": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 11.964755400524076,
+      "range": 20537.924084935294,
+      "nugget": 11.964755400524075
+    },
+    "weights": [
+      0.3333333333333366,
+      0.3333333333333313,
+      0.3333333333333321
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7502473012": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7502536094": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7502638677": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7502724784": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7502882086": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7502999963": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.8795888857194925,
+      "range": 3161.9271250032957,
+      "nugget": 1.3028590861117383e-12
+    },
+    "weights": [
+      0.4742516255322649,
+      0.11838501898914347,
+      0.40736335547859165
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "7503017211": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7503123192": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7503257013": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7503308927": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 204424.01544910585,
+      "range": 307079623.0220784,
+      "nugget": 4.950739918741744
+    },
+    "weights": [
+      0.18206764685698434,
+      0.7230807619175748,
+      0.09485159122544096
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1149,
+    "n_pairs_used": 3
+  },
+  "7503429455": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7503598136": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7503698866": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7503709666": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7503815920": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7503940135": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7504091703": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7504124833": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7504287459": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7504315132": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7504424436": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7504549954": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 16.120382228159805,
+      "range": 8610.990850327194,
+      "nugget": 16.12038222815979
+    },
+    "weights": [
+      0.33333333333330784,
+      0.3333333333333552,
+      0.3333333333333369
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7504608487": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7504728532": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7504873793": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7504967303": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7505035012": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7505195436": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7505246440": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7505357780": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7505491353": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7505574807": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7505621134": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7505735773": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 20.634044588999608,
+      "range": 200538.3609595732,
+      "nugget": 20.634044588651296
+    },
+    "weights": [
+      0.33333333330643367,
+      0.33333333335565096,
+      0.3333333333379153
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7505865686": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7505990504": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7506145829": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7506280502": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7506378281": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7506491102": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7506584278": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7506624859": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 16.513935427073402,
+      "range": 953.1998438846692,
+      "nugget": 6.083759435010741e-14
+    },
+    "weights": [
+      0.3422721790193985,
+      0.21494990177917556,
+      0.442777919201426
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7506760380": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7506840943": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7506955967": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7507106784": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 12.273853296944175,
+      "range": 7760.156492533874,
+      "nugget": 2.935321731169514e-19
+    },
+    "weights": [
+      0.5894506031749955,
+      0.21106712694202162,
+      0.19948226988298293
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7507278788": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7507326159": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7507480239": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7507544476": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7507644065": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7507778120": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7507885443": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7507990603": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7508002098": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7508186371": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7508298295": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7508357657": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7508415123": {
+    "error": "no pairs within max_range_m",
+    "fallback": "uniform mean"
+  },
+  "7508580689": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7508612547": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7508782069": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7508852025": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7508940074": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 8.120641665440738,
+      "range": 11475.483755198191,
+      "nugget": 8.120641665440738
+    },
+    "weights": [
+      0.3333333333333282,
+      0.3333333333333349,
+      0.33333333333333687
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7509084787": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7509102222": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7509245929": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7509357372": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7509443857": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7509560042": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7509609144": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7509713357": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7509811606": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7509982565": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7510047461": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 12.231568295048515,
+      "range": 10529.952567156164,
+      "nugget": 12.231568294627216
+    },
+    "weights": [
+      0.33333333345012617,
+      0.33333333269234283,
+      0.33333333385753106
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7510126368": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7510231087": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7510314203": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7510490930": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7510550088": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 225.19039091116468,
+      "range": 88806.66466627587,
+      "nugget": 2.255595990043397
+    },
+    "weights": [
+      0.7827533136853514,
+      0.0004870039398190324,
+      0.21675968237482954
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1143,
+    "n_pairs_used": 4
+  },
+  "7510668327": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7510714559": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7510859298": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7510920306": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7511007499": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9.01190227772522,
+      "range": 899.4651008280471,
+      "nugget": 8.65210024935878e-12
+    },
+    "weights": [
+      0.42633160429164646,
+      0.28813649804524544,
+      0.2855318976631079
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7511147192": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7511240971": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7511346385": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7511401744": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 17.42163893604657,
+      "range": 0.24956329513224773,
+      "nugget": 17.42163893566981
+    },
+    "weights": [
+      0.3333333333333312,
+      0.3333333333333343,
+      0.33333333333333454
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7511587235": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7511619189": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7511742591": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7511812486": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7511908573": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7512076257": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7512151582": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7512242621": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7512359089": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7512438633": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 47578.62043763998,
+      "range": 36603584.72753491,
+      "nugget": 1.1550981907209094e-35
+    },
+    "weights": [
+      0.9658254308346695,
+      0.044903694336734176,
+      -0.010729125171403894
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "7512529797": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7512628714": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7512736991": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7512873286": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7512978673": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7513046567": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 20.04022570535781,
+      "range": 16019.530575191806,
+      "nugget": 20.040225704853995
+    },
+    "weights": [
+      0.33333333390256964,
+      0.3333333326234046,
+      0.33333333347402583
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "7513107616": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 36.93092108985649,
+      "range": 4887.530201040827,
+      "nugget": 6.219827528231377e-13
+    },
+    "weights": [
+      0.3062870788792942,
+      0.030676732216689283,
+      0.6630361889040165
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7513206198": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 11.156357276488984,
+      "range": 5391.783653177104,
+      "nugget": 1.0076424527181626e-11
+    },
+    "weights": [
+      0.020075463870743708,
+      0.1764709493401705,
+      0.8034535867890858
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7513366876": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7513424009": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7513567762": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7513615579": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7513785359": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7513896447": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7513916120": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 17.761557614527707,
+      "range": 5241.589543184369,
+      "nugget": 7.88980392476848e-30
+    },
+    "weights": [
+      0.5282583361929777,
+      0.08281788478793596,
+      0.3889237790190865
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7514076182": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7514167092": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 8820.22349009054,
+      "range": 40737935.90471161,
+      "nugget": 0.03506279892173227
+    },
+    "weights": [
+      1.0021597819903385,
+      -0.0016204584964688358,
+      -0.0005393234938698568
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7514268434": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7514396521": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7514453647": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7514512463": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7514660724": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7514764680": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7514848388": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.809853004677475,
+      "range": 15825.505573915467,
+      "nugget": 6.809853004677473
+    },
+    "weights": [
+      0.3333333333333406,
+      0.3333333333333308,
+      0.33333333333332865
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7514905550": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7515036049": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7515126810": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 29.396607860565013,
+      "range": 8555.971809912733,
+      "nugget": 3.3798150835414634e-13
+    },
+    "weights": [
+      0.5422331902780269,
+      0.4556225667145381,
+      0.0021442430074350735
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7515206896": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7515331409": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7515404708": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 278.97182552059303,
+      "range": 7528167.423563724,
+      "nugget": 1.7640416579358853
+    },
+    "weights": [
+      0.152960085770012,
+      -0.18962544527460992,
+      1.036665359504598
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1084,
+    "n_pairs_used": 4
+  },
+  "7515587922": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7515637410": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7515729956": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7515808638": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7515981387": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7516043101": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 43.084636199542544,
+      "range": 4119.821466796304,
+      "nugget": 8.990172408311986e-09
+    },
+    "weights": [
+      0.4800679773187816,
+      0.4930802622820849,
+      0.026851760399133538
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7516179324": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7516233356": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 16.30044698503442,
+      "range": 3684.2608132916794,
+      "nugget": 2.9914051039714964e-23
+    },
+    "weights": [
+      0.3142359753061524,
+      0.2377045102467751,
+      0.44805951444707254
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7516344918": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7516433187": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7516512653": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7516620229": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7516777282": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 62989.572772264466,
+      "range": 134203048.46854098,
+      "nugget": 2.4199124054120555
+    },
+    "weights": [
+      0.8681701323109884,
+      0.13119915982037222,
+      0.0006307078686393977
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1152,
+    "n_pairs_used": 3
+  },
+  "7516801340": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7516993172": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.597000678684266,
+      "range": 23573.80147751591,
+      "nugget": 10.597000678684266
+    },
+    "weights": [
+      0.3333333333333338,
+      0.33333333333333326,
+      0.3333333333333329
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7517060247": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7517122541": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7517285419": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7517333154": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7517416187": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7517565795": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7517624998": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7517732303": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7517837334": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7517902290": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7518002296": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7518175084": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7518264165": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 14.358820538703402,
+      "range": 36338.281674809485,
+      "nugget": 10.207185246809528
+    },
+    "weights": [
+      0.7964148680801235,
+      0.048491633510373,
+      0.15509349840950365
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7518347829": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 15.521915906539654,
+      "range": 15625.108558568414,
+      "nugget": 15.521915906215366
+    },
+    "weights": [
+      0.3333333330681113,
+      0.33333333378718555,
+      0.3333333331447032
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7518457455": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 43.89250960288898,
+      "range": 7274.969543245853,
+      "nugget": 1.5612575617130095e-13
+    },
+    "weights": [
+      0.29101197554475006,
+      0.6948698318484394,
+      0.014118192606810551
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7518521367": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7518689017": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7518719679": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7518868651": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7518931416": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7519040357": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 4.507001397138435,
+      "range": 92.83919880055282,
+      "nugget": 0.41289616582141975
+    },
+    "weights": [
+      0.2499369201744151,
+      0.5001261596513441,
+      0.24993692017424077
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7519146375": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 57.03348529718006,
+      "range": 1158.3829292837736,
+      "nugget": 1.216224929702947e-10
+    },
+    "weights": [
+      0.44275675669982,
+      0.27863460613012525,
+      0.2786086371700547
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7519274077": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7519307385": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7519483354": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 5.323598312114281,
+      "range": 10475.413144326672,
+      "nugget": 5.323598312114281
+    },
+    "weights": [
+      0.33333333333333154,
+      0.3333333333333347,
+      0.3333333333333338
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1126,
+    "n_pairs_used": 3
+  },
+  "7519561245": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7519659524": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7519753236": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.59266171996294,
+      "range": 999556.1386742988,
+      "nugget": 10.592661717157055
+    },
+    "weights": [
+      0.33333333350772254,
+      0.3333333331954391,
+      0.33333333329683823
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7519842575": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7519984035": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7520052689": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7520198608": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7520276841": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7520363518": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 14.649339397665347,
+      "range": 5800.081204524056,
+      "nugget": 14.649339397665347
+    },
+    "weights": [
+      0.3333333333333348,
+      0.33333333333333276,
+      0.3333333333333324
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7520400472": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 17.83394561094156,
+      "range": 1840.030606982794,
+      "nugget": 2.7326370388494715e-15
+    },
+    "weights": [
+      0.4494430676388615,
+      0.24722472017047875,
+      0.3033322121906598
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7520500242": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7520658985": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 13.7177715774444,
+      "range": 487513.39229359105,
+      "nugget": 13.717771577444307
+    },
+    "weights": [
+      0.3333333333333305,
+      0.3333333333333488,
+      0.3333333333333208
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7520791283": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7520839672": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7520922707": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7521082853": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7521125792": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7521247698": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7521355061": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7521487960": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7521548490": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7521669782": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 17074.969107677214,
+      "range": 45841010.38622694,
+      "nugget": 4.100651509114418
+    },
+    "weights": [
+      0.013061248130519353,
+      0.10328622613877392,
+      0.8836525257307067
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7521774063": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7521898822": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 72515.15275920769,
+      "range": 98331624.49946894,
+      "nugget": 1.6617092306228678
+    },
+    "weights": [
+      0.7640714263090219,
+      0.43946664625060133,
+      -0.2035380725596232
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "7521980384": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7522076101": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 77767.77639456988,
+      "range": 86536368.97650251,
+      "nugget": 3.2847041966148014
+    },
+    "weights": [
+      0.645678145889486,
+      -0.03744850274158677,
+      0.3917703568521007
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7522164347": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7522283105": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7522385911": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7522475493": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7522551412": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7522694341": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7522721084": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7522863555": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7522980273": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 3.639036674270233,
+      "range": 104317.5087172561,
+      "nugget": 3.639036670690919
+    },
+    "weights": [
+      0.33333332932109805,
+      0.3333333296830229,
+      0.33333334099587897
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7523081612": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7523148566": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7523264126": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 36.87520586453408,
+      "range": 47957.68040504639,
+      "nugget": 1.0802846451044533e-18
+    },
+    "weights": [
+      0.0473060293655555,
+      0.7842374161179708,
+      0.16845655451647357
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7523357297": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7523404601": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7523515637": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7523657416": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7523746557": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 18.802086900051922,
+      "range": 7518.680608773866,
+      "nugget": 18.802086900035814
+    },
+    "weights": [
+      0.33333333331543935,
+      0.33333333334226395,
+      0.33333333334229664
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7523838113": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7523910079": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 207600.49807027087,
+      "range": 256172363.3384866,
+      "nugget": 1.6189286734027486
+    },
+    "weights": [
+      0.8267934073045315,
+      -0.01800193942905326,
+      0.19120853212452182
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7524001112": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7524131114": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7524224279": {
+    "error": "no pairs within max_range_m",
+    "fallback": "uniform mean"
+  },
+  "7524334637": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7524463296": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 2.2920075977286256,
+      "range": 206009.676903527,
+      "nugget": 2.2920075796770414
+    },
+    "weights": [
+      0.33333327116149486,
+      0.3333333690532824,
+      0.33333335978522277
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7524516602": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 2190.813126729809,
+      "range": 91304594.64553761,
+      "nugget": 4.200486441510793
+    },
+    "weights": [
+      0.026980055038745128,
+      1.0052761976205307,
+      -0.03225625265927574
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1147,
+    "n_pairs_used": 4
+  },
+  "7524674159": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7524754110": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 124451.12078208516,
+      "range": 82046614.2425415,
+      "nugget": 2.118393372992939e-30
+    },
+    "weights": [
+      -0.0089184157686274,
+      0.004813862592972855,
+      1.0041045531756545
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "7524809053": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7524946213": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.69610157883695,
+      "range": 19682.351111502478,
+      "nugget": 10.69610157883695
+    },
+    "weights": [
+      0.33333333333333126,
+      0.3333333333333338,
+      0.33333333333333487
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7525053001": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7525180078": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7525207637": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 29375.563867204357,
+      "range": 132971083.18272758,
+      "nugget": 1.7354029133500877
+    },
+    "weights": [
+      0.7843143631651271,
+      -0.10794806947245361,
+      0.3236337063073264
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "7525326672": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7525489912": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7525537467": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 14.751468157290525,
+      "range": 6696184.354870092,
+      "nugget": 14.751468157290525
+    },
+    "weights": [
+      0.3333333333333311,
+      0.3333333333333342,
+      0.3333333333333347
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7525672806": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7525752074": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7525805270": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 15.527639119572024,
+      "range": 15477.580858843692,
+      "nugget": 15.527639119561183
+    },
+    "weights": [
+      0.33333333332348647,
+      0.33333333334852466,
+      0.3333333333279889
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7525942991": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7526032148": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7526160954": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7526226121": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7526381157": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7526409697": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7526553629": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 11.332736740253726,
+      "range": 4441.842920674627,
+      "nugget": 1.9371126013243573e-13
+    },
+    "weights": [
+      0.1453731181693664,
+      0.4273134409119884,
+      0.4273134409186452
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1153,
+    "n_pairs_used": 3
+  },
+  "7526625381": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7526799162": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7526895066": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 30412.562360945245,
+      "range": 99548902.14689092,
+      "nugget": 2.7170487641283323
+    },
+    "weights": [
+      -0.008800140710950827,
+      1.0157015703530818,
+      -0.006901429642130291
+    ],
+    "weights_sum": 1.0000000000000007,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "7526917449": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7527014441": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7527108394": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7527275539": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "7527351738": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 28.14424601729521,
+      "range": 1232.8307551742776,
+      "nugget": 8.567417951323755
+    },
+    "weights": [
+      0.5713998826695067,
+      0.23171442135641393,
+      0.19688569597407943
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "7527459181": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 106288.98175774449,
+      "range": 89178030.44592716,
+      "nugget": 3.46689076919277
+    },
+    "weights": [
+      -0.012730912956723567,
+      0.8608248926475538,
+      0.1519060203091697
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 6
+  },
+  "7527563599": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9009559163": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9009618799": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9009722303": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9009816967": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9009946883": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9010013582": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9010195924": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9.252377244501837,
+      "range": 8087.747866182921,
+      "nugget": 9.252377244500947
+    },
+    "weights": [
+      0.33333333332930576,
+      0.3333333333353526,
+      0.3333333333353417
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9010280547": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9010341717": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9010633277": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9010702529": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9010861546": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9010970964": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9011086038": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9011145374": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9011230844": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9011348145": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9011415193": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 28.382896786559286,
+      "range": 1255.6381322363159,
+      "nugget": 28.382896786558348
+    },
+    "weights": [
+      0.3333333333334115,
+      0.3333333333333412,
+      0.3333333333332473
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9011552533": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9011621131": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9011713717": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9011889842": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9011929439": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9012064024": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9012159625": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 53.02130443007648,
+      "range": 8799.480167183097,
+      "nugget": 1.2658346091382362e-26
+    },
+    "weights": [
+      0.15323543906990825,
+      0.06589407405835676,
+      0.780870486871735
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9012297757": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 81941.88493154367,
+      "range": 50730662.76496714,
+      "nugget": 1.0919453983814813
+    },
+    "weights": [
+      0.5819366514005846,
+      0.09854122239906075,
+      0.3195221262003535
+    ],
+    "weights_sum": 0.9999999999999988,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9012341917": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9012474350": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9012597714": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9012685181": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 2.6875454123478217,
+      "range": 26047.956428578855,
+      "nugget": 2.6875454123441362
+    },
+    "weights": [
+      0.333333333279763,
+      0.3333333333598952,
+      0.3333333333603418
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9012735447": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9012896779": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 18.345092009607544,
+      "range": 3138.859012629714,
+      "nugget": 1.6613060740232977e-34
+    },
+    "weights": [
+      0.26290488527307837,
+      0.3261696952675756,
+      0.4109254194593458
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9012950386": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9013009561": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 11089.987571951311,
+      "range": 45990760.92592952,
+      "nugget": 2.3915265001756523
+    },
+    "weights": [
+      0.03703667791487206,
+      0.9976192003263121,
+      -0.034655878241184025
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9013126648": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9013276145": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9013338352": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9013486909": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9013587882": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 5.9940160391086685,
+      "range": 1357.3093237340863,
+      "nugget": 4.196301736548737e-22
+    },
+    "weights": [
+      0.3339751246498359,
+      0.30513819400692455,
+      0.36088668134323953
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9013604153": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9013785194": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 3.1605511725485855,
+      "range": 310309.50684268,
+      "nugget": 3.160551172504777
+    },
+    "weights": [
+      0.3333333333808078,
+      0.33333333330983944,
+      0.33333333330935283
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9013846655": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9013931705": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9014020639": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9014170388": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9014240879": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7.635778400395584,
+      "range": 12512.067654522385,
+      "nugget": 7.635778400395584
+    },
+    "weights": [
+      0.33333333333333487,
+      0.3333333333333317,
+      0.3333333333333335
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9014317854": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 50.562253295206936,
+      "range": 9646.365388959819,
+      "nugget": 50.56225329520692
+    },
+    "weights": [
+      0.3333333333333367,
+      0.33333333333332493,
+      0.33333333333333837
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1144,
+    "n_pairs_used": 4
+  },
+  "9014486424": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9014577423": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9014676062": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9014713327": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 108.39267542073898,
+      "range": 8885.151161706211,
+      "nugget": 108.39267542073898
+    },
+    "weights": [
+      0.3333333333333348,
+      0.3333333333333333,
+      0.33333333333333187
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9014892418": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9014918511": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9015090682": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9015100695": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9.535945584265578,
+      "range": 10236.116426759634,
+      "nugget": 9.535945584265578
+    },
+    "weights": [
+      0.333333333333327,
+      0.33333333333333554,
+      0.33333333333333737
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9015278868": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9015385251": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9015405805": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9015517947": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9015603815": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 31.15440772704064,
+      "range": 1741.7962765338364,
+      "nugget": 9.649807605001566e-15
+    },
+    "weights": [
+      0.7368064800413812,
+      0.1314927223753795,
+      0.1317007975832393
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9015720833": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9015865758": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 19.659364567530908,
+      "range": 30170.07656347675,
+      "nugget": 19.65936454823015
+    },
+    "weights": [
+      0.3333333363277653,
+      0.3333333283636752,
+      0.33333333530855963
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9015955628": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 31.08997807990115,
+      "range": 745.2281371036278,
+      "nugget": 7.314128969853065e-10
+    },
+    "weights": [
+      0.7356171902495359,
+      0.1321914029009174,
+      0.1321914068495467
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1136,
+    "n_pairs_used": 4
+  },
+  "9016045275": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9016190123": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9016209817": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9.920239113058965,
+      "range": 1037.1763767609689,
+      "nugget": 8.365471432687412e-15
+    },
+    "weights": [
+      0.7510589418365196,
+      0.12446998019705686,
+      0.1244710779664236
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9016313882": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 16.498963818479478,
+      "range": 21995.651541609288,
+      "nugget": 16.49896381847928
+    },
+    "weights": [
+      0.33333333333355164,
+      0.3333333333331973,
+      0.33333333333325105
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9016436615": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9016533943": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 18698.858845832983,
+      "range": 55178664.47976113,
+      "nugget": 2.6449139648522215e-22
+    },
+    "weights": [
+      0.2540662066614532,
+      0.25406620666148405,
+      0.4918675866770628
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9016693765": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7.4244289033321,
+      "range": 25388.52309735863,
+      "nugget": 7.424428903332098
+    },
+    "weights": [
+      0.3333333333333334,
+      0.33333333333333326,
+      0.33333333333333337
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9016750380": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9016857781": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9016949161": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9017028657": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9017132034": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9017243969": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 13.039196207008535,
+      "range": 72426.39663797393,
+      "nugget": 13.039196207002448
+    },
+    "weights": [
+      0.333333333332142,
+      0.33333333333380105,
+      0.3333333333340569
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9017377069": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 26.36599014451533,
+      "range": 12947.479532610618,
+      "nugget": 26.365990144515244
+    },
+    "weights": [
+      0.33333333333331766,
+      0.3333333333333478,
+      0.3333333333333345
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9017465481": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9017517861": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9017661299": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.524528717758304,
+      "range": 2278.383699446267,
+      "nugget": 1.1010524582326167e-15
+    },
+    "weights": [
+      0.27170449562741067,
+      0.26434779646861334,
+      0.4639477079039761
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9017773499": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9017836136": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9017955973": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9018053601": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9018111287": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9018273702": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9018364219": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9018404457": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9018541846": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9018628085": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 21.35560886234843,
+      "range": 21087.042013389826,
+      "nugget": 7.839594853527305
+    },
+    "weights": [
+      1.0084894850826107,
+      -0.004365291329804949,
+      -0.004124193752805692
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1155,
+    "n_pairs_used": 4
+  },
+  "9018752139": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 36.66671606115689,
+      "range": 21202.48693481188,
+      "nugget": 4.201524162211259
+    },
+    "weights": [
+      0.9488883746464598,
+      0.024245794748689493,
+      0.02686583060485079
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9018873685": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9018945455": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 34.53029414659318,
+      "range": 6545.189311697577,
+      "nugget": 34.530294146592645
+    },
+    "weights": [
+      0.33333333333317494,
+      0.33333333333344967,
+      0.33333333333337534
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9019022493": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9019130917": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9019262784": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 33.45966191846149,
+      "range": 5254.28008308707,
+      "nugget": 33.45966191846149
+    },
+    "weights": [
+      0.3333333333333272,
+      0.3333333333333367,
+      0.33333333333333603
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9019355621": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9019413005": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9019516033": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 430680.99330930563,
+      "range": 60838469.84150972,
+      "nugget": 3.190760046035753e-53
+    },
+    "weights": [
+      0.6601540101876999,
+      0.008241680272872443,
+      0.3316043095394276
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9019663533": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9019755135": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9019821418": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9019952392": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 140043.04191661513,
+      "range": 38506723.85265925,
+      "nugget": 1.0119399918321171e-34
+    },
+    "weights": [
+      0.8803405535055716,
+      0.04279193353545821,
+      0.07686751295897004
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9020011960": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.840308908469325,
+      "range": 22964.4960258274,
+      "nugget": 10.840308908469316
+    },
+    "weights": [
+      0.3333333333333539,
+      0.33333333333331727,
+      0.33333333333332876
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 6
+  },
+  "9020150026": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 3731.1247426954496,
+      "range": 44166208.51907886,
+      "nugget": 2.0355020659572425
+    },
+    "weights": [
+      -0.1148916661432119,
+      0.013437851208123188,
+      1.1014538149350888
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9020247728": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9020368155": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.573521039237942,
+      "range": 173456.3595746075,
+      "nugget": 6.573521028484405
+    },
+    "weights": [
+      0.3333333330396956,
+      0.3333333326007198,
+      0.33333333435958457
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9020417418": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9020529418": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 14.363307847049064,
+      "range": 2082.0892517676707,
+      "nugget": 7.297636668977792e-14
+    },
+    "weights": [
+      0.269905454871619,
+      0.3119922741924877,
+      0.4181022709358934
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9020669720": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9020758913": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9020866218": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9020900000": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9021040479": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9021127305": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9021298375": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9021323689": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9021450838": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.408084762710606,
+      "range": 1700.8054786706093,
+      "nugget": 4.057447188814318e-07
+    },
+    "weights": [
+      0.4379625493813089,
+      0.22726195560028603,
+      0.33477549501840514
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9021514891": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9021677631": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9021740961": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9021865575": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9021921174": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9022080591": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9022170744": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9022244061": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9022315082": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 67358.54102558819,
+      "range": 34692748.53999369,
+      "nugget": 31.33596948339331
+    },
+    "weights": [
+      0.05461486236835181,
+      0.9314239838435147,
+      0.013961153788133495
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9022491493": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9022583529": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 3.0785220395276336,
+      "range": 630165.9749512153,
+      "nugget": 3.0785220395276336
+    },
+    "weights": [
+      0.33333333333333726,
+      0.3333333333333318,
+      0.3333333333333309
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9022665252": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9022789171": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 13.738880282228608,
+      "range": 0.10255244821019005,
+      "nugget": 13.73888028221592
+    },
+    "weights": [
+      0.3333333333333333,
+      0.3333333333333345,
+      0.3333333333333323
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9022892446": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9022932727": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9052.381250189139,
+      "range": 163509455.33756825,
+      "nugget": 3.6057166033063894
+    },
+    "weights": [
+      0.035535235268393806,
+      0.21209616126927572,
+      0.7523686034623304
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9023096462": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9023195275": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9023280361": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9023323211": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9023417988": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9023599387": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9023638431": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9023786253": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9023840485": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9023956421": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9024048706": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9024191664": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9024293954": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9024374538": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9029243188": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9029437925": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9029567492": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 77001.24012421473,
+      "range": 105354786.84836382,
+      "nugget": 2.5198257412890435
+    },
+    "weights": [
+      0.9943301121778698,
+      -0.007559888147870138,
+      0.013229775970000433
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 6
+  },
+  "9029636666": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9029704024": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9029855009": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9029912933": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9030004752": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9030129459": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9030297076": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9030338047": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9030463404": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9030683206": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9030767874": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9030855243": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 156426.6974699052,
+      "range": 35334124.211121164,
+      "nugget": 19.920068488426736
+    },
+    "weights": [
+      0.7503592216773429,
+      0.2277078786787295,
+      0.021932899643927733
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9030997249": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9031072140": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9031189367": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9031226244": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9031325491": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9031487915": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9031548822": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9031611806": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9031891058": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9031934597": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9032011297": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9032176525": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9032209903": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9032312464": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9032491086": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9032537683": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9032639885": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9032769537": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9033027960": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9033130056": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9033293634": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9033388530": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9033478755": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9033588608": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9033637416": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9033773773": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9033887320": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7.676563218486558,
+      "range": 16092.287700241044,
+      "nugget": 7.676563218486558
+    },
+    "weights": [
+      0.33333333333333237,
+      0.3333333333333337,
+      0.33333333333333387
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9033975145": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 24.250527057777855,
+      "range": 20.099763909645844,
+      "nugget": 24.25052705774672
+    },
+    "weights": [
+      0.3333333333333311,
+      0.33333333333333437,
+      0.3333333333333345
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1159,
+    "n_pairs_used": 3
+  },
+  "9034274489": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9034300652": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9.542447223097431,
+      "range": 1356.2413201749034,
+      "nugget": 1.0957830271689315e-13
+    },
+    "weights": [
+      0.27104573118393155,
+      0.27104587388591267,
+      0.45790839493015584
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9034511930": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9034670749": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9034736942": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7.441428773179685,
+      "range": 35489.02005135882,
+      "nugget": 7.4414287731796795
+    },
+    "weights": [
+      0.33333333333332454,
+      0.33333333333334675,
+      0.3333333333333287
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9034805808": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9034914615": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9035276780": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9035451723": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9035506173": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9035695173": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 94938.3281443757,
+      "range": 98441002.29599684,
+      "nugget": 3.7473854013760204
+    },
+    "weights": [
+      0.5123260613048676,
+      0.4861013747799365,
+      0.0015725639151959454
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9035744899": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9043306564": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.447795188549462,
+      "range": 294571.47151945,
+      "nugget": 6.447795186934111
+    },
+    "weights": [
+      0.33333333315438024,
+      0.33333333340418647,
+      0.33333333344143334
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9043414518": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9043695406": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9043782365": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9043809097": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9044407776": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 5.321306795160982,
+      "range": 1528.4647393408893,
+      "nugget": 2.4828351803758468e-14
+    },
+    "weights": [
+      0.6185337944240209,
+      0.2092359562349463,
+      0.17223024934103282
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9044562563": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 17.776248222733987,
+      "range": 579.0929850509581,
+      "nugget": 13.712270977393269
+    },
+    "weights": [
+      0.307838126041339,
+      0.3078381260417304,
+      0.38432374791693064
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9045329011": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9045533781": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9045651648": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.231216215015687,
+      "range": 12486.232654702575,
+      "nugget": 10.231216215015685
+    },
+    "weights": [
+      0.33333333333333603,
+      0.33333333333333703,
+      0.3333333333333268
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9045719838": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9045855956": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9045940296": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 21.170908130152146,
+      "range": 7978.971315938272,
+      "nugget": 21.170908130105055
+    },
+    "weights": [
+      0.3333333333786972,
+      0.33333333336312043,
+      0.3333333332581824
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9046001999": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9052949535": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9053764220": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 72515.15275920769,
+      "range": 98331624.49946894,
+      "nugget": 1.6617092306228678
+    },
+    "weights": [
+      0.44154671344444496,
+      0.04901428145970169,
+      0.5094390050958534
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9053860953": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9067944218": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 12.451065367866793,
+      "range": 12498.70003140556,
+      "nugget": 1.075947043260629e-21
+    },
+    "weights": [
+      0.09443579080551485,
+      0.7637549245679879,
+      0.14180928462649753
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9068047058": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9068187062": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9068299034": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.531845350309637,
+      "range": 503913.93478712696,
+      "nugget": 6.531845341007774
+    },
+    "weights": [
+      0.3333333327077662,
+      0.333333333144061,
+      0.3333333341481728
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9068397006": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9068487455": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9068534673": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 12.273839178256008,
+      "range": 7760.132135327321,
+      "nugget": 9.500850931996267e-15
+    },
+    "weights": [
+      0.6402985852468005,
+      0.14948136609026122,
+      0.21022004866293834
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9068670425": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9068736832": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9068834982": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9068906133": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9069098023": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9069141230": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9069280833": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9069346550": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 8.691580132959398,
+      "range": 1324.2832468532395,
+      "nugget": 8.60162585130639e-17
+    },
+    "weights": [
+      0.32523640527814934,
+      0.33533127196549556,
+      0.33943232275635504
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9069427518": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9069544220": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 22169.22816158764,
+      "range": 27818352.379470903,
+      "nugget": 2.5557056628828168
+    },
+    "weights": [
+      0.85955125988814,
+      -0.04506395760376878,
+      0.18551269771562873
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9069652505": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9069749361": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9069803223": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 12446.659179422299,
+      "range": 58008534.4074226,
+      "nugget": 16.324751584530663
+    },
+    "weights": [
+      0.17541314321355964,
+      0.025905111865225754,
+      0.7986817449212146
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9069997112": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9070076576": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9070147608": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9070250555": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9070369603": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9.539252853048442,
+      "range": 1943.4679845299806,
+      "nugget": 3.051778955359067e-15
+    },
+    "weights": [
+      0.12515259275610593,
+      0.12651303692560495,
+      0.7483343703182892
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9070449014": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9070586106": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9070635579": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9070792391": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 21.182594606475472,
+      "range": 14022.735187140228,
+      "nugget": 5.518437533770686e-17
+    },
+    "weights": [
+      0.010484165022554958,
+      0.3266003719160971,
+      0.6629154630613477
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9070824730": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9070946981": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.327437252434194,
+      "range": 1697.0474919071708,
+      "nugget": 3.0599767550807165e-20
+    },
+    "weights": [
+      0.2935947965429763,
+      0.2607998632703794,
+      0.4456053401866444
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9071054757": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9071129835": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 5.352656442439536,
+      "range": 146829.39314639207,
+      "nugget": 5.352656434747204
+    },
+    "weights": [
+      0.33333333237449786,
+      0.33333333352731803,
+      0.33333333409818416
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1162,
+    "n_pairs_used": 3
+  },
+  "9071291717": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9071337671": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9071465846": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9071502999": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9071642447": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9071757946": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 8.541521844650909,
+      "range": 1005.9224684845269,
+      "nugget": 3.453149236261595
+    },
+    "weights": [
+      0.3635043076019777,
+      0.14974894797536276,
+      0.4867467444226596
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9071889103": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9071954232": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9072077416": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9072168131": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9072259228": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9072355024": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9072483991": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.420012797886472,
+      "range": 2047.8012216383117,
+      "nugget": 4.0107104329594094e-21
+    },
+    "weights": [
+      0.26701760433129845,
+      0.28627607914492054,
+      0.446706316523781
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9072556802": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9072614900": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9072701056": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9072842462": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 16.08054302052158,
+      "range": 8915.210213050494,
+      "nugget": 1.3702069243865593e-22
+    },
+    "weights": [
+      0.37462539821462765,
+      0.11932327703455477,
+      0.5060513247508176
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9072984177": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7145.2275279117775,
+      "range": 19289728.226749603,
+      "nugget": 15.016755405641101
+    },
+    "weights": [
+      0.44107312692232775,
+      0.6132582009184325,
+      -0.0543313278407602
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9073077860": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9073173899": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9073294140": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 5.215180605767419,
+      "range": 10537.271511793684,
+      "nugget": 5.215180605766543
+    },
+    "weights": [
+      0.33333333333564447,
+      0.333333333328484,
+      0.33333333333587145
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9073372730": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9073476829": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9073569599": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9073601520": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9073728531": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9073899827": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9073915212": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9074051717": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9074188945": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9074281383": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9074371008": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9074435846": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9074573755": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9074640906": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9074711614": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9074821276": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9074926348": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9075057468": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 47.61510442994028,
+      "range": 9045.80200473589,
+      "nugget": 2.4097965849499725
+    },
+    "weights": [
+      0.007349599984465206,
+      0.9428133641070202,
+      0.04983703590851457
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9075166867": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9075275246": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9075330986": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9075464554": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9075536810": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9075694753": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9075733407": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 21.77556732693296,
+      "range": 7674.560288727894,
+      "nugget": 21.775567326932787
+    },
+    "weights": [
+      0.33333333333315696,
+      0.3333333333334062,
+      0.33333333333343684
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9075804958": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9075906744": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9076049541": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9076105857": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9076247809": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9076309947": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9076412775": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9076598232": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9076638157": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9076701921": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9076882762": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9076918573": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 3.8649858277558495,
+      "range": 18416.10491240448,
+      "nugget": 3.8649858275013735
+    },
+    "weights": [
+      0.3333333315124477,
+      0.33333333420901134,
+      0.3333333342785409
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1144,
+    "n_pairs_used": 4
+  },
+  "9077055283": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9077170553": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9077274767": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9077322224": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9077479974": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9077507899": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9077622999": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9077751096": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9077880550": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9077982288": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9078033291": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9078149442": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9078281227": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9078309726": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9078440430": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9078514079": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9078634070": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9078757438": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9078819459": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9078912111": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9079080840": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9079160578": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9079233208": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9079329386": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9079486289": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9079517256": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9079638566": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9079775983": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9079879641": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 1242514.9070112081,
+      "range": 58639445.22583941,
+      "nugget": 1.4643586259706343
+    },
+    "weights": [
+      0.1554889242394271,
+      0.24686152905755224,
+      0.5976495467030206
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9079996209": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9080090196": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9080134230": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9080263364": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9080329039": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9080483946": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9080594470": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 8.827100165479656,
+      "range": 1176489.9783796826,
+      "nugget": 8.827100165469975
+    },
+    "weights": [
+      0.33333333333416704,
+      0.33333333333289994,
+      0.33333333333293313
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9080675829": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9080778987": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.7254591339875045,
+      "range": 35767.35115006631,
+      "nugget": 6.7254591339875045
+    },
+    "weights": [
+      0.33333333333333537,
+      0.3333333333333319,
+      0.33333333333333276
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9080846439": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9080973797": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7.582112767501519,
+      "range": 5709.267500974022,
+      "nugget": 7.582112767501489
+    },
+    "weights": [
+      0.3333333333334053,
+      0.3333333333332782,
+      0.33333333333331655
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9081008335": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9081152392": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9081250255": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9081357189": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.328074453075319,
+      "range": 32481.363775029895,
+      "nugget": 10.328074453074423
+    },
+    "weights": [
+      0.3333333333334385,
+      0.3333333333318875,
+      0.33333333333467385
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9081407043": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9081522203": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9081671068": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9081780277": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9081847667": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9081956199": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9082095061": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9082153267": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9082268249": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9082377158": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9082495827": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9082511635": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9082684662": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9082798935": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9082812365": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9082974995": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9083063465": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9083160641": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9083272601": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9083337271": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9083477442": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9083528856": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9083627935": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9083719192": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9.879496997883408,
+      "range": 18906.89020577172,
+      "nugget": 9.879496997883404
+    },
+    "weights": [
+      0.33333333333333515,
+      0.3333333333333307,
+      0.33333333333333404
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9083883127": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9083913609": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9084031022": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9084163747": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9084257588": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 2518.831301605267,
+      "range": 370959456.6006761,
+      "nugget": 10.6375400819769
+    },
+    "weights": [
+      1.0106214453298477,
+      0.48657606313953394,
+      -0.49719750846938177
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1152,
+    "n_pairs_used": 4
+  },
+  "9084387544": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9084460407": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9084590406": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9084649670": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9084738459": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9084819369": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9084920545": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9085038908": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9103665073": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9103763975": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9103935466": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9104067553": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9104198143": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9104223108": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9104341486": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9104412585": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9104585099": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9104663239": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9104760797": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9104870291": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9104921729": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9105098308": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9105159603": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9105225889": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9105390160": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9105438462": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9105582112": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9105614646": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9105715960": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9105844979": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9105900437": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9106042419": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 2.472079021637819,
+      "range": 539522.9635389352,
+      "nugget": 2.4720789951200426
+    },
+    "weights": [
+      0.33333335247744333,
+      0.3333333235561725,
+      0.33333332396638415
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9106181007": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9106237375": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9106351885": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9106419812": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9106505164": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9106614444": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.325739808649465,
+      "range": 77.30999768310107,
+      "nugget": 0.7860305317387771
+    },
+    "weights": [
+      1.000947278852303,
+      -0.00047363942615150393,
+      -0.0004736394261516309
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9106783911": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9106871095": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9106937185": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9107061030": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9107113152": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9107258711": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9107338941": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9107412898": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9107546647": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9107657032": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9107707075": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9107862967": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 22216.152605459032,
+      "range": 49551817.99899783,
+      "nugget": 1.5037196617591386
+    },
+    "weights": [
+      0.941009651401298,
+      -0.006543925821060691,
+      0.06553427441976281
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9107962691": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9108046347": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9108149073": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9108250548": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 201818.50268956233,
+      "range": 272742322.49603575,
+      "nugget": 3.87289431003789
+    },
+    "weights": [
+      0.394497685631365,
+      -0.06540785429580612,
+      0.6709101686644411
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9108345920": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9.944655692933557,
+      "range": 20973.017137265437,
+      "nugget": 9.944655692933557
+    },
+    "weights": [
+      0.33333333333333554,
+      0.3333333333333329,
+      0.33333333333333154
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9108421306": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9108563693": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9108694747": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9108761060": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9108869690": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9108953171": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9109051748": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9109171025": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9109208481": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9109304287": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9109468550": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9109623162": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9109727601": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9109871162": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9110196295": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9110208502": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9110386859": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9110454609": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 14.614187184533908,
+      "range": 2042712.10614717,
+      "nugget": 14.614187183451094
+    },
+    "weights": [
+      0.33333333331946374,
+      0.3333333333120624,
+      0.33333333336847387
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9110552166": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9110682793": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9110724392": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9110953374": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9111131288": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9111393332": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9111504556": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9111636174": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9111825592": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9111964441": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9112002759": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9112166120": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9112348695": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9112421496": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 47578.62043763998,
+      "range": 36603584.72753491,
+      "nugget": 1.1550981907209094e-35
+    },
+    "weights": [
+      0.08538634426092245,
+      0.1847058205111184,
+      0.7299078352279589
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9112561507": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9112624024": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9112786823": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9112974508": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9113041394": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 72515.15275920769,
+      "range": 98331624.49946894,
+      "nugget": 1.6617092306228678
+    },
+    "weights": [
+      0.03220617569478084,
+      0.16687263919056186,
+      0.8009211851146573
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9113187765": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 128846.09405844784,
+      "range": 41199345.91152317,
+      "nugget": 5.770860710618682e-20
+    },
+    "weights": [
+      -0.012823251831277168,
+      0.359270026700068,
+      0.6535532251312092
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9113263085": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9113353310": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 226077.97100437334,
+      "range": 71573426.38165267,
+      "nugget": 64.06518928755865
+    },
+    "weights": [
+      0.0202135845591112,
+      0.19433520546255223,
+      0.7854512099783366
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9113457714": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9113524150": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9113649156": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9113842667": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9113957462": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9114032359": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 24.86049840965985,
+      "range": 7480.252374520359,
+      "nugget": 24.860498409650276
+    },
+    "weights": [
+      0.33333333333653775,
+      0.3333333333366309,
+      0.3333333333268313
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9114165388": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9114271329": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9114376558": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9114462044": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9114581880": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9114624085": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 3.1605511725485855,
+      "range": 310309.50684268,
+      "nugget": 3.160551172504777
+    },
+    "weights": [
+      0.33333333333384413,
+      0.3333333333377566,
+      0.3333333333283993
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9114706468": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7.917588445623088,
+      "range": 50289.072492461746,
+      "nugget": 7.917588445581885
+    },
+    "weights": [
+      0.33333333339852816,
+      0.3333333332984025,
+      0.3333333333030693
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9114851954": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9114926881": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9115098455": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9115149999": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9115272924": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9115368178": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9115497491": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9115500877": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9115603267": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9115746859": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 5.613948543157266,
+      "range": 24100.206872007555,
+      "nugget": 5.613948543157265
+    },
+    "weights": [
+      0.3333333333333307,
+      0.3333333333333339,
+      0.3333333333333353
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1026,
+    "n_pairs_used": 3
+  },
+  "9115826547": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9115907857": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 24243.447492836378,
+      "range": 47802680.47759513,
+      "nugget": 5.620653662182003
+    },
+    "weights": [
+      -0.011261002658946714,
+      1.0000116381729554,
+      0.011249364485991382
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9116087804": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9116152598": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9116218414": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9116399891": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9116416461": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 4.795163769252861,
+      "range": 886.8973649446713,
+      "nugget": 3.814515527445086e-10
+    },
+    "weights": [
+      0.346880079093752,
+      0.3229837659766724,
+      0.33013615492957554
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9116527030": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9116612095": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9116788950": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9116874841": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9116985643": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 18894.744973305253,
+      "range": 9368483.885481633,
+      "nugget": 2.7404424866155153
+    },
+    "weights": [
+      0.7163297546192231,
+      0.25333212384100134,
+      0.030338121539775557
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9117095829": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9117120778": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 21.987706414683284,
+      "range": 0.9152161173872173,
+      "nugget": 21.987680339324534
+    },
+    "weights": [
+      0.3333333333333324,
+      0.33333333333333315,
+      0.3333333333333344
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9117232913": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9117342467": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9117474797": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9117590486": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 11.463339249364422,
+      "range": 81860.29335488907,
+      "nugget": 5.2233013734202136e-14
+    },
+    "weights": [
+      0.5323098110199459,
+      0.22530125231003034,
+      0.2423889366700236
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9117653161": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9117729919": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9117838981": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9117952437": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9118037562": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9118148775": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9118950148": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 27.580576935022076,
+      "range": 3684.026815468367,
+      "nugget": 3.866516812197826e-13
+    },
+    "weights": [
+      0.386083627380439,
+      0.1207585791837506,
+      0.4931577934358103
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9119078907": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9119110743": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 33.19936798790793,
+      "range": 19211.068432906013,
+      "nugget": 33.19936798058451
+    },
+    "weights": [
+      0.33333333882715505,
+      0.333333328299887,
+      0.333333332872958
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9119284953": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9119304339": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7.490769234105351,
+      "range": 14415.214491721761,
+      "nugget": 7.490769234105313
+    },
+    "weights": [
+      0.33333333333334664,
+      0.3333333333332953,
+      0.3333333333333581
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9119459284": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9119506753": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9119635356": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9119739936": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9119897331": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9120031329": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9120181637": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9120236820": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9120369726": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9120407159": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9120546193": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9120693904": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9120711128": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9120870338": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9120946866": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9121084719": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9121179520": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9121203558": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9121374147": {
+    "error": "no pairs within max_range_m",
+    "fallback": "uniform mean"
+  },
+  "9121495909": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9121513833": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9121663929": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9121784431": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9121879461": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9121992131": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9122093909": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 390045.83838560095,
+      "range": 391524539.42314965,
+      "nugget": 11.44439012484923
+    },
+    "weights": [
+      -0.024450702935315143,
+      0.019935593657515554,
+      1.0045151092777995
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9122144397": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 118545.6014689031,
+      "range": 71338178.06686413,
+      "nugget": 1.7863676064774259
+    },
+    "weights": [
+      0.4340379283250593,
+      0.4800297791507004,
+      0.08593229252424035
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1162,
+    "n_pairs_used": 5
+  },
+  "9122277822": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9122307966": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 24.206784811044002,
+      "range": 4.409902418099421,
+      "nugget": 19.185693786779044
+    },
+    "weights": [
+      0.24754140434162475,
+      0.2475414043416144,
+      0.5049171913167609
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9122494261": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9122584852": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9122604401": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9122726978": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9122833579": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9122996015": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 34.854288406690834,
+      "range": 20254.041746858766,
+      "nugget": 5.1896841242644036e-30
+    },
+    "weights": [
+      0.3524455839705091,
+      0.6220091752997925,
+      0.02554524072969831
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9123097669": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9123100924": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9123294466": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9123349372": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9123470782": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9123581100": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9123691097": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9123722907": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9123828155": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9123910626": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9124050712": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9124144549": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9124297570": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9124307621": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 652585.2411569841,
+      "range": 83563385.72671838,
+      "nugget": 1.577316203915127e-33
+    },
+    "weights": [
+      -0.09724811941538905,
+      0.980386519474266,
+      0.1168615999411233
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9125131695": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9125576914": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9125687893": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 32.73304126526492,
+      "range": 1151.224246449048,
+      "nugget": 1.8082999189022748e-12
+    },
+    "weights": [
+      0.307411480602217,
+      0.3733366552028267,
+      0.31925186419495627
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9125755055": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9125836610": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9.839251205477735,
+      "range": 170068.9362440044,
+      "nugget": 9.8392512054745
+    },
+    "weights": [
+      0.33333333333379284,
+      0.33333333333227044,
+      0.33333333333393667
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1161,
+    "n_pairs_used": 3
+  },
+  "9125959104": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9126026477": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9126397549": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9126537816": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9126702226": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9126897867": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9126960375": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9127026224": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9127194214": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9127243849": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9127383759": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9127435153": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9127558424": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9127656072": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9127752141": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9127889350": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9127959939": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 3.480114446096028,
+      "range": 37.86709663810855,
+      "nugget": 3.217795663356269e-05
+    },
+    "weights": [
+      0.33332742992601677,
+      0.3333451401479668,
+      0.33332742992601655
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9128015750": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9128194874": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 70386.65033342245,
+      "range": 75896127.76862673,
+      "nugget": 2.4249093977077405
+    },
+    "weights": [
+      -0.002019462401721761,
+      0.8936769251253411,
+      0.10834253727638063
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1155,
+    "n_pairs_used": 4
+  },
+  "9128296439": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9128367290": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9128403282": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9128518286": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 354310.4512517188,
+      "range": 78976185.59516203,
+      "nugget": 19.40676861131457
+    },
+    "weights": [
+      0.8608465631046605,
+      0.14625099051819657,
+      -0.007097553622856977
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1153,
+    "n_pairs_used": 3
+  },
+  "9128619286": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9128728840": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9128855600": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.990252000659579,
+      "range": 15116.151170529654,
+      "nugget": 10.990251999905595
+    },
+    "weights": [
+      0.3333333351149859,
+      0.3333333302042658,
+      0.3333333346807483
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9128991414": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9129048387": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 38.906586464238124,
+      "range": 155706.57831440054,
+      "nugget": 38.906586456674376
+    },
+    "weights": [
+      0.333333333847956,
+      0.3333333319421407,
+      0.3333333342099034
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9129153537": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9129236234": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9129353125": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 49596.576565774325,
+      "range": 70744359.93865325,
+      "nugget": 10.067885728841159
+    },
+    "weights": [
+      0.5001867499062642,
+      -0.0003734998125262302,
+      0.5001867499062621
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9129409289": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 12.273839178256008,
+      "range": 7760.132135327321,
+      "nugget": 9.500850931996267e-15
+    },
+    "weights": [
+      0.38355307055720866,
+      0.49687748039245605,
+      0.11956944905033529
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9129514588": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 884397.5850362289,
+      "range": 45145953.069998346,
+      "nugget": 46.91827026231631
+    },
+    "weights": [
+      0.6873893087339946,
+      -0.24499599233372096,
+      0.5576066835997265
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1162,
+    "n_pairs_used": 4
+  },
+  "9129698783": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9129779327": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9129811106": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9129998503": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9130080962": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 572830.5839905284,
+      "range": 284165790.1742328,
+      "nugget": 5.864177451060739
+    },
+    "weights": [
+      0.7862713623095176,
+      0.22205071929790582,
+      -0.00832208160742346
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9130147174": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7.6890200272808285,
+      "range": 197802.4868366142,
+      "nugget": 7.689020027280425
+    },
+    "weights": [
+      0.3333333333333265,
+      0.33333333333325,
+      0.3333333333334234
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9130293816": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9130313863": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9130455720": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9130536008": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9130663640": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9130712907": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9130893358": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9130914113": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9131086827": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9131173279": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 35.21476138334082,
+      "range": 19799.273818862308,
+      "nugget": 35.214761383156336
+    },
+    "weights": [
+      0.33333333324050113,
+      0.3333333334368064,
+      0.33333333332269255
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1157,
+    "n_pairs_used": 4
+  },
+  "9131217510": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9131300901": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 332777.5478338428,
+      "range": 242241818.92438725,
+      "nugget": 8.872649833842303
+    },
+    "weights": [
+      -0.30137115045246043,
+      0.1271935143666998,
+      1.1741776360857605
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9131432099": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9131524420": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9131647731": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9131761373": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 10.972878321172079,
+      "range": 36922.28217294646,
+      "nugget": 10.97287832116532
+    },
+    "weights": [
+      0.33333333332510595,
+      0.33333333334742754,
+      0.3333333333274665
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9131804459": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 16.53566081432926,
+      "range": 354456.37806789554,
+      "nugget": 16.53566081432904
+    },
+    "weights": [
+      0.33333333333333043,
+      0.33333333333333637,
+      0.33333333333333326
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9131919527": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9132002455": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9132111060": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9132219033": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9132327466": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9132402356": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 14.442644973491204,
+      "range": 15427.860781285597,
+      "nugget": 14.442644973490893
+    },
+    "weights": [
+      0.33333333333308207,
+      0.3333333333339736,
+      0.3333333333329444
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9132500534": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9132604031": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9132750633": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9132809795": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 220728.7129555088,
+      "range": 95665897.08662486,
+      "nugget": 0.9077632631502732
+    },
+    "weights": [
+      -0.004242370754735279,
+      0.6393971138290407,
+      0.3648452569256947
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1150,
+    "n_pairs_used": 4
+  },
+  "9132902366": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9362212077": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9362366470": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9362448674": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9362565256": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9362632030": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 14.751468157290525,
+      "range": 6696184.354870092,
+      "nugget": 14.751468157290525
+    },
+    "weights": [
+      0.3333333333333311,
+      0.3333333333333342,
+      0.3333333333333347
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "9362730096": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9362843818": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9362939716": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9363085313": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9363183231": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9363270306": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9363368950": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9363401211": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7.937987653266626,
+      "range": 27855.291325317983,
+      "nugget": 7.93798765324917
+    },
+    "weights": [
+      0.3333333333702972,
+      0.333333333371197,
+      0.3333333332585058
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "9363519997": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9363626535": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9363764099": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9363802860": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9363975179": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9364062553": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9364115125": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9364292720": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9364373996": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9364410244": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9364595747": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9364687253": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9364742813": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9364805964": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 18.62342616596045,
+      "range": 2356.198042244325,
+      "nugget": 1.2394368798567664e-09
+    },
+    "weights": [
+      0.4501501481448319,
+      0.23149615090686304,
+      0.3183537009483053
+    ],
+    "weights_sum": 1.0000000000000002,
+    "n_train": 1154,
+    "n_pairs_used": 3
+  },
+  "9364928348": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9365091884": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9365130664": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9365281021": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9365352238": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9365422269": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 8.228784545917787,
+      "range": 11801.461570610241,
+      "nugget": 8.228784396745933
+    },
+    "weights": [
+      0.3333333701320035,
+      0.33333337026547727,
+      0.33333325960251925
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "9365516684": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9365633473": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9365765876": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9365896391": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9365972272": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9366000435": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9366192838": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "9366264294": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10332974519": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10333088562": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 13.927813847100643,
+      "range": 1562.042248539171,
+      "nugget": 0.561654196605338
+    },
+    "weights": [
+      0.3056459134786722,
+      0.3493237243386883,
+      0.3450303621826394
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "10333183552": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10333275074": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10333347317": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10333436453": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10333583306": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10333650165": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10333727188": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 18.035815798139136,
+      "range": 27824.02819491371,
+      "nugget": 18.035815798139136
+    },
+    "weights": [
+      0.3333333333333309,
+      0.3333333333333339,
+      0.33333333333333526
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1141,
+    "n_pairs_used": 5
+  },
+  "10333800782": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10333992736": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10334072335": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10334183911": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10334294141": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10334383773": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10334459523": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10334514240": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10334628121": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10337756429": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10340307775": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10340422775": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 3.1485111081920603,
+      "range": 327571.67566635465,
+      "nugget": 3.148511107856197
+    },
+    "weights": [
+      0.33333333325676207,
+      0.3333333335037264,
+      0.3333333332395115
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "10340769616": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10340825703": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10341116655": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10341285170": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10341542263": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 13.0153352207812,
+      "range": 15462.057111869497,
+      "nugget": 13.0153352207812
+    },
+    "weights": [
+      0.3333333333333339,
+      0.33333333333333226,
+      0.3333333333333338
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "10341609840": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10341701809": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10342058304": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10342146221": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10342262708": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10343502723": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10343661231": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10343986979": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10344088839": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10344106544": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10344263632": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10344320880": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10344440387": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10345225379": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 618.8024392708054,
+      "range": 8577.922505804796,
+      "nugget": 618.8024392703633
+    },
+    "weights": [
+      0.3333333333537072,
+      0.33333333331487325,
+      0.3333333333314196
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "10345384881": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10345654278": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10346162479": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 7.19203756068076,
+      "range": 4380.520993948627,
+      "nugget": 2.035819387866925e-13
+    },
+    "weights": [
+      0.72347028772683,
+      0.1470420397564998,
+      0.12948767251667037
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "10346236771": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10346333529": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10346403913": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10346564437": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10347173282": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10372181902": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10372290834": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10372330843": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10372419726": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10372512191": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10372679348": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10372783603": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10372816802": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10372954874": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10373059757": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 14.70819556878374,
+      "range": 3371803.488673107,
+      "nugget": 14.70819556029214
+    },
+    "weights": [
+      0.33333333338019094,
+      0.33333333319629826,
+      0.3333333334235108
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1152,
+    "n_pairs_used": 4
+  },
+  "10373190982": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10373364768": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10373462695": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 8211.873674024944,
+      "range": 12723010.947788948,
+      "nugget": 5.125011405070789
+    },
+    "weights": [
+      -0.05202497588212022,
+      0.3499475824820755,
+      0.7020773934000447
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1096,
+    "n_pairs_used": 3
+  },
+  "10373520655": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10373697867": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10373768950": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10373889480": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 12.128916026951346,
+      "range": 20339.756296026113,
+      "nugget": 12.128916026951346
+    },
+    "weights": [
+      0.3333333333333364,
+      0.33333333333333104,
+      0.3333333333333326
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "10373910779": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 16551.72360519263,
+      "range": 71341141.27153635,
+      "nugget": 1.5995639782309534
+    },
+    "weights": [
+      0.05544047193802038,
+      0.8922494047653453,
+      0.0523101232966342
+    ],
+    "weights_sum": 0.9999999999999999,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "10374012793": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10374124636": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10374262119": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10374322212": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10374469060": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 186354.81393023915,
+      "range": 119328836.49911778,
+      "nugget": 5.3191890349831944e-33
+    },
+    "weights": [
+      0.49920408609713596,
+      0.024626351287060706,
+      0.47616956261580345
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1160,
+    "n_pairs_used": 3
+  },
+  "10374501144": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 5.947374292156128,
+      "range": 21416.992258696268,
+      "nugget": 5.947374290764744
+    },
+    "weights": [
+      0.33333333302959145,
+      0.3333333382364106,
+      0.33333332873399785
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 6
+  },
+  "10374629381": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10374713448": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 6.476551335567416,
+      "range": 18061.492956614016,
+      "nugget": 6.476551335566868
+    },
+    "weights": [
+      0.33333333333048726,
+      0.33333333333516074,
+      0.33333333333435194
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "10374902931": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10375186478": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 92398.50828271144,
+      "range": 16074170.674851894,
+      "nugget": 4.971802171189935e-31
+    },
+    "weights": [
+      -0.04337223024520789,
+      0.25616850987916395,
+      0.787203720366044
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 5
+  },
+  "10375302150": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 11.237916967232248,
+      "range": 4568.8365833858325,
+      "nugget": 6.761999759892792e-29
+    },
+    "weights": [
+      0.15712790296571777,
+      0.513599076842181,
+      0.32927302019210125
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "10375481365": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10375520772": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 12.476148760128682,
+      "range": 11668.327989700734,
+      "nugget": 12.476148760128682
+    },
+    "weights": [
+      0.3333333333333301,
+      0.3333333333333349,
+      0.333333333333335
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1141,
+    "n_pairs_used": 3
+  },
+  "10375654467": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10375771500": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 9.879496997883408,
+      "range": 18906.89020577172,
+      "nugget": 9.879496997883404
+    },
+    "weights": [
+      0.333333333333338,
+      0.3333333333333402,
+      0.3333333333333218
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 4
+  },
+  "10375859993": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10375963906": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10376006483": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 40.296070044700436,
+      "range": 12280.144031178235,
+      "nugget": 40.296070044700365
+    },
+    "weights": [
+      0.33333333333336523,
+      0.3333333333333749,
+      0.33333333333325993
+    ],
+    "weights_sum": 1.0,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "10376139884": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10376236128": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10376338733": {
+    "variogram_model": "exponential",
+    "variogram_params": {
+      "sill": 8.862420710288973,
+      "range": 30721.828239106984,
+      "nugget": 8.862420710288973
+    },
+    "weights": [
+      0.33333333333333204,
+      0.3333333333333354,
+      0.3333333333333324
+    ],
+    "weights_sum": 0.9999999999999998,
+    "n_train": 1164,
+    "n_pairs_used": 3
+  },
+  "10376491833": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10376554845": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10376685115": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10376775463": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10376857475": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10376988427": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10381692959": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10381797905": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10381807255": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10381925531": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10382021002": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10389611232": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "10389712694": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "12762947205": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  },
+  "12763020068": {
+    "error": "not enough binned points",
+    "fallback": "uniform mean"
+  }
+}

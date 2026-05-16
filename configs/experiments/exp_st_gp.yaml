@@ -1,0 +1,44 @@
+# Phase 3b:ST-GP — per-target separable spatio-temporal GP
+# 算力預算大,seed 與 K-list 故意做小:3 seeds × K∈{5, 10} = 6 cells
+experiment_id: exp_st_gp
+seeds: [1, 2, 3]
+
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end:   2026-02-05
+  freq:  1h
+
+masking:
+  strategy: random_point
+  ratio: 0.20
+
+neighbors:
+  selector: correlation
+  k_list: [5, 10]
+
+# ST-GP 內部已直接從 meta 抓 (T, S) 整段資料;不需 runner 走 TemporalFeatureBuilder
+features:
+  enabled: false
+
+split:
+  method: time_based
+  train_ratio: 0.8
+
+model:
+  name: st_gp
+  params:
+    n_iter:                   30
+    lr:                       0.1
+    max_train:                1500
+    lengthscale_init_space_m: 2000.0
+    lengthscale_init_time_h:  24.0
+    noise_floor:              0.5
+    seed:                     0
+
+evaluation:
+  metrics: [mae, rmse, r2]
+  plots:   [scatter, residual_ts, k_curve, spatial_error]
+  explain: true

@@ -1,0 +1,39 @@
+# Phase 3b:DINEOF — SVD-based iterative impute on full (T, S) matrix
+# 模型完全不依賴 K,但 runner 仍需 k_list;只跑 K=10 一個值,結果跨 K 完全一致
+experiment_id: exp_dineof
+seeds: [1, 2, 3, 4, 5]
+
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end:   2026-02-05
+  freq:  1h
+
+masking:
+  strategy: random_point
+  ratio: 0.20
+
+neighbors:
+  selector: correlation        # 用 correlation 走 runner;DINEOF 本身忽略
+  k_list: [10]
+
+features:
+  enabled: false
+
+split:
+  method: time_based
+  train_ratio: 0.8
+
+model:
+  name: dineof
+  params:
+    n_modes:   5                # 5 個 EOF mode;PM2.5 主要變動由 < 5 個 mode 解釋
+    max_iter:  30               # iter-SVD 收斂
+    tol:       1.0e-4
+
+evaluation:
+  metrics: [mae, rmse, r2]
+  plots:   [scatter, residual_ts, spatial_error]
+  explain: true

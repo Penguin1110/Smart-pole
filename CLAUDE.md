@@ -14,110 +14,60 @@
 - 時間頻率:固定 **1 小時**。EdiBox 原本 20–30 分鐘的已對齊到小時。
 - 指標:**MAE / RMSE / R²**,先這三個就好。
 
+**Phase 3 額外硬規定:可解釋性 ≥ 8/10**。
+所有 Phase 3 模型必須是線性 / 高斯 / 矩陣分解類,**禁止 XGBoost / LightGBM / Random Forest / NN**。
+ML 模型整批延後到 Phase 4(若有需要)。
+
 ## 現在的進度
 
-- ✅ `data_gathering.py` → 產出 `data/pole_hourly.parquet` (canonical 資料)
+- ✅ `data_gathering.py` → `data/pole_hourly.parquet` (canonical 資料)
 - ✅ `notebook.ipynb` (EDA) → EPA 12 站平均 vs 竿體跨裝置平均,Pearson r = 0.941
-- ✅ `data/MOENV_iot_station.csv` → 全國 10999 站 IoT 測站表,**高雄 1287 站與 parquet 完全對齊**
-- ✅ **Phase 1 完成**:框架骨架 + Tier 1 baseline(`mean`,搭配 `distance` / `correlation` 兩種 selector)
-   跑通 6 個 K、12 個 run,`pytest` 12/12 全綠
-- ✅ **Phase 2 完成**:多 seed 聚合 + block masking + CWA loader 骨架(Stream 0);
-   4 個 weighted imputer(idw / corr_weighted / weighted_ridge / gaussian_kernel,Stream A);
-   3 個 selector(diverse / wind_aligned / hybrid,Stream B);
-   16 cell 4×4 ablation + analysis notebook(Stream C–D)。
-   **Phase 2 best:correlation × weighted_ridge,MAE 1.61 @ K=20**(改善 52.5%)。
-   `pytest` 46 全綠。
-- ⏳ Phase 3:Tier 3 mathematical(Ordinary Kriging、Gaussian Process)
-- ⏳ Phase 4:Tier 4 ML(XGBoost、LightGBM、Random Forest)
-- ⏳ Phase 5:Tier 5 attention——很後面再說,**不要先開**
+- ✅ `data/MOENV_iot_station.csv` → 全國 IoT 測站表,**高雄 1287 站與 parquet 完全對齊**
+- ✅ **Phase 1**:Tier 1 baseline(`mean`)+ distance/correlation selector,**best MAE 3.38**
+- ✅ **Phase 2**:Tier 2 weighted(idw/corr/gaussian/ridge)+ 4 selector ablation,
+   **best `ridge × correlation × K=20` MAE 1.61**(改善 52.5%)
+- ✅ **Phase 3**:全數學時空模型,8 個 Tier 3 模型全綠,**best `elastic_net × correlation × K=5` MAE 1.017**
+   (改善 P2 ridge 36.7%);完整結果見 **@docs/PHASE_3_RESULTS.md**
+- ⏳ Phase 4(暫定):ML 模型(XGBoost / LightGBM)—— 只有當 Phase 3 撞牆時才開
+- ⏳ Phase 5(暫定):Attention(Transformer / GAT / ST-GAT)—— **暫時別碰**
 
-## Phase 1 已知發現(進 Phase 2 前先讀)
+## 已知發現
 
-跑完 `mean` baseline 在兩種 selector 上的 K-curve,結論如下:
+詳細結果(含表格、模型清單、可解釋性分數、findings 列表)見:
 
-| K | corr MAE | dist MAE | corr R² | dist R² |
-|---|---|---|---|---|
-| 1  | 4.02 | 5.42 | 0.45 | 0.24 |
-| 3  | 3.46 | 4.37 | 0.63 | 0.49 |
-| 5  | 3.39 | 4.12 | 0.66 | 0.55 |
-| 10 | **3.38** | 4.01 | **0.67** | 0.57 |
-| 20 | 3.41 | 3.96 | 0.67 | 0.59 |
-| 30 | 3.47 | 3.90 | 0.66 | 0.60 |
+**@docs/PHASE_1_2_RESULTS.md**(Phase 1+2 + Stream -1 ridge sanity)
+**@docs/PHASE_3_RESULTS.md**(Phase 3a + 3b + 3c)
 
-**三個關鍵 finding**(直接影響 Phase 2 設計):
+進 Phase 3 前要記住的三件事:
 
-1. **correlation selector 全面打敗 distance selector**(MAE 低 0.4–1.4)。
-   1287 根竿體大部分擠在高雄市區,「最近 K 站」常常落在污染源相似但訊號冗餘的範圍。
-   **在高密度感測網路,距離不是好的相似性指標**——這本身就是論文等級的結論。
+1. **Weighting > Selector**:Phase 2 ablation 顯示 weighting 軸的天花板比 selector 高
+2. **`mean` 模型結構性沒 U 形;`ridge` 加了正則化也沒看到反曲**——Ridge 強到要懷疑
+3. **Ridge MAE 1.61 必須先做 sanity check**(Phase 3 Stream -1 第一件事)
 
-2. **K-curve 形狀不同**:correlation 在 K=10 觸底然後微升(典型 bias-variance);
-   distance 從 K=1 到 K=30 單調下降,沒看到反曲點。distance 還沒到底,
-   Phase 2 開始前要先延伸 `k_list=[50, 100, 200]` 補完曲線。
+### Phase 3 已知發現(Phase 4 開不開的判斷依據)
 
-3. **`mean` 本來就不該有 U 形**——它沒擬合任何東西。
-   Phase 2 的 weighted / ridge 模型應該開始在 distance selector 上**也出現反曲點**——
-   這是檢驗 Phase 2 模型有沒有真的學東西的 sanity check。
-
-**Phase 2 假設**:在 weighted / kriging / ML 把 distance 的劣勢補回來之前,
-correlation selector 會持續是強 baseline。「selection」與「weighting」的交互作用本身是研究核心,
-所以 Phase 2 必須做 selector × weighting 的 ablation,**不能只換模型**。
-
-## Phase 2 已知發現(進 Phase 3 前先讀)
-
-### Stream 0 補完曲線後修正 Phase 1 finding
-
-- **distance K-curve 在 K≈50 觸底再上升**(MAE 3.900 @ K=50,3.968 @ K=200)。
-  Phase 1 的「distance 單調下降沒看到反曲」是 K=30 沒走遠;**distance 也有 U 形**,
-  只是底部比 correlation 高 ~0.5 MAE 且偏右。
-- **block masking vs random_point 差距很小**(K=10:3.42 vs 3.40,< 1%)。
-  Phase 2 後續 ablation 因此**只跑 random_point**,不必開 block 軸。
-- 5 seed 重跑後 MAE 標準差約 0.007–0.015,**seed-to-seed 變異極低**——
-  Phase 1 的 single-seed 數字本身已穩,但帶狀圖讓 small-effect 差異變得可解釋。
-
-### Stream A–C 4×4 ablation(K=10、5 seeds、random_point 0.2):
-
-| selector \ weighting | mean | idw | corr | ridge |
-|---|---|---|---|---|
-| distance    | 4.01 | 4.14 | 3.97 | **2.08** |
-| correlation | 3.39 | 3.71 | 3.39 | **1.62** ← Phase 2 best |
-| diverse     | 4.65 | 5.41 | 4.46 | 2.34 |
-| hybrid      | 3.45 | 3.76 | 3.45 | 2.02 |
-
-**五個 Phase 2 finding**(直接影響 Phase 3 設計):
-
-1. **Phase 2 best = correlation × weighted_ridge,MAE 1.606 @ K=20**
-   (Phase 1 best MAE 3.39 @ K=5/10;**改善 52.5%、絕對 -1.78 MAE**)。
-   Ridge 學到的 β 比距離 / 相關度的固定加權有效得多。
-2. **weighting 比 selector 重要**:固定 selector 換 weighting 平均改 2.0 MAE;
-   固定 weighting 換 selector 平均只改 1.0 MAE。
-   **Ridge 在任一 selector 上都能壓到 2.3 內**——選錯也救得回來;
-   反之挑到 correlation 但只用 mean / IDW 的話天花板就是 3.4。
-3. **diverse selector 是 Phase 2 最差**:跨所有 weighting 都比 distance 還爛。
-   Phase 1 的「強制空間分散能看到更多獨立訊號」假設**被否決**——
-   高密度 PM2.5 網路裡,把鄰居推遠等於選到不相關的站。
-4. **hybrid ≈ correlation**:correlation 挑大池子再 farthest-point 過濾沒帶來增益。
-   Top-K 高相關鄰居的冗餘沒嚴重到要再多樣化。
-5. **改善天花板未見頂**:Phase 2 best K-curve 在 K=20 觸底(1.606),
-   K=5–20 形成 1.62±0.02 的平台,K=30 才微升到 1.635。
-   還有 0.1–0.3 MAE 的空間給 Phase 3 吃。
-
-### Phase 3 開工輸入
-
-- **優先擴展 weighting 軸**:Phase 2 best vs worst 在 weighting 軸上的 swing(2.0–3.0)
-  遠大於 selector 軸的 swing(1.0)。Phase 3 的 Kriging / GP 應該對標 ridge,
-  目標把 MAE 從 1.61 壓到 1.3–1.5 區間。Selector 軸暫時固定用 correlation 即可。
-- **Ridge 在 distance selector 上 K=10、K=20 的 RMSE 飆高(5–7)而 MAE 仍低**——
-  代表有重尾錯誤、alpha=1.0 沒充分正則化。Phase 3 處理空間相依時記得用 cross-validation 選 α。
-- **wind_aligned 沒進 Phase 2 ablation**(暫無 CWA 歷史風資料,scaffold 已寫好等資料補上)。
-  若 Phase 3 拿到,優先做 wind_aligned × kriging 看是否能突破 1.6。
-- **diverse / hybrid 進 Phase 3 的優先級低**:既然 diverse 拖後腿、hybrid 沒增益,
-  Phase 3 不必再投資這兩個 selector,除非 wind_aligned 改變局勢。
+1. **時空冠軍 `elastic_net @ K=5` MAE 1.017**——已逼近 PM2.5 量測下限(~1 µg/m³),
+   進 Phase 4 (XGBoost) 邊際收益小,**暫不建議開 Phase 4**
+2. **`tgt_t-1` 被 100% target 保留**——PM2.5 強局部自迴歸,
+   任何時空模型沒吃 target 自身歷史 → 結構性劣勢
+3. **加 lag 後 K 越大越糟**——最佳 K 從 P2 的 20 掉到 P3c 的 3–5,
+   高密度感測網路 + 時間 lag 的組合天然壓 K
+4. **GLS AR(1) ρ ≈ 0**——加 lag 後殘差已白,任何「殘差協方差校正」類模型
+   (含 ST-Kriging)在這條 pipeline 都是 no-op
+5. **Kriging 46% fallback、ST-GP 退化到 prior**——
+   傳統地理統計 / GP 在這個資料密度下表現差於 IDW;
+   論文必須講清楚「方法選擇要看資料尺度」
+6. **DINEOF 5 modes 解釋 85% 變動**——PM2.5 (T, S) 動態本質低秩,
+   未來若做 whole_station masking,DINEOF 是首選
+7. **Phase 3 全 11 模型 `explainability ≥ 8`**——
+   registry 把關有效,Phase 4 ML 模型若要進入須先解決 explainability 問題
 
 ## 環境
 
 - Container:`nvidia/cuda:12.9.0-cudnn-runtime-ubuntu24.04`
 - Python:3.13.13(`.python-version`),`uv` 管套件
-- GPU:2× NVIDIA RTX 6000 Ada,~49 GB VRAM each。Tier 1–4 都用 CPU 就好,**Tier 5 才碰 GPU**。
+- GPU:2× NVIDIA RTX 6000 Ada,~49 GB VRAM each
+- **Phase 3 GPU 使用**:`gpytorch` 跑 ST-GP 才用 GPU,其他模型 CPU 即可
 
 ### 套件管理
 
@@ -128,7 +78,16 @@ uv run python <script>    # 跑東西
 uv run pytest tests/      # 跑測試
 ```
 
-**不要直接 `pip install`**——會繞過 lock 檔,別人 clone 下來就不一樣。
+**不要直接 `pip install`**——會繞過 lock 檔。
+
+### Phase 3 新依賴(預計)
+
+```bash
+uv add gstools           # ST-Kriging 主用
+uv add scikit-gstat      # variogram 視覺化備援
+uv add gpytorch          # ST-GP
+uv add statsmodels       # GLS / DLM
+```
 
 ### 跑實驗
 
@@ -151,7 +110,7 @@ uv run python scripts/aggregate_results.py
 |---|---|
 | 所有 model class | EDA(現有的 `notebook.ipynb`) |
 | `BaseImputer`、registry、runner | 最終結果分析(`notebooks/analysis_*.ipynb`) |
-| metrics、loaders、scripts | |
+| metrics、loaders、scripts | Sanity check / 可解釋性分析 |
 | 任何會被 import 的東西 | |
 | 任何訓練超過 5 分鐘的任務 | |
 
@@ -162,45 +121,57 @@ uv run python scripts/aggregate_results.py
 
 ## 目錄
 
-只列**框架相關**的;其他資料夾(`.venv/`、`.copilot/` 等)Claude 自己 `ls` 就好。
-
 ```
 smart_pole/
-├── data/                          ← read-only,別寫進去
+├── data/                          ← read-only
 │   ├── 高雄資料/                   ← raw 竿體
 │   ├── epa_data/                  ← raw EPA
 │   ├── MOENV_iot_station.csv      ← 全國 IoT 測站表,座標來源
-│   └── pole_hourly.parquet        ← canonical,所有後續從這讀
-├── data_gathering.py              ← 已完成,別動,動了 downstream 全爛
-├── notebook.ipynb                 ← EDA,定格在當下進度,別當框架的一部分
-├── NotoSansCJKtc-Regular.otf      ← matplotlib 中文字型,記得載入
+│   └── pole_hourly.parquet        ← canonical
+├── data_gathering.py              ← 已完成,別動
+├── notebook.ipynb                 ← EDA,別動
+├── NotoSansCJKtc-Regular.otf      ← matplotlib 中文字型
+├── docs/                          ← 階段性結果文件
+│   ├── PHASE_1_2_RESULTS.md       ← Phase 1+2 完整結果
+│   └── PHASE_3_RESULTS.md         ← Phase 3 結束時產出
 ├── configs/                       ← 一個 YAML = 一個實驗
 │   ├── base.yaml
 │   └── experiments/
-├── src/smart_pole/                ← 框架本體 (package)
+├── src/smart_pole/                ← 框架本體
 │   ├── data/                      ← 從 parquet 切資料
-│   ├── masking/                   ← 製造缺失 (random_point / block / whole_station)
-│   ├── neighbors/                 ← 挑鄰站 (distance / correlation / diverse / wind_aligned / hybrid)
+│   ├── features/                  ← Phase 3 新增,時空特徵工程
+│   │   └── temporal.py            ← lag / rolling feature builder
+│   ├── masking/                   ← random_point / block / whole_station
+│   ├── neighbors/                 ← 5 種 selector (Phase 2 已完成)
 │   ├── models/
-│   │   ├── base.py                ← BaseImputer 契約,動了所有 model 都要改
+│   │   ├── base.py                ← BaseImputer 契約
 │   │   ├── registry.py            ← @register decorator
 │   │   ├── baseline/              ← Tier 1 (完成)
-│   │   ├── weighted/              ← Tier 2 (Phase 2 進行中)
-│   │   ├── mathematical/          ← Tier 3
-│   │   ├── ml/                    ← Tier 4
-│   │   └── attention/             ← Tier 5(暫時別碰)
+│   │   ├── weighted/              ← Tier 2 (完成)
+│   │   ├── mathematical/          ← Tier 3 (Phase 3 進行中)
+│   │   │   ├── kriging.py         ← Ordinary Kriging
+│   │   │   ├── gp_spatial.py      ← spatial GP
+│   │   │   ├── idw_optimal.py     ← IDW with CV power
+│   │   │   ├── timelag_ridge.py   ← 時空線性 (3c)
+│   │   │   ├── elastic_net.py     ← 時空線性 (3c)
+│   │   │   ├── gls.py             ← 時空線性 (3c)
+│   │   │   ├── st_kriging.py      ← 時空 Kriging
+│   │   │   ├── st_gp.py           ← 時空 GP (gpytorch)
+│   │   │   └── dineof.py          ← 矩陣分解
+│   │   ├── ml/                    ← Tier 4 (Phase 4,暫不開)
+│   │   └── attention/             ← Tier 5 (Phase 5,暫不開)
 │   ├── evaluation/                ← metrics + reporter
 │   ├── visualization/             ← plots + maps
 │   └── runner/                    ← experiment.py,主入口
-├── scripts/                       ← CLI 腳本,被人/cron 呼叫
-├── results/runs/                  ← 每跑一次一個資料夾(見下方 schema)
-├── notebooks/                     ← 結果分析 notebooks(跟 EDA 分開)
+├── scripts/                       ← CLI 腳本
+├── results/runs/                  ← 每跑一次一個資料夾
+├── notebooks/                     ← 結果分析 notebooks
 └── tests/
 ```
 
 ## BaseImputer 契約
 
-**所有模型必須繼承這個,不能為了方便擴充參數簽名**。Runner 假設介面長這樣,改 signature 整個 pipeline 都壞。
+**所有模型必須繼承這個**。Runner 假設介面長這樣,改 signature 整個 pipeline 都壞。
 
 ```python
 # src/smart_pole/models/base.py
@@ -214,18 +185,21 @@ class BaseImputer(ABC):
 
     參數慣例:
         X:    shape (n_samples, K) — K 個鄰站當下的 PM2.5 值
-        y:    shape (n_samples,)   — 目標站的真值
+              (Phase 3 feature.enabled=true 時 shape 變 (n_samples, K * (1 + L + R)))
+        y:    shape (n_samples,)
         meta: dict,含:
             - target_station_id:    str
             - neighbor_station_ids: list[str]
-            - distances:            np.ndarray, shape (n_samples, K)  鄰站距離(公尺)
+            - distances:            np.ndarray, shape (n_samples, K)
             - timestamps:           pd.DatetimeIndex
             - target_coord:         tuple[float, float]  (lon, lat)
             - neighbor_coords:      np.ndarray, shape (K, 2)
+            - feature_names:        list[str]  (Phase 3 新增,enabled=true 時必填)
     """
-    name: str = "base"          # 唯一識別,registry 用
-    tier: int = 0               # 1..5
-    requires_gpu: bool = False  # True 時 runner 會 set CUDA_VISIBLE_DEVICES
+    name: str = "base"
+    tier: int = 0
+    requires_gpu: bool = False
+    explainability: int = 0       # Phase 3 新增,1–10,< 8 不能進 Phase 3 model registry
 
     def __init__(self, **params: Any) -> None:
         self.params = params
@@ -238,36 +212,14 @@ class BaseImputer(ABC):
     def predict(self, X: np.ndarray, meta: dict[str, Any]) -> np.ndarray: ...
 
     def get_config(self) -> dict[str, Any]:
-        return {"name": self.name, "tier": self.tier, "params": self.params}
-```
+        return {"name": self.name, "tier": self.tier,
+                "explainability": self.explainability, "params": self.params}
 
-### 寫一個新模型 = 三件事
-
-1. 在對應 tier 資料夾下新增一個檔,繼承 `BaseImputer`,實作 `fit` / `predict`
-2. 用 `@register` decorator 註冊
-3. 在 `configs/experiments/` 加一個 YAML
-
-範例:
-
-```python
-# src/smart_pole/models/baseline/mean.py
-from __future__ import annotations
-import numpy as np
-from ..base import BaseImputer
-from ..registry import register
-
-@register
-class MeanImputer(BaseImputer):
-    """最廢的 baseline:K 個鄰站當下值的算術平均。"""
-    name = "mean"
-    tier = 1
-
-    def fit(self, X, y, meta):
-        self._fitted = True
-        return self
-
-    def predict(self, X, meta):
-        return np.nanmean(X, axis=1)
+    def explain(self) -> dict[str, Any] | None:
+        """Phase 3 模型必須實作,回傳「為什麼這樣預測」的可讀資訊。
+        例如 ridge 回傳 {weights, intercept};kriging 回傳 {variogram_params}。
+        None 表示這個模型本來就是 closed-form 不需解釋。"""
+        return None
 ```
 
 ### 違反契約的行為
@@ -276,194 +228,247 @@ class MeanImputer(BaseImputer):
 - ✗ 在 model class 內部讀檔——資料一律外部傳入
 - ✗ 把超參寫死——透過 `__init__(**params)` 傳,讓 config 控
 - ✗ 在 model 裡 `print()`——用 `logging.getLogger(__name__)`
+- ✗ **Phase 3 模型 `explainability < 8`**——直接拒絕進 registry
 
 ## Config Schema
 
 ```yaml
-# configs/experiments/exp01_mean.yaml
-experiment_id: exp01_mean
-seeds: [42]                 # list 讓 runner sweep,輸出 mean ± std
+# configs/experiments/exp_<id>.yaml
+experiment_id: exp_<id>
+seeds: [1, 2, 3, 4, 5]      # multi-seed 標配
 
 data:
   cache_path: data/pole_hourly.parquet
-  station_info_path: data/MOENV_iot_station.csv   # 座標來源
+  station_info_path: data/MOENV_iot_station.csv
   target_var: pm25
-  start: 2025-12-01           # ISO 8601
+  start: 2025-12-01
   end:   2026-02-08
   freq: 1h
 
 masking:
   strategy: random_point      # random_point | block | whole_station
   ratio: 0.20
-  block_hours: 6              # 只 block 用
+  block_hours: 6
 
 neighbors:
   selector: correlation       # distance | correlation | diverse | wind_aligned | hybrid
-  k_list: [30, 20, 10, 5, 3, 1]   # runner 會 sweep,不要在程式碼裡寫迴圈
-  params: {}                  # selector 客製參數(例:wind_aligned 的 wind_dir_deg / alpha / beta)
+  k_list: [30, 20, 10, 5, 3, 1]
 
 split:
   method: time_based          # time_based | random
   train_ratio: 0.8
 
+# Phase 3 新增:時空特徵
+features:
+  enabled: false              # Phase 3a/3b 關;3c 起開
+  lags: [1, 2, 3, 6, 24]      # 小時
+  rolling: [3, 6, 24]         # 小時
+
 model:
-  name: mean                  # 必須等於某個 @register 過的 BaseImputer.name
-  params: {}                  # 對應 __init__ 的 kwargs
+  name: ridge
+  params: {alpha: 1.0}
 
 evaluation:
   metrics: [mae, rmse, r2]
   plots: [scatter, residual_ts, k_curve, spatial_error]
+  explain: true               # Phase 3 預設要產 explain.json
 ```
-
-新增實驗 = 加 YAML,**永遠不要在 runner 或 model 裡硬寫超參**。
 
 ## Results Folder Schema
 
-每個 run 必須產出:
-
 ```
 results/runs/{experiment_id}_{model}_K{K}_seed{seed}_{YYYYMMDD-HHMMSS}/
-├── config.yaml          ← resolved 完整 config(含 base.yaml 的 default)
-├── metrics.json         ← {"mae": ..., "rmse": ..., "r2": ...}
+├── config.yaml          ← resolved 完整 config
+├── metrics.json
 ├── predictions.parquet  ← columns: [timestamp, station_id, y_true, y_pred, residual]
-├── log.txt              ← 訓練 log
+├── explain.json         ← Phase 3 新增,BaseImputer.explain() 的結果
+├── log.txt
 └── plots/
-    ├── scatter.png
-    ├── residual_ts.png
-    └── spatial_error.png
 ```
-
-`aggregate_results.py` 只認這個 schema。**不要把結果寫去其他地方**。
 
 ## 風格規則(只列非 default 的)
 
-- 註解、docstring、log 訊息一律**繁體中文**(對齊現有 `data_gathering.py` / `notebook.ipynb`)
+- 註解、docstring、log 訊息一律**繁體中文**
 - `from __future__ import annotations` + 型別標註
-- 路徑一律 `pathlib.Path`,不拼字串
-- 時間戳一律 `pd.Timestamp`,UTC 不要本地
-- 任何隨機操作必須吃 `seed: int` 參數,**沒有 default seed**
+- 路徑一律 `pathlib.Path`
+- 時間戳一律 `pd.Timestamp`,UTC
+- 任何隨機操作必須吃 `seed: int`,**沒有 default seed**
 - 用 `logging.getLogger(__name__)`,不要 `print`(notebook 例外)
-- matplotlib 畫圖前先設中文字型,字型檔在專案根目錄 `NotoSansCJKtc-Regular.otf`
+- matplotlib 畫圖前先設中文字型(`NotoSansCJKtc-Regular.otf`)
+- **Phase 3 模型必須實作 `.explain()`**,回傳 JSON-serializable dict
 
 ## GPU
 
-- Tier 1–4 全用 CPU(夠快了,GPU 浪費)
-- Tier 5 才用 GPU。屆時:
-  - 先檢查 `torch.cuda.is_available()`,False 就 fallback CPU 並警告
-  - 想分流兩張卡:`CUDA_VISIBLE_DEVICES=0 uv run ...` 跑一半 K,`=1` 跑另一半
-- 不要在 model class 裡寫死 device,讓 runner 注入
+- Phase 3 只有 `st_gp.py` (gpytorch) 用 GPU,其他全 CPU
+- `requires_gpu = True` 的模型,runner 自動 set `CUDA_VISIBLE_DEVICES`
+- 想分流兩張卡跑同模型不同 K:`CUDA_VISIBLE_DEVICES=0 uv run ... --k_list 30,20,10`
+  另一張 `=1 uv run ... --k_list 5,3,1`
+- 不要在 model class 裡寫死 device
 
 ## 動之前要問的檔
 
 | 檔案 | 為什麼小心 |
 |---|---|
-| `data_gathering.py` | 生 canonical parquet,改了 downstream 全爛 |
+| `data_gathering.py` | 生 canonical parquet |
 | `data/` 下任何東西 | read-only,動了重現性掛掉 |
 | `src/smart_pole/models/base.py` | 介面動了所有 model 都要改 |
-| `pyproject.toml` | 用 `uv add`,不要手改;手改容易跟 lock 不同步 |
-| `notebook.ipynb` | EDA 已定格,動了會跟論文/報告對不起來 |
+| `pyproject.toml` | 用 `uv add`,不要手改 |
+| `notebook.ipynb` | EDA 已定格 |
+| `docs/PHASE_*.md` | 階段性事實記錄,動了論文對不起來 |
 
 ## 給 Claude Code 的指示
 
-1. 改程式碼前先看現有的同類檔——不要憑直覺重新發明結構
-2. 加新模型一定走 `BaseImputer` + `@register`,**不要繞過**
-3. 如果發現要在框架程式碼裡加 magic number / 寫死路徑——**停下來問人**,通常是 config 沒設計好
-4. 任何新增 top-level 資料夾的需求——**先問**
-5. 不要建 `xxx_v2.py` / `xxx_new.py`——改舊的,讓 git 記錄
-6. 結束 task 前跑 `uv run pytest tests/` 確認沒打壞既有測試
+1. 改程式碼前先看現有的同類檔
+2. 加新模型一定走 `BaseImputer` + `@register`
+3. **Phase 3 模型 `explainability < 8` 直接拒絕**,跟人討論可解釋性怎麼提到 8 再說
+4. 框架程式碼裡發現要加 magic number / 寫死路徑——**停下來問人**
+5. 不要建 `xxx_v2.py` / `xxx_new.py`
+6. 結束 task 前跑 `uv run pytest tests/`
 
-## Phase 2 具體 TODO(目前要做的)
+---
 
-Phase 1 finding 告訴我們「**選誰**」和「**怎麼加權**」要一起研究。
-Phase 2 不是「換 mean 變 weighted」這麼簡單,分成 4 個 stream + 1 個收尾。
-**按 Stream 順序做,不要平行開**——Stream 0 的方法學基礎沒打好,後面跑出來的數字沒法比較。
+## Phase 3 具體 TODO
 
-### Stream 0:方法學清掃(寫模型前先做,0.5 天)
+**Phase 3 = 全數學時空路線**,不碰 ML。預計 6 天。
+分 6 個 stream,**按順序做,不要平行開**。
 
-不寫任何新模型,只動 runner / loader / config。做完 Phase 2 軸數爆炸後才有 error bar 可比較。
+### Stream -1:Ridge Sanity Check + 可解釋性分析(0.5 天)
 
-1. [ ] `runner/experiment.py` 支援 `seeds: list[int]`,自動跑完聚合 mean ± std
-2. [ ] `visualization/plots.py` K-curve 改成帶狀圖(中線 mean、半透明帶 ±1 std)
-3. [ ] `masking/block.py` 補完(連續 N 小時缺失,模擬真實 EdiBox 故障)
-4. [ ] `data/cwa_loader.py` 載入 CWA 風速風向(為 Stream B 的 `wind_aligned` 暖身)
-5. [ ] 補跑 Phase 1 distance K-curve:`k_list=[50, 100, 200]`,確認 distance 最低點在哪
+開新模型前必做。Phase 2 best MAE 1.61 太強,要先排除 leakage。
 
-**Stream 0 驗收**:任一 Phase 1 實驗用 `seeds: [1,2,3,4,5]` 重跑,plot 出現帶狀;
-block masking 至少一組對比 random_point 跑出來。
+1. [ ] `notebooks/phase2_ridge_sanity.ipynb`:
+       - 確認 `split.method=time_based` 在 ridge config 真的生效(印出 train/test timestamps 邊界)
+       - 確認 neighbor selection 完全排除 target station 自己
+       - 跑 ridge × K=1,看 R²(> 0.95 → leakage)
+       - 若有 leakage:**先修再說,Phase 3 暫停**
+2. [ ] `notebooks/phase2_ridge_explainability.ipynb`:
+       - 對 10 個隨機 target,印 K=10 的 $w_i$ 分佈
+       - $w_i$ vs $d_i$、$w_i$ vs $r_i$ 的 scatter
+       - 截距 $b$ 的分佈
+       - 結論寫進 `docs/PHASE_1_2_RESULTS.md` 的附錄
 
-### Stream A:Weighted 模型(1 天)
+**Stream -1 驗收**:`docs/PHASE_1_2_RESULTS.md` 多一段 ~100 字的「Ridge 為什麼這麼強」解釋,
+Phase 3 設計才有依據。
 
-四個 weighted imputer,全部繼承 `BaseImputer`,放 `src/smart_pole/models/weighted/`:
+### Stream 0:時空 Feature Builder(0.5 天)
 
-6. [ ] `idw.py` — `IDWImputer(power)`,經典 $w_i = 1/d_i^p$
-7. [ ] `corr_weighted.py` — `CorrWeightedImputer()`,$w_i = \max(0, r_i)$ 標準化加權
-8. [ ] `weighted_ridge.py` — `WeightedRidgeImputer(alpha)`,Ridge 線性回歸,
-       樣本權重可選 distance / correlation
-9. [ ] `gaussian_kernel.py` — `GaussianKernelImputer(sigma)`,$w_i = \exp(-d_i^2/2\sigma^2)$;
-       Phase 3 Kriging 的前奏
+Phase 3 所有時空模型共用的工具。**寫一次,後面 3c/3b 都用同一份**。
 
-**每個模型必須**:
-- 沒有 default 超參(透過 `__init__(**params)` 由 YAML 傳入)
-- 通過 `tests/test_base_imputer.py` 的契約測試
-- 自己一份 `configs/experiments/exp_<model>.yaml`
+3. [ ] `src/smart_pole/features/temporal.py`:
+       ```python
+       class TemporalFeatureBuilder:
+           def __init__(self, lags: list[int], rolling: list[int]) -> None: ...
+           def build(self, X: np.ndarray, timestamps: pd.DatetimeIndex,
+                     target_history: np.ndarray) -> tuple[np.ndarray, list[str]]:
+               """回傳 X_aug shape (n, K * (1 + len(lags) + len(rolling)) + len(lags))
+               最後 +len(lags) 是 target 自己的歷史"""
+       ```
+4. [ ] `tests/test_temporal_features.py`:`lags=[], rolling=[]` 退化成 Phase 2 行為
+5. [ ] **跑 PM2.5 ACF 確認 lag 範圍**:在 `notebooks/eda_acf.ipynb` 畫 ACF,
+       看 24 小時、72 小時、168 小時的自相關有沒有意義,才能定 `lags` 預設值
 
-**Stream A 驗收**:4 個模型 × 2 個 selector(distance + correlation)× 6 個 K × 5 個 seed = 240 runs 全綠;
-`weighted_ridge` 在 distance selector 上的 K-curve **出現 U 形**(若沒有,代表正則化太強或實作有問題)。
+**Stream 0 驗收**:`features.enabled=false` 跑出來 metrics 與 Phase 2 完全一致;
+ACF 圖確認 PM2.5 在 lag=24 仍有顯著自相關。
 
-### Stream B:Selector(1 天)
+### Phase 3a:Tier 3 純空間模型(1 天)
 
-Phase 1 finding 直接逼出來的新軸,放 `src/smart_pole/neighbors/`:
+論文 baseline,不期待效能突破,但**「我試過經典空間方法」這件事必須有**。
+`features.enabled=false`。
 
-10. [ ] `diverse.py` — `select_diverse(target, K)`,
-        K 個鄰站中強制最大化空間分散度(greedy farthest-point sampling)
-11. [ ] `wind_aligned.py` — `select_wind_aligned(target, K, wind_dir)`,
-        偏好上風 / 下風方向的站(風帶污染,上風 = 未來訊號)
-12. [ ] `hybrid.py` — `select_hybrid(target, K)`,
-        先用 correlation 挑 2K,再從中挑 K 個最分散的
+6. [ ] `models/mathematical/idw_optimal.py` — `IDWOptimalImputer()`
+       - CV 自動找 power(原 IDW 是手設)
+       - 可解釋性:10/10
+7. [ ] `models/mathematical/kriging.py` — `OrdinaryKrigingImputer(variogram_model)`
+       - `gstools` 套件
+       - `variogram_model` ∈ {`spherical`, `exponential`, `gaussian`}
+       - **variogram 全期 fit**(逐時太貴,結果差不多)
+       - `.explain()` 回傳 variogram 參數 (sill, range, nugget)
+       - 可解釋性:9/10(variogram 圖人可讀)
+8. [ ] `models/mathematical/gp_spatial.py` — `SpatialGPImputer(kernel, lengthscale_init)`
+       - `gpytorch`,純空間 GP(時間軸先不上)
+       - kernel:RBF / Matern52
+       - `.explain()` 回傳 learned lengthscale、noise variance
+       - 可解釋性:8/10
+       - `requires_gpu = True`
 
-**Stream B 驗收**:每個 selector 對任一目標站丟回 K 個 ID + 距離,
-unit test 確認 (a) 不選到 target 自己 (b) 回傳數量正確 (c) 順序與 selector 語意一致。
+**Phase 3a 驗收**:
+- 3 個模型 × correlation selector × 6 K × 5 seed = 90 runs 全綠
+- K-curve 對比圖:Phase 2 ridge vs IDW_optimal vs Kriging vs GP
+- **預期結果**:三個都打不過 Phase 2 ridge(這是合理的負結果,寫進論文)
 
-### Stream C:Ablation(0.5 天)
+### Phase 3c:時空線性模型(1 天,先做!)
 
-Phase 2 的招牌產出。固定 K=10、`seeds=[1..5]`、`mask=random_point`、`ratio=0.2`:
+3c 之所以提前到 3b 之前,是因為**這條最便宜也最可能贏**。
+如果 ridge + 時間 lag 直接壓到 MAE < 1.0,後面 ST-Kriging / ST-GP 要超過會非常難。
+**`features.enabled=true`,所有模型吃時空特徵向量**。
 
-13. [ ] `configs/experiments/ablation/sel_{distance,correlation,diverse,hybrid}_w_{mean,idw,corr,ridge}.yaml`
-        共 16 個 config
-14. [ ] `scripts/run_ablation.sh`:批次跑完 16 組
-15. [ ] `notebooks/analysis_phase2.ipynb` 出三張圖:
-        - (a) 4 × 4 selector × weighting heatmap(MAE,顏色越深越好)
-        - (b) 同一個目標站,4 種 selector 挑出的鄰站視覺化地圖
-        - (c) Phase 1 vs Phase 2 best 的 K-curve 對比
- 
-**Stream C 驗收**:16 個 cell 全跑完,heatmap 至少能回答
-「**selection 還是 weighting 比較重要?**」notebook 末尾寫一段 5 行結論。
+9. [ ] `models/mathematical/timelag_ridge.py` — `TimeLagRidgeImputer(alpha)`
+       - Phase 2 ridge 的時空升級,結構完全一樣只是 X 變寬
+       - 可解釋性:10/10($w_i$ 直接可讀,每個 lag/rolling feature 一個權重)
+       - `.explain()` 回傳完整 weight vector + feature_names
+10. [ ] `models/mathematical/elastic_net.py` — `ElasticNetImputer(alpha, l1_ratio)`
+        - L1 + L2,自動選 lag(L1 把不重要的 lag 權重壓 0)
+        - 可解釋性:10/10(權重稀疏,挑出最重要的 features)
+        - `.explain()` 回傳非零 weights + 對應 feature_names
+11. [ ] `models/mathematical/gls.py` — `GLSImputer(cov_structure)`
+        - Generalized Least Squares,殘差協方差矩陣校正
+        - 本質上是線性 ST-Kriging
+        - `statsmodels.regression.linear_model.GLS`
+        - 可解釋性:9/10
 
-### Stream D:收尾(0.5 天)
+**Phase 3c 驗收**:
+- 3 個模型 × correlation selector × K=10 固定 × 5 seed × 多組 lag 設定
+- **若 `timelag_ridge` 已壓到 MAE < 1.5**:停下來討論是否還要做 3b
+- **若 `elastic_net` 自動選出的 lag 集中在某幾個**:這就是論文很漂亮的 finding
+- 出一張圖:Phase 2 ridge(純空間)vs timelag_ridge(時空)的 K-curve
 
-16. [ ] `notebooks/analysis_phase2.ipynb` 寫結論段:
-        - Phase 2 best 對 Phase 1 best 改善了多少(MAE 絕對值 + 百分比)
-        - 改善天花板看起來在哪(best K-curve 還沒到底嗎?)
-        - Phase 3 該優先解決什麼(用 ablation 的 worst cell 推)
-17. [ ] 更新 `CLAUDE.md` 的「現在的進度」+「Phase 1 已知發現」段,
-        加入「Phase 2 已知發現」作為 Phase 3 的輸入
-18. [ ] `uv run pytest tests/` 全綠,所有新模型 / selector 都有 unit test
+### Phase 3b:時空數學模型(2.5 天)
 
-**完成 Phase 2 後停下來給人 review,確認方向 OK 再進 Phase 3。**
+如果 3c 還沒打穿天花板,進 3b。**`features.enabled=true`**。
 
-## Phase 2 開工前要決定的事
+12. [ ] `models/mathematical/st_kriging.py` — `STKrigingImputer(variogram_model)`
+        - `gstools` 的時空 variogram(product-sum 或 metric)
+        - 比 spatial-only Kriging 多一個 time scaling 參數
+        - 可解釋性:9/10(variogram 圖 2D → 3D,還是看得懂)
+13. [ ] `models/mathematical/st_gp.py` — `STGPImputer(kernel_type)`
+        - `gpytorch` 的 spatio-temporal GP
+        - kernel:separable (RBF_s × RBF_t) 或 non-separable (Gneiting)
+        - 可解釋性:8/10(spatial lengthscale + temporal lengthscale 都可讀)
+        - `requires_gpu = True`,可能要 batch 才能跑大 K
+14. [ ] `models/mathematical/dineof.py` — `DINEOFImputer(n_modes, max_iter)`
+        - **先用 sklearn `IterativeImputer + TruncatedSVD` 簡化版**(等價於 DINEOF 的核心思路)
+        - 真正的 DINEOF 算法後續再說
+        - 可解釋性:9/10(空間模態圖、時間係數曲線可畫出來)
+        - 對 `whole_station` masking 特別強(連續缺值是它的主場)
 
-跑 Stream 0 之前先回答這三個,會決定 Stream B / Stream C 的工作量:
+**Phase 3b 驗收**:
+- 每個模型 × correlation selector × K=10 × 5 seed
+- ST-GP OOM 時降到 K ≤ 20
+- DINEOF 在 random_point 跟 whole_station 兩種 mask 各跑一次
+- notebook 對比圖:Phase 2 ridge vs Phase 3c timelag_ridge vs Phase 3b 三模型
 
-1. **CWA 風資料拿得到歷史小時值嗎?**
-   拿不到的話,Stream B 的 `wind_aligned` 改成「用觀測時段內竿體之間的相位差推風向」——
-   這會變成一個小研究而不是「直接用 wind 資料」。值不值得,你決定。
+### Stream Z:Phase 3 收尾(0.5 天)
 
-2. **計算量 sanity check**:Phase 2 大約 240 (Stream A) + 16 (Ablation) + 補跑 ≈ 280 runs。
-   每 run 多久?Phase 1 單 run 若 1 分鐘,Phase 2 約 5 小時;若 10 分鐘,約 2 天。
-   超過 1 天的話,把 `weighted_ridge` 的 seed 從 5 降到 3。
+15. [ ] `docs/PHASE_3_RESULTS.md`(對齊 `PHASE_1_2_RESULTS.md` 格式):
+        - 所有模型結果表
+        - 「**weighting × time** 的天花板在哪」
+        - 每個模型的 `.explain()` 範例輸出
+        - 可解釋性總表(8 個模型 + Phase 1/2 的 5 個)
+16. [ ] 更新 `CLAUDE.md`:加「Phase 3 已知發現」,Phase 4 該不該開的判斷
+17. [ ] `uv run pytest tests/` 全綠
 
-3. **Block masking 結果差距大不大?**
-   Stream 0 跑出第一個 block vs random 對比後,若差距 > 20%,
-   Stream C 的 ablation 要分別跑兩種 mask,工作量翻倍——這時候 ablation 只跑 random,
-   block 改用「best weighted × 4 個 selector = 4 runs」的小 ablation 即可。
+**完成 Phase 3 後停下來給人 review。**
+
+## Phase 3 開工前要決定的事
+
+1. **Stream -1 必做**——Ridge 解釋分析是 Phase 3 設計的依據,不要跳
+2. **計算量 sanity check**:Phase 3 大約 90 (3a) + 60 (3c) + 60 (3b) ≈ 210 runs。
+   每 run 若 2 分鐘,~7 小時;若 10 分鐘,~1.5 天。
+   GP 可能單 run 就 30 分鐘,要先測一次再決定要不要降 seed 數
+3. **Lag 範圍依 Stream 0 ACF 圖決定**——預設 `[1, 2, 3, 6, 24]`,
+   但若 ACF 在 168 小時(週週期)仍顯著,加進來
+4. **3c 表現太強的話 3b 怎麼辦?**
+   - 如果 `timelag_ridge` MAE < 1.0:3b 改成只跑 ST-GP(因為理論最完整),
+     Kriging 跟 DINEOF 留到撰寫論文時再看要不要補
+   - 如果 `timelag_ridge` MAE 1.0–1.4:3b 三個全做
+   - 如果 `timelag_ridge` MAE > 1.4:可能 ACF 沒抓對,先回 Stream 0 檢查

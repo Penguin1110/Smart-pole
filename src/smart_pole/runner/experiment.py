@@ -76,6 +76,20 @@ def resolve_seeds(config: dict[str, Any]) -> list[int]:
     return [int(s) for s in seeds]
 
 
+# ---------- json helpers ------------------------------------------------------
+
+
+def _explain_json_default(obj: Any) -> Any:
+    """``json.dump`` 的 fallback——把 numpy 純量 / 陣列轉成 Python 原生型別。"""
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
+    if isinstance(obj, (np.integer, np.floating)):
+        return obj.item()
+    if isinstance(obj, np.bool_):
+        return bool(obj)
+    raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")
+
+
 # ---------- runner ------------------------------------------------------------
 
 
@@ -180,16 +194,37 @@ def run_experiment(
     runs_root = project_root / "results" / "runs"
     runs_root.mkdir(parents=True, exist_ok=True)
 
+    # Phase 3 預設輸出 explain.json。bool(...) 允許 YAML 的 false / null 關掉
+    eval_cfg = config.get("evaluation", {}) or {}
+    collect_explain = bool(eval_cfg.get("explain", False))
+
+    # Phase 3c:時空特徵設定。features.enabled=false 時與 Phase 2 完全等價。
+    features_cfg = config.get("features", {}) or {}
+    features_enabled = bool(features_cfg.get("enabled", False))
+    feature_builder = None
+    if features_enabled:
+        from ..features import TemporalFeatureBuilder
+        feature_builder = TemporalFeatureBuilder(
+            lags=list(features_cfg.get("lags", []) or []),
+            rolling=list(features_cfg.get("rolling", []) or []),
+        )
+        logger.info(
+            "features.enabled=true:lags=%s, rolling=%s,每 target 額外 %d feature columns",
+            feature_builder.lags, feature_builder.rolling,
+            feature_builder.n_features_per_neighbor(),
+        )
+
     for seed in seeds:
         logger.info("=== seed=%d ===", seed)
         mask = make_mask(values, mask_cfg=mask_cfg, seed=seed)
 
         metrics_by_k: dict[int, dict[str, float]] = {}
         predictions_by_k: dict[int, pd.DataFrame] = {}
+        explain_by_k: dict[int, dict[str, Any]] = {}
 
         for K in k_list:
             t0 = time.time()
-            preds_df = _run_one_k(
+            preds_df, explain_per_target = _run_one_k(
                 K=K,
                 model_cls=model_cls,
                 model_params=model_params,
@@ -202,10 +237,13 @@ def run_experiment(
                 test_offset=test_offset,
                 neighbor_table=neighbor_table,
                 coords=coords,
+                collect_explain=collect_explain,
+                feature_builder=feature_builder,
             )
             metrics = compute_metrics(preds_df["y_true"].to_numpy(), preds_df["y_pred"].to_numpy())
             predictions_by_k[K] = preds_df
             metrics_by_k[K] = metrics
+            explain_by_k[K] = explain_per_target
             logger.info(
                 "seed=%d K=%d: n=%d, MAE=%.3f, RMSE=%.3f, R²=%.3f (耗時 %.1fs)",
                 seed, K, metrics["n"], metrics["mae"], metrics["rmse"], metrics["r2"],
@@ -227,6 +265,11 @@ def run_experiment(
 
             predictions_by_k[K].to_parquet(run_dir / "predictions.parquet", index=False)
             (run_dir / "log.txt").touch(exist_ok=True)
+
+            # Phase 3:有任一 target 給出 explain dict 就寫
+            if explain_by_k[K]:
+                with (run_dir / "explain.json").open("w", encoding="utf-8") as f:
+                    json.dump(explain_by_k[K], f, ensure_ascii=False, indent=2, default=_explain_json_default)
 
             make_plots(
                 predictions=predictions_by_k[K],
@@ -452,11 +495,21 @@ def _run_one_k(
     test_offset: int,
     neighbor_table: dict[str, tuple[list[str], np.ndarray]],
     coords: dict[str, tuple[float, float]] | None,
-) -> pd.DataFrame:
-    """對每個 target station 取前 K 個鄰居,fit-predict-收集 predictions。"""
-    rows: list[dict[str, Any]] = []
+    collect_explain: bool = False,
+    feature_builder=None,
+) -> tuple[pd.DataFrame, dict[str, Any]]:
+    """對每個 target station 取前 K 個鄰居,fit-predict-收集 predictions。
 
-    train_values = values[train_slice]
+    回傳 (predictions_df, explain_per_target);後者僅在 ``collect_explain=True``
+    且模型的 ``.explain()`` 回傳非 None 時填值。
+
+    當 ``feature_builder`` 非 None,會在 K 鄰站基礎上加 lag / rolling / target 歷史 column,
+    並透過 ``meta["feature_names"]`` 給模型對應的 column 名。
+    """
+    rows: list[dict[str, Any]] = []
+    explain_per_target: dict[str, Any] = {}
+
+    train_end = train_slice.stop
     test_values = values[test_slice]
     test_mask = mask[test_slice]
 
@@ -466,18 +519,40 @@ def _run_one_k(
         t_idx = sid_to_idx[target]
         n_idx = [sid_to_idx[s] for s in neighbors]
 
-        y_train_full = train_values[:, t_idx]
-        obs_train = np.isfinite(y_train_full)
-        if obs_train.sum() == 0:
-            continue
-        X_train = train_values[:, n_idx][obs_train]
-        y_train = y_train_full[obs_train]
+        # 全段(T 列)的「鄰站 K 欄」+ target 歷史
+        neighbor_ts_full = values[:, n_idx]      # (T, K)
+        target_ts_full   = values[:, t_idx]      # (T,)
 
+        if feature_builder is not None:
+            # Phase 3c+:擴成 (T, K*(1+L+R) + L)
+            X_full, feature_names = feature_builder.build(
+                neighbor_ts_full, target_history=target_ts_full,
+            )
+        else:
+            X_full = neighbor_ts_full
+            feature_names = [f"nb{k}_t" for k in range(K)]
+
+        # ---- train segment ----
+        X_train_full = X_full[train_slice]
+        y_train_full = target_ts_full[train_slice]
+        if feature_builder is not None:
+            # Phase 3c+:任何 feature 或 y 是 NaN 的 row 都丟掉(線性模型不吃 NaN)
+            train_finite = np.isfinite(X_train_full).all(axis=1) & np.isfinite(y_train_full)
+        else:
+            # Phase 1/2 行為:只 drop y NaN,X 內 NaN 由模型自己(np.nanmean 等)處理
+            train_finite = np.isfinite(y_train_full)
+        if train_finite.sum() < max(8, X_full.shape[1] + 1):
+            continue
+        X_train = X_train_full[train_finite]
+        y_train = y_train_full[train_finite]
+        ts_train = timestamps[train_slice][train_finite]
+
+        # ---- test segment ----
         target_mask = test_mask[:, t_idx]
         test_rows = np.flatnonzero(target_mask)
         if len(test_rows) == 0:
             continue
-        X_test = test_values[test_rows][:, n_idx]
+        X_test = X_full[test_offset + test_rows]
         y_test = test_values[test_rows, t_idx]
         test_ts = timestamps[test_offset + test_rows]
 
@@ -488,26 +563,47 @@ def _run_one_k(
             else None
         )
 
-        meta_train = {
+        # 注意:distances 仍是 (n_samples, K)——只對應原始 K 鄰站當下值 column,
+        # 不對 lag / rolling 延伸 column。用 distance / kernel 類模型需自行對齊。
+        # ``*_full`` 是 Phase 3b 才用的 read-only references——
+        # 大部分模型忽略,DINEOF / ST-GP 才會讀
+        meta_common: dict[str, Any] = {
             "target_station_id": target,
             "neighbor_station_ids": neighbors,
-            "distances": np.tile(dists, (len(y_train), 1)),
-            "timestamps": timestamps[train_slice][obs_train],
             "target_coord": target_coord,
             "neighbor_coords": neighbor_coords,
+            "feature_names": feature_names,
+            "values_full": values,         # (T, S) read-only reference
+            "mask_full":   mask,           # (T, S) bool
+            "train_slice": train_slice,
+            "test_slice":  test_slice,
+            "target_idx":  t_idx,
+            "neighbor_idx": n_idx,
+        }
+        meta_train = {
+            **meta_common,
+            "distances": np.tile(dists, (len(y_train), 1)),
+            "timestamps": ts_train,
         }
         meta_test = {
-            "target_station_id": target,
-            "neighbor_station_ids": neighbors,
+            **meta_common,
             "distances": np.tile(dists, (len(test_rows), 1)),
             "timestamps": test_ts,
-            "target_coord": target_coord,
-            "neighbor_coords": neighbor_coords,
+            "test_rows": test_rows,        # 對應 test_slice 內的 row 偏移
         }
 
         model = model_cls(**model_params)
         model.fit(X_train, y_train, meta_train)
         y_pred = model.predict(X_test, meta_test)
+
+        if collect_explain:
+            try:
+                expl = model.explain()
+            except Exception as e:
+                logger.warning("target %s 的 explain() 失敗:%s", target, e)
+                expl = None
+            if expl is not None:
+                explain_per_target[target] = expl
 
         for ts, yt, yp in zip(test_ts, y_test, y_pred):
             rows.append({
@@ -518,4 +614,5 @@ def _run_one_k(
                 "residual":   float(yp - yt),
             })
 
-    return pd.DataFrame(rows, columns=["timestamp", "station_id", "y_true", "y_pred", "residual"])
+    preds_df = pd.DataFrame(rows, columns=["timestamp", "station_id", "y_true", "y_pred", "residual"])
+    return preds_df, explain_per_target

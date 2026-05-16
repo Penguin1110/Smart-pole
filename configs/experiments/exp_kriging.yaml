@@ -1,0 +1,39 @@
+# Phase 3a:Ordinary Kriging。每個 target 自己擬一個 variogram(K+1 站時序 pooled)
+experiment_id: exp_kriging
+seeds: [1, 2, 3, 4, 5]
+
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end:   2026-02-05
+  freq:  1h
+
+masking:
+  strategy: random_point
+  ratio: 0.20
+
+neighbors:
+  selector: correlation
+  k_list: [30, 20, 10, 5, 3, 1]
+
+features:
+  enabled: false
+
+split:
+  method: time_based
+  train_ratio: 0.8
+
+model:
+  name: kriging
+  params:
+    variogram_model: exponential   # 高雄竿體 PM2.5 平滑連續,exponential 是常見起手式
+    n_bins: 8
+    max_range_m: 30000.0            # 高雄市區寬約 30km,看到衰減就足夠
+    nugget: fit
+
+evaluation:
+  metrics: [mae, rmse, r2]
+  plots:   [scatter, residual_ts, k_curve, spatial_error]
+  explain: true

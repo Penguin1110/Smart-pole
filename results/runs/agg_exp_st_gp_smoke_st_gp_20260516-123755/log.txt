@@ -1,0 +1,9 @@
+2026-05-16 12:37:53,701 [INFO] __main__: 讀 config:configs/experiments/exp_st_gp_smoke.yaml
+2026-05-16 12:37:53,705 [INFO] __main__: experiment_id=exp_st_gp_smoke, model=st_gp, seed=42
+2026-05-16 12:37:53,821 [INFO] smart_pole.data.loader: 從 MOENV_iot_station.csv 取得 1287 / 1287 站座標
+2026-05-16 12:37:53,824 [INFO] smart_pole.data.loader: 載入 pole_hourly.parquet:1456 hr × 1287 station,時間 2025-12-04 00:00:00 ~ 2026-02-04 23:00:00,完整度 99.26%
+2026-05-16 12:37:53,824 [INFO] smart_pole.runner.experiment: time_based split:train=[0:1164] (80.0%), test=[1164:1456] (20.0%)
+2026-05-16 12:37:55,498 [INFO] smart_pole.runner.experiment: 建好 neighbor table:1287 / 1287 站
+2026-05-16 12:37:55,500 [INFO] smart_pole.runner.experiment: === seed=1 ===
+2026-05-16 12:37:55,536 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=1)
+2026-05-16 12:44:50,738 [INFO] smart_pole.runner.experiment: seed=1 K=10: n=74221, MAE=7.075, RMSE=9.373, R²=-0.162 (耗時 415.2s)

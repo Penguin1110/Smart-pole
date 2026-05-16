@@ -24,6 +24,7 @@ class GaussianKernelImputer(BaseImputer):
 
     name = "gaussian_kernel"
     tier = 2
+    explainability = 9
 
     def __init__(self, **params: Any) -> None:
         super().__init__(**params)

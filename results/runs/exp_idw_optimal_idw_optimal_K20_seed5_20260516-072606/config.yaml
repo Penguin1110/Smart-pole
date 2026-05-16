@@ -1,0 +1,69 @@
+seed: 5
+data:
+  cache_path: data/pole_hourly.parquet
+  station_info_path: data/MOENV_iot_station.csv
+  target_var: pm25
+  start: 2025-12-04
+  end: 2026-02-05
+  freq: 1h
+masking:
+  strategy: random_point
+  ratio: 0.2
+  block_hours: 6
+neighbors:
+  selector: correlation
+  k_list:
+  - 30
+  - 20
+  - 10
+  - 5
+  - 3
+  - 1
+  params: {}
+  k_actual: 20
+split:
+  method: time_based
+  train_ratio: 0.8
+features:
+  enabled: false
+  lags:
+  - 1
+  - 2
+  - 3
+  - 6
+  - 24
+  rolling:
+  - 3
+  - 6
+  - 24
+model:
+  name: idw_optimal
+  params:
+    power_grid:
+    - 0.5
+    - 1.0
+    - 1.5
+    - 2.0
+    - 2.5
+    - 3.0
+    eps: 1.0
+    cv_folds: 5
+    cv_seed: 0
+evaluation:
+  metrics:
+  - mae
+  - rmse
+  - r2
+  plots:
+  - scatter
+  - residual_ts
+  - k_curve
+  - spatial_error
+  explain: true
+experiment_id: exp_idw_optimal
+seeds:
+- 1
+- 2
+- 3
+- 4
+- 5

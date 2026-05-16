@@ -1,0 +1,9 @@
+2026-05-16 07:35:51,514 [INFO] __main__: 讀 config:configs/experiments/exp_kriging_smoke.yaml
+2026-05-16 07:35:51,518 [INFO] __main__: experiment_id=exp_kriging_smoke, model=kriging, seed=42
+2026-05-16 07:35:51,627 [INFO] smart_pole.data.loader: 從 MOENV_iot_station.csv 取得 1287 / 1287 站座標
+2026-05-16 07:35:51,628 [INFO] smart_pole.data.loader: 載入 pole_hourly.parquet:1456 hr × 1287 station,時間 2025-12-04 00:00:00 ~ 2026-02-04 23:00:00,完整度 99.26%
+2026-05-16 07:35:51,629 [INFO] smart_pole.runner.experiment: time_based split:train=[0:1164] (80.0%), test=[1164:1456] (20.0%)
+2026-05-16 07:35:53,296 [INFO] smart_pole.runner.experiment: 建好 neighbor table:1287 / 1287 站
+2026-05-16 07:35:53,298 [INFO] smart_pole.runner.experiment: === seed=1 ===
+2026-05-16 07:35:53,324 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=1)
+2026-05-16 07:36:08,091 [INFO] smart_pole.runner.experiment: seed=1 K=10: n=74221, MAE=2077335571413.192, RMSE=85940220656003.016, R²=-97711038046529158159269888.000 (耗時 14.8s)

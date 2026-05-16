@@ -26,6 +26,7 @@ class IDWImputer(BaseImputer):
 
     name = "idw"
     tier = 2
+    explainability = 10
 
     def __init__(self, **params: Any) -> None:
         super().__init__(**params)

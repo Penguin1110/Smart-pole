@@ -1,0 +1,10 @@
+2026-05-16 09:07:19,917 [INFO] __main__: 讀 config:configs/experiments/exp_timelag_ridge_smoke.yaml
+2026-05-16 09:07:19,921 [INFO] __main__: experiment_id=exp_timelag_ridge_smoke, model=timelag_ridge, seed=42
+2026-05-16 09:07:20,031 [INFO] smart_pole.data.loader: 從 MOENV_iot_station.csv 取得 1287 / 1287 站座標
+2026-05-16 09:07:20,034 [INFO] smart_pole.data.loader: 載入 pole_hourly.parquet:1456 hr × 1287 station,時間 2025-12-04 00:00:00 ~ 2026-02-04 23:00:00,完整度 99.26%
+2026-05-16 09:07:20,034 [INFO] smart_pole.runner.experiment: time_based split:train=[0:1164] (80.0%), test=[1164:1456] (20.0%)
+2026-05-16 09:07:21,705 [INFO] smart_pole.runner.experiment: 建好 neighbor table:1287 / 1287 站
+2026-05-16 09:07:21,708 [INFO] smart_pole.runner.experiment: features.enabled=true:lags=[1, 2, 3, 6, 24], rolling=[3, 6, 24],每 target 額外 9 feature columns
+2026-05-16 09:07:21,708 [INFO] smart_pole.runner.experiment: === seed=1 ===
+2026-05-16 09:07:21,743 [INFO] smart_pole.masking.random_point: random_point mask:在 1859935 個有效格中抽 371987 個(ratio=0.2000, seed=1)
+2026-05-16 09:07:26,724 [INFO] smart_pole.runner.experiment: seed=1 K=10: n=74211, MAE=1.119, RMSE=2.816, R²=0.895 (耗時 5.0s)
