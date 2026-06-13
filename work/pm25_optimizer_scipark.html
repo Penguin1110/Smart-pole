@@ -118,7 +118,7 @@ canvas#tsChart{max-height:80px}
 .mc-table tr:hover td{background:#f8fbff}
 
 /* heatmap */
-.hm-section{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.hm-section{display:flex;flex-direction:column;min-height:320px}
 .tab-bar{display:flex;gap:3px;padding:6px 8px 0;background:#f8fbff;
   border-bottom:1px solid var(--border);flex-shrink:0}
 .tab-btn{padding:3px 8px;border:1px solid var(--border);border-radius:6px 6px 0 0;
@@ -126,7 +126,7 @@ canvas#tsChart{max-height:80px}
   border-bottom:none;position:relative;top:1px}
 .tab-btn.active{background:#fff;border-color:var(--primary);color:var(--primary);font-weight:700}
 .tab-btn:hover:not(.active){background:#f0f7ff}
-.hm-outer{flex:1;overflow:auto;padding:5px 7px}
+.hm-outer{flex:1;min-height:250px;overflow:auto;padding:5px 7px}
 .hm-table{border-collapse:collapse;font-size:9px;white-space:nowrap}
 .hm-th{background:#f0f4f8;padding:2px 3px;text-align:center;border:1px solid #d4dde8;
   font-weight:600;font-size:9px;position:sticky;top:0;z-index:2}
@@ -206,10 +206,10 @@ const _ED={"source":"SIPA 科學工業園區管理局年報","unit":"GWh","month
   <div style="flex:1">
     <div class="hdr-title">Hsinchu Science Industrial Park — Smart Pole Dashboard</div>
     <div class="hdr-sub">
-      IoT PM2.5 · 10 stations (k-means from 78 HSIP AQ1001 devices, MOENV IoT registry)
-      · Base: 新竹 EPA TAQM + zone spatial bias ± 2 µg/m³ · σ=1.5 noise ·
-      Exhaustive search: n(0–24h) × m(1–9) × method(Mean / IDW×8p / Corr / Ridge / Self)
-      · Electricity: SIPA Annual Report 2025–2026
+      IoT Stations: 10 real devices from MOENV registry (78 HSIP AQ1001 poles, k-means selection) ·
+      <span style="color:#ef6c00;font-weight:700">PM2.5: simulated</span> — 新竹 EPA TAQM baseline + zone bias ± 2 µg/m³ + σ=1.5 noise (actual sensor data unavailable via public API) ·
+      <span style="color:#ef6c00;font-weight:700">Electricity: estimated</span> — SIPA Annual Report aggregate figures, not real-time meters ·
+      Exhaustive search: n(0–24h) × m(1–9) × {Mean/IDW×8p/Corr/Ridge/Self}
     </div>
   </div>
   <span class="badge">PM2.5</span>
@@ -271,7 +271,7 @@ const _ED={"source":"SIPA 科學工業園區管理局年報","unit":"GWh","month
     </div>
 
     <!-- ── PM2.5 Search pane ── -->
-    <div class="sb-pane active" id="pane-search" style="padding:0;gap:0;overflow:hidden">
+    <div class="sb-pane active" id="pane-search" style="padding:0;gap:0;overflow-y:auto">
       <!-- Controls -->
       <div style="padding:10px 12px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#fbfdff,#f8fbff);display:grid;gap:6px;flex-shrink:0">
         <div>
