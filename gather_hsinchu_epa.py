@@ -1,9 +1,9 @@
 """
-從環境部 (MOENV) 開放資料 API 抓取新竹地區 EPA 測站的 PM2.5 小時值，
+從環境部 (MOENV) 開放資料 API 抓取大新竹周邊 EPA 測站的 PM2.5 小時值，
 存成 data/epa_data/epa_<站名>.csv。
 
 Dataset: aqx_p_15 (一般空氣品質測站每小時測值)
-新竹地區 TAQM 法規站：新竹、竹東、湖口
+涵蓋 8 站：新竹市（1）、新竹縣（2）、苗栗縣（2）、桃園市（3）
 """
 
 from __future__ import annotations
@@ -20,7 +20,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 BASE_URL = "https://data.moenv.gov.tw/api/v2/aqx_p_15"
 
-HSINCHU_EPA_STATIONS = ["新竹", "竹東", "湖口"]
+# 大新竹周邊 8 站（官方站名，對應 MOENV aqx_p_15 sitename）
+HSINCHU_EPA_STATIONS = ["新竹", "竹東", "湖口", "頭份", "苗栗", "龍潭", "觀音", "大園"]
 
 DATE_START = "2025-12-01"
 DATE_END   = "2026-02-28"
@@ -122,6 +123,7 @@ def main() -> None:
 
     sm = pd.DataFrame(summary)
     sm.to_csv(OUT_DIR / "_hsinchu_summary.csv", index=False, encoding="utf-8-sig")
+    sm.to_csv(OUT_DIR / "_greater_hsinchu_summary.csv", index=False, encoding="utf-8-sig")
     print(f"\n完成 — {len(HSINCHU_EPA_STATIONS)} 站，範圍 {DATE_START} ~ {DATE_END}")
     print(f"輸出目錄: {OUT_DIR}")
 

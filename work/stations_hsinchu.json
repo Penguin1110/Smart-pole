@@ -1,32 +1,90 @@
 [
   {
     "id": "hsinchu",
-    "name": "新竹",
-    "lat": 24.8056,
-    "lon": 120.9721,
+    "name": "Hsinchu",
+    "name_zh": "新竹",
+    "lat": 24.8056356,
+    "lon": 120.97236752,
     "pm25": 4.0,
     "pm25_mean": 13.5,
     "aqi": 17,
-    "county": "新竹市"
+    "county": "Hsinchu City"
   },
   {
     "id": "zhudong",
-    "name": "竹東",
-    "lat": 24.7363,
-    "lon": 121.0919,
+    "name": "Zhudong",
+    "name_zh": "竹東",
+    "lat": 24.74091408,
+    "lon": 121.08895493,
     "pm25": 8.0,
     "pm25_mean": 12.2,
     "aqi": 33,
-    "county": "新竹縣"
+    "county": "Hsinchu County"
   },
   {
     "id": "hukou",
-    "name": "湖口",
-    "lat": 24.9005,
-    "lon": 121.0449,
+    "name": "Hukou",
+    "name_zh": "湖口",
+    "lat": 24.90009696,
+    "lon": 121.03886894,
     "pm25": 3.0,
     "pm25_mean": 12.9,
     "aqi": 12,
-    "county": "新竹縣"
+    "county": "Hsinchu County"
+  },
+  {
+    "id": "toufen",
+    "name": "Toufen",
+    "name_zh": "頭份",
+    "lat": 24.69690679,
+    "lon": 120.89869286,
+    "pm25": 7.0,
+    "pm25_mean": 14.0,
+    "aqi": 29,
+    "county": "Miaoli County"
+  },
+  {
+    "id": "miaoli",
+    "name": "Miaoli",
+    "name_zh": "苗栗",
+    "lat": 24.56499183,
+    "lon": 120.82011468,
+    "pm25": 11.0,
+    "pm25_mean": 14.9,
+    "aqi": 46,
+    "county": "Miaoli County"
+  },
+  {
+    "id": "longtan",
+    "name": "Longtan",
+    "name_zh": "龍潭",
+    "lat": 24.86400048,
+    "lon": 121.21645772,
+    "pm25": 4.0,
+    "pm25_mean": 13.7,
+    "aqi": 17,
+    "county": "Taoyuan City"
+  },
+  {
+    "id": "guanyin",
+    "name": "Guanyin",
+    "name_zh": "觀音",
+    "lat": 25.03556747,
+    "lon": 121.08283092,
+    "pm25": 8.0,
+    "pm25_mean": 14.5,
+    "aqi": 33,
+    "county": "Taoyuan City"
+  },
+  {
+    "id": "dayuan",
+    "name": "Dayuan",
+    "name_zh": "大園",
+    "lat": 25.06100357,
+    "lon": 121.20251473,
+    "pm25": 5.0,
+    "pm25_mean": 14.2,
+    "aqi": 21,
+    "county": "Taoyuan City"
   }
 ]
