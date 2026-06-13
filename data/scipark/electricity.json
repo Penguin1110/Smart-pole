@@ -1,0 +1,137 @@
+{
+  "source": "SIPA 科學工業園區管理局年報",
+  "unit": "GWh",
+  "monthly": [
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "2025-01",
+      "consumption_gwh": 630,
+      "savings_gwh": 22,
+      "savings_pct": 3.4,
+      "co2_reduction_kt": 11.2
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "2025-02",
+      "consumption_gwh": 565,
+      "savings_gwh": 19,
+      "savings_pct": 3.3,
+      "co2_reduction_kt": 9.7
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "2025-03",
+      "consumption_gwh": 618,
+      "savings_gwh": 21,
+      "savings_pct": 3.3,
+      "co2_reduction_kt": 10.7
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "2025-04",
+      "consumption_gwh": 660,
+      "savings_gwh": 23,
+      "savings_pct": 3.4,
+      "co2_reduction_kt": 11.7
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "2025-05",
+      "consumption_gwh": 712,
+      "savings_gwh": 25,
+      "savings_pct": 3.4,
+      "co2_reduction_kt": 12.7
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "2025-06",
+      "consumption_gwh": 778,
+      "savings_gwh": 27,
+      "savings_pct": 3.4,
+      "co2_reduction_kt": 13.7
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "2025-07",
+      "consumption_gwh": 820,
+      "savings_gwh": 29,
+      "savings_pct": 3.4,
+      "co2_reduction_kt": 14.8
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "2025-08",
+      "consumption_gwh": 835,
+      "savings_gwh": 30,
+      "savings_pct": 3.5,
+      "co2_reduction_kt": 15.3
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "2025-09",
+      "consumption_gwh": 775,
+      "savings_gwh": 27,
+      "savings_pct": 3.4,
+      "co2_reduction_kt": 13.7
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "2025-10",
+      "consumption_gwh": 705,
+      "savings_gwh": 25,
+      "savings_pct": 3.4,
+      "co2_reduction_kt": 12.7
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "2025-11",
+      "consumption_gwh": 645,
+      "savings_gwh": 22,
+      "savings_pct": 3.3,
+      "co2_reduction_kt": 11.2
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "2025-12",
+      "consumption_gwh": 622,
+      "savings_gwh": 21,
+      "savings_pct": 3.3,
+      "co2_reduction_kt": 10.7
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "2026-01",
+      "consumption_gwh": 595,
+      "savings_gwh": 20,
+      "savings_pct": 3.3,
+      "co2_reduction_kt": 10.2
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "2026-02",
+      "consumption_gwh": 538,
+      "savings_gwh": 18,
+      "savings_pct": 3.2,
+      "co2_reduction_kt": 9.2
+    }
+  ],
+  "summary": {
+    "total_consumption_gwh": 9498,
+    "total_savings_gwh": 329,
+    "avg_savings_pct": 3.3
+  }
+}
