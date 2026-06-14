@@ -1,0 +1,72 @@
+[
+  {
+    "locationId": "HC0199",
+    "lat": 24.7826,
+    "lon": 120.9904,
+    "county": "新竹市",
+    "town": "東區"
+  },
+  {
+    "locationId": "HC0222",
+    "lat": 24.7769,
+    "lon": 121.0068,
+    "county": "新竹市",
+    "town": "東區"
+  },
+  {
+    "locationId": "HC0055",
+    "lat": 24.80059,
+    "lon": 120.9913617,
+    "county": "新竹市",
+    "town": "東區"
+  },
+  {
+    "locationId": "HC0138",
+    "lat": 24.79823,
+    "lon": 120.97815,
+    "county": "新竹市",
+    "town": "東區"
+  },
+  {
+    "locationId": "HC0397",
+    "lat": 24.78249,
+    "lon": 120.9989074,
+    "county": "新竹市",
+    "town": "東區"
+  },
+  {
+    "locationId": "HC0377",
+    "lat": 24.777206,
+    "lon": 120.9873969,
+    "county": "新竹市",
+    "town": "東區"
+  },
+  {
+    "locationId": "HC0150",
+    "lat": 24.79142,
+    "lon": 120.97393,
+    "county": "新竹市",
+    "town": "東區"
+  },
+  {
+    "locationId": "HC0382",
+    "lat": 24.793345,
+    "lon": 121.0011983,
+    "county": "新竹市",
+    "town": "東區"
+  },
+  {
+    "locationId": "HC0625",
+    "lat": 24.784416,
+    "lon": 121.008147,
+    "county": "新竹市",
+    "town": "東區"
+  },
+  {
+    "locationId": "HC0328",
+    "lat": 24.77595,
+    "lon": 120.97714,
+    "county": "新竹市",
+    "town": "東區"
+  }
+]
